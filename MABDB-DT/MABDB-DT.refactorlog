@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="01a3a2e4-3bd4-4e98-8e1c-283741218659" ChangeDateTime="07/01/2016 04:16:01">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplication_Gender]" />
+    <Property Name="ElementType" Value="SqlForeignKeyConstraint" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="[FK_PrimaryApplicant_Gender]" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e165a238-5b5b-437b-b19a-46a365f6445c" ChangeDateTime="07/01/2016 05:36:26">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[Primary_IncomeMAT]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Primary_IncomeMoAT" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7a7ffc88-2b99-4423-80f1-473a3adb7ed6" ChangeDateTime="07/01/2016 05:37:57">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[HousehldIncomeGrossPA]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="HouseholdIncomeGrossPA" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="10be8ef6-2a4b-4e6a-97e7-8f10f7bb30c1" ChangeDateTime="07/01/2016 06:00:20">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[Property_Zip]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Property_Postcode" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f777d98b-e3c9-4a58-97bd-62942650cd34" ChangeDateTime="07/01/2016 06:04:34">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[EstimatedSpend]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="EstSpend" />
+  </Operation>
+</Operations>
