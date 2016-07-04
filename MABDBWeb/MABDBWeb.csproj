@@ -182,6 +182,7 @@
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InvestorApplicants.aspx" />
+    <Content Include="InvestorApplicationDetail.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -370,6 +371,13 @@
     <Compile Include="InvestorApplicants.aspx.designer.cs">
       <DependentUpon>InvestorApplicants.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InvestorApplicationDetail.aspx.cs">
+      <DependentUpon>InvestorApplicationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvestorApplicationDetail.aspx.designer.cs">
+      <DependentUpon>InvestorApplicationDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
@@ -398,6 +406,9 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Files\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
