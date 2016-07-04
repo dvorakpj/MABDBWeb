@@ -4,16 +4,35 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Investor Application Detail</title>
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css"/>
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/App/InvestorApplicationDetail.js"></script>
+    <script >
+        $('#form1')
+            .submit(function() {
+                    /* when the submit button in the modal is clicked, submit the form */
+                    $('#myModal').modal('show');
+                    //alert('submitting');
+                    $('#btnCondApprove')
+                        .click(function() {
+                            form.submit();
+                        }
+            );
+        });
+    </script>
+
 </head>
 <body>
+
     <form id="form1" runat="server">
         <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Application Details"></asp:Label>
     <div>
     
     </div>
         <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="Black" Height="50px" HorizontalAlign="Justify" style="margin-right: 52px" Width ="220px">
-            <EditRowStyle BackColor="#CCCCCC" BorderColor="#999999" Font-Bold="True" ForeColor="White" BorderWidth="3px" ForeColor="Black" />
+            <EditRowStyle BackColor="#CCCCCC" BorderColor="#999999" Font-Bold="True" ForeColor="White" BorderWidth="3px" />
             <Fields>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
                 <asp:BoundField DataField="ApplicantType" HeaderText="App Type" SortExpression="ApplicantType" />
@@ -285,6 +304,38 @@
                 <asp:Parameter Name="original_Primary_DOB" Type="DateTime" />
             </UpdateParameters>
         </asp:SqlDataSource>
+        <hr />
+        <div>
+        <p>
+          <span style="font-weight: bold">Conditional Approval:</span></p>
+           Approver: <asp:Label ID="lblApprover" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as approver of the Application."></asp:Label>
+        <br />
+            <p>
+        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" OnClick="Button1_Click" OnLoad="Page_Load" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"/>
+           </p>
+        </div>
+        
+        <!-- COnditional approval confirmation -->
+<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 id="myModalLabel3">Confirmation</h3>
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to conditionally approve this application?</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>
+            </div>
+        </div>
+    </div>
+</div>
+  
+
     </form>
 </body>
 </html>
