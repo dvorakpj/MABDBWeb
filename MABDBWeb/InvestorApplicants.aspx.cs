@@ -108,7 +108,7 @@ namespace MABDBWeb
                         string value = cell.Trim('"');     
                         
                         //excptional formatting - Dates
-                        if (("Primary_DOB" == dt.Columns[i].ColumnName) || ("Other_DOB" == dt.Columns[i].ColumnName))
+                        if (("Primary_DOB" == dt.Columns[i].ColumnName) || ("Other_DOB" == dt.Columns[i].ColumnName) || ("EntryDate" == dt.Columns[i].ColumnName))
                         {
                             try
                             {
@@ -133,6 +133,20 @@ namespace MABDBWeb
                             if (byte.TryParse(cell, out tinyInt))
                             {
                                 dt.Rows[dt.Rows.Count - 1][i] = tinyInt;
+                            }
+                            else
+                            {
+                                dt.Rows[dt.Rows.Count - 1][i] = null;
+                            }
+                        }
+                        // integer values
+                        else if (("Res_PostCodes" == dt.Columns[i].ColumnName) ||
+                                 ("Property_Postcode" == dt.Columns[i].ColumnName))
+                        {
+                            Int16 smallInt;
+                            if (Int16.TryParse(cell, out smallInt))
+                            {
+                                dt.Rows[dt.Rows.Count - 1][i] = smallInt;
                             }
                             else
                             {

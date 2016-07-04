@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[InvestorApplications] (
     [Id]                                 INT                IDENTITY (1, 1) NOT NULL,
-    [EntryDate]                          VARCHAR(25)           NULL,
+    [EntryDate]                          DATETIME           NULL,
     [ApplicantType]                      VARCHAR(10)           NULL,
     [Primary_FirstName]                  NVARCHAR (255)     NULL,
     [Primary_OtherNames]                 NVARCHAR (255)     NULL,
