@@ -13,12 +13,12 @@
         $('#form1')
             .submit(function() {
                     /* when the submit button in the modal is clicked, submit the form */
-                    $('#myModal').modal('show');
+                $('#CondApprovalModal').modal('show');
                     //alert('submitting');
                     $('#btnCondApprove')
                         .click(function() {
-                            form.submit();
-                        }
+                                form.submit();
+                            }
             );
         });
     </script>
@@ -311,12 +311,12 @@
            Approver: <asp:Label ID="lblApprover" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as approver of the Application."></asp:Label>
         <br />
             <p>
-        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" OnClick="Button1_Click" OnLoad="Page_Load" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"/>
+        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" OnClick="Button1_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal"/>
            </p>
         </div>
         
         <!-- COnditional approval confirmation -->
-<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+<div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -336,6 +336,35 @@
 </div>
   
 
+    <hr />
+    <p>
+        <span style="font-weight: bold">Credit Fee Received:</span></p>
+    <p>
+        Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
+    </p>
+<p>
+    <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Credit Fee Received" CausesValidation="False" OnClick="Button1_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
+</p>     
+   <!-- Credit Fee Received Confirmation -->
+<div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 id="myModalLabel4">Confirmation</h3>
+
+            </div>
+            <div class="modal-body">
+                <p>Confirm the credit fee payment has been received.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="Confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     </form>
-</body>
+    </body>
 </html>

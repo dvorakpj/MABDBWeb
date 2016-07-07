@@ -32,7 +32,6 @@
     [IsSmoker]                           VARCHAR (10)       NULL,
     [HasPrivateHealthIns]                VARCHAR (10)       NULL,
     [CreatedBy]                          NVARCHAR (255)     NULL,
-    [Created]                            DATETIMEOFFSET (7) NULL,
     [ModifiedBy]                         NVARCHAR (255)     NULL,
     [Modified]                           DATETIMEOFFSET (7) NULL,
     [RowVersion]                         ROWVERSION         NOT NULL,
@@ -48,11 +47,22 @@
     [Property_City]                      VARCHAR (50)       NULL,
     [Property_Vendor]                    NVARCHAR (255)     NULL,
     [EstSpend]                           VARCHAR (50)       NULL,
-    [EntryDate]                          DATETIME           DEFAULT getdate() NOT NULL,
-    [Primary_DOB] DATETIME NULL, 
+    [EntryDate]                          DATETIME           DEFAULT (getdate()) NOT NULL,
+    [Primary_DOB]                        DATETIME           NULL,
+    [CreatedUTC]                         DATETIME           CONSTRAINT [DF__InvestorApplications__CreatedUTC] DEFAULT (getutcdate()) NOT NULL,
+    [CondApproved] DATETIME NULL, 
+    [CondApprovedBy] DATETIME NULL, 
+    [Property_PostCode] SMALLINT NULL, 
+    [Property_State] NVARCHAR(255) NULL, 
+    [Property_Country] VARCHAR(50) NULL, 
+    [Property_AgentDetails] VARCHAR(255) NULL, 
+    [HasAgreedPrivacy] VARCHAR(50) NULL, 
+    [Primary_Gender] VARCHAR(10) NULL, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
+
+
 
 
 

@@ -35,4 +35,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="EstSpend" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="c5c70fc2-f664-4d87-a79d-24f2363c74ea" ChangeDateTime="07/04/2016 12:40:27">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[ConditionalApproval]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ConditionalApproved" />
+  </Operation>
 </Operations>
