@@ -5,6 +5,8 @@ using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
 using Microsoft.SqlServer.Server;
@@ -67,106 +69,106 @@ namespace MABDBWeb
 
             DataColumn[] impCols;
             
-            impCols = new DataColumn[51];
+            impCols = new DataColumn[79];
             //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
-            impCols[0] = new DataColumn("ApplicantType", typeof(string));
-            impCols[1] = new DataColumn("Primary_FirstName", typeof(string));
-            impCols[2] = new DataColumn("Primary_OtherNames",typeof(string));
-            impCols[3] = new DataColumn("Primary_LastName",typeof(string));
-            impCols[4] = new DataColumn("Other_FirstName", typeof(string));
-            impCols[5] = new DataColumn("Other_OtherNames", typeof(string));
-            impCols[6] = new DataColumn("Other_LastName", typeof(string));
-            impCols[7] = new DataColumn("Primary_DOB",typeof(DateTime));
-            impCols[8] = new DataColumn("Other_DOB", typeof(DateTime));
-            impCols[9] = new DataColumn("Primary_Gender", typeof(string));
-            impCols[10] = new DataColumn("Other_Gender", typeof(string));
-            impCols[10] = new DataColumn("Primary_MaritalStats", typeof(string));
-            impCols[10] = new DataColumn("Other_MaritalStats", typeof(string));            
-            impCols[15] = new DataColumn("Email", typeof(string)); // primary
+            impCols[1] = new DataColumn("ApplicantType", typeof(string));
+            impCols[2] = new DataColumn("Primary_FirstName", typeof(string));
+            impCols[3] = new DataColumn("Primary_OtherNames",typeof(string));
+            impCols[4] = new DataColumn("Primary_LastName",typeof(string));
+            impCols[5] = new DataColumn("Other_FirstName", typeof(string));
+            impCols[6] = new DataColumn("Other_OtherNames", typeof(string));
+            impCols[7] = new DataColumn("Other_LastName", typeof(string));
+            impCols[8] = new DataColumn("Primary_DOB",typeof(DateTime));
+            impCols[9] = new DataColumn("Other_DOB", typeof(DateTime));
+            impCols[10] = new DataColumn("Primary_Gender", typeof(string));
+            impCols[11] = new DataColumn("Other_Gender", typeof(string));
+            impCols[12] = new DataColumn("Primary_MaritalStats", typeof(string));
+            impCols[13] = new DataColumn("Other_MaritalStats", typeof(string));            
+            impCols[14] = new DataColumn("Email", typeof(string)); // primary
             impCols[15] = new DataColumn("Other_Email", typeof(string)); // other
-            impCols[15] = new DataColumn("Primary_HomePhone", typeof(string)); // other
-            impCols[15] = new DataColumn("Other_HomePhone", typeof(string)); // other            
-            impCols[16] = new DataColumn("Mobile", typeof(string)); // primary
-            impCols[16] = new DataColumn("Other_Mobile", typeof(string)); // mobile number other
-            impCols[16] = new DataColumn("Primary_PassportNo", typeof(string)); //"Passport Number Primary Applicant",
-            impCols[16] = new DataColumn("Other_PassportNo", typeof(string)); //"Passport Number Other Applicant",
-            impCols[16] = new DataColumn("Primary_PassportCountry", typeof(string)); //"Passport Country of Issue - Primary Applicant",
-            impCols[16] = new DataColumn("Other_PassportCountry", typeof(string)); //"Passport Country of Issue - Other Applicant",
-            impCols[16] = new DataColumn("Primary_DriversLicenceNo", typeof(string)); //"Drivers Licence Number Primary Applicant","Drivers Licence Number Other Applicant",
-            impCols[16] = new DataColumn("Other_DriversLicenceNo", typeof(string)); //"Driver's Licence State of Issue Primary Applicant",
-            impCols[16] = new DataColumn("Primary_DriversLicenceState", typeof(string)); //"Driver's Licence State of Issue Other Applicant"
-            impCols[11] = new DataColumn("Other_DriversLicenceState", typeof(string));
-            impCols[12] = new DataColumn("Primary_AUCitizenStat", typeof(string));
-            impCols[13] = new DataColumn("Other_AUCitizenStat", typeof(string));
+            impCols[16] = new DataColumn("Primary_HomePhone", typeof(string)); // other
+            impCols[17] = new DataColumn("Other_HomePhone", typeof(string)); // other            
+            impCols[18] = new DataColumn("Mobile", typeof(string)); // primary
+            impCols[19] = new DataColumn("Other_Mobile", typeof(string)); // mobile number other
+            impCols[20] = new DataColumn("Primary_PassportNo", typeof(string)); //"Passport Number Primary Applicant",
+            impCols[21] = new DataColumn("Other_PassportNo", typeof(string)); //"Passport Number Other Applicant",
+            impCols[22] = new DataColumn("Primary_PassportCountry", typeof(string)); //"Passport Country of Issue - Primary Applicant",
+            impCols[23] = new DataColumn("Other_PassportCountry", typeof(string)); //"Passport Country of Issue - Other Applicant",
+            impCols[24] = new DataColumn("Primary_DriversLicenceNo", typeof(string)); //"Drivers Licence Number Primary Applicant","Drivers Licence Number Other Applicant",
+            impCols[25] = new DataColumn("Other_DriversLicenceNo", typeof(string)); //"Driver's Licence State of Issue Primary Applicant",
+            impCols[26] = new DataColumn("Primary_DriversLicenceState", typeof(string)); //"Driver's Licence State of Issue Other Applicant"
+            impCols[27] = new DataColumn("Other_DriversLicenceState", typeof(string));
+            impCols[28] = new DataColumn("Primary_AUCitizenStat", typeof(string));
+            impCols[29] = new DataColumn("Other_AUCitizenStat", typeof(string));
             // <- impCols[14] = new DataColumn("Other_Dependants", typeof(string));
             
-            impCols[17] = new DataColumn("Primary_Res_Street1", typeof(string));
-            impCols[18] = new DataColumn("Primary_Res_Street2", typeof(string));
-            impCols[19] = new DataColumn("Primary_Res_City", typeof(string));            
-            impCols[20] = new DataColumn("Primary_Res_PostCode", typeof(string));
-            impCols[21] = new DataColumn("Primary_Res_State", typeof(string));
-            impCols[22] = new DataColumn("Primary_Res_Country", typeof(string));
+            impCols[30] = new DataColumn("Primary_Res_Street1", typeof(string));
+            impCols[31] = new DataColumn("Primary_Res_Street2", typeof(string));
+            impCols[32] = new DataColumn("Primary_Res_City", typeof(string));            
+            impCols[33] = new DataColumn("Primary_Res_PostCode", typeof(string));
+            impCols[34] = new DataColumn("Primary_Res_State", typeof(string));
+            impCols[35] = new DataColumn("Primary_Res_Country", typeof(string));
             // 
-            impCols[17] = new DataColumn("Other_Res_Street1", typeof(string));
-            impCols[18] = new DataColumn("Other_Res_Street2", typeof(string));
-            impCols[19] = new DataColumn("Other_Res_City", typeof(string));
-            impCols[20] = new DataColumn("Other_Res_State", typeof(string));
-            impCols[21] = new DataColumn("Other_Res_PostCode", typeof(string));
-            impCols[22] = new DataColumn("Other_Res_Country", typeof(string));
+            impCols[36] = new DataColumn("Other_Res_Street1", typeof(string));
+            impCols[37] = new DataColumn("Other_Res_Street2", typeof(string));
+            impCols[38] = new DataColumn("Other_Res_City", typeof(string));
+            impCols[39] = new DataColumn("Other_Res_State", typeof(string));
+            impCols[40] = new DataColumn("Other_Res_PostCode", typeof(string));
+            impCols[41] = new DataColumn("Other_Res_Country", typeof(string));
 
-            impCols[24] = new DataColumn("CurrResidStatus", typeof(string)); // primary
-            impCols[24] = new DataColumn("Other_CurrResidStatus", typeof(string)); // other
-
-            impCols[23] = new DataColumn("YrsCurrAddr", typeof(string)); // primary
-            impCols[23] = new DataColumn("Other_YrsCurrAddr", typeof(string)); // other
+            impCols[42] = new DataColumn("CurrResidStatus", typeof(string)); // primary
+            impCols[43] = new DataColumn("Other_CurrResidStatus", typeof(string)); // other
+        
+            impCols[44] = new DataColumn("YrsCurrAddr", typeof(string)); // primary
+            impCols[45] = new DataColumn("Other_YrsCurrAddr", typeof(string)); // other
 
             //Previous residential address Primary and Other applicants
-            impCols[17] = new DataColumn("PrimPrev_Res_Street1", typeof(string));
-            impCols[18] = new DataColumn("PrimPrev_Res_Street2", typeof(string));
-            impCols[19] = new DataColumn("PrimPrev_Res_City", typeof(string));
-            impCols[20] = new DataColumn("PrimPrev_Res_State", typeof(string));
-            impCols[21] = new DataColumn("PrimPrev_Res_PostCode", typeof(string));
-            impCols[22] = new DataColumn("PrimPrev_Res_Country", typeof(string));
+            impCols[46] = new DataColumn("PrimPrev_Res_Street1", typeof(string));
+            impCols[47] = new DataColumn("PrimPrev_Res_Street2", typeof(string));
+            impCols[48] = new DataColumn("PrimPrev_Res_City", typeof(string));
+            impCols[49] = new DataColumn("PrimPrev_Res_State", typeof(string));
+            impCols[50] = new DataColumn("PrimPrev_Res_PostCode", typeof(string));
+            impCols[51] = new DataColumn("PrimPrev_Res_Country", typeof(string));
             // 
-            impCols[17] = new DataColumn("OthPrev_Res_Street1", typeof(string));
-            impCols[18] = new DataColumn("OthPrev_Res_Street2", typeof(string));
-            impCols[19] = new DataColumn("OthPrev_Res_City", typeof(string));           
-            impCols[21] = new DataColumn("OthPrev_Res_State", typeof(string));
-            impCols[20] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
-            impCols[22] = new DataColumn("OthPrev_Res_Country", typeof(string));
+            impCols[52] = new DataColumn("OthPrev_Res_Street1", typeof(string));
+            impCols[53] = new DataColumn("OthPrev_Res_Street2", typeof(string));
+            impCols[54] = new DataColumn("OthPrev_Res_City", typeof(string));           
+            impCols[55] = new DataColumn("OthPrev_Res_State", typeof(string));
+            impCols[56] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
+            impCols[57] = new DataColumn("OthPrev_Res_Country", typeof(string));
 
-            impCols[25] = new DataColumn("YrsPrevAddr", typeof(string)); // primary
+            impCols[58] = new DataColumn("YrsPrevAddr", typeof(string)); // primary
             // years at previous address Other
-            impCols[25] = new DataColumn("Other_YrsPrevAddr", typeof(string)); // primary
-            impCols[26] = new DataColumn("PrevResStatus", typeof(string)); // Other
+            impCols[59] = new DataColumn("Other_YrsPrevAddr", typeof(string)); // primary
+            impCols[60] = new DataColumn("PrevResStatus", typeof(string)); // Other
             // pre residential status other
-            impCols[26] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other
-            impCols[27] = new DataColumn("CurrOccupType", typeof(string)); // Primary
-            impCols[27] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
+            impCols[61] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other
+            impCols[62] = new DataColumn("CurrOccupType", typeof(string)); // Primary
+            impCols[63] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
 
             //impCols[28] = new DataColumn("CurrEmploymentStatus", typeof(string));
             //impCols[29] = new DataColumn("YrsCurrEmployer", typeof(string));
             //impCols[30] = new DataColumn("YrsPrevEmployer", typeof(string));
             //impCols[31] = new DataColumn("IsSmoker", typeof(string));
             //impCols[32] = new DataColumn("HasPrivateHealthIns", typeof(string));
-            impCols[33] = new DataColumn("Primary_IncomeMoAT", typeof(string));
-            impCols[34] = new DataColumn("Other_IncomeMoAT", typeof(string));
+            impCols[64] = new DataColumn("Primary_IncomeMoAT", typeof(string));
+            impCols[65] = new DataColumn("Other_IncomeMoAT", typeof(string));
             // Primary Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa $",
-            impCols[34] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[66] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa",
-            impCols[34] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[67] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other $ Income per year - Primary Applicant",
-            impCols[34] = new DataColumn("Primary_OtherIncomePA", typeof(string));
+            impCols[68] = new DataColumn("Primary_OtherIncomePA", typeof(string));
             //"Other $ Income per year - Other Applicant",
-            impCols[34] = new DataColumn("Other_OtherIncomePA", typeof(string));
+            impCols[69] = new DataColumn("Other_OtherIncomePA", typeof(string));
             //"Type of Other Income Primary Applicant (ie, dividends, rent, none)",
-            impCols[34] = new DataColumn("Primary_OtherIncomeType", typeof(string));
+            impCols[70] = new DataColumn("Primary_OtherIncomeType", typeof(string));
             //"Type of other Income Other Applicant (ie, dividends, rent, none)"
-            impCols[34] = new DataColumn("Other_OtherIncomeType", typeof(string));
+            impCols[71] = new DataColumn("Other_OtherIncomeType", typeof(string));
 
 
-            impCols[35] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
+            impCols[72] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
 
             //remove
             //Primary Applicant Home and/ or Investment loans (list all) 1",
@@ -177,7 +179,7 @@ namespace MABDBWeb
             //"Other Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all)",
 
             //"Rent/Board per month ($)",
-            impCols[35] = new DataColumn("RentPM", typeof(string));
+            impCols[73] = new DataColumn("RentPM", typeof(string));
             //"Property Assets & Liabilities for Primary Applicant: 1",
             //"Property Assets & Liabilities for Other Applicant:",
             //"List Other Assets for Primary Applicant: 1",
@@ -197,14 +199,14 @@ namespace MABDBWeb
             //impCols[45] = new DataColumn("Property_Country", typeof(string));
             //impCols[46] = new DataColumn("Property_AgentDetails", typeof(string));            
             // considered for priority
-            impCols[47] = new DataColumn("HasReqestedPriority", typeof(string));            
-            impCols[47] = new DataColumn("HasAgreedPrivacy", typeof(string));
+            impCols[74] = new DataColumn("HasReqestedPriority", typeof(string));            
+            impCols[75] = new DataColumn("HasAgreedPrivacy", typeof(string));
             //           has read PAC Licence Agreement."
             // Created by UserID
-            impCols[49] = new DataColumn("Id", typeof(string));
+            impCols[76] = new DataColumn("UserId", typeof(string));
             //impCols[48] = new DataColumn("EstSpend", typeof(string));
-            impCols[49] = new DataColumn("Id", typeof(string));
-            impCols[50] = new DataColumn("EntryDate", typeof(string));
+            impCols[77] = new DataColumn("Id", typeof(string));
+            impCols[78] = new DataColumn("EntryDate", typeof(string));
             //"Source Url","Transaction Id","Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
             dt.Columns.AddRange(impCols);
             string csvData = File.ReadAllText(csvPath);
@@ -232,7 +234,7 @@ namespace MABDBWeb
                 {
                     DataRow newRow = dt.Rows.Add();
                     int col = 0;
-                    foreach (string cell in row.Split(','))
+                    foreach (string cell in SplitCSV(row))
                     {
                         string currentColumnName = dt.Columns[col].ColumnName;
 
@@ -272,18 +274,15 @@ namespace MABDBWeb
                                 }
                             }
 
-                            //excptional formatting - Dates
-                            if (("Primary_DOB" == currentColumnName) || ("Other_DOB" == currentColumnName) ||
-                                ("EntryDate" == currentColumnName))
-                            {
-                                newRow[col] = ParseToDate(value);
-                            }
-                            else
-                            {
-                                newRow[col] = DBNull.Value;
-                            }
                         }
 
+                        //excptional formatting - Dates
+                        else if (("Primary_DOB" == currentColumnName) || ("Other_DOB" == currentColumnName) ||
+                                 ("EntryDate" == currentColumnName))
+                        {
+                            newRow[col] = (object)(ParseToDate(value)) ?? DBNull.Value;
+                        }                       
+                    
                         // Byte values
                         else if (("Primary_Dependants" == currentColumnName) || ("Other_Dependants" == currentColumnName)
                                  || ("YrsPrevAddr" == currentColumnName)
@@ -309,6 +308,9 @@ namespace MABDBWeb
                             }
                             
                         }
+
+
+
                         // default parsing                        
                         else
                         {
@@ -408,8 +410,11 @@ namespace MABDBWeb
 
         private DateTime? ParseToDate(string value)
         {
-            DataTable dt;
-            int i;
+            if (String.IsNullOrEmpty(value))
+            {
+                return null;
+            }         
+
             try
             {
                 DateTime dob = new DateTime();
@@ -427,6 +432,26 @@ namespace MABDBWeb
                 return null;
             }
             
+        }
+
+
+        private string[] SplitCSV(string input)
+        {
+            Regex csvSplit = new Regex("(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)", RegexOptions.Compiled);
+            List<string> list = new List<string>();
+            string curr = null;
+            foreach (Match match in csvSplit.Matches(input))
+            {
+                curr = match.Value;
+                if (0 == curr.Length)
+                {
+                    list.Add("");
+                }
+
+                list.Add(curr.TrimStart(','));
+            }
+
+            return list.ToArray<string>();
         }
     }
 }

@@ -32,35 +32,21 @@
                 <asp:BoundField DataField="Primary_FirstName" HeaderText="First Name" SortExpression="Primary_FirstName" />
                 <asp:BoundField DataField="Primary_OtherNames" HeaderText="Middle Names" SortExpression="Primary_OtherNames" />
                 <asp:BoundField DataField="Primary_LastName" HeaderText="Last Name" SortExpression="Primary_LastName" />
+                <asp:BoundField DataField="Primary_Gender" HeaderText="Gender" SortExpression="Primary_Gender" />
                 <asp:BoundField DataField="Primary_DOB" DataFormatString="{0:dd/MM/yyyy}" HeaderText="DOB" SortExpression="Primary_DOB" />
-                <asp:BoundField DataField="Primary_AUCitizenStat" HeaderText="AU Citizen" SortExpression="Primary_AUCitizenStat" />
-                <asp:BoundField DataField="Primary_Dependants" HeaderText="Dependants" SortExpression="Primary_Dependants" />
                 <asp:BoundField DataField="Other_FirstName" HeaderText="First Name" SortExpression="Other_FirstName" />
                 <asp:BoundField DataField="Other_OtherNames" HeaderText="Other Names" SortExpression="Other_OtherNames" />
                 <asp:BoundField DataField="Other_LastName" HeaderText="Last Name" SortExpression="Other_LastName" />
-                <asp:BoundField DataField="Other_DOB" HeaderText="DOB" SortExpression="Other_DOB" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="Other_Gender" HeaderText="Gender" SortExpression="Other_Gender" />
-                <asp:BoundField DataField="Other_AUCitizenStat" HeaderText="AU Citizen" SortExpression="Other_AUCitizenStat" />
-                <asp:BoundField DataField="Other_Dependants" HeaderText="Dependants" SortExpression="Other_Dependants" />
+                <asp:BoundField DataField="Other_DOB" HeaderText="DOB" SortExpression="Other_DOB" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Mobile" HeaderText="Mobile" SortExpression="Mobile" />
-                <asp:BoundField DataField="Res_Street1" HeaderText="Street 1" SortExpression="Res_Street1" />
-                <asp:BoundField DataField="Res_Street2" HeaderText="Res_Street2" SortExpression="Res_Street2" />
-                <asp:BoundField DataField="Res_City" HeaderText="Res_City" SortExpression="Res_City" />
-                <asp:BoundField DataField="Res_State" HeaderText="Res_State" SortExpression="Res_State" />
-                <asp:BoundField DataField="Res_PostCode" HeaderText="Res_PostCode" SortExpression="Res_PostCode" />
-                <asp:BoundField DataField="Res_Country" HeaderText="Res_Country" SortExpression="Res_Country" />
-                <asp:BoundField DataField="CurrResidStatus" HeaderText="CurrResidStatus" SortExpression="CurrResidStatus" />
-                <asp:BoundField DataField="YrsCurrAddr" HeaderText="YrsCurrAddr" SortExpression="YrsCurrAddr" />
-                <asp:BoundField DataField="PrevResStatus" HeaderText="PrevResStatus" SortExpression="PrevResStatus" />
-                <asp:BoundField DataField="YrsPrevAddr" HeaderText="YrsPrevAddr" SortExpression="YrsPrevAddr" />
-                <asp:BoundField DataField="IsSmoker" HeaderText="IsSmoker" SortExpression="IsSmoker" />
-                <asp:BoundField DataField="HasPrivateHealthIns" HeaderText="HasPrivateHealthIns" SortExpression="HasPrivateHealthIns" />
-                <asp:BoundField DataField="CurrOccupType" HeaderText="CurrOccupType" SortExpression="CurrOccupType" />
-                <asp:BoundField DataField="CurrEmploymentStatus" HeaderText="CurrEmploymentStatus" SortExpression="CurrEmploymentStatus" />
-                <asp:BoundField DataField="YrsCurrEmployer" HeaderText="YrsCurrEmployer" SortExpression="YrsCurrEmployer" />
-                <asp:BoundField DataField="YrsPrevEmployer" HeaderText="YrsPrevEmployer" SortExpression="YrsPrevEmployer" />
-                <asp:BoundField />
+                <asp:BoundField DataField="Primary_Res_Street1" HeaderText="Street 1" SortExpression="Primary_Res_Street1" />
+                <asp:BoundField DataField="Primary_Res_Street2" HeaderText="Street2" SortExpression="Primary_Res_Street2" />
+                <asp:BoundField DataField="Primary_Res_City" HeaderText="City" SortExpression="Primary_Res_City" />
+                <asp:BoundField DataField="Primary_Res_State" HeaderText="State" SortExpression="Primary_Res_State" />
+                <asp:BoundField DataField="Primary_Res_PostCode" HeaderText="ZIP" SortExpression="Primary_Res_PostCode" />
+                <asp:BoundField DataField="Primary_Res_Country" HeaderText="Country" SortExpression="Primary_Res_Country" />
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
