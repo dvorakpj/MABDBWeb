@@ -224,4 +224,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Other_OtherLiabilitiesList" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="5e3e32c2-a2d3-474f-bdbb-a652463dcca0" ChangeDateTime="07/11/2016 01:27:00">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[Primary_PopertyAssets]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Primary_PropertyAssets" />
+  </Operation>
 </Operations>

@@ -181,6 +181,7 @@ namespace MABDBWeb
             //"Rent/Board per month ($)",
             impCols[73] = new DataColumn("RentPM", typeof(string));
             //"Property Assets & Liabilities for Primary Applicant: 1",
+
             //"Property Assets & Liabilities for Other Applicant:",
             //"List Other Assets for Primary Applicant: 1",
             //"List Other Assets for Other Applicant:",
@@ -236,6 +237,13 @@ namespace MABDBWeb
                     int col = 0;
                     foreach (string cell in SplitCSV(row))
                     {
+
+                        // do only columns that are defined
+                        if (col >= colsCnt)
+                        {
+                            break;
+                        }
+
                         string currentColumnName = dt.Columns[col].ColumnName;
 
                         //initialisation of skipped columns
@@ -252,11 +260,7 @@ namespace MABDBWeb
                         }
                         
                         
-                        // do only columns that are defined
-                        if (col > colsCnt)
-                        {
-                            break;
-                        }
+                       
                         //remove string delimiter "
                         string value = cell.Trim('"');
 
@@ -334,6 +338,8 @@ namespace MABDBWeb
                 }
                
             }
+
+
 
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(consString))

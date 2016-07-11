@@ -120,10 +120,13 @@
 	[HasAgreedPACLicence] VARCHAR(10) NULL, 
 	[SourceURL] VARCHAR(255) NULL, 
 	[HasReqestedPriority] VARCHAR(10) NULL, 
-
 	[UserId] VARCHAR(15) NULL, 
-	[TransactionId] VARCHAR(15) NULL, 
-	PRIMARY KEY CLUSTERED ([Id] ASC),
+	[TransactionId] VARCHAR(15) NULL,     
+    [Primary_OtherAssets] VARCHAR(1024) NULL, 
+    [Other_OtherAssets] VARCHAR(1024) NULL, 
+    [Primary_OtherLiabilities] VARCHAR(1024) NULL, 
+    [Other_OtherLiabilities] VARCHAR(1024) NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC),
 	CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
 
