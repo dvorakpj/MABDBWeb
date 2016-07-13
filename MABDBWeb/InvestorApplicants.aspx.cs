@@ -27,65 +27,97 @@ namespace MABDBWeb
         protected void btnImport_Click(object sender, EventArgs e)
         {
             //Upload and save the file
-            string csvPath = Server.MapPath("~/Files/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
-            lblUploadError.Text = String.Empty;
-            lblUploadError.Visible = false;
 
-            //IDs already in database. Start with empty list
-            List<int> existIDs = new List<int>();
-            List<int> duplIds = new List<int>();
+
+
+            lblUploadError.Text = String.Empty;
+            lblUploadError.Visible = false; string csvPath = Server.MapPath("~/Files/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
+
+
+            if (!File.Exists(csvPath))
+            {
+                lblUploadError.Text = String.Concat("File was not received on the server into ", csvPath, ". Try again or contact the administrator.");
+            }
+
 
             try
             {
                 FileUpload1.SaveAs(csvPath);
-            } catch (HttpException he)
+            }
+            catch (HttpException he)
             {
                 lblUploadError.Visible = true;
                 lblUploadError.Text = "Connection error while uploading, please try again in a moment.";
                 return;
             }
 
+            //IDs already in database. Start with empty list
+           
+
+           
+
             //load the current IDs to prevent duplicates
+                       
+
+
+            int rowCnt = -1;
+
             try
             {
-                existIDs = ReadExistingIDs();
+                rowCnt = UploadInvestorApplicsCSV(csvPath);
             }
-            catch (InvalidOperationException ioe)
+            catch (ApplicationException aex)
             {
                 lblUploadError.Visible = true;
                 lblUploadError.Text = String.Concat(
-                    "Cannot access database of exising applications, aborting import.\n", ioe.Message);
+                    "Cannot access database of exising applications, aborting import.\n", aex.Message);
+                return;
             }
 
-                  
-            if (!File.Exists(csvPath))
-            {
-                lblUploadError.Text =  String.Concat("File was not received on the server into ", csvPath, ". Try again or contact the administrator.");
-            }
+            lblImportRes.Text = String.Concat("Sucessfully imported ", rowCnt.ToString(), " new applications.");
+            //if (dupl)
 
-            
-            // definition of DataTable to read the CSV into
+            lblImportResLabel.Visible = true;
+            lblImportRes.Visible = true;
+
+        }
+
+        private int UploadInvestorApplicsCSV(string csvPath)
+        {
+            List<int> existIDs = new List<int>();
+            List<int> duplIds = new List<int>();
+// definition of DataTable to read the CSV into
             DataTable dt = new DataTable();
             //dt.Columns.AddRange(
 
+            try
+            {
+                existIDs = ReadExistingEntryIDs();  // note this is 
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Could not load list of Existing IDs", ex);
+            }
+
+
             DataColumn[] impCols;
-            
+
             impCols = new DataColumn[121]; //total 119 columns in the table
             //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
             impCols[2] = new DataColumn("Primary_FirstName", typeof(string));
-            impCols[3] = new DataColumn("Primary_OtherNames",typeof(string));
-            impCols[4] = new DataColumn("Primary_LastName",typeof(string));
+            impCols[3] = new DataColumn("Primary_OtherNames", typeof(string));
+            impCols[4] = new DataColumn("Primary_LastName", typeof(string));
             impCols[5] = new DataColumn("Other_FirstName", typeof(string));
             impCols[6] = new DataColumn("Other_OtherNames", typeof(string));
             impCols[7] = new DataColumn("Other_LastName", typeof(string));
-            impCols[8] = new DataColumn("Primary_DOB",typeof(DateTime));
+            impCols[8] = new DataColumn("Primary_DOB", typeof(DateTime));
             impCols[9] = new DataColumn("Other_DOB", typeof(DateTime));
             impCols[10] = new DataColumn("Primary_Gender", typeof(string));
             impCols[11] = new DataColumn("Other_Gender", typeof(string));
             impCols[12] = new DataColumn("Primary_MaritalStats", typeof(string));
-            impCols[13] = new DataColumn("Other_MaritalStats", typeof(string));            
+            impCols[13] = new DataColumn("Other_MaritalStats", typeof(string));
             impCols[14] = new DataColumn("Email", typeof(string)); // primary
             impCols[15] = new DataColumn("Other_Email", typeof(string)); // other
             impCols[16] = new DataColumn("Primary_HomePhone", typeof(string)); // other
@@ -94,19 +126,24 @@ namespace MABDBWeb
             impCols[19] = new DataColumn("Other_Mobile", typeof(string)); // mobile number other
             impCols[20] = new DataColumn("Primary_PassportNo", typeof(string)); //"Passport Number Primary Applicant",
             impCols[21] = new DataColumn("Other_PassportNo", typeof(string)); //"Passport Number Other Applicant",
-            impCols[22] = new DataColumn("Primary_PassportCountry", typeof(string)); //"Passport Country of Issue - Primary Applicant",
-            impCols[23] = new DataColumn("Other_PassportCountry", typeof(string)); //"Passport Country of Issue - Other Applicant",
-            impCols[24] = new DataColumn("Primary_DriversLicenceNo", typeof(string)); //"Drivers Licence Number Primary Applicant","Drivers Licence Number Other Applicant",
-            impCols[25] = new DataColumn("Other_DriversLicenceNo", typeof(string)); //"Driver's Licence State of Issue Primary Applicant",
-            impCols[26] = new DataColumn("Primary_DriversLicenceState", typeof(string)); //"Driver's Licence State of Issue Other Applicant"
+            impCols[22] = new DataColumn("Primary_PassportCountry", typeof(string));
+                //"Passport Country of Issue - Primary Applicant",
+            impCols[23] = new DataColumn("Other_PassportCountry", typeof(string));
+                //"Passport Country of Issue - Other Applicant",
+            impCols[24] = new DataColumn("Primary_DriversLicenceNo", typeof(string));
+                //"Drivers Licence Number Primary Applicant","Drivers Licence Number Other Applicant",
+            impCols[25] = new DataColumn("Other_DriversLicenceNo", typeof(string));
+                //"Driver's Licence State of Issue Primary Applicant",
+            impCols[26] = new DataColumn("Primary_DriversLicenceState", typeof(string));
+                //"Driver's Licence State of Issue Other Applicant"
             impCols[27] = new DataColumn("Other_DriversLicenceState", typeof(string));
             impCols[28] = new DataColumn("Primary_AUCitizenStat", typeof(string));
             impCols[29] = new DataColumn("Other_AUCitizenStat", typeof(string));
             // <- impCols[14] = new DataColumn("Other_Dependants", typeof(string));
-            
+
             impCols[30] = new DataColumn("Primary_Res_Street1", typeof(string));
             impCols[31] = new DataColumn("Primary_Res_Street2", typeof(string));
-            impCols[32] = new DataColumn("Primary_Res_City", typeof(string));            
+            impCols[32] = new DataColumn("Primary_Res_City", typeof(string));
             impCols[33] = new DataColumn("Primary_Res_PostCode", typeof(string));
             impCols[34] = new DataColumn("Primary_Res_State", typeof(string));
             impCols[35] = new DataColumn("Primary_Res_Country", typeof(string));
@@ -120,7 +157,7 @@ namespace MABDBWeb
 
             impCols[42] = new DataColumn("Primary_CurrResidStatus", typeof(string)); // primary
             impCols[43] = new DataColumn("Other_CurrResidStatus", typeof(string)); // other
-        
+
             impCols[44] = new DataColumn("Primary_YrsCurrAddr", typeof(string)); // primary
             impCols[45] = new DataColumn("Other_YrsCurrAddr", typeof(string)); // other
 
@@ -134,7 +171,7 @@ namespace MABDBWeb
             // 
             impCols[52] = new DataColumn("OthPrev_Res_Street1", typeof(string));
             impCols[53] = new DataColumn("OthPrev_Res_Street2", typeof(string));
-            impCols[54] = new DataColumn("OthPrev_Res_City", typeof(string));           
+            impCols[54] = new DataColumn("OthPrev_Res_City", typeof(string));
             impCols[55] = new DataColumn("OthPrev_Res_State", typeof(string));
             impCols[56] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
             impCols[57] = new DataColumn("OthPrev_Res_Country", typeof(string));
@@ -148,7 +185,7 @@ namespace MABDBWeb
             impCols[62] = new DataColumn("CurrOccupType", typeof(string)); // Primary
             impCols[63] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
 
-           
+
             impCols[64] = new DataColumn("Primary_IncomeMoAT", typeof(string));
             impCols[65] = new DataColumn("Other_IncomeMoAT", typeof(string));
             // Primary Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa $",
@@ -167,17 +204,17 @@ namespace MABDBWeb
 
             //remove
             //Primary Applicant Home and/ or Investment loans (list all) 1",
-            impCols[73] = new DataColumn("Primary_HomeLoanList", typeof(string));            
+            impCols[73] = new DataColumn("Primary_HomeLoanList", typeof(string));
             //"Other Applicant Home and/ or Investment loans (list all)",
-            impCols[74] = new DataColumn("Other_HomeLoanList", typeof(string));            
+            impCols[74] = new DataColumn("Other_HomeLoanList", typeof(string));
             //"Primary Applicant Car or Personal loans (list all) 1",
             impCols[75] = new DataColumn("Primary_PersonalLoansList", typeof(string));
             //"Other Applicant Car or Personal loans (list all)",
-            impCols[76] = new DataColumn("Other_PersonalLoansList", typeof(string));            
+            impCols[76] = new DataColumn("Other_PersonalLoansList", typeof(string));
             //"Primary Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all) 1",
-            impCols[77] = new DataColumn("Primary_CreditCardList", typeof(string));            
+            impCols[77] = new DataColumn("Primary_CreditCardList", typeof(string));
             //"Other Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all)",
-            impCols[78] = new DataColumn("Other_CreditCardList", typeof(string));            
+            impCols[78] = new DataColumn("Other_CreditCardList", typeof(string));
             //"Rent/Board per month ($)",
             impCols[79] = new DataColumn("RentPM", typeof(string));
             //"Property Assets & Liabilities for Primary Applicant: 1",
@@ -194,23 +231,22 @@ namespace MABDBWeb
             //"List Other Liabilities for Other Applicant:"
 
 
-                       
             // considered for priority
-            impCols[86] = new DataColumn("HasReqestedPriority", typeof(string));            
+            impCols[86] = new DataColumn("HasReqestedPriority", typeof(string));
             impCols[87] = new DataColumn("HasAgreedPrivacy", typeof(string));
             impCols[88] = new DataColumn("HasAgreedPACLicence", typeof(string));
             //           has read PAC Licence Agreement."
             // Created by UserID
             impCols[89] = new DataColumn("UserId", typeof(string));
-            
-            impCols[90] = new DataColumn("Id", typeof(string));
+
+            impCols[90] = new DataColumn("EntryId", typeof(string));
             impCols[91] = new DataColumn("EntryDate", typeof(DateTime));
             //"Source Url",
             impCols[92] = new DataColumn("SourceURL", typeof(string));
             //"Transaction Id", 
             impCols[93] = new DataColumn("TransactionId", typeof(string));
 
-            impCols[94] = new DataColumn("CondApproved", typeof(DateTime));            
+            impCols[94] = new DataColumn("CondApproved", typeof(DateTime));
             impCols[95] = new DataColumn("CondApprovedBy", typeof(string));
             impCols[96] = new DataColumn("CreatedUTC", typeof(DateTime));
 
@@ -270,7 +306,6 @@ namespace MABDBWeb
                     int col = 0;
                     foreach (string cell in SplitCSV(row))
                     {
-
                         // do only columns that are defined
                         if (col >= colsCnt)
                         {
@@ -294,13 +329,12 @@ namespace MABDBWeb
                             col++;
                             continue;
                         }
-                        
-                        
-                       
+
+
                         //remove string delimiter "
                         string value = cell.Trim('"');
 
-                        if ("Id" == currentColumnName)
+                        if ("EntryId" == currentColumnName)
                         {
                             int intID;
                             if (Int32.TryParse(value, out intID))
@@ -313,23 +347,22 @@ namespace MABDBWeb
                                     break;
                                 }
                             }
-
                         }
 
                         //excptional formatting - Dates
-                        else if (("Primary_DOB" == currentColumnName) || 
-                            ("Other_DOB" == currentColumnName) ||
+                        else if (("Primary_DOB" == currentColumnName) ||
+                                 ("Other_DOB" == currentColumnName) ||
                                  ("EntryDate" == currentColumnName))
                         {
-                            newRow[col] = (object)(ParseToDate(value)) ?? DBNull.Value;
-                        }                       
-                    
+                            newRow[col] = (object) (ParseToDate(value)) ?? DBNull.Value;
+                        }
+
                         // Byte values
-                        else if (("Primary_Dependants" == currentColumnName) || 
-                            ("Other_Dependants" == currentColumnName) ||
-                            ("YrsCurrEmployer" == currentColumnName) ||
-                            ("YrsPrevEmployer" == currentColumnName) ||
-                                ("Primary_YrsCurrAddr" == currentColumnName)                            
+                        else if (("Primary_Dependants" == currentColumnName) ||
+                                 ("Other_Dependants" == currentColumnName) ||
+                                 ("YrsCurrEmployer" == currentColumnName) ||
+                                 ("YrsPrevEmployer" == currentColumnName) ||
+                                 ("Primary_YrsCurrAddr" == currentColumnName)
                                  || ("YrsPrevAddr" == currentColumnName)
                                  || ("Other_YrsCurrAddr" == currentColumnName)
                                  || ("Other_YrsPrevAddr" == currentColumnName))
@@ -340,16 +373,15 @@ namespace MABDBWeb
                                 newRow[col] = dbVal.Value;
                             }
                             //newRow[col] = dbVal.HasValue ? dbVal.Value : DBNull.Value;
-
                         }
                         // integer values
                         else if (
-                                 ("Property_Postcode" == currentColumnName) ||
-                                ("Other_Res_PostCode" == currentColumnName) ||
-                                ("PrimPrev_Res_PostCode" == currentColumnName) ||
-                                 ("OthPrev_Res_PostCode" == currentColumnName) ||
-                                ("Primary_Res_PostCode" == currentColumnName)
-                             )
+                            ("Property_Postcode" == currentColumnName) ||
+                            ("Other_Res_PostCode" == currentColumnName) ||
+                            ("PrimPrev_Res_PostCode" == currentColumnName) ||
+                            ("OthPrev_Res_PostCode" == currentColumnName) ||
+                            ("Primary_Res_PostCode" == currentColumnName)
+                            )
                         {
                             short? dbVal = ParseToSmallInt(value);
                             if (dbVal.HasValue)
@@ -360,9 +392,7 @@ namespace MABDBWeb
                             {
                                 newRow[col] = DBNull.Value;
                             }
-                            
                         }
-
 
 
                         // default parsing                        
@@ -384,19 +414,15 @@ namespace MABDBWeb
                     {
                         rowCnt++;
                     }
-                    
                 }
-               
             }
-
-            
 
 
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(consString))
             {
-
-                SqlDataAdapter dataAdapter = new SqlDataAdapter("SELECT TOP 1 * FROM [dbo].[InvestorApplications] ORDER BY Id DESC", con);
+                SqlDataAdapter dataAdapter =
+                    new SqlDataAdapter("SELECT TOP 1 * FROM [dbo].[InvestorApplications] ORDER BY Id DESC", con);
 
                 SqlCommandBuilder cmdBld = new SqlCommandBuilder(dataAdapter);
 
@@ -405,7 +431,7 @@ namespace MABDBWeb
                 dataAdapter.UpdateCommand = cmdBld.GetUpdateCommand(true);
                 dataAdapter.InsertCommand = cmdBld.GetInsertCommand(true);
                 dataAdapter.DeleteCommand = cmdBld.GetDeleteCommand(true);
-                dataAdapter.Update(dt);
+              //  dataAdapter.Update(dt);
 
                 //dataAdapter.Update(dt);
 
@@ -419,19 +445,21 @@ namespace MABDBWeb
                 //}
             }
 
-            lblImportRes.Text = String.Concat("Sucessfully imported ", rowCnt.ToString(), " new applications.");
-            lblImportResLabel.Visible = true;
-            lblImportRes.Visible = true;
-
+            return rowCnt - 1 - duplIds.Count;
         }
 
-        private List<int> ReadExistingIDs()
+        private List<int> ReadExistingEntryIDs()
         {
             List<int> existIDs = new List<int>();
-            
+            //string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
 
-           
-                IEnumerable ids =
+
+            //< asp:SqlDataSource ID = "InvApplicUniqueIDs" runat = "server" ConnectionString = "<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand = "SELECT [EntryId] FROM [InvestorApplications]" ></ asp:SqlDataSource >
+                       
+            //    System.Web.UI.WebControls.SqlDataSource InvApplicUniqueIDsSDS = new 
+
+
+        IEnumerable ids =
                     InvApplicUniqueIDs.Select(DataSourceSelectArguments.Empty);
                 if (null != ids)
                 {

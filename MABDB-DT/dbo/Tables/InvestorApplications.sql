@@ -117,9 +117,10 @@
     [TransactionId]                      VARCHAR (15)       NULL,
     [SourceURL]                          VARCHAR (255)      NULL,
     [Other_Res_Street1]                  NVARCHAR (255)     NULL,
-    [CondApprovedBy]                     VARCHAR (25)       NULL,
+    [CondApprovedBy]                     VARCHAR (25)       NULL ,
     [HasReqestedPriority]                VARCHAR (100)      NULL,
     [HasAgreedPACLicence]                VARCHAR (100)      NULL,
+    [EntryId] INT NOT NULL DEFAULT -1, 
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
