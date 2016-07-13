@@ -51,7 +51,6 @@
     [Primary_DOB]                        DATETIME           NULL,
     [CreatedUTC]                         DATETIME           CONSTRAINT [DF__InvestorApplications__CreatedUTC] DEFAULT (getutcdate()) NOT NULL,
     [CondApproved]                       DATETIME           NULL,
-    [CondApprovedBy]                     DATETIME           NULL,
     [Property_PostCode]                  SMALLINT           NULL,
     [Property_State]                     NVARCHAR (255)     NULL,
     [Property_Country]                   VARCHAR (50)       NULL,
@@ -73,7 +72,6 @@
     [Other_DriversLicenceNo]             VARCHAR (50)       NULL,
     [Primary_DriversLicenceState]        VARCHAR (50)       NULL,
     [Other_DriversLicenceState]          VARCHAR (50)       NULL,
-    [Other_Res_Street1]                  NCHAR (10)         NULL,
     [Other_Res_Street2]                  NVARCHAR (255)     NULL,
     [Other_Res_City]                     NVARCHAR (255)     NULL,
     [Other_Res_PostCode]                 SMALLINT           NULL,
@@ -115,18 +113,22 @@
     [Other_OtherAssetsList]              VARCHAR (50)       NULL,
     [Primary_OtherLiabilitiesList]       VARCHAR (550)      NULL,
     [Other_OtherLiabilitiesList]         VARCHAR (550)      NULL,
-    [HasReqestedPriority]                VARCHAR (10)       NULL,
     [UserId]                             VARCHAR (15)       NULL,
     [TransactionId]                      VARCHAR (15)       NULL,
-    [Primary_OtherAssets]                VARCHAR (1024)     NULL,
-    [Other_OtherAssets]                  VARCHAR (1024)     NULL,
-    [Primary_OtherLiabilities]           VARCHAR (1024)     NULL,
-    [Other_OtherLiabilities]             VARCHAR (1024)     NULL,
-    [HasAgreedPACLicence]                VARCHAR (10)       NULL,
     [SourceURL]                          VARCHAR (255)      NULL,
+    [Other_Res_Street1]                  NVARCHAR (255)     NULL,
+    [CondApprovedBy]                     VARCHAR (25)       NULL,
+    [HasReqestedPriority]                VARCHAR (100)      NULL,
+    [HasAgreedPACLicence]                VARCHAR (100)      NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
+
+
+
+
+
+
 
 
 
