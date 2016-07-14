@@ -294,4 +294,81 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="SC_Status" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="66e3600d-4d3a-4b97-8479-9c28cdd87d85" ChangeDateTime="07/14/2016 03:56:24">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[SC_Personal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Score_Personal" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8b53e261-f342-4916-a863-c0ba0709c948" ChangeDateTime="07/14/2016 03:56:29">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[SC_Residential]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Score_Residential" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="832a161d-819f-40c6-a3fb-130c6f0aa417" ChangeDateTime="07/14/2016 03:56:32">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[SC_Employment]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Score_Employment" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2f5cd319-3f28-44b6-b700-e658a79aa935" ChangeDateTime="07/14/2016 03:56:39">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[SC_Status]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Score_Status" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0e02e60f-2c7b-4a8b-b79f-b2690c7702f8" ChangeDateTime="07/14/2016 03:58:33">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsPrimary_AUCitizen]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Passed_Primary_AUCitizen" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a7a75cfb-32c1-452d-b2fa-c8a03fbf24e7" ChangeDateTime="07/14/2016 03:58:37">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsAge25To55]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_Age25To55" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8c42a7de-668e-4d2d-b502-19073b6bbcaa" ChangeDateTime="07/14/2016 03:58:41">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[Passed_Primary_AUCitizen]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_Primary_AUCitizen" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e51487a8-5180-4c0a-b5b5-6ef685835e8c" ChangeDateTime="07/14/2016 03:58:52">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsGrossIncomeSingle]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_GrossIncomeSingle" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e5526fa2-7686-4a03-a96a-93f577f6e930" ChangeDateTime="07/14/2016 03:58:57">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsGrossIncomeJoint]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_GrossIncomeJoint" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d65d4304-0bd2-454b-9916-3453d9c0582c" ChangeDateTime="07/14/2016 03:59:01">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsPrimary_EmplStat]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_Primary_EmplStat" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c885c126-fe05-46ee-aa42-370eeb2e1ba9" ChangeDateTime="07/14/2016 03:59:06">
+    <Property Name="ElementName" Value="[dbo].[InvestorScoreCard].[IsScorecardGt80]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Pass_ScorecardGt80" />
+  </Operation>
 </Operations>

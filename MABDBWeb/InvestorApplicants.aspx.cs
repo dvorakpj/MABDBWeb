@@ -319,6 +319,8 @@ namespace MABDBWeb
             bool duplIDFound = false;
             bool skipHeaderRow = true;
 
+            DataTable scoreDT = SetupScoreCard();
+
             // skips header row
             foreach (string row in csvData.Split('\n'))
             {
@@ -448,9 +450,17 @@ namespace MABDBWeb
                     {
                         rowCnt++;
                     }
+
+                    // calculate score
+                    CalcAutoScoring(newRow, scoreDT);
                 }
             }
 
+
+
+
+            
+            
 
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(consString))
@@ -465,7 +475,7 @@ namespace MABDBWeb
                 dataAdapter.UpdateCommand = cmdBld.GetUpdateCommand(true);
                 dataAdapter.InsertCommand = cmdBld.GetInsertCommand(true);
                 dataAdapter.DeleteCommand = cmdBld.GetDeleteCommand(true);
-                dataAdapter.Update(dt);
+               // dataAdapter.Update(dt);
 
                 //dataAdapter.Update(dt);
 
@@ -594,7 +604,7 @@ namespace MABDBWeb
         }
 
 
-        private void CalcInvestorScoreCard()
+        private DataTable SetupScoreCard()
         {
             DataTable dt = new DataTable();
 
@@ -603,24 +613,87 @@ namespace MABDBWeb
             tblCols = new DataColumn[15]; //total 119 columns in the table
             //Desired Property Address
             tblCols[0] = new DataColumn("IsPrimary_AUCitizen", typeof(Boolean));
-            tblCols[0] = new DataColumn("IsAge25To55", typeof(Boolean));
-            tblCols[0] = new DataColumn("IsGrossIncomeSingle", typeof(Boolean));
-            tblCols[0] = new DataColumn("IsGrossIncomeJoint", typeof(Boolean));
-            tblCols[0] = new DataColumn("IsPrimary_EmplStat", typeof(Boolean));
-            tblCols[0] = new DataColumn("IsScorecardGt80", typeof(Boolean));
-            tblCols[0] = new DataColumn("SC_Personal", typeof(int));
-            tblCols[0] = new DataColumn("SC_Residential", typeof(Boolean));
-            tblCols[0] = new DataColumn("SC_Employment", typeof(Boolean));
-            tblCols[0] = new DataColumn("SC_Status", typeof(Boolean));
-            tblCols[0] = new DataColumn("InvestorApplicationId", typeof(int));
+            tblCols[1] = new DataColumn("IsAge25To55", typeof(Boolean));
+            tblCols[2] = new DataColumn("IsGrossIncomeSingle", typeof(Boolean));
+            tblCols[3] = new DataColumn("IsGrossIncomeJoint", typeof(Boolean));
+            tblCols[4] = new DataColumn("IsPrimary_EmplStat", typeof(Boolean));
+            tblCols[5] = new DataColumn("IsScorecardGt80", typeof(Boolean));
+            tblCols[6] = new DataColumn("SC_Personal", typeof(int));
+            tblCols[7] = new DataColumn("SC_Residential", typeof(Boolean));
+            tblCols[8] = new DataColumn("SC_Employment", typeof(Boolean));
+            tblCols[9] = new DataColumn("SC_Status", typeof(Boolean));
+            tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
 
-            
+            dt.Columns.AddRange(tblCols);
+
+            return dt;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        /// <exception ref="ArgumentException">Throws ArgumentException in case table object to fill in is either null or no columns.</exception>
+        private Boolean CalcAutoScoring(DataRow InvAppRow, DataTable SCdt)
+        {
+            if ((null == SCdt) || (0 == SCdt.Columns.Count))
+            {
+                throw new ArgumentException(
+                    "Scorecard Data Table is not set up correctly, must have at least some columns.", "SCdt");
+            }
+
+            if ((null == InvAppRow) || (0 == InvAppRow.Table.Columns.Count))
+            {
+                throw new ArgumentException(
+                    "InvestorApplication Data Table is not populated correctly, must have at least some columns.", "InvAppRow");
+            }
+
+            DataRow newCard = SCdt.NewRow();
+
+            newCard["InvestorApplicationId"] = InvAppRow["Id"];
+
+            try
+            {
+                newCard["Pass_Primary_AUCitizen"] = SC_IsPrimary_AUCitizen(InvAppRow["Primary_AUCitizenStat"] as string);
+                newCard["Pass_Age25To55"] = SC_IsAge25To55(InvAppRow["Primary_DOB"] as DateTime?);
+                if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
+                {
+                    newCard["Pass_GrossIncomeSingle"] =
+                        SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
+                    newCard["Pass_GrossIncomeJoint"] = true;
+                }
+                else
+                {
+                    newCard["Pass_GrossIncomeSingle"] = true;
+                    newCard["Pass_GrossIncomeJoint"] =
+                        SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 100000);
+                }
+                newCard["Pass_Primary_EmplStat"] = SC_EmplStatTest(InvAppRow["CurrOccupType"] as string);
+                newCard["Pass_ScorecardGt80"] = true;
+
+            }
+            catch
+            {
+                throw;
+            }
+
+
+            return true;
+                
+                //(newCard["Pass_Primary_AUCitizen"] && newCard["Pass_Age25To55"] && newCard["Pass_GrossIncomeSingle"] &&
+                //    newCard["Pass_GrossIncomeJoint"] && newCard["Pass_Primary_EmplStat"] &&
+                //    newCard["Pass_ScorecardGt80"]);
 
 
         }
 
 
-        //scorecard parameters
+        /// <summary>
+        ///scorecard parameters
+        /// </summary>
+        /// <param name="answer"></param>
+        /// <returns></returns>
         private Boolean SC_IsPrimary_AUCitizen(string answer)
         {
             if (String.IsNullOrEmpty(answer))
@@ -642,9 +715,14 @@ namespace MABDBWeb
             }
         }
 
-         private Boolean   SC_IsAge25To55(DateTime birthday)
+         private Boolean   SC_IsAge25To55(DateTime? birthday)
          {
-             byte age = Age(birthday);
+             if (!birthday.HasValue)
+             {
+                 throw new ArgumentException("Birthday date value was not provided.");
+             }
+
+             byte age = Age(birthday.Value);
              return ( age < 25) && ( age > 55);
          }
 
@@ -674,6 +752,80 @@ namespace MABDBWeb
                 throw new ArgumentException("The income value is not a valid number.");
             }
         }
+
+        /// <summary>
+        /// Is the income represented by value equal or lower than the highLimit parameter.
+        /// </summary>
+        /// <param name="value">String representation of the value.</param>
+        /// <param name="highLimit">High limit of the income to be tested.</param>
+        /// <returns>Indicator</returns>
+        /// <exception src="ArgumentException">Throws ArgumentException if the value is not a valid money number.</exception>
+        private Boolean SC_IncomeTestEorLT(string value, decimal highLimit)
+        {
+            decimal income;
+            value = value.Trim();
+            if ((value.StartsWith("$")) || ((value.StartsWith("AU$")))) // || (value.StartsWith("AUD")))
+            {
+
+                value = value.Substring(value.IndexOf("$") + 1, value.Length);
+
+            }
+            if (Decimal.TryParse(value, out income))
+            {
+                return (income <= highLimit);
+            }
+            else
+            {
+                throw new ArgumentException("The income value is not a valid number.");
+            }
+        }
+
+        private Boolean SC_IsSingleApplic(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("Applicant type is not provided. Please provide a value.");
+            }
+            else
+            {
+                if (value.Trim().Equals("Single"))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// Test employee status. Is it one of "Employee - Full Time" or "Self employed - Full Time"
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        private Boolean SC_EmplStatTest(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("No value was provided. Value is mandatory.");
+            }
+            else
+            {
+                StringComparison comparisonType = StringComparison.OrdinalIgnoreCase;
+                if ((value.Trim().Equals("Employee - Full Time", comparisonType)) ||
+                    (value.Trim().Equals("Self employed - Full Time", comparisonType)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
 
         /// <summary>
         /// 
