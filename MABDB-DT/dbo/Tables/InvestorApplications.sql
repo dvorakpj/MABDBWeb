@@ -21,9 +21,7 @@
     [Primary_Res_PostCode]               SMALLINT           NULL,
     [Primary_Res_State]                  VARCHAR (50)       NULL,
     [Primary_Res_Country]                VARCHAR (50)       NULL,
-    [Primary_YrsCurrAddr]                TINYINT            NULL,
     [Primary_CurrResidStatus]            VARCHAR (25)       NULL,
-    [YrsPrevAddr]                        TINYINT            NULL,
     [PrevResStatus]                      VARCHAR (25)       NULL,
     [CurrOccupType]                      VARCHAR (100)      NULL,
     [CurrEmploymentStatus]               VARCHAR (100)      NULL,
@@ -77,7 +75,6 @@
     [Other_Res_PostCode]                 SMALLINT           NULL,
     [Other_Res_State]                    VARCHAR (50)       NULL,
     [Other_Res_Country]                  VARCHAR (50)       NULL,
-    [Other_YrsCurrAddr]                  TINYINT            NULL,
     [Other_CurrResidStatus]              VARCHAR (25)       NULL,
     [PrimPrev_Res_Street1]               NVARCHAR (255)     NULL,
     [PrimPrev_Res_Street2]               NVARCHAR (255)     NULL,
@@ -91,7 +88,6 @@
     [OthPrev_Res_PostCode]               SMALLINT           NULL,
     [OthPrev_Res_State]                  VARCHAR (50)       NULL,
     [OthPrev_Res_Country]                VARCHAR (50)       NULL,
-    [Other_YrsPrevAddr]                  TINYINT            NULL,
     [Other_PrevResStatus]                VARCHAR (25)       NULL,
     [Other_CurrOccupType]                VARCHAR (100)      NULL,
     [Primary_BusIncomeAPAYGTaxPA]        VARCHAR (50)       NULL,
@@ -117,13 +113,23 @@
     [TransactionId]                      VARCHAR (15)       NULL,
     [SourceURL]                          VARCHAR (255)      NULL,
     [Other_Res_Street1]                  NVARCHAR (255)     NULL,
-    [CondApprovedBy]                     VARCHAR (25)       NULL ,
+    [CondApprovedBy]                     VARCHAR (25)       NULL,
     [HasReqestedPriority]                VARCHAR (100)      NULL,
     [HasAgreedPACLicence]                VARCHAR (100)      NULL,
-    [EntryId] INT NOT NULL DEFAULT -1, 
+    [EntryId]                            INT                DEFAULT ((-1)) NOT NULL,
+    [Primary_YrsCurrAddr]                VARCHAR (120)      NULL,
+    [Other_YrsCurrAddr]                  VARCHAR (120)      NULL,
+    [Other_YrsPrevAddr]                  VARCHAR (120)      NULL,
+    [YrsPrevAddr]                        VARCHAR (120)      NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
+
+
+
+
+
+
 
 
 

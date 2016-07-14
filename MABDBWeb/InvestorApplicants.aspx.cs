@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Common;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
@@ -14,15 +15,48 @@ using Microsoft.SqlServer.Server;
 
 namespace MABDBWeb
 {
+
+    
     public partial class Investor_Applicants : System.Web.UI.Page
     {
+
+
+        private List<int> entryIdSelected = new List<int>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-        }
-
-
-        
+            // handle any postback
+            if(IsPostBack)
+            {
+                //process selected Ids
+                // create a string builder to create the displayed string
+                var builder = new StringBuilder();
+                builder.Append("Vous have selected the following checks :<br/>");
+                // get the selected checkboxes from the form data
+                var checkString = Request.Form["EntrySelected"];
+                if (checkString == null)
+                    return;
+                // we'll need a split to get the individual ids
+                var values = checkString.Split(',');
+                int intVal;
+                foreach (var value in values)
+                {                    
+                    builder.Append("<br/>");
+                    
+                    if (Int32.TryParse(value, out intVal))
+                    {
+                        entryIdSelected.Add(intVal);
+                        builder.Append(value);
+                    }
+                    else
+                    {
+                        builder.Append("NoN:" +  value);
+                    }
+                }
+                Response.Write(builder.ToString());
+                GridView1.DataBind();
+            }
+        }        
 
         protected void btnImport_Click(object sender, EventArgs e)
         {
@@ -144,8 +178,8 @@ namespace MABDBWeb
             impCols[30] = new DataColumn("Primary_Res_Street1", typeof(string));
             impCols[31] = new DataColumn("Primary_Res_Street2", typeof(string));
             impCols[32] = new DataColumn("Primary_Res_City", typeof(string));
-            impCols[33] = new DataColumn("Primary_Res_PostCode", typeof(string));
-            impCols[34] = new DataColumn("Primary_Res_State", typeof(string));
+            impCols[33] = new DataColumn("Primary_Res_State", typeof(string));
+            impCols[34] = new DataColumn("Primary_Res_PostCode", typeof(string));            
             impCols[35] = new DataColumn("Primary_Res_Country", typeof(string));
             // 
             impCols[36] = new DataColumn("Other_Res_Street1", typeof(string));
@@ -157,7 +191,6 @@ namespace MABDBWeb
 
             impCols[42] = new DataColumn("Primary_CurrResidStatus", typeof(string)); // primary
             impCols[43] = new DataColumn("Other_CurrResidStatus", typeof(string)); // other
-
             impCols[44] = new DataColumn("Primary_YrsCurrAddr", typeof(string)); // primary
             impCols[45] = new DataColumn("Other_YrsCurrAddr", typeof(string)); // other
 
@@ -246,12 +279,12 @@ namespace MABDBWeb
             //"Transaction Id", 
             impCols[93] = new DataColumn("TransactionId", typeof(string));
 
+            int maxImportedColId = 93;
+
+            //unused columns
             impCols[94] = new DataColumn("CondApproved", typeof(DateTime));
             impCols[95] = new DataColumn("CondApprovedBy", typeof(string));
             impCols[96] = new DataColumn("CreatedUTC", typeof(DateTime));
-
-
-            //unused columns
             impCols[97] = new DataColumn("Other_Dependants", typeof(string));
             impCols[98] = new DataColumn("LookingLocation", typeof(string));
             impCols[99] = new DataColumn("FoundLocation", typeof(string));
@@ -280,6 +313,7 @@ namespace MABDBWeb
             //"Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
             dt.Columns.AddRange(impCols);
             string csvData = File.ReadAllText(csvPath);
+            
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
             bool duplIDFound = false;
@@ -307,7 +341,7 @@ namespace MABDBWeb
                     foreach (string cell in SplitCSV(row))
                     {
                         // do only columns that are defined
-                        if (col >= colsCnt)
+                        if (col >= maxImportedColId)
                         {
                             break;
                         }
@@ -431,7 +465,7 @@ namespace MABDBWeb
                 dataAdapter.UpdateCommand = cmdBld.GetUpdateCommand(true);
                 dataAdapter.InsertCommand = cmdBld.GetInsertCommand(true);
                 dataAdapter.DeleteCommand = cmdBld.GetDeleteCommand(true);
-              //  dataAdapter.Update(dt);
+                dataAdapter.Update(dt);
 
                 //dataAdapter.Update(dt);
 
@@ -533,7 +567,6 @@ namespace MABDBWeb
             
         }
 
-
         private string[] SplitCSV(string input)
         {
             Regex csvSplit = new Regex("(?:^|,)(\"(?:[^\"]+|\"\")*\"|[^,]*)", RegexOptions.Compiled);
@@ -552,5 +585,130 @@ namespace MABDBWeb
 
             return list.ToArray<string>();
         }
+
+        private string SelectedIdsInclude(int numero)
+        {
+            if (entryIdSelected.Contains(numero))
+                return "checked";
+            return string.Empty;
+        }
+
+
+        private void CalcInvestorScoreCard()
+        {
+            DataTable dt = new DataTable();
+
+            DataColumn[] tblCols;
+
+            tblCols = new DataColumn[15]; //total 119 columns in the table
+            //Desired Property Address
+            tblCols[0] = new DataColumn("IsPrimary_AUCitizen", typeof(Boolean));
+            tblCols[0] = new DataColumn("IsAge25To55", typeof(Boolean));
+            tblCols[0] = new DataColumn("IsGrossIncomeSingle", typeof(Boolean));
+            tblCols[0] = new DataColumn("IsGrossIncomeJoint", typeof(Boolean));
+            tblCols[0] = new DataColumn("IsPrimary_EmplStat", typeof(Boolean));
+            tblCols[0] = new DataColumn("IsScorecardGt80", typeof(Boolean));
+            tblCols[0] = new DataColumn("SC_Personal", typeof(int));
+            tblCols[0] = new DataColumn("SC_Residential", typeof(Boolean));
+            tblCols[0] = new DataColumn("SC_Employment", typeof(Boolean));
+            tblCols[0] = new DataColumn("SC_Status", typeof(Boolean));
+            tblCols[0] = new DataColumn("InvestorApplicationId", typeof(int));
+
+            
+
+
+        }
+
+
+        //scorecard parameters
+        private Boolean SC_IsPrimary_AUCitizen(string answer)
+        {
+            if (String.IsNullOrEmpty(answer))
+            {
+                return false;
+            }
+            else
+            {
+
+                StringComparison comparisonType = StringComparison.OrdinalIgnoreCase;
+                if (answer.Trim().Equals("yes", comparisonType))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+         private Boolean   SC_IsAge25To55(DateTime birthday)
+         {
+             byte age = Age(birthday);
+             return ( age < 25) && ( age > 55);
+         }
+
+        /// <summary>
+        /// Test on income
+        /// </summary>
+        /// <param name="value">actual value</param>
+        /// <param name="lowLimit">Lower limit tested using greater or equal</param>
+        /// <returns></returns>
+        /// <exception ref="InvalidArgumentException" ></exception>
+        private Boolean SC_IncomeTestEorGT(string value, decimal lowLimit)
+        {
+            decimal income;
+            value = value.Trim();
+            if ((value.StartsWith("$")) || ((value.StartsWith("AU$")))) // || (value.StartsWith("AUD")))
+            {
+
+              value = value.Substring(value.IndexOf("$") + 1, value.Length);
+                
+            }
+            if (Decimal.TryParse(value, out income))
+            {
+                return (income >= lowLimit);
+            }
+            else
+            {
+                throw new ArgumentException("The income value is not a valid number.");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="birthDate"></param>
+        /// <returns>Whole age</returns>
+        /// <exception cref="ApplicationException">When birthdate is not valie</exception>xception>
+        private byte Age(DateTime birthDate)
+        {
+
+            if (birthDate >= DateTime.Today)
+            {
+                throw new ApplicationException ("Invalid birth date, cannot be in the future.");
+            }
+
+
+            birthDate = birthDate.Date;
+
+            DateTime today = DateTime.Today;
+            int age = today.Year - birthDate.Year;
+
+            if (birthDate > today.AddYears(-age))
+                age--;
+
+            //  int ageInDays = Convert.ToInt32(Math.Floor((DateTime.Today - birthDate).TotalDays));
+
+            if (age < Byte.MaxValue)
+            {
+                return Convert.ToByte(age);
+            }
+            else
+            {
+                return Byte.MaxValue;
+            }
+        }
+
     }
 }
