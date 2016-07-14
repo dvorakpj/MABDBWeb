@@ -13,7 +13,7 @@
 	[Score_Status] VARCHAR(50) NULL, 
 	[InvestorApplicationId] INT NOT NULL, 
 	[Created] DATETIME NOT NULL DEFAULT getdate(), 
-	[CreatedBy] VARCHAR(255) NOT NULL, 
+	[CreatedBy] VARCHAR(255) NOT NULL DEFAULT SYSTEM_USER, 
 	[Modified] DATETIME NULL, 
 	[ModifiedBy] VARCHAR(255) NULL, 
 	CONSTRAINT [FK_InvestorScoreCard_InvestorApplication] FOREIGN KEY ([InvestorApplicationId]) REFERENCES [InvestorApplications]([Id])

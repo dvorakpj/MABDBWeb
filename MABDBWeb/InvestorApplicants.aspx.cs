@@ -120,7 +120,9 @@ namespace MABDBWeb
         {
             List<int> existIDs = new List<int>();
             List<int> duplIds = new List<int>();
-// definition of DataTable to read the CSV into
+            // definition of DataTable to read the CSV into
+            DataSet ds = new DataSet("InvApplication");
+
             DataTable dt = new DataTable();
             //dt.Columns.AddRange(
 
@@ -136,7 +138,7 @@ namespace MABDBWeb
 
             DataColumn[] impCols;
 
-            impCols = new DataColumn[121]; //total 119 columns in the table
+            impCols = new DataColumn[122]; //total 119 columns in the table
             //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
@@ -279,12 +281,14 @@ namespace MABDBWeb
             //"Transaction Id", 
             impCols[93] = new DataColumn("TransactionId", typeof(string));
 
-            int maxImportedColId = 93;
+            impCols[94] = new DataColumn("CreatedUTC", typeof(DateTime));
 
-            //unused columns
-            impCols[94] = new DataColumn("CondApproved", typeof(DateTime));
-            impCols[95] = new DataColumn("CondApprovedBy", typeof(string));
-            impCols[96] = new DataColumn("CreatedUTC", typeof(DateTime));
+            int maxImportedColId = 94;
+
+            // columns not populated
+            impCols[95] = new DataColumn("CondApproved", typeof(DateTime));
+            impCols[96] = new DataColumn("CondApprovedBy", typeof(string));
+            
             impCols[97] = new DataColumn("Other_Dependants", typeof(string));
             impCols[98] = new DataColumn("LookingLocation", typeof(string));
             impCols[99] = new DataColumn("FoundLocation", typeof(string));
@@ -310,16 +314,43 @@ namespace MABDBWeb
             impCols[119] = new DataColumn("InvestorApplication_Gender", typeof(string));
             impCols[120] = new DataColumn("EstSpend", typeof(string));
 
+            int rowCnt = 0;
+            int colsCnt = dt.Columns.Count;
+
+            // ignored columns
+            impCols[121] = new DataColumn("Id", typeof(int));
+            impCols[121].AutoIncrement = true;
+            impCols[121].AutoIncrementSeed = -1;
+            impCols[121].AutoIncrementStep = -1;
+
+            //modified
+            //impCols[116] = DateTime.UtcNow;
+            // created UTC
+            //impCols[96] = DateTime.UtcNow;
+
             //"Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
             dt.Columns.AddRange(impCols);
             string csvData = File.ReadAllText(csvPath);
             
-            int rowCnt = 0;
-            int colsCnt = dt.Columns.Count;
+           
             bool duplIDFound = false;
             bool skipHeaderRow = true;
 
             DataTable scoreDT = SetupScoreCard();
+
+            ds.Tables.Add(dt);
+            ds.Tables.Add(scoreDT);
+            //DataRelation dr = new DataRelation("Rel_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
+            //DataRelation dr = new DataRelation("Rel_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
+            //ForeignKeyConstraint fkc = new ForeignKeyConstraint("FK_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
+            //fkc.UpdateRule = Rule.Cascade;            
+            DataRelation  dr = ds.Relations.Add(dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
+            dr.ChildKeyConstraint.UpdateRule = Rule.Cascade;
+
+            //scoreDT.Constraints.Add(fkc);
+
+            //dr.ChildKeyConstraint = fkc;
+            //dr.ChildKeyConstraint.UpdateRule = 
 
             // skips header row
             foreach (string row in csvData.Split('\n'))
@@ -429,7 +460,10 @@ namespace MABDBWeb
                                 newRow[col] = DBNull.Value;
                             }
                         }
-
+                         else if (("CreatedUTC" == currentColumnName) || ( "Modified"== currentColumnName))
+                         {
+                             newRow[col] = DateTime.UtcNow;
+                         }
 
                         // default parsing                        
                         else
@@ -453,6 +487,8 @@ namespace MABDBWeb
 
                     // calculate score
                     CalcAutoScoring(newRow, scoreDT);
+                    newRow[94] = DateTime.UtcNow;
+                    newRow[90] = "3";
                 }
             }
 
@@ -465,19 +501,58 @@ namespace MABDBWeb
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(consString))
             {
-                SqlDataAdapter dataAdapter =
-                    new SqlDataAdapter("SELECT TOP 1 * FROM [dbo].[InvestorApplications] ORDER BY Id DESC", con);
+                SqlDataAdapter daInvApps =
+                    new SqlDataAdapter("SELECT * FROM [dbo].[InvestorApplications]", con);
 
-                SqlCommandBuilder cmdBld = new SqlCommandBuilder(dataAdapter);
+                SqlCommandBuilder cmdBldInvApps
+                    = new SqlCommandBuilder(daInvApps);
 
                 //dataAdapter.Connection
                 //dataAdapter.SelectCommand = new SqlCommand();
-                dataAdapter.UpdateCommand = cmdBld.GetUpdateCommand(true);
-                dataAdapter.InsertCommand = cmdBld.GetInsertCommand(true);
-                dataAdapter.DeleteCommand = cmdBld.GetDeleteCommand(true);
-               // dataAdapter.Update(dt);
+                daInvApps.UpdateCommand = cmdBldInvApps.GetUpdateCommand();
+                daInvApps.InsertCommand = cmdBldInvApps.GetInsertCommand();
 
-                //dataAdapter.Update(dt);
+
+                //SqlCommand sc =
+                //    new SqlCommand(cmdBldInvApps.GetInsertCommand().CommandText +
+                //                   "; Select Id From [dbo].[InvestorApplications] Where Id = @@IDENTITY");
+
+                //sc.CommandType = CommandType.Text;
+                //daInvApps.InsertCommand = sc;
+                daInvApps.InsertCommand.CommandText += "; Select Id From [dbo].[InvestorApplications] Where Id = @@IDENTITY";
+                daInvApps.InsertCommand.UpdatedRowSource = UpdateRowSource.FirstReturnedRecord;
+                string insCmd = daInvApps.InsertCommand.CommandText;
+                //daInvApps.RowUpdated += new SqlRowUpdatedEventHandler(MyHandler);
+                daInvApps.DeleteCommand = cmdBldInvApps.GetDeleteCommand();
+                cmdBldInvApps = null;
+
+
+                SqlDataAdapter daInvApps2 = new SqlDataAdapter(daInvApps.SelectCommand.CommandText, con);
+                daInvApps2.UpdateCommand = daInvApps.UpdateCommand;
+
+                daInvApps2.InsertCommand = daInvApps.InsertCommand;
+                
+                //daInvApps2.RowUpdated += new SqlRowUpdatedEventHandler(MyHandler);
+                daInvApps2.DeleteCommand = daInvApps.DeleteCommand;
+
+                daInvApps2.Update(dt);
+                //daInvApps.Update(dt);
+
+
+                SqlDataAdapter daSC = new SqlDataAdapter("select * from [dbo].[InvestorScoreCard]", con);
+
+                SqlCommandBuilder cmdBldSC = new SqlCommandBuilder(daSC);
+
+                daSC.UpdateCommand = cmdBldSC.GetUpdateCommand(true);
+                daSC.InsertCommand = cmdBldSC.GetInsertCommand(true);
+                //daSC.InsertCommand.CommandText += "; Select * From [dbo].[InvestorScoreCard] Where Id = @@IDENTITY";
+                daSC.InsertCommand.UpdatedRowSource = UpdateRowSource.FirstReturnedRecord;
+                daSC.DeleteCommand = cmdBldSC.GetDeleteCommand(true);
+
+
+                daSC.Update(scoreDT);
+
+            
 
                 //using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
                 //{
@@ -491,6 +566,14 @@ namespace MABDBWeb
 
             return rowCnt - 1 - duplIds.Count;
         }
+
+        public static void MyHandler(object adapter, SqlRowUpdatedEventArgs e)
+        {
+            //if (e.f)
+            e.Status = UpdateStatus.SkipCurrentRow;
+
+        }
+
 
         private List<int> ReadExistingEntryIDs()
         {
@@ -610,19 +693,29 @@ namespace MABDBWeb
 
             DataColumn[] tblCols;
 
-            tblCols = new DataColumn[15]; //total 119 columns in the table
+            tblCols = new DataColumn[17]; //total 119 columns in the table
             //Desired Property Address
-            tblCols[0] = new DataColumn("IsPrimary_AUCitizen", typeof(Boolean));
-            tblCols[1] = new DataColumn("IsAge25To55", typeof(Boolean));
-            tblCols[2] = new DataColumn("IsGrossIncomeSingle", typeof(Boolean));
-            tblCols[3] = new DataColumn("IsGrossIncomeJoint", typeof(Boolean));
-            tblCols[4] = new DataColumn("IsPrimary_EmplStat", typeof(Boolean));
-            tblCols[5] = new DataColumn("IsScorecardGt80", typeof(Boolean));
-            tblCols[6] = new DataColumn("SC_Personal", typeof(int));
-            tblCols[7] = new DataColumn("SC_Residential", typeof(Boolean));
-            tblCols[8] = new DataColumn("SC_Employment", typeof(Boolean));
-            tblCols[9] = new DataColumn("SC_Status", typeof(Boolean));
+            tblCols[0] = new DataColumn("Pass_Primary_AUCitizen", typeof(Boolean));
+            tblCols[1] = new DataColumn("Pass_Age25To55", typeof(Boolean));
+            tblCols[2] = new DataColumn("Pass_GrossIncomeSingle", typeof(Boolean));
+            tblCols[3] = new DataColumn("Pass_GrossIncomeJoint", typeof(Boolean));
+            tblCols[4] = new DataColumn("Pass_Primary_EmplStat", typeof(Boolean));
+            tblCols[5] = new DataColumn("Pass_ScorecardGt80", typeof(Boolean));
+            tblCols[6] = new DataColumn("Score_Personal", typeof(int));
+            tblCols[7] = new DataColumn("Score_Residential", typeof(Boolean));
+            tblCols[8] = new DataColumn("Score_Employment", typeof(Boolean));
+            tblCols[9] = new DataColumn("Score_Status", typeof(Boolean));
             tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
+            tblCols[11] = new DataColumn("CreatedBy", typeof(string));
+            tblCols[12] = new DataColumn("Id", typeof(int));
+            tblCols[13] = new DataColumn("Created", typeof(DateTime));
+            tblCols[15] = new DataColumn("CreatedBy", typeof(string));
+            tblCols[15] = new DataColumn("Modified", typeof(DateTime));
+            tblCols[16] = new DataColumn("ModifiedBy", typeof(string));
+
+            tblCols[12].AutoIncrement = true;
+            tblCols[12].AutoIncrementSeed = 0;
+            tblCols[12].AutoIncrementStep = 1;
 
             dt.Columns.AddRange(tblCols);
 
@@ -651,7 +744,15 @@ namespace MABDBWeb
 
             DataRow newCard = SCdt.NewRow();
 
-            newCard["InvestorApplicationId"] = InvAppRow["Id"];
+            newCard.SetParentRow(InvAppRow);
+
+
+            newCard["Created"] = DateTime.Today;
+            newCard["Modified"] = DBNull.Value;
+            newCard["CreatedBy"] = "pdvorak";
+            newCard["ModifiedBy"] = DBNull.Value; 
+
+            //newCard["InvestorApplicationId"] = InvAppRow["Id"];
 
             try
             {
@@ -671,7 +772,9 @@ namespace MABDBWeb
                 }
                 newCard["Pass_Primary_EmplStat"] = SC_EmplStatTest(InvAppRow["CurrOccupType"] as string);
                 newCard["Pass_ScorecardGt80"] = true;
+                //newCard["Pass_ScorecardGt80"] = true; 
 
+                SCdt.Rows.Add(newCard);
             }
             catch
             {
