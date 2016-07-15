@@ -15,7 +15,15 @@ using Microsoft.SqlServer.Server;
 
 namespace MABDBWeb
 {
-
+    enum ScoreClass
+    {
+        Undefined,
+        Reject,
+        Bronze,
+        Silver,
+        Gold,
+        Platinum,
+    }
     
     public partial class Investor_Applicants : System.Web.UI.Page
     {
@@ -486,7 +494,7 @@ namespace MABDBWeb
                     }
 
                     // calculate score
-                    CalcAutoScoring(newRow, scoreDT);
+                    CalcAutoRejections(newRow, scoreDT);
                     newRow[94] = DateTime.UtcNow;
                     newRow[90] = "3";
                 }
@@ -728,7 +736,7 @@ namespace MABDBWeb
         /// <param name="dt"></param>
         /// <returns></returns>
         /// <exception ref="ArgumentException">Throws ArgumentException in case table object to fill in is either null or no columns.</exception>
-        private Boolean CalcAutoScoring(DataRow InvAppRow, DataTable SCdt)
+        private Boolean CalcAutoRejections(DataRow InvAppRow, DataTable SCdt)
         {
             if ((null == SCdt) || (0 == SCdt.Columns.Count))
             {
@@ -790,6 +798,247 @@ namespace MABDBWeb
 
 
         }
+
+        private int CalcScorecard(DataRow InvAppRow, DataRow scDR)
+        {
+            int score = 0;
+            int persSC = 0;
+            int residSC = 0;
+            int emplSC = 0;
+
+            // Core personal attributes and Income
+            if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
+            {
+                persSC += 0;
+            } else
+            {
+                persSC += 10;
+            }
+
+
+            // Age
+            DateTime? primDOB = InvAppRow["Primary_DOB"] as DateTime?;
+            if (primDOB.HasValue)
+            {
+                byte age = Age(primDOB.Value);
+                {
+                    if ( (age > 0 ) && (age < 25 ))
+                    {
+                        persSC += 0;
+                    } else if ((age >= 25) && (age < 40))
+                    {
+                        persSC += 15;
+                    } else if ((age >= 40) && (age < 55))
+                    {
+                        persSC += 10;
+                    }
+                    else
+                    {
+                        persSC += 0;
+                    }
+                }
+            }
+
+
+            //Gross Household Income pa
+            decimal householdIncomeGrossPA = 0;
+
+            if (Decimal.TryParse((InvAppRow["HouseholdIncomeGrossPA"] as string), out householdIncomeGrossPA))
+            {
+                if (householdIncomeGrossPA < 80000)
+                {
+                    persSC += 0;
+               } else if ((householdIncomeGrossPA >= 80000) && (householdIncomeGrossPA < 100000))
+               {
+                   persSC += 10;
+               }
+                else if ((householdIncomeGrossPA >= 100000) && (householdIncomeGrossPA < 150000))
+                {
+                    persSC += 20;
+                }
+                else if ((householdIncomeGrossPA >= 150000) && (householdIncomeGrossPA < 200000))
+                {
+                    persSC += 25;
+                }
+                else if (householdIncomeGrossPA >= 200000)
+                {
+                    persSC += 40;
+                }
+            }
+
+
+            score += persSC;
+            scDR["Score_Personal"] = persSC;
+
+            // residential assessment
+
+
+            // status
+            String Prim_residStat = InvAppRow["Primary_CurrResidStatus"] as String;
+            if (!String.IsNullOrEmpty(Prim_residStat))
+            {
+                Prim_residStat = Prim_residStat.Trim();
+
+                if (Prim_residStat.Equals("Homeowner", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 20;
+                } else if (Prim_residStat.Equals("Renter", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 20;
+                }
+            }
+
+            //Years at Current Address
+            String Prim_YrsCurrAddr = InvAppRow["Primary_YrsCurrAddr"] as String;
+            if (!String.IsNullOrEmpty(Prim_YrsCurrAddr))
+            {
+                Prim_YrsCurrAddr = Prim_YrsCurrAddr.Trim();
+                if (Prim_YrsCurrAddr.Equals("1 and less than 2 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 5;
+                }
+                else if (Prim_YrsCurrAddr.Equals("2 and less than 3 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 10;
+                } else if (Prim_YrsCurrAddr.Equals("3 and less than 5 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 20;
+                }
+                else if (Prim_YrsCurrAddr.Equals("5 Years or more", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 40;
+                }
+            }
+
+            //Years at Previous Address
+            String Prim_YrsPrevAddr = InvAppRow["YrsPrevAddr"] as String;
+            if (!String.IsNullOrEmpty(Prim_YrsPrevAddr))
+            {
+                Prim_YrsPrevAddr = Prim_YrsPrevAddr.Trim();
+                if (Prim_YrsPrevAddr.Equals("1 and less than 2 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 5;
+                }
+                else if (Prim_YrsPrevAddr.Equals("2 and less than 3 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 10;
+                }
+                else if (Prim_YrsPrevAddr.Equals("3 and less than 5 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    residSC += 20;
+                }
+                
+            }
+
+            score += residSC;
+            scDR["Score_Residential"] = residSC;
+
+            // Employment Assessment
+            String Empl_Status = InvAppRow["CurrEmploymentStatus"] as String;
+            if (!String.IsNullOrEmpty(Empl_Status))
+            {
+                Empl_Status = Empl_Status.Trim();
+
+                if (Empl_Status.Equals("Other - Full time", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 5;
+                } else if (Empl_Status.Equals("Blue collar / Trade", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 10;
+                }
+                else if (Empl_Status.Equals("Professional", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 20;
+                }
+                else if (Empl_Status.Equals("White collar", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 15;
+                }                    
+            }
+
+            //No. of Years with current employer
+
+            String yrsCurrEmpl = InvAppRow["YrsCurrEmployer"] as String;
+            if (!String.IsNullOrEmpty(yrsCurrEmpl))
+            {
+                yrsCurrEmpl = yrsCurrEmpl.Trim();
+
+                if (yrsCurrEmpl.Equals("1 and less than 2 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 5;
+                }
+                else if (yrsCurrEmpl.Equals("2 and less than 3 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 10;
+                }
+                else if (yrsCurrEmpl.Equals("3 and less than 5 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 20;
+                }
+                else if (yrsCurrEmpl.Equals("5 Years or more", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 40;
+                }
+
+            }
+
+            //No. of Years with previous employer
+            String yrsPrevEmpl = InvAppRow["YrsPrevEmployer"] as String;
+            if (!String.IsNullOrEmpty(yrsPrevEmpl))
+            {
+                yrsPrevEmpl = yrsPrevEmpl.Trim();
+
+                if (yrsPrevEmpl.Equals("1 and less than 2 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 5;
+                }
+                else if (yrsPrevEmpl.Equals("2 and less than 3 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 10;
+                }
+                else if (yrsPrevEmpl.Equals("3 and less than 5 Years", StringComparison.CurrentCultureIgnoreCase))
+                {
+                    emplSC += 20;
+                }                
+            }
+
+            score += emplSC;
+            scDR["Score_Employment"] = emplSC;
+
+            return score;
+        }
+
+
+        private ScoreClass CalcScoreClass(int score)
+        {
+            if (score < 80)
+            {
+                return ScoreClass.Reject;
+            }
+            else if (score < 110)
+            {
+                return ScoreClass.Bronze;
+            }
+            else if (score < 140)
+            {
+                return ScoreClass.Silver;
+            }
+            else if (score < 170)
+            {
+                return ScoreClass.Gold;
+            }
+            else if (score <= 200)
+            {
+                return ScoreClass.Platinum;
+            }
+            else
+            {
+                return ScoreClass.Undefined;
+            }
+        }
+
+
+        //private SC_ResidentialStatus
 
 
         /// <summary>
