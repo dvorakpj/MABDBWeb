@@ -16,5 +16,6 @@
 	[CreatedBy] VARCHAR(255) NOT NULL DEFAULT SYSTEM_USER, 
 	[Modified] DATETIME NULL, 
 	[ModifiedBy] VARCHAR(255) NULL, 
+	[Score_Total] INT NULL, 
 	CONSTRAINT [FK_InvestorScoreCard_InvestorApplication] FOREIGN KEY ([InvestorApplicationId]) REFERENCES [InvestorApplications]([Id])
 )

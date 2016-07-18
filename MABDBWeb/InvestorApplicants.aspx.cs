@@ -122,6 +122,8 @@ namespace MABDBWeb
             lblImportResLabel.Visible = true;
             lblImportRes.Visible = true;
 
+
+
         }
 
         private int UploadInvestorApplicsCSV(string csvPath)
@@ -219,9 +221,9 @@ namespace MABDBWeb
             impCols[56] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
             impCols[57] = new DataColumn("OthPrev_Res_Country", typeof(string));
 
-            impCols[58] = new DataColumn("YrsPrevAddr", typeof(byte)); // primary
+            impCols[58] = new DataColumn("YrsPrevAddr", typeof(string)); // primary
             // years at previous address Other
-            impCols[59] = new DataColumn("Other_YrsPrevAddr", typeof(byte)); // primary
+            impCols[59] = new DataColumn("Other_YrsPrevAddr", typeof(string)); // primary
             impCols[60] = new DataColumn("PrevResStatus", typeof(string)); // Other
             // pre residential status other
             impCols[61] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other
@@ -360,6 +362,7 @@ namespace MABDBWeb
             //dr.ChildKeyConstraint = fkc;
             //dr.ChildKeyConstraint.UpdateRule = 
 
+
             // skips header row
             foreach (string row in csvData.Split('\n'))
             {
@@ -433,14 +436,15 @@ namespace MABDBWeb
                         }
 
                         // Byte values
-                        else if (("Primary_Dependants" == currentColumnName) ||
-                                 ("Other_Dependants" == currentColumnName) ||
-                                 ("YrsCurrEmployer" == currentColumnName) ||
-                                 ("YrsPrevEmployer" == currentColumnName) ||
-                                 ("Primary_YrsCurrAddr" == currentColumnName)
-                                 || ("YrsPrevAddr" == currentColumnName)
-                                 || ("Other_YrsCurrAddr" == currentColumnName)
-                                 || ("Other_YrsPrevAddr" == currentColumnName))
+                        else if (("Primary_Dependants" == currentColumnName)
+                                 || ("Other_Dependants" == currentColumnName)
+                                // ("YrsCurrEmployer" == currentColumnName) ||
+                                // ("YrsPrevEmployer" == currentColumnName) ||
+                                 //("Primary_YrsCurrAddr" == currentColumnName)
+                                // || ("YrsPrevAddr" == currentColumnName)
+                                // || ("Other_YrsCurrAddr" == currentColumnName)
+                                // || ("Other_YrsPrevAddr" == currentColumnName)
+                                )
                         {
                             byte? dbVal = ParseToTinyInt(value);
                             if (dbVal.HasValue)
@@ -493,18 +497,21 @@ namespace MABDBWeb
                         rowCnt++;
                     }
 
-                    // calculate score
-                    CalcAutoRejections(newRow, scoreDT);
+
+                    // calculate scores
+                    DataRow newCard = scoreDT.NewRow();
+                    newCard.SetParentRow(newRow);
+
+                    CalcAutoRejections(newRow, newCard);
+
+                    CalcScorecard(newRow, newCard);
+
+                    scoreDT.Rows.Add(newCard);
+                    //int score = CalcScoreClass()
                     newRow[94] = DateTime.UtcNow;
                     newRow[90] = "3";
                 }
             }
-
-
-
-
-            
-            
 
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
             using (SqlConnection con = new SqlConnection(consString))
@@ -701,7 +708,7 @@ namespace MABDBWeb
 
             DataColumn[] tblCols;
 
-            tblCols = new DataColumn[17]; //total 119 columns in the table
+            tblCols = new DataColumn[18]; //total 119 columns in the table
             //Desired Property Address
             tblCols[0] = new DataColumn("Pass_Primary_AUCitizen", typeof(Boolean));
             tblCols[1] = new DataColumn("Pass_Age25To55", typeof(Boolean));
@@ -720,6 +727,7 @@ namespace MABDBWeb
             tblCols[15] = new DataColumn("CreatedBy", typeof(string));
             tblCols[15] = new DataColumn("Modified", typeof(DateTime));
             tblCols[16] = new DataColumn("ModifiedBy", typeof(string));
+            tblCols[17] = new DataColumn("Score_Total", typeof(int));
 
             tblCols[12].AutoIncrement = true;
             tblCols[12].AutoIncrementSeed = 0;
@@ -736,23 +744,9 @@ namespace MABDBWeb
         /// <param name="dt"></param>
         /// <returns></returns>
         /// <exception ref="ArgumentException">Throws ArgumentException in case table object to fill in is either null or no columns.</exception>
-        private Boolean CalcAutoRejections(DataRow InvAppRow, DataTable SCdt)
+        private Boolean CalcAutoRejections(DataRow InvAppRow, DataRow newCard)
         {
-            if ((null == SCdt) || (0 == SCdt.Columns.Count))
-            {
-                throw new ArgumentException(
-                    "Scorecard Data Table is not set up correctly, must have at least some columns.", "SCdt");
-            }
-
-            if ((null == InvAppRow) || (0 == InvAppRow.Table.Columns.Count))
-            {
-                throw new ArgumentException(
-                    "InvestorApplication Data Table is not populated correctly, must have at least some columns.", "InvAppRow");
-            }
-
-            DataRow newCard = SCdt.NewRow();
-
-            newCard.SetParentRow(InvAppRow);
+            
 
 
             newCard["Created"] = DateTime.Today;
@@ -782,7 +776,7 @@ namespace MABDBWeb
                 newCard["Pass_ScorecardGt80"] = true;
                 //newCard["Pass_ScorecardGt80"] = true; 
 
-                SCdt.Rows.Add(newCard);
+                
             }
             catch
             {
@@ -806,6 +800,9 @@ namespace MABDBWeb
             int residSC = 0;
             int emplSC = 0;
 
+
+            // personal and income
+            #region personal
             // Core personal attributes and Income
             if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
             {
@@ -814,8 +811,7 @@ namespace MABDBWeb
             {
                 persSC += 10;
             }
-
-
+            
             // Age
             DateTime? primDOB = InvAppRow["Primary_DOB"] as DateTime?;
             if (primDOB.HasValue)
@@ -839,7 +835,7 @@ namespace MABDBWeb
                 }
             }
 
-
+        
             //Gross Household Income pa
             decimal householdIncomeGrossPA = 0;
 
@@ -866,12 +862,13 @@ namespace MABDBWeb
                 }
             }
 
-
-            score += persSC;
             scDR["Score_Personal"] = persSC;
 
-            // residential assessment
+            #endregion personal
+            score += persSC;
 
+            // residential assessment
+            #region residential
 
             // status
             String Prim_residStat = InvAppRow["Primary_CurrResidStatus"] as String;
@@ -930,10 +927,13 @@ namespace MABDBWeb
                 
             }
 
-            score += residSC;
             scDR["Score_Residential"] = residSC;
 
+            #endregion residential
+            score += residSC;
+
             // Employment Assessment
+            #region employment
             String Empl_Status = InvAppRow["CurrEmploymentStatus"] as String;
             if (!String.IsNullOrEmpty(Empl_Status))
             {
@@ -1002,8 +1002,14 @@ namespace MABDBWeb
                 }                
             }
 
-            score += emplSC;
+            
             scDR["Score_Employment"] = emplSC;
+
+            #endregion employment
+            score += emplSC;
+
+            scDR["Score_Total"] = score;
+            scDR["Score_Status"] = (CalcScoreClass(score)).ToString();
 
             return score;
         }
