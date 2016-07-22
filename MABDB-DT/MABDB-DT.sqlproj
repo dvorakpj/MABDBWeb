@@ -229,6 +229,8 @@
     <Build Include="dbo\Tables\InvestorScoreCard.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
+    <Build Include="dbo\Views\v_InvestorApplicationScores.sql" />
+    <Build Include="dbo\Views\v_InvestorAppsBasicWScores.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

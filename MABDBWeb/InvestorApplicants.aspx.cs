@@ -1222,5 +1222,12 @@ namespace MABDBWeb
             }
         }
 
+        private void ColourCodeScore(string Score)
+        {
+
+            
+
+        }
+
     }
 }

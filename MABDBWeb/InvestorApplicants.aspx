@@ -42,7 +42,7 @@
     
         <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Investor Applications"></asp:Label>
     
-            <asp:SqlDataSource ID="InvestorApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [InvestorApplications]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="InvestorApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [v_InvestorAppsBasicWScores] ORDER BY [Id] DESC"></asp:SqlDataSource>
             <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>
     
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="InvestorApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
@@ -57,7 +57,9 @@
                         </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                <asp:HyperLinkField HeaderText="Details" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/InvestorApplicationDetail.aspx?Id={0}" Text="Details" />
+                <asp:HyperLinkField HeaderText="Details" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/InvestorApplicationDetail.aspx?Id={0}" Text="Details" >
+                <ItemStyle BackColor="#CCCCCC" BorderStyle="Solid" />
+                </asp:HyperLinkField>
                 <asp:BoundField DataField="EntryDate" DataFormatString="{0:dd/MM/yyyy}" HeaderText="App Date" SortExpression="EntryDate" />
                 <asp:TemplateField HeaderText="Type" SortExpression="ApplicantType">
                     <EditItemTemplate>
@@ -72,20 +74,12 @@
                 <asp:BoundField DataField="Primary_LastName" HeaderText="Last Name" SortExpression="Primary_LastName" />
                 <asp:BoundField DataField="Primary_Gender" HeaderText="Gender" SortExpression="Primary_Gender" />
                 <asp:BoundField DataField="Primary_DOB" DataFormatString="{0:dd/MM/yyyy}" HeaderText="DOB" SortExpression="Primary_DOB" />
-                <asp:BoundField DataField="Other_FirstName" HeaderText="First Name" SortExpression="Other_FirstName" />
-                <asp:BoundField DataField="Other_OtherNames" HeaderText="Other Names" SortExpression="Other_OtherNames" />
-                <asp:BoundField DataField="Other_LastName" HeaderText="Last Name" SortExpression="Other_LastName" />
-                <asp:BoundField DataField="Other_Gender" HeaderText="Gender" SortExpression="Other_Gender" />
-                <asp:BoundField DataField="Other_DOB" HeaderText="DOB" SortExpression="Other_DOB" DataFormatString="{0:dd/MM/yyyy}" />
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                <asp:BoundField DataField="Mobile" HeaderText="Mobile" SortExpression="Mobile" />
-                <asp:BoundField DataField="Primary_Res_Street1" HeaderText="Street 1" SortExpression="Primary_Res_Street1" />
-                <asp:BoundField DataField="Primary_Res_Street2" HeaderText="Street2" SortExpression="Primary_Res_Street2" />
-                <asp:BoundField DataField="Primary_Res_City" HeaderText="City" SortExpression="Primary_Res_City" />
-                <asp:BoundField DataField="Primary_Res_State" HeaderText="State" SortExpression="Primary_Res_State" />
                 <asp:BoundField DataField="Primary_Res_PostCode" HeaderText="ZIP" SortExpression="Primary_Res_PostCode" />
-                <asp:BoundField DataField="Primary_Res_Country" HeaderText="Country" SortExpression="Primary_Res_Country" />
-            </Columns>
+                <asp:BoundField DataField="Primary_Res_State" HeaderText="State" SortExpression="Primary_Res_State" />
+                <asp:BoundField DataField="Score_Status" HeaderText="Score_Status" SortExpression="Score_Status" />
+                <asp:BoundField DataField="Score_Total" HeaderText="Score_Total" SortExpression="Score_Total" />
+                </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />
             <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White" />
             <PagerStyle BackColor="White" ForeColor="#000066" HorizontalAlign="Left" />
