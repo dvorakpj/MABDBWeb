@@ -719,19 +719,21 @@ namespace MABDBWeb
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
             tblCols[7] = new DataColumn("Score_Residential", typeof(Boolean));
             tblCols[8] = new DataColumn("Score_Employment", typeof(Boolean));
-            tblCols[9] = new DataColumn("Score_Status", typeof(Boolean));
+            tblCols[9] = new DataColumn("Score_Status", typeof(string));
             tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
             tblCols[11] = new DataColumn("CreatedBy", typeof(string));
             tblCols[12] = new DataColumn("Id", typeof(int));
+            tblCols[12].AutoIncrement = true;
+            tblCols[12].AutoIncrementSeed = -1;
+            tblCols[12].AutoIncrementStep = -1;
+
             tblCols[13] = new DataColumn("Created", typeof(DateTime));
             tblCols[15] = new DataColumn("CreatedBy", typeof(string));
             tblCols[15] = new DataColumn("Modified", typeof(DateTime));
             tblCols[16] = new DataColumn("ModifiedBy", typeof(string));
             tblCols[17] = new DataColumn("Score_Total", typeof(int));
 
-            tblCols[12].AutoIncrement = true;
-            tblCols[12].AutoIncrementSeed = 0;
-            tblCols[12].AutoIncrementStep = 1;
+            
 
             dt.Columns.AddRange(tblCols);
 
@@ -934,7 +936,7 @@ namespace MABDBWeb
 
             // Employment Assessment
             #region employment
-            String Empl_Status = InvAppRow["CurrEmploymentStatus"] as String;
+            String Empl_Status = InvAppRow["CurrOccupType"] as String;
             if (!String.IsNullOrEmpty(Empl_Status))
             {
                 Empl_Status = Empl_Status.Trim();
@@ -1081,7 +1083,7 @@ namespace MABDBWeb
              }
 
              byte age = Age(birthday.Value);
-             return ( age < 25) && ( age > 55);
+             return ( age >= 25) && ( age <= 55);
          }
 
         /// <summary>

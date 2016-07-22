@@ -226,7 +226,9 @@
     <Build Include="dbo\Stored Procedures\aspnet_RegisterSchemaVersion.sql" />
     <Build Include="dbo\Stored Procedures\aspnet_Roles_CreateRole.sql" />
     <Build Include="dbo\Tables\ApplicantType.sql" />
-    <Build Include="dbo\Tables\InvestorScoreCard.sql" />
+    <Build Include="dbo\Tables\InvestorScoreCard.sql">
+      <AnsiNulls>Off</AnsiNulls>
+    </Build>
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

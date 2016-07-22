@@ -25,8 +25,6 @@
     [PrevResStatus]                      VARCHAR (25)       NULL,
     [CurrOccupType]                      VARCHAR (100)      NULL,
     [CurrEmploymentStatus]               VARCHAR (100)      NULL,
-    [YrsCurrEmployer]                    TINYINT            NULL,
-    [YrsPrevEmployer]                    TINYINT            NULL,
     [IsSmoker]                           VARCHAR (10)       NULL,
     [HasPrivateHealthIns]                VARCHAR (10)       NULL,
     [CreatedBy]                          NVARCHAR (255)     NULL,
@@ -121,9 +119,13 @@
     [Other_YrsCurrAddr]                  VARCHAR (120)      NULL,
     [Other_YrsPrevAddr]                  VARCHAR (120)      NULL,
     [YrsPrevAddr]                        VARCHAR (120)      NULL,
+    [YrsCurrEmployer]                    VARCHAR (120)      NULL,
+    [YrsPrevEmployer]                    VARCHAR (120)      NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
+
+
 
 
 
