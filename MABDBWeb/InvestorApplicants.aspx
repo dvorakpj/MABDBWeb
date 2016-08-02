@@ -45,7 +45,7 @@
             <asp:SqlDataSource ID="InvestorApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [v_InvestorAppsBasicWScores] ORDER BY [Id] DESC"></asp:SqlDataSource>
             <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>
     
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="InvestorApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="InvestorApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnDataBound="GridView1_DataBound">
             <Columns>
                 <%--<asp:CommandField ButtonType="Button" SelectText="[V]" ShowSelectButton="True" />--%>
                 <asp:TemplateField>                                        
@@ -77,7 +77,7 @@
                 <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
                 <asp:BoundField DataField="Primary_Res_PostCode" HeaderText="ZIP" SortExpression="Primary_Res_PostCode" />
                 <asp:BoundField DataField="Primary_Res_State" HeaderText="State" SortExpression="Primary_Res_State" />
-                <asp:BoundField DataField="Score_Status" HeaderText="Score_Status" SortExpression="Score_Status" />
+                <asp:BoundField DataField="Score_Status" HeaderText="Score_Status" SortExpression="Score_Status"/>                               
                 <asp:BoundField DataField="Score_Total" HeaderText="Score_Total" SortExpression="Score_Total" />
                 </Columns>
             <FooterStyle BackColor="White" ForeColor="#000066" />

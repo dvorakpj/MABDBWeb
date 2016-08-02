@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Configuration;
 using System.Data.Common;
 using System.Linq;
@@ -11,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 using Microsoft.SqlServer.Server;
 
 namespace MABDBWeb
@@ -27,7 +29,6 @@ namespace MABDBWeb
     
     public partial class Investor_Applicants : System.Web.UI.Page
     {
-
 
         private List<int> entryIdSelected = new List<int>();
 
@@ -70,17 +71,13 @@ namespace MABDBWeb
         {
             //Upload and save the file
 
-
-
             lblUploadError.Text = String.Empty;
             lblUploadError.Visible = false; string csvPath = Server.MapPath("~/Files/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
-
 
             if (!File.Exists(csvPath))
             {
                 lblUploadError.Text = String.Concat("File was not received on the server into ", csvPath, ". Try again or contact the administrator.");
             }
-
 
             try
             {
@@ -1222,12 +1219,75 @@ namespace MABDBWeb
             }
         }
 
-        private void ColourCodeScore(string Score)
+        private Color ColourCodeScore(string Score)
         {
+            if (String.IsNullOrEmpty(Score))
+            {
+                return Color.White;
+            }
+            else
+            {
 
-            
+                if (ScoreClass.Bronze.ToString() == Score)
+                {
+                    return Color.White;
+                }
+                else if (ScoreClass.Silver.ToString() == Score)
+                {
+                    return Color.LightSlateGray;
+                }
+                else if (ScoreClass.Gold.ToString() == Score)
+                {
+                    return Color.Gold;
+                } 
+                else if (ScoreClass.Platinum.ToString() == Score)
+                {
+                    return Color.LightGray;
+                } else if (ScoreClass.Reject.ToString() == Score)
+                {
+                    return Color.Red;
+                }
+                else
+                {
+                    return Color.White;
+                }
+            }
+
 
         }
 
+        private void GridView1_DataBindingComplete(object sender, EventArgs e)
+        {
+            int rowscount = GridView1.Rows.Count;
+            //GridView1.Rows[i].Cells[GetColumnIndexByName(GridView1, "Score_Status")]
+
+            for (int i = 0; i < rowscount; i++)
+            {
+                if (!(GridView1.Rows[i].Cells[GetColumnIndexByName(GridView1, "Score_Status")] == null))
+                {
+                    string status = GridView1.Rows[i].Cells[GetColumnIndexByName(GridView1, "Score_Status")].Text;
+                    GridView1.Rows[i].Cells[GetColumnIndexByName(GridView1, "Score_Status")].BackColor = ColourCodeScore(status);
+                }
+            }
+        }
+
+
+        private int GetColumnIndexByName(GridView grid, string name)
+        {
+            for (int i = 0; i < grid.Columns.Count; i++)
+            {
+                if (grid.Columns[i].HeaderText.ToLower().Trim() == name.ToLower().Trim())
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        protected void GridView1_DataBound(object sender, EventArgs e)
+        {
+            GridView1_DataBindingComplete(sender, e);
+        }
     }
-}
+};
