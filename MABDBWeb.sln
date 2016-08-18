@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MABDBWeb", "MABDBWeb\MABDBWeb.csproj", "{9735596C-7DE9-4C9E-922D-6B9E5B68F1B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MABDBWeb.Tests", "MABDBWeb.Tests\MABDBWeb.Tests.csproj", "{76F509DF-330B-4D10-942B-DB2362CFA117}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MABDB-DT", "MABDB-DT\MABDB-DT.sqlproj", "{06DF1693-191A-490E-940A-96CFE2C9A524}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MABDBDataUtils", "DataUtils\MABDBDataUtils.csproj", "{D752060A-3649-412D-AF8D-26C62D62E726}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,6 +31,10 @@ Global
 		{06DF1693-191A-490E-940A-96CFE2C9A524}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06DF1693-191A-490E-940A-96CFE2C9A524}.Release|Any CPU.Build.0 = Release|Any CPU
 		{06DF1693-191A-490E-940A-96CFE2C9A524}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{D752060A-3649-412D-AF8D-26C62D62E726}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D752060A-3649-412D-AF8D-26C62D62E726}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D752060A-3649-412D-AF8D-26C62D62E726}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D752060A-3649-412D-AF8D-26C62D62E726}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

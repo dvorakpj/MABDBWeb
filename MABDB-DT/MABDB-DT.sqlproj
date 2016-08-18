@@ -231,6 +231,10 @@
     </Build>
     <Build Include="dbo\Views\v_InvestorApplicationScores.sql" />
     <Build Include="dbo\Views\v_InvestorAppsBasicWScores.sql" />
+    <Build Include="dbo\Tables\Investor.sql" />
+    <Build Include="dbo\Tables\Property.sql" />
+    <Build Include="dbo\Tables\Vendor.sql" />
+    <Build Include="dbo\Tables\Agency.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

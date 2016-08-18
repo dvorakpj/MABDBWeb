@@ -371,4 +371,130 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Pass_ScorecardGt80" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4980e002-128a-4752-afad-386e381e12c2" ChangeDateTime="08/18/2016 07:41:09">
+    <Property Name="ElementName" Value="[dbo].[Investor].[Lastname]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="359f324c-e109-436b-83e6-40c60d7602c3" ChangeDateTime="08/18/2016 07:44:19">
+    <Property Name="ElementName" Value="[dbo].[Investor].[ApprovedDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssquireApprovedDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5f1c7746-50d5-47c9-9827-a1e9a505d98c" ChangeDateTime="08/18/2016 07:47:09">
+    <Property Name="ElementName" Value="[dbo].[Investor].[Res_State]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Res_Suburb" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="02cb134b-0456-42db-8e1d-e680d63f18b8" ChangeDateTime="08/18/2016 07:48:33">
+    <Property Name="ElementName" Value="[dbo].[Investor].[Salutation]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Titole" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="876bdd4d-05b6-4597-8c95-c4365b17afcd" ChangeDateTime="08/18/2016 07:48:37">
+    <Property Name="ElementName" Value="[dbo].[Investor].[Titole]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Title" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="df39f483-b6ec-4369-9ebc-bf2299ae6209" ChangeDateTime="08/18/2016 07:50:55">
+    <Property Name="ElementName" Value="[dbo].[Property].[Number]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Property]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UnitNum" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="df304aba-b208-44ee-9f72-5dc6c84997f7" ChangeDateTime="08/18/2016 07:51:07">
+    <Property Name="ElementName" Value="[dbo].[Property].[SuburbName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Property]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Suburb" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2d01a613-95ad-4063-b618-4ac0c583879b" ChangeDateTime="08/18/2016 07:52:34">
+    <Property Name="ElementName" Value="[dbo].[Property].[Postoce]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Property]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Postcode" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="671b6b80-6e0b-4c7c-833a-cc0afc7fddea" ChangeDateTime="08/18/2016 07:56:10">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[OrgName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Owner_OrgName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="53c7efae-d2f3-4413-aa69-1776dc170f98" ChangeDateTime="08/18/2016 07:56:15">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[OwnerMiddleName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Owner_MiddleName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1120fcce-5623-4816-847f-f16084a600ce" ChangeDateTime="08/18/2016 07:56:18">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[Owner_MiddleName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Owner_MiddleNames" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7702e2ea-4531-4108-a0b2-9e678e675dfc" ChangeDateTime="08/18/2016 07:57:57">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[Res_Street3]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Res_Street2" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="dfc0218e-e6ba-40a0-8040-502f355883fa" ChangeDateTime="08/18/2016 07:59:48">
+    <Property Name="ElementName" Value="[dbo].[Agency].[Street2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Agency]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Street1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="402763fa-5194-4754-973c-1b76f3e75c59" ChangeDateTime="08/18/2016 08:00:56">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[ContactEmail]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Email" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0c091104-9f98-4d1b-8047-4fdae217e2a1" ChangeDateTime="08/18/2016 08:01:14">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[Owner_OrgName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OrgName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e431f239-3ae4-4f03-8b5e-34def91a584f" ChangeDateTime="08/18/2016 08:01:22">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[PrivateOwner]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsPrivateOwner" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="518b2e57-d4ec-43a3-a929-61bd5210a92a" ChangeDateTime="08/18/2016 08:01:29">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[Owner_MiddleNames]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MiddleNames" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="79884905-07aa-4cb2-9bd5-b1b454e2ba0a" ChangeDateTime="08/18/2016 08:01:34">
+    <Property Name="ElementName" Value="[dbo].[Vendor].[Owner_LastName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Vendor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="LastName" />
+  </Operation>
 </Operations>

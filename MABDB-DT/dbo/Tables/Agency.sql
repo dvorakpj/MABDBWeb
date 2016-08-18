@@ -1,0 +1,30 @@
+﻿CREATE TABLE [dbo].[Agency]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[MAId] VARCHAR(10) NULL, 
+	[Name] VARCHAR(50) NOT NULL, 
+	[NameOther] VARCHAR(50) NULL,
+	[StreetNum] SMALLINT NULL,
+	[Street1] VARCHAR(50) NOT NULL, 
+	[Street2] VARCHAR(50) NULL, 
+	[Street3] VARCHAR(50) NULL,
+	[Suburb] VARCHAR(50) NOT NULL,
+	[Postcode] VARCHAR(50) NULL,
+	[State] VARCHAR(15) NOT NULL,
+	[Country] VARCHAR(50) NULL,
+	[ContactName] VARCHAR(50) NULL,
+	[ContactPhone] VARCHAR(15) NULL,
+	[ContactPhoneOther] VARCHAR(15) NULL,
+	[ABN] VARCHAR(15) NOT NULL,
+	[Fax] VARCHAR(15) NULL,
+	[Email] VARCHAR(15) NULL,
+	[EmailOther] VARCHAR(15) NULL,
+	[Website] VARCHAR(255) NULL,
+	[Comments] VARCHAR(255) NULL,
+	[Bank] VARCHAR(125) NULL,
+	[BSB] VARCHAR(15) NULL,
+	[AcctNum] VARCHAR(15) NULL,
+	[BPAYBillerCode] VARCHAR(15) NULL
+
+
+)

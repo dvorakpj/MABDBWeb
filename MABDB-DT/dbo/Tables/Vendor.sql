@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[Vendor]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [MAId] VARCHAR(50) NULL, 
+    [OrgName] NVARCHAR(50) NULL, 
+    [FirstName] NVARCHAR(50) NULL, 
+    [IsPrivateOwner] BIT NULL, 
+    [MiddleNames] NCHAR(10) NULL, 
+    [LastName] NCHAR(10) NULL, 
+    [Title] NCHAR(10) NULL,
+	[Res_UnitNum] NCHAR(10) NULL, 
+	[Res_StreetNum] NCHAR(10) NULL, 
+    [Res_Street1] NCHAR(10) NULL, 
+    [Res_Street2] NCHAR(10) NULL, 
+    [Res_Street3] NCHAR(10) NULL, 
+    [Res_Suburb] NCHAR(10) NULL, 
+    [Res_Postcode] NCHAR(10) NULL, 
+    [Res_State] NCHAR(10) NULL, 
+    [Res_Country] VARCHAR(50) NULL,    
+    [ContactPhoneMobile] NCHAR(10) NULL, 
+    [ContactPhoneOther] NCHAR(10) NULL, 
+    [Email] NCHAR(10) NULL, 
+    [EmailOther] NCHAR(10) NULL, 
+    
+)
