@@ -372,6 +372,8 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnUpdatedBy;
             
+            private global::System.Data.DataColumn columnInvestorApplicationId;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvestorDataTable() {
@@ -639,6 +641,14 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn InvestorApplicationIdColumn {
+                get {
+                    return this.columnInvestorApplicationId;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -703,7 +713,8 @@ namespace DataUtils {
                         System.DateTime Created, 
                         string CreatedBy, 
                         System.DateTime Updated, 
-                        System.DateTime UpdatedBy) {
+                        System.DateTime UpdatedBy, 
+                        short InvestorApplicationId) {
                 InvestorRow rowInvestorRow = ((InvestorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -734,7 +745,8 @@ namespace DataUtils {
                         Created,
                         CreatedBy,
                         Updated,
-                        UpdatedBy};
+                        UpdatedBy,
+                        InvestorApplicationId};
                 rowInvestorRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvestorRow);
                 return rowInvestorRow;
@@ -793,6 +805,7 @@ namespace DataUtils {
                 this.columnCreatedBy = base.Columns["CreatedBy"];
                 this.columnUpdated = base.Columns["Updated"];
                 this.columnUpdatedBy = base.Columns["UpdatedBy"];
+                this.columnInvestorApplicationId = base.Columns["InvestorApplicationId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -856,6 +869,8 @@ namespace DataUtils {
                 base.Columns.Add(this.columnUpdated);
                 this.columnUpdatedBy = new global::System.Data.DataColumn("UpdatedBy", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUpdatedBy);
+                this.columnInvestorApplicationId = new global::System.Data.DataColumn("InvestorApplicationId", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInvestorApplicationId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -3626,6 +3641,22 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public short InvestorApplicationId {
+                get {
+                    try {
+                        return ((short)(this[this.tableInvestor.InvestorApplicationIdColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'InvestorApplicationId\' in table \'Investor\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestor.InvestorApplicationIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMAIdNull() {
                 return this.IsNull(this.tableInvestor.MAIdColumn);
             }
@@ -3838,6 +3869,18 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetUpdatedByNull() {
                 this[this.tableInvestor.UpdatedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsInvestorApplicationIdNull() {
+                return this.IsNull(this.tableInvestor.InvestorApplicationIdColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetInvestorApplicationIdNull() {
+                this[this.tableInvestor.InvestorApplicationIdColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -7515,6 +7558,7 @@ namespace DataUtils.InvestorDSTableAdapters {
             tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
             tableMapping.ColumnMappings.Add("Updated", "Updated");
             tableMapping.ColumnMappings.Add("UpdatedBy", "UpdatedBy");
+            tableMapping.ColumnMappings.Add("InvestorApplicationId", "InvestorApplicationId");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;

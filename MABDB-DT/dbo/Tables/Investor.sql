@@ -2,6 +2,7 @@
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
     [MAId] VARCHAR(50) NULL,     
+	[InvestorApplicationId] int NOT NULL,   
 	[PrimaryInvestorID] INT NULL, 
 	[FirstName] NVARCHAR(50) NULL, 
     [MiddleNames] NVARCHAR(250) NULL, 

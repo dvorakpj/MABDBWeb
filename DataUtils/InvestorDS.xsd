@@ -224,6 +224,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
               <Mapping SourceColumn="CreatedBy" DataSetColumn="CreatedBy" />
               <Mapping SourceColumn="Updated" DataSetColumn="Updated" />
               <Mapping SourceColumn="UpdatedBy" DataSetColumn="UpdatedBy" />
+              <Mapping SourceColumn="InvestorApplicationId" DataSetColumn="InvestorApplicationId" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -654,7 +655,7 @@ WHERE Id = @Id</CommandText>
   <xs:element name="InvestorDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="InvestorDS" msprop:Generator_UserDSName="InvestorDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Investor" msprop:Generator_TableClassName="InvestorDataTable" msprop:Generator_TableVarName="tableInvestor" msprop:Generator_TablePropName="Investor" msprop:Generator_RowDeletingName="InvestorRowDeleting" msprop:Generator_RowChangingName="InvestorRowChanging" msprop:Generator_RowEvHandlerName="InvestorRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorRowDeleted" msprop:Generator_UserTableName="Investor" msprop:Generator_RowChangedName="InvestorRowChanged" msprop:Generator_RowEvArgName="InvestorRowChangeEvent" msprop:Generator_RowClassName="InvestorRow">
+        <xs:element name="Investor" msprop:Generator_TableClassName="InvestorDataTable" msprop:Generator_TableVarName="tableInvestor" msprop:Generator_RowChangedName="InvestorRowChanged" msprop:Generator_TablePropName="Investor" msprop:Generator_RowDeletingName="InvestorRowDeleting" msprop:Generator_RowChangingName="InvestorRowChanging" msprop:Generator_RowEvHandlerName="InvestorRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorRowDeleted" msprop:Generator_RowClassName="InvestorRow" msprop:Generator_UserTableName="Investor" msprop:Generator_RowEvArgName="InvestorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -806,10 +807,11 @@ WHERE Id = @Id</CommandText>
               </xs:element>
               <xs:element name="Updated" msprop:Generator_ColumnVarNameInTable="columnUpdated" msprop:Generator_ColumnPropNameInRow="Updated" msprop:Generator_ColumnPropNameInTable="UpdatedColumn" msprop:Generator_UserColumnName="Updated" type="xs:dateTime" minOccurs="0" />
               <xs:element name="UpdatedBy" msprop:Generator_ColumnVarNameInTable="columnUpdatedBy" msprop:Generator_ColumnPropNameInRow="UpdatedBy" msprop:Generator_ColumnPropNameInTable="UpdatedByColumn" msprop:Generator_UserColumnName="UpdatedBy" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="InvestorApplicationId" msprop:Generator_ColumnVarNameInTable="columnInvestorApplicationId" msprop:Generator_ColumnPropNameInRow="InvestorApplicationId" msprop:Generator_ColumnPropNameInTable="InvestorApplicationIdColumn" msprop:Generator_UserColumnName="InvestorApplicationId" type="xs:short" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InvestorApplications" msprop:Generator_TableClassName="InvestorApplicationsDataTable" msprop:Generator_TableVarName="tableInvestorApplications" msprop:Generator_TablePropName="InvestorApplications" msprop:Generator_RowDeletingName="InvestorApplicationsRowDeleting" msprop:Generator_RowChangingName="InvestorApplicationsRowChanging" msprop:Generator_RowEvHandlerName="InvestorApplicationsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorApplicationsRowDeleted" msprop:Generator_UserTableName="InvestorApplications" msprop:Generator_RowChangedName="InvestorApplicationsRowChanged" msprop:Generator_RowEvArgName="InvestorApplicationsRowChangeEvent" msprop:Generator_RowClassName="InvestorApplicationsRow">
+        <xs:element name="InvestorApplications" msprop:Generator_TableClassName="InvestorApplicationsDataTable" msprop:Generator_TableVarName="tableInvestorApplications" msprop:Generator_RowChangedName="InvestorApplicationsRowChanged" msprop:Generator_TablePropName="InvestorApplications" msprop:Generator_RowDeletingName="InvestorApplicationsRowDeleting" msprop:Generator_RowChangingName="InvestorApplicationsRowChanging" msprop:Generator_RowEvHandlerName="InvestorApplicationsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorApplicationsRowDeleted" msprop:Generator_RowClassName="InvestorApplicationsRow" msprop:Generator_UserTableName="InvestorApplications" msprop:Generator_RowEvArgName="InvestorApplicationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />

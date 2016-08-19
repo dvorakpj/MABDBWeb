@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataUtils;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -1288,6 +1289,20 @@ namespace MABDBWeb
         protected void GridView1_DataBound(object sender, EventArgs e)
         {
             GridView1_DataBindingComplete(sender, e);
+        }
+
+        private void MoveApplicantToInvestor(int InvestorApplicationId)
+        {
+            StatusUpdate sa = new StatusUpdate();
+
+            sa.InvestorApplication_to_newInvestor(InvestorApplicationId);
+
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            MoveApplicantToInvestor(1118);
         }
     }
 };
