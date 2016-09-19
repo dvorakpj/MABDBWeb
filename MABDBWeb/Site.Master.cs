@@ -69,8 +69,10 @@ namespace MABDBWeb
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            int i = 0;
         }
+
+        
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
         {

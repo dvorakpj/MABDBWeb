@@ -15,12 +15,14 @@ namespace DataUtils
         /// </summary>
         public int InvestorApplication_to_newInvestor(int InvestorApplicationId)
         {
-            InvestorDS.InvestorApplicationsDataTable invAppDT = new InvestorDS.InvestorApplicationsDataTable();            
+            InvestorDS.InvestorApplicationsDataTable invAppDT = null; // new InvestorDS.InvestorApplicationsDataTable();            
             InvestorDSTableAdapters.InvestorApplicationsTableAdapter invAppTA = new InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
             InvestorDS.InvestorApplicationsRow invAppRow = null;
 
+            StringBuilder invAppErrorMsgSB = new StringBuilder();
+
             //invAppTA
-            invAppTA.GetDataById(InvestorApplicationId);
+            invAppDT = invAppTA.GetDataById(InvestorApplicationId);
 
             if (1 != invAppDT.Rows.Count)
             {
@@ -28,11 +30,37 @@ namespace DataUtils
             } else
             {
                 invAppRow = invAppDT.Rows[0] as InvestorDS.InvestorApplicationsRow; 
+
+                if (invAppRow.IsPrimary_LastNameNull())
+                {
+                    invAppErrorMsgSB.AppendLine("Primary Investor's Last Name cannot be null.");
+                }
+                if (invAppRow.IsPrimary_DOBNull())
+                {
+                    invAppErrorMsgSB.AppendLine("Primary Investor's DOB cannot be null.");
+                }
+
+                if (invAppErrorMsgSB.Length > 0)
+                {
+                    string invAppErrorMsg = invAppErrorMsgSB.ToString();
+                    throw new ApplicationException(invAppErrorMsg);
+                }
+
+                
             }
 
             InvestorDS.InvestorDataTable invDT = new InvestorDS.InvestorDataTable();            
 
             InvestorDS.InvestorRow invRow = invDT.NewRow() as InvestorDS.InvestorRow;
+
+            invRow.InvestorApplicationId = invAppRow.Id;
+
+            invRow.FirstName = invAppRow.Primary_FirstName.Trim();
+            invRow.LastName = invAppRow.Primary_LastName.Trim();
+
+            invRow.DOB = invAppRow.Primary_DOB;
+
+
 
             return 1;
 

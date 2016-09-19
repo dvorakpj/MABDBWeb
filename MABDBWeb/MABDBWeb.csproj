@@ -179,6 +179,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="InvestorApplicantsNewAll.aspx" />
+    <Content Include="NewAutoRejectedInvestorApps.aspx" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="InvestorApplicants.aspx" />
@@ -372,6 +374,13 @@
     <Compile Include="InvestorApplicants.aspx.designer.cs">
       <DependentUpon>InvestorApplicants.aspx</DependentUpon>
     </Compile>
+    <Compile Include="InvestorApplicantsNewAll.aspx.cs">
+      <DependentUpon>InvestorApplicantsNewAll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvestorApplicantsNewAll.aspx.designer.cs">
+      <DependentUpon>InvestorApplicantsNewAll.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InvestorApplicationDetail.aspx.cs">
       <DependentUpon>InvestorApplicationDetail.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,6 +411,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAutoRejectedInvestorApps.aspx.cs">
+      <DependentUpon>NewAutoRejectedInvestorApps.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewAutoRejectedInvestorApps.aspx.designer.cs">
+      <DependentUpon>NewAutoRejectedInvestorApps.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

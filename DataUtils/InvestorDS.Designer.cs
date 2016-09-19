@@ -714,7 +714,7 @@ namespace DataUtils {
                         string CreatedBy, 
                         System.DateTime Updated, 
                         System.DateTime UpdatedBy, 
-                        short InvestorApplicationId) {
+                        int InvestorApplicationId) {
                 InvestorRow rowInvestorRow = ((InvestorRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -869,7 +869,7 @@ namespace DataUtils {
                 base.Columns.Add(this.columnUpdated);
                 this.columnUpdatedBy = new global::System.Data.DataColumn("UpdatedBy", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUpdatedBy);
-                this.columnInvestorApplicationId = new global::System.Data.DataColumn("InvestorApplicationId", typeof(short), null, global::System.Data.MappingType.Element);
+                this.columnInvestorApplicationId = new global::System.Data.DataColumn("InvestorApplicationId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInvestorApplicationId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
@@ -3641,10 +3641,10 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public short InvestorApplicationId {
+            public int InvestorApplicationId {
                 get {
                     try {
-                        return ((short)(this[this.tableInvestor.InvestorApplicationIdColumn]));
+                        return ((int)(this[this.tableInvestor.InvestorApplicationIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'InvestorApplicationId\' in table \'Investor\' is DBNull.", e);

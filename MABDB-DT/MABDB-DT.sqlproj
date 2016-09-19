@@ -235,8 +235,14 @@
     <Build Include="dbo\Tables\Property.sql" />
     <Build Include="dbo\Tables\Vendor.sql" />
     <Build Include="dbo\Tables\Agency.sql" />
+    <Build Include="dbo\Views\vw_NewInvestorAppAutoRejectedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_NewInvestorAppAutoAcceptedNotInformed.sql" />
+    <Build Include="vw_NewInvestorAppAutoRejected.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MABDB-DT.publish.xml" />
   </ItemGroup>
 </Project>

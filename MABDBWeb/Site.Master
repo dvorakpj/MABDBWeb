@@ -6,13 +6,39 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - My ASP.NET Application</title>
+    <title><%: Page.Title %> - MA BDB (D'onkey)</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+     <script type="text/javascript">
+    $(function () {
+        $('.cbSelectRow').change(function () {
+            // detect if the checkbox is checked
+            var checked = $(this).prop('checked');
+            // gets the table row indiect parent
+            var trParent = $(this).parents('tr');
+            // add or remove the css class according to the check state
+            if (checked == true)
+                trParent.addClass('lightGreen');
+            else
+                trParent.removeClass('lightGreen');
+        });
+        // select all click
+        $("#cbSelectAll").change(function () {
+            var checked = $(this).prop('checked');
+            $('.cbSelectRow').prop('checked', checked).trigger('change');
+        });
+    });
+</script>
+    <style type="text/css">
+     .lightGreen
+        {
+            background-color: lightgreen;
+        }
+     </style>
 
 </head>
 <body>
@@ -78,7 +104,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Mortgage Alternative Business Database</p>
             </footer>
         </div>
     </form>

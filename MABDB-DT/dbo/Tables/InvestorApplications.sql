@@ -121,6 +121,14 @@
     [YrsPrevAddr]                        VARCHAR (120)      NULL,
     [YrsCurrEmployer]                    VARCHAR (120)      NULL,
     [YrsPrevEmployer]                    VARCHAR (120)      NULL,
+    [AutoRejected]					 Date NULL,
+    [AutoRejectedInformed]					 Date NULL,
+    [AutoRejecetedBy]				VARCHAR(50) NULL,
+    [AutoRejectedInformedBy]		VARCHAR(50) NULL,
+    [AutoAccepted]			Date NULL,
+    [AutoAcceptedBy]			VARCHAR(50) NULL,
+    [AutoAcceptedInformed]					 Date NULL,
+    [AutoAcceptedInformedBy]			VARCHAR(50) NULL
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );

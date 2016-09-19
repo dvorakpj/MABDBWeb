@@ -807,7 +807,7 @@ WHERE Id = @Id</CommandText>
               </xs:element>
               <xs:element name="Updated" msprop:Generator_ColumnVarNameInTable="columnUpdated" msprop:Generator_ColumnPropNameInRow="Updated" msprop:Generator_ColumnPropNameInTable="UpdatedColumn" msprop:Generator_UserColumnName="Updated" type="xs:dateTime" minOccurs="0" />
               <xs:element name="UpdatedBy" msprop:Generator_ColumnVarNameInTable="columnUpdatedBy" msprop:Generator_ColumnPropNameInRow="UpdatedBy" msprop:Generator_ColumnPropNameInTable="UpdatedByColumn" msprop:Generator_UserColumnName="UpdatedBy" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="InvestorApplicationId" msprop:Generator_ColumnVarNameInTable="columnInvestorApplicationId" msprop:Generator_ColumnPropNameInRow="InvestorApplicationId" msprop:Generator_ColumnPropNameInTable="InvestorApplicationIdColumn" msprop:Generator_UserColumnName="InvestorApplicationId" type="xs:short" minOccurs="0" />
+              <xs:element name="InvestorApplicationId" msprop:Generator_ColumnVarNameInTable="columnInvestorApplicationId" msprop:Generator_ColumnPropNameInRow="InvestorApplicationId" msprop:Generator_ColumnPropNameInTable="InvestorApplicationIdColumn" msprop:Generator_UserColumnName="InvestorApplicationId" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
