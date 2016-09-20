@@ -5,12 +5,7 @@
 
 
            <div>
-    
-    <%--    <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Investor Applications"></asp:Label>--%>
-    
-           <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [v_InvestorAppsBasicWScores] ORDER BY [Id] DESC"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>--%>    
-               
+           
             <asp:SqlDataSource ID="InvestorApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [v_InvestorAppsBasicWScores] ORDER BY [Id] DESC"></asp:SqlDataSource>
             <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>
 

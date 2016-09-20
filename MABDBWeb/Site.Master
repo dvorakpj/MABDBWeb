@@ -6,7 +6,7 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - MA BDB (D'onkey)</title>
+    <title><%: Page.Title %> - MA Business DB (D'onkey)</title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
@@ -104,7 +104,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - Mortgage Alternative Business Database</p>
+                <p>&copy; <%: DateTime.Now.Year %> - HFGA Pty Ltd</p>
             </footer>
         </div>
     </form>

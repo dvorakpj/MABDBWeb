@@ -17,6 +17,18 @@ using System.Web.UI.WebControls;
 
 namespace MABDBWeb
 {
+
+    enum ScoreClass
+    {
+        Undefined,
+        Reject,
+        Bronze,
+        Silver,
+        Gold,
+        Platinum,
+    }
+
+
     public partial class InvestorApplicantsNewAll : System.Web.UI.Page
     {
 
@@ -134,9 +146,10 @@ namespace MABDBWeb
             }
 
 
+            #region set up columns in dt
             DataColumn[] impCols;
 
-            impCols = new DataColumn[122]; //total 119 columns in the table
+            impCols = new DataColumn[131]; //total 128 columns in the table
                                            //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
@@ -265,9 +278,10 @@ namespace MABDBWeb
 
 
             // considered for priority
-            impCols[86] = new DataColumn("HasReqestedPriority", typeof(string));
+            impCols[86] = new DataColumn("HasReadPO6", typeof(string));
             impCols[87] = new DataColumn("HasAgreedPrivacy", typeof(string));
-            impCols[88] = new DataColumn("HasAgreedPACLicence", typeof(string));
+            impCols[88] = new DataColumn("HasReqestedPriority", typeof(string));
+            
             //           has read PAC Licence Agreement."
             // Created by UserID
             impCols[89] = new DataColumn("UserId", typeof(string));
@@ -280,54 +294,109 @@ namespace MABDBWeb
             impCols[93] = new DataColumn("TransactionId", typeof(string));
 
             impCols[94] = new DataColumn("CreatedUTC", typeof(DateTime));
+            impCols[95] = new DataColumn("HasAgreedPACLicence", typeof(string));
 
-            int maxImportedColId = 94;
+            int maxImportedColId = 95;
 
             // columns not populated
-            impCols[95] = new DataColumn("CondApproved", typeof(DateTime));
-            impCols[96] = new DataColumn("CondApprovedBy", typeof(string));
+            impCols[96] = new DataColumn("CondApproved", typeof(DateTime));
+            impCols[97] = new DataColumn("CondApprovedBy", typeof(string));
 
-            impCols[97] = new DataColumn("Other_Dependants", typeof(string));
-            impCols[98] = new DataColumn("LookingLocation", typeof(string));
-            impCols[99] = new DataColumn("FoundLocation", typeof(string));
-            impCols[100] = new DataColumn("Property_Street1", typeof(string));
-            impCols[101] = new DataColumn("Property_Street2", typeof(string));
-            impCols[102] = new DataColumn("Property_City", typeof(string));
-            impCols[103] = new DataColumn("Property_State", typeof(string));
-            impCols[104] = new DataColumn("Property_PostCode", typeof(string));
-            impCols[105] = new DataColumn("Property_Vendor", typeof(string));
-            impCols[106] = new DataColumn("Property_Country", typeof(string));
-            impCols[107] = new DataColumn("Property_AgentDetails", typeof(string));
-            impCols[108] = new DataColumn("Primary_Dependants", typeof(string));
-            impCols[109] = new DataColumn("CurrEmploymentStatus", typeof(string));
-            impCols[110] = new DataColumn("YrsCurrEmployer", typeof(string));
-            impCols[111] = new DataColumn("YrsPrevEmployer", typeof(string));
-            impCols[112] = new DataColumn("IsSmoker", typeof(string));
-            impCols[113] = new DataColumn("HasPrivateHealthIns", typeof(string));
-            impCols[114] = new DataColumn("CreatedBy", typeof(string));
-            impCols[115] = new DataColumn("ModifiedBy", typeof(string));
-            impCols[116] = new DataColumn("Modified", typeof(string));
-            impCols[117] = new DataColumn("RowVersion", typeof(string));
-            impCols[118] = new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string));
-            impCols[119] = new DataColumn("InvestorApplication_Gender", typeof(string));
-            impCols[120] = new DataColumn("EstSpend", typeof(string));
-
+            impCols[98] = new DataColumn("Other_Dependants", typeof(string));
+            impCols[99] = new DataColumn("LookingLocation", typeof(string));
+            impCols[100] = new DataColumn("FoundLocation", typeof(string));
+            impCols[101] = new DataColumn("Property_Street1", typeof(string));
+            impCols[102] = new DataColumn("Property_Street2", typeof(string));
+            impCols[103] = new DataColumn("Property_City", typeof(string));
+            impCols[104] = new DataColumn("Property_State", typeof(string));
+            impCols[105] = new DataColumn("Property_PostCode", typeof(string));
+            impCols[106] = new DataColumn("Property_Vendor", typeof(string));
+            impCols[107] = new DataColumn("Property_Country", typeof(string));
+            impCols[108] = new DataColumn("Property_AgentDetails", typeof(string));
+            impCols[109] = new DataColumn("Primary_Dependants", typeof(string));
+            impCols[110] = new DataColumn("CurrEmploymentStatus", typeof(string));
+            impCols[111] = new DataColumn("YrsCurrEmployer", typeof(string));
+            impCols[112] = new DataColumn("YrsPrevEmployer", typeof(string));
+            impCols[113] = new DataColumn("IsSmoker", typeof(string));
+            impCols[114] = new DataColumn("HasPrivateHealthIns", typeof(string));
+            impCols[115] = new DataColumn("CreatedBy", typeof(string));
+            impCols[116] = new DataColumn("ModifiedBy", typeof(string));
+            impCols[117] = new DataColumn("Modified", typeof(string));
+            impCols[118] = new DataColumn("RowVersion", typeof(string));
+            impCols[119] = new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string));
+            impCols[120] = new DataColumn("InvestorApplication_Gender", typeof(string));
+            impCols[121] = new DataColumn("EstSpend", typeof(string));
+            impCols[122] = new DataColumn("AutoRejected", typeof(string));
+            impCols[123] = new DataColumn("AutoRejectedInformed", typeof(string));
+            impCols[124] = new DataColumn("AutoRejecetedBy", typeof(string));
+            impCols[125] = new DataColumn("AutoRejectedInformedBy", typeof(string));
+            impCols[126] = new DataColumn("AutoAccepted", typeof(string));
+            impCols[127] = new DataColumn("AutoAcceptedBy", typeof(string));
+            impCols[128] = new DataColumn("AutoAcceptedInformed", typeof(string));
+            impCols[129] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
 
             // ignored columns
-            impCols[121] = new DataColumn("Id", typeof(int));
-            impCols[121].AutoIncrement = true;
-            impCols[121].AutoIncrementSeed = -1;
-            impCols[121].AutoIncrementStep = -1;
+            impCols[130] = new DataColumn("Id", typeof(int));
+            impCols[130].AutoIncrement = true;
+            impCols[130].AutoIncrementSeed = -1;
+            impCols[130].AutoIncrementStep = -1;
 
             //modified
             //impCols[116] = DateTime.UtcNow;
             // created UTC
             //impCols[96] = DateTime.UtcNow;
 
-            //"Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
             dt.Columns.AddRange(impCols);
+
+            #endregion set up columns
+
+
+            //"Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
+
+
+            //prepare list columns
+            List<string[,]> listColumns = new List<string[,]> ();
+
+            string[,] t = new string[1,2] { { "Primary Applicant Home and/or Investment loans (list all)" , "Primary_HomeLoanList" }  };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Home and/or Investment loans (list all)", "Other_HomeLoanList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Primary Applicant Car or Personal loans (list all)", "Primary_PersonalLoansList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Car or Personal loans (list all)", "Other_PersonalLoansList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Primary Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Primary_CreditCardList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Other_CreditCardList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Property Assets & Liabilities for Primary Applicant:", "Primary_PropertyAssets" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Property Assets & Liabilities for Other Applicant:", "Other_PropertyAssets" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Assets for Primary Applicant:", "Primary_OtherAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Assets for Other Applicant:", "Other_OtherAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Liabilities for Primary Applicant:", "Primary_OtherLiabilitiesList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Liabilities for Other Applicant:", "Other_OtherLiabilitiesList" } };
+            listColumns.Add(t);
+
+            //listColumns.Add(new Dictionary<string, string>().Add("Primary Applicant Home and/or Investment loans (list all)", "") ); 
+            //listColumns.Add("");
+            //listColumns.Add(");
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+            //listColumns.Add();
+
             string csvData = File.ReadAllText(csvPath);
 
 
@@ -335,6 +404,9 @@ namespace MABDBWeb
             bool skipHeaderRow = true;
 
             DataTable scoreDT = SetupScoreCard();
+
+
+            Dictionary<string[,], short> listColsMaxCounts = null;
 
             ds.Tables.Add(dt);
             ds.Tables.Add(scoreDT);
@@ -362,6 +434,8 @@ namespace MABDBWeb
 
                 if (0 == rowCnt && skipHeaderRow)
                 {
+
+                    listColsMaxCounts = ProcessListColumns(listColumns, row);
                     rowCnt++;
                     continue;
                 }
@@ -370,6 +444,12 @@ namespace MABDBWeb
                 {
                     DataRow newRow = dt.Rows.Add();
                     int col = 0;
+                    string currentColumnName = string.Empty;
+                    string currentListColumn = String.Empty;
+                    string[,] tmpListColumnMap = null;
+                    short colHMax = 1;
+                    int currentListColumnIndex = 1;
+
                     foreach (string cell in SplitCSV(row))
                     {
                         // do only columns that are defined
@@ -378,7 +458,7 @@ namespace MABDBWeb
                             break;
                         }
 
-                        string currentColumnName = dt.Columns[col].ColumnName;
+                        currentColumnName = dt.Columns[col].ColumnName;
 
                         //initialisation of skipped columns
                         if (
@@ -388,7 +468,8 @@ namespace MABDBWeb
                             ("Other_Dependants" == currentColumnName) ||
                             ("CondApproved" == currentColumnName) ||
                             ("CondApprovedBy" == currentColumnName) ||
-                            ("CreatedUTC" == currentColumnName)
+                            ("CreatedUTC" == currentColumnName) ||
+                            ("HasAgreedPACLicence" == currentColumnName)
                             )
                         {
                             newRow[col] = DBNull.Value;
@@ -396,11 +477,55 @@ namespace MABDBWeb
                             continue;
                         }
 
-
                         //remove string delimiter "
                         string value = cell.Trim('"');
 
-                        if ("EntryId" == currentColumnName)
+                        if (String.IsNullOrEmpty(currentListColumn))
+                        {
+                            foreach (string[,] item in listColsMaxCounts.Keys)
+                            {
+                                string colHeader = item[0, 1];
+                                if (currentColumnName.Equals(colHeader))
+                                {
+                                    currentListColumn = colHeader;  // we are inside a new list
+                                    currentListColumnIndex = 1; // reset
+                                    tmpListColumnMap = item;
+                                    if (!listColsMaxCounts.TryGetValue(tmpListColumnMap, out colHMax))
+                                    {
+                                        colHMax = 1;
+                                    }
+                                } 
+                            }
+                        }
+
+                        if (!String.IsNullOrEmpty(currentListColumn))
+                        {
+                            if (colHMax > currentListColumnIndex)
+                            {
+                                if (currentListColumnIndex > 1)
+                                {
+                                    newRow[col] += "; ";  //concat lines using a semi-colon
+                                }
+                                newRow[col] += value;
+                                currentListColumnIndex++;                              
+                                //just grab the next data column under the same row and dt col index
+                                
+                            }
+                            else if (colHMax == currentListColumnIndex) //move to the next column
+                            {
+                                newRow[col] += value;
+                                currentListColumn = String.Empty;
+                                currentListColumnIndex = 1;
+                                tmpListColumnMap = null;
+                                col++;
+                                //currentColumnName = dt.Columns[col].ColumnName;
+                            }
+                            continue;
+
+                        }                       
+
+
+                    if ("EntryId" == currentColumnName)
                         {
                             int intID;
                             if (Int32.TryParse(value, out intID))
@@ -412,13 +537,21 @@ namespace MABDBWeb
                                     duplIds.Add(intID);
                                     break;
                                 }
+                            } else  // default Entry ID to -1
+                            {
+                                newRow[col] = -1;
                             }
+                        }
+
+
+                        else if ("EntryDate" == currentColumnName)
+                        {
+                            newRow[col] = (object)(ParseToDate(value)) ?? DateTime.Today;
                         }
 
                         //excptional formatting - Dates
                         else if (("Primary_DOB" == currentColumnName) ||
-                                 ("Other_DOB" == currentColumnName) ||
-                                 ("EntryDate" == currentColumnName))
+                                 ("Other_DOB" == currentColumnName))
                         {
                             newRow[col] = (object)(ParseToDate(value)) ?? DBNull.Value;
                         }
@@ -571,6 +704,62 @@ namespace MABDBWeb
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="listCols"></param>
+        /// <param name="row"></param>
+        private Dictionary<string[,], short> ProcessListColumns(List<string[,]> listCols, string row)
+        {
+
+            Dictionary<string[,], short> listColsMaxCounts = new Dictionary<string[,], short>();
+
+            //throw new NotImplementedException();
+            foreach (string cell in SplitCSV(row))
+            {
+
+                string value = cell.Trim('"');
+                foreach (string[,] listHeader in listCols)
+                {
+                    string colheader = listHeader[0,0];
+                    //if (!listColsMaxCounts.ContainsKey(listHeader))  // the list is 
+                    //{
+                        short listHMax = 1;
+                    if (value.StartsWith(colheader))
+                    {
+                        int i = 0;
+                        char[] charsInheader = value.ToCharArray();
+
+                        while ((charsInheader[charsInheader.Length - 1 - i] >= '0') && (charsInheader[charsInheader.Length - 1 - i] <= '9'))
+                        {
+                            i++;
+                        }
+
+                        if (i > 0)
+                        {
+                            string counter = value.Substring(value.Length - i);
+                            if (Int16.TryParse(counter, out listHMax))
+                            {
+                                listColsMaxCounts[listHeader] = listHMax;
+                            }
+                            //char c = ''; // none
+                            //value.Substring(value.Length-)
+                        }
+                        else
+                        {
+                            listColsMaxCounts[listHeader] = 1;
+                        }
+                    }
+                    //} else
+                    //{
+                    //    throw new ArgumentException("The list is not unique.", "listCols");
+                    //}
+                }
+
+            }
+
+            return listColsMaxCounts;
+        }
 
         public static void MyHandler(object adapter, SqlRowUpdatedEventArgs e)
         {

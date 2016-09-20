@@ -1,310 +1,144 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="InvestorApplicationDetail.aspx.cs" Inherits="MABDBWeb.InvestorApplicationDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorApplicationDetail.aspx.cs" Inherits="MABDBWeb.InvestorApplicationDetails" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <asp:Label ID="Label1" runat="server" style="font-weight: 700" Text="Investor Application Details"></asp:Label>
+    <br />
+    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="InvestorApplicationDetailsSqlDataSource" Height="50px" Width="125px">
+        <EditRowStyle Wrap="False" />
+        <FieldHeaderStyle Wrap="False" />
+        <Fields>
+            <asp:BoundField DataField="Id" HeaderText="Temp ID" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
+            <asp:BoundField DataField="ApplicantType" HeaderText="Applicant Type" SortExpression="ApplicantType" />
+            <asp:BoundField DataField="Primary_FirstName" HeaderText="Primary - First Name" SortExpression="Primary_FirstName" />
+            <asp:BoundField DataField="Primary_OtherNames" HeaderText="Primary- Other Names" SortExpression="Primary_OtherNames" />
+            <asp:BoundField DataField="Primary_LastName" HeaderText="Primary - Last Name" SortExpression="Primary_LastName" />
+            <asp:BoundField DataField="Primary_DOB" HeaderText="Primary - DOB" SortExpression="Primary_DOB" />
+            <asp:BoundField DataField="Primary_Gender" HeaderText="Primary - Gender" SortExpression="Primary_Gender" />
+            <asp:BoundField DataField="Primary_MaritalStats" HeaderText="Primary - Marital Status" SortExpression="Primary_MaritalStats" />
+            <asp:BoundField DataField="Email" HeaderText="Primary - Email" SortExpression="Email" />
+            <asp:BoundField DataField="Mobile" HeaderText="Primary - Mobile" SortExpression="Mobile" />
+            <asp:BoundField DataField="Primary_HomePhone" HeaderText="Primary - HomePhone" SortExpression="Primary_HomePhone" />
+            <asp:BoundField DataField="Primary_AUCitizenStat" HeaderText="Primary - AU Citizen" SortExpression="Primary_AUCitizenStat" />
+            <asp:BoundField DataField="Primary_Dependants" HeaderText="Primary - Dependants" SortExpression="Primary_Dependants" />
+            <asp:BoundField DataField="Other_FirstName" HeaderText="Other - First Name" SortExpression="Other_FirstName" />
+            <asp:BoundField DataField="Other_OtherNames" HeaderText="Other - Other Names" SortExpression="Other_OtherNames" />
+            <asp:BoundField DataField="Other_LastName" HeaderText="Other - Last Name" SortExpression="Other_LastName" />
+            <asp:BoundField DataField="Other_DOB" HeaderText="Other - DOB" SortExpression="Other_DOB" />
+            <asp:BoundField DataField="Other_Gender" HeaderText="Other - Gender" SortExpression="Other_Gender" />
+            <asp:BoundField DataField="Other_MaritalStats" HeaderText="Other- Marital Status" SortExpression="Other_MaritalStats" />
+            <asp:BoundField DataField="Other_Email" HeaderText="Other - Email" SortExpression="Other_Email" />
+            <asp:BoundField DataField="Other_Mobile" HeaderText="Other - Mobile" SortExpression="Other_Mobile" />
+            <asp:BoundField DataField="Other_AUCitizenStat" HeaderText="Other - AU Citizen" SortExpression="Other_AUCitizenStat" />
+            <asp:BoundField DataField="Other_Dependants" HeaderText="Other_Dependants" SortExpression="Other_Dependants" />
+            <asp:BoundField DataField="Primary_Res_Street1" HeaderText="Primary Res -Street1" SortExpression="Primary_Res_Street1" />
+            <asp:BoundField DataField="Primary_Res_Street2" HeaderText="Primary Res - Street2" SortExpression="Primary_Res_Street2" />
+            <asp:BoundField DataField="Primary_Res_City" HeaderText="Primary Res - City" SortExpression="Primary_Res_City" />
+            <asp:BoundField DataField="Primary_Res_PostCode" HeaderText="Primary Res - PostCode" SortExpression="Primary_Res_PostCode" />
+            <asp:BoundField DataField="Primary_Res_State" HeaderText="Primary Res - State" SortExpression="Primary_Res_State" />
+            <asp:BoundField DataField="Primary_Res_Country" HeaderText="Primary Res - Country" SortExpression="Primary_Res_Country" />
+            <asp:BoundField DataField="Primary_CurrResidStatus" HeaderText="Primary - Current  Resid Status" SortExpression="Primary_CurrResidStatus" />
+            <asp:BoundField DataField="PrevResStatus" HeaderText="Priary - Prev Resid Status" SortExpression="PrevResStatus" />
+            <asp:BoundField DataField="CurrOccupType" HeaderText="Primary - Curr Occup Type" SortExpression="CurrOccupType" />
+            <asp:BoundField DataField="CurrEmploymentStatus" HeaderText="Primary - Current Employment Status" SortExpression="CurrEmploymentStatus" />
+            <asp:BoundField DataField="IsSmoker" HeaderText="Primary - Smoker" SortExpression="IsSmoker" />
+            <asp:BoundField DataField="HasPrivateHealthIns" HeaderText="Primary - Private Health Ins" SortExpression="HasPrivateHealthIns" />
+            <asp:BoundField DataField="ModifiedBy" HeaderText="Last Modified By" SortExpression="ModifiedBy" />
+            <asp:BoundField DataField="Modified" HeaderText="Last Date Modified" SortExpression="Modified" />
+            <asp:BoundField DataField="Primary_IncomeMoAT" HeaderText="Primary - Income mo After Tax" SortExpression="Primary_IncomeMoAT" />
+            <asp:BoundField DataField="Other_IncomeMoAT" HeaderText="Other - Income mo After Tax" SortExpression="Other_IncomeMoAT" />
+            <asp:BoundField DataField="HouseholdIncomeGrossPA" HeaderText="Household Income Gross p.a." SortExpression="HouseholdIncomeGrossPA" />
+            <asp:BoundField DataField="LookingLocation" HeaderText="Looking in Location" SortExpression="LookingLocation" />
+            <asp:BoundField DataField="FoundLocation" HeaderText="Found Location" SortExpression="FoundLocation" />
+            <asp:BoundField DataField="Property_Vendor" HeaderText="Property - Vendor" SortExpression="Property_Vendor" />
+            <asp:BoundField DataField="Property_AgentDetails" HeaderText="Property - Agent Details" SortExpression="Property_AgentDetails" />
+            <asp:BoundField DataField="Property_Street1" HeaderText="Property - Street1" SortExpression="Property_Street1" />
+            <asp:BoundField DataField="Property_Street2" HeaderText="Property - Street2" SortExpression="Property_Street2" />
+            <asp:BoundField DataField="Property_City" HeaderText="Property - City" SortExpression="Property_City" />
+            <asp:BoundField DataField="Property_PostCode" HeaderText="Property - Post Code" SortExpression="Property_PostCode" />
+            <asp:BoundField DataField="Property_State" HeaderText="Property - State" SortExpression="Property_State" />
+            <asp:BoundField DataField="Property_Country" HeaderText="Property - Country" SortExpression="Property_Country" />
+            <asp:BoundField DataField="EstSpend" HeaderText="Estimated Spend" SortExpression="EstSpend" />
+            <asp:BoundField DataField="EntryDate" HeaderText="Application Date" SortExpression="EntryDate" />
+            <asp:BoundField DataField="CondApproved" HeaderText="Date Cond Approved" SortExpression="CondApproved" />
+            <asp:BoundField DataField="HasAgreedPrivacy" HeaderText="Has Agreed Privacy" SortExpression="HasAgreedPrivacy" />
+            <asp:BoundField DataField="DesiredPropertyAddr" HeaderText="Desired Property Addr" SortExpression="DesiredPropertyAddr" />
+            <asp:BoundField DataField="Other_HomePhone" HeaderText="Other - HomePhone" SortExpression="Other_HomePhone" />
+            <asp:BoundField DataField="Primary_PassportNo" HeaderText="Primary - Passport No" SortExpression="Primary_PassportNo" />
+            <asp:BoundField DataField="Primary_PassportCountry" HeaderText="Primary- Passport Country" SortExpression="Primary_PassportCountry" />
+            <asp:BoundField DataField="Other_PassportNo" HeaderText="Other - Passport No" SortExpression="Other_PassportNo" />
+            <asp:BoundField DataField="Other_PassportCountry" HeaderText="Other - Passport Country" SortExpression="Other_PassportCountry" />
+            <asp:BoundField DataField="Primary_DriversLicenceNo" HeaderText="Primary - Drivers Licence No" SortExpression="Primary_DriversLicenceNo" />
+            <asp:BoundField DataField="Other_DriversLicenceNo" HeaderText="Other - Drivers Licence No" SortExpression="Other_DriversLicenceNo" />
+            <asp:BoundField DataField="Primary_DriversLicenceState" HeaderText="Primary - Drivers Licence State" SortExpression="Primary_DriversLicenceState" FooterText="XXXX" />
+            <asp:BoundField DataField="Other_DriversLicenceState" HeaderText="Other - Drivers Licence State" SortExpression="Other_DriversLicenceState" />
+            <asp:BoundField DataField="Other_Res_Street1" HeaderText="Other Res - Street1" SortExpression="Other_Res_Street1" />
+            <asp:BoundField DataField="Other_Res_Street2" HeaderText="Other Res - Street2" SortExpression="Other_Res_Street2" />
+            <asp:BoundField DataField="Other_Res_City" HeaderText="Other Res - City" SortExpression="Other_Res_City" />
+            <asp:BoundField DataField="Other_Res_PostCode" HeaderText="Other Res - Post Code" SortExpression="Other_Res_PostCode" />
+            <asp:BoundField DataField="Other_Res_State" HeaderText="Other Res - State" SortExpression="Other_Res_State" />
+            <asp:BoundField DataField="Other_Res_Country" HeaderText="Other Res - Country" SortExpression="Other_Res_Country" />
+            <asp:BoundField DataField="Other_CurrResidStatus" HeaderText="Other - Current Resid Status" SortExpression="Other_CurrResidStatus" />
+            <asp:BoundField DataField="PrimPrev_Res_Street1" HeaderText="Primary Prev Res - Street1" SortExpression="PrimPrev_Res_Street1" />
+            <asp:BoundField DataField="PrimPrev_Res_Street2" HeaderText="Prim Prev Res - Street2" SortExpression="PrimPrev_Res_Street2" />
+            <asp:BoundField DataField="PrimPrev_Res_City" HeaderText="Prim Prev Res - City" SortExpression="PrimPrev_Res_City" />
+            <asp:BoundField DataField="PrimPrev_Res_PostCode" HeaderText="Prim Prev Res - Post Code" SortExpression="PrimPrev_Res_PostCode" />
+            <asp:BoundField DataField="PrimPrev_Res_State" HeaderText="Prim Prev Res - State" SortExpression="PrimPrev_Res_State" />
+            <asp:BoundField DataField="PrimPrev_Res_Country" HeaderText="Prim Prev Res - Country" SortExpression="PrimPrev_Res_Country" />
+            <asp:BoundField DataField="OthPrev_Res_Street1" HeaderText="Other Prev Res - Street1" SortExpression="OthPrev_Res_Street1" />
+            <asp:BoundField DataField="OthPrev_Res_Street2" HeaderText="Other Prev Res - Street2" SortExpression="OthPrev_Res_Street2" />
+            <asp:BoundField DataField="OthPrev_Res_City" HeaderText="Other Prev Res - City" SortExpression="OthPrev_Res_City" />
+            <asp:BoundField DataField="OthPrev_Res_PostCode" HeaderText="Other Prev Res - Post Code" SortExpression="OthPrev_Res_PostCode" />
+            <asp:BoundField DataField="OthPrev_Res_State" HeaderText="Other Prev Res - State" SortExpression="OthPrev_Res_State" />
+            <asp:BoundField DataField="OthPrev_Res_Country" HeaderText="Other Prev Res - Country" SortExpression="OthPrev_Res_Country" />
+            <asp:BoundField DataField="Other_PrevResStatus" HeaderText="Other Prev Res - Status" SortExpression="Other_PrevResStatus" />
+            <asp:BoundField DataField="Other_CurrOccupType" HeaderText="Other - Current Occupation Type" SortExpression="Other_CurrOccupType" />
+            <asp:BoundField DataField="Primary_BusIncomeAPAYGTaxPA" HeaderText="Primary - Bus Income After PAYG Tax p.a." SortExpression="Primary_BusIncomeAPAYGTaxPA" />
+            <asp:BoundField DataField="Other_BusIncomeAPAYGTaxPA" HeaderText="Other - Bus Income After PAYG Tax p.a." SortExpression="Other_BusIncomeAPAYGTaxPA" />
+            <asp:BoundField DataField="Primary_OtherIncomePA" HeaderText="Primary - Other Income p.a." SortExpression="Primary_OtherIncomePA" />
+            <asp:BoundField DataField="Other_OtherIncomePA" HeaderText="Other - Other Income p.a." SortExpression="Other_OtherIncomePA" />
+            <asp:BoundField DataField="Primary_OtherIncomeType" HeaderText="Primary - Other Income Type" SortExpression="Primary_OtherIncomeType" />
+            <asp:BoundField DataField="Other_OtherIncomeType" HeaderText="Other - Other Income Type" SortExpression="Other_OtherIncomeType" />
+            <asp:BoundField DataField="Primary_HomeLoanList" HeaderText="Primary - Home Loan List" SortExpression="Primary_HomeLoanList" />
+            <asp:BoundField DataField="Other_HomeLoanList" HeaderText="Other - Home Loan List" SortExpression="Other_HomeLoanList" />
+            <asp:BoundField DataField="Primary_CreditCardList" HeaderText="Primary - Credit Card List" SortExpression="Primary_CreditCardList" />
+            <asp:BoundField DataField="Other_CreditCardList" HeaderText="Other - Credit Card List" SortExpression="Other_CreditCardList" />
+            <asp:BoundField DataField="RentPM" HeaderText="Rent p.mo." SortExpression="RentPM" />
+            <asp:BoundField DataField="Primary_PropertyAssets" HeaderText="Primary - Property Assets" SortExpression="Primary_PropertyAssets" />
+            <asp:BoundField DataField="Other_PropertyAssets" HeaderText="Other - Property Assets" SortExpression="Other_PropertyAssets" />
+            <asp:BoundField DataField="Primary_PersonalLoansList" HeaderText="Primary - Personal Loans List" SortExpression="Primary_PersonalLoansList" />
+            <asp:BoundField DataField="Other_PersonalLoansList" HeaderText="Other - Personal Loans List" SortExpression="Other_PersonalLoansList" />
+            <asp:BoundField DataField="Primary_OtherAssetsList" HeaderText="Primary- Other Assets List" SortExpression="Primary_OtherAssetsList" />
+            <asp:BoundField DataField="Other_OtherAssetsList" HeaderText="Other- Other Assets List" SortExpression="Other_OtherAssetsList" />
+            <asp:BoundField DataField="Primary_OtherLiabilitiesList" HeaderText="Primary - Other Liabilities List" SortExpression="Primary_OtherLiabilitiesList" />
+            <asp:BoundField DataField="Other_OtherLiabilitiesList" HeaderText="Other - Other Liabilities List" SortExpression="Other_OtherLiabilitiesList" />
+            <asp:BoundField DataField="CondApprovedBy" HeaderText="Cond Approved By" SortExpression="CondApprovedBy" />
+            <asp:BoundField DataField="HasReqestedPriority" HeaderText="Has Reqested Priority" SortExpression="HasReqestedPriority" />
+            <asp:BoundField DataField="HasAgreedPACLicence" HeaderText="Has Agreed PAC Licence" SortExpression="HasAgreedPACLicence" />
+            <asp:BoundField DataField="Primary_YrsCurrAddr" HeaderText="Primary - Yrs Current Addr" SortExpression="Primary_YrsCurrAddr" />
+            <asp:BoundField DataField="Other_YrsCurrAddr" HeaderText="Other - Yrs Curr Addr" SortExpression="Other_YrsCurrAddr" />
+            <asp:BoundField DataField="Other_YrsPrevAddr" HeaderText="Other - Yrs Prev Addr" SortExpression="Other_YrsPrevAddr" />
+            <asp:BoundField DataField="YrsPrevAddr" HeaderText="Yrs Prev Addr" SortExpression="YrsPrevAddr" />
+            <asp:BoundField DataField="YrsCurrEmployer" HeaderText="Yrs Curr Employer" SortExpression="YrsCurrEmployer" />
+            <asp:BoundField DataField="YrsPrevEmployer" HeaderText="Yrs Prev Employer" SortExpression="YrsPrevEmployer" />
+            <asp:BoundField DataField="AutoRejecetedBy" HeaderText="Auto Rejeceted By" SortExpression="AutoRejecetedBy" />
+            <asp:BoundField DataField="AutoRejected" HeaderText="Date Auto Rejected" SortExpression="AutoRejected" />
+            <asp:BoundField DataField="AutoRejectedInformed" HeaderText="Date Auto Rejected Informed" SortExpression="AutoRejectedInformed" />
+            <asp:BoundField DataField="AutoRejectedInformedBy" HeaderText="Auto Rejected Informed By" SortExpression="AutoRejectedInformedBy" />
+            <asp:BoundField DataField="AutoAccepted" HeaderText="Date Auto Accepted" SortExpression="AutoAccepted" />
+            <asp:BoundField DataField="AutoAcceptedBy" HeaderText="Auto Accepted By" SortExpression="AutoAcceptedBy" />
+            <asp:BoundField DataField="AutoAcceptedInformed" HeaderText="Date Auto Accepted Informed" SortExpression="AutoAcceptedInformed" />
+            <asp:BoundField DataField="AutoAcceptedInformedBy" HeaderText="Auto Accepted Informed By" SortExpression="AutoAcceptedInformedBy" />
+        </Fields>
+        <RowStyle Wrap="False" />
+    </asp:DetailsView>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Investor Application Detail</title>
-    <link rel="stylesheet" type="text/css" href="Content/bootstrap.min.css"/>
-    <script type="text/javascript" src="Scripts/jquery-1.10.2.min.js"></script>
-    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/App/InvestorApplicationDetail.js"></script>
-    <script >
-        $('#form1')
-            .submit(function() {
-                    /* when the submit button in the modal is clicked, submit the form */
-                $('#CondApprovalModal').modal('show');
-                    //alert('submitting');
-                    $('#btnCondApprove')
-                        .click(function() {
-                                form.submit();
-                            }
-            );
-        });
-    </script>
-
-</head>
-<body>
-
-    <form id="form1" runat="server">
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Text="Application Details"></asp:Label>
-    <div>
-    
-    </div>
-        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" CellSpacing="2" DataKeyNames="Id" DataSourceID="SqlDataSource1" ForeColor="Black" Height="50px" HorizontalAlign="Justify" style="margin-right: 52px" Width ="220px">
-            <EditRowStyle BackColor="#CCCCCC" BorderColor="#999999" Font-Bold="True" ForeColor="White" BorderWidth="3px" />
-            <Fields>
-                <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                <asp:BoundField DataField="ApplicantType" HeaderText="App Type" SortExpression="ApplicantType" />
-                <asp:BoundField DataField="Primary_FirstName" HeaderText="Primary First Name" SortExpression="Primary_FirstName" />
-                <asp:BoundField DataField="Primary_OtherNames" HeaderText="Primary Other Names" SortExpression="Primary_OtherNames" />
-                <asp:BoundField DataField="Primary_LastName" HeaderText="Primary Last Name" SortExpression="Primary_LastName" />
-                <asp:BoundField DataField="Primary_DOB" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Primary DOB" SortExpression="Primary_DOB" />
-                <asp:BoundField DataField="Primary_AUCitizenStat" HeaderText="Primary Citizenship" SortExpression="Primary_AUCitizenStat" />
-                <asp:BoundField DataField="Primary_Dependants" HeaderText="Primary Dependants" SortExpression="Primary_Dependants" />
-                <asp:BoundField DataField="Other_FirstName" HeaderText="Other First Name" SortExpression="Other_FirstName" />
-                <asp:BoundField DataField="Other_OtherNames" HeaderText="Other OtherNames" SortExpression="Other_OtherNames" />
-                <asp:BoundField DataField="Other_LastName" HeaderText="Other Last Name" SortExpression="Other_LastName" />
-                <asp:BoundField DataField="Other_DOB" DataFormatString="{0:dd/mm/yyyy}" HeaderText="Other DOB" SortExpression="Other_DOB" />
-                <asp:BoundField DataField="Other_Gender" HeaderText="Other Gender" SortExpression="Other_Gender" />
-                <asp:BoundField DataField="Other_AUCitizenStat" HeaderText="Other Citizenship" SortExpression="Other_AUCitizenStat" />
-                <asp:BoundField DataField="Other_Dependants" HeaderText="Other Dependants" SortExpression="Other_Dependants" />
-                <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
-                <asp:BoundField DataField="Mobile" HeaderText="Mobile" SortExpression="Mobile" />
-                <asp:BoundField DataField="Res_Street1" HeaderText="Res_Street1" SortExpression="Res_Street1" />
-                <asp:BoundField DataField="Res_Street2" HeaderText="Res_Street2" SortExpression="Res_Street2" />
-                <asp:BoundField DataField="Res_City" HeaderText="Res_City" SortExpression="Res_City" />
-                <asp:BoundField DataField="Res_PostCode" HeaderText="Res_PostCode" SortExpression="Res_PostCode" />
-                <asp:BoundField DataField="Res_State" HeaderText="Res_State" SortExpression="Res_State" />
-                <asp:BoundField DataField="Res_Country" HeaderText="Res_Country" SortExpression="Res_Country" />
-                <asp:BoundField DataField="YrsCurrAddr" HeaderText="YrsCurrAddr" SortExpression="YrsCurrAddr" />
-                <asp:BoundField DataField="CurrResidStatus" HeaderText="CurrResidStatus" SortExpression="CurrResidStatus" />
-                <asp:BoundField DataField="YrsPrevAddr" HeaderText="YrsPrevAddr" SortExpression="YrsPrevAddr" />
-                <asp:BoundField DataField="PrevResStatus" HeaderText="PrevResStatus" SortExpression="PrevResStatus" />
-                <asp:BoundField DataField="CurrOccupType" HeaderText="CurrOccupType" SortExpression="CurrOccupType" />
-                <asp:BoundField DataField="CurrEmploymentStatus" HeaderText="CurrEmploymentStatus" SortExpression="CurrEmploymentStatus" />
-                <asp:BoundField DataField="YrsCurrEmployer" HeaderText="YrsCurrEmployer" SortExpression="YrsCurrEmployer" />
-                <asp:BoundField DataField="YrsPrevEmployer" HeaderText="YrsPrevEmployer" SortExpression="YrsPrevEmployer" />
-                <asp:BoundField DataField="IsSmoker" HeaderText="IsSmoker" SortExpression="IsSmoker" />
-                <asp:BoundField DataField="HasPrivateHealthIns" HeaderText="HasPrivateHealthIns" SortExpression="HasPrivateHealthIns" />
-                <asp:BoundField DataField="CreatedBy" HeaderText="CreatedBy" SortExpression="CreatedBy" />
-                <asp:BoundField DataField="Created" HeaderText="Created" SortExpression="Created" />
-                <asp:BoundField DataField="ModifiedBy" HeaderText="ModifiedBy" SortExpression="ModifiedBy" />
-                <asp:BoundField DataField="Modified" HeaderText="Modified" SortExpression="Modified" />
-                <asp:BoundField DataField="InvestorApplicant_AssquireInvestor" HeaderText="InvestorApplicant_AssquireInvestor" SortExpression="InvestorApplicant_AssquireInvestor" />
-                <asp:BoundField DataField="InvestorApplication_Gender" HeaderText="InvestorApplication_Gender" SortExpression="InvestorApplication_Gender" />
-                <asp:BoundField DataField="Primary_IncomeMoAT" HeaderText="Primary_IncomeMoAT" SortExpression="Primary_IncomeMoAT" />
-                <asp:BoundField DataField="Other_IncomeMoAT" HeaderText="Other_IncomeMoAT" SortExpression="Other_IncomeMoAT" />
-                <asp:BoundField DataField="HouseholdIncomeGrossPA" HeaderText="HouseholdIncomeGrossPA" SortExpression="HouseholdIncomeGrossPA" />
-                <asp:BoundField DataField="LookingLocation" HeaderText="LookingLocation" SortExpression="LookingLocation" />
-                <asp:BoundField DataField="FoundLocation" HeaderText="FoundLocation" SortExpression="FoundLocation" />
-                <asp:BoundField DataField="Property_Street1" HeaderText="Property_Street1" SortExpression="Property_Street1" />
-                <asp:BoundField DataField="Property_Street2" HeaderText="Property_Street2" SortExpression="Property_Street2" />
-                <asp:BoundField DataField="Property_City" HeaderText="Property_City" SortExpression="Property_City" />
-                <asp:BoundField DataField="Property_Vendor" HeaderText="Property_Vendor" SortExpression="Property_Vendor" />
-                <asp:BoundField DataField="EstSpend" HeaderText="EstSpend" SortExpression="EstSpend" />
-                <asp:BoundField DataField="EntryDate" HeaderText="EntryDate" SortExpression="EntryDate" />
-                <asp:CommandField ShowEditButton="True" />
-            </Fields>
-            <FooterStyle BackColor="#CCCCCC" />
-            <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" />
-            <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
-            <RowStyle BackColor="White" />
-        </asp:DetailsView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConflictDetection="CompareAllValues" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" DeleteCommand="DELETE FROM [InvestorApplications] WHERE [Id] = @original_Id AND (([ApplicantType] = @original_ApplicantType) OR ([ApplicantType] IS NULL AND @original_ApplicantType IS NULL)) AND (([Primary_FirstName] = @original_Primary_FirstName) OR ([Primary_FirstName] IS NULL AND @original_Primary_FirstName IS NULL)) AND (([Primary_OtherNames] = @original_Primary_OtherNames) OR ([Primary_OtherNames] IS NULL AND @original_Primary_OtherNames IS NULL)) AND (([Primary_LastName] = @original_Primary_LastName) OR ([Primary_LastName] IS NULL AND @original_Primary_LastName IS NULL)) AND (([Primary_AUCitizenStat] = @original_Primary_AUCitizenStat) OR ([Primary_AUCitizenStat] IS NULL AND @original_Primary_AUCitizenStat IS NULL)) AND (([Primary_Dependants] = @original_Primary_Dependants) OR ([Primary_Dependants] IS NULL AND @original_Primary_Dependants IS NULL)) AND (([Other_FirstName] = @original_Other_FirstName) OR ([Other_FirstName] IS NULL AND @original_Other_FirstName IS NULL)) AND (([Other_OtherNames] = @original_Other_OtherNames) OR ([Other_OtherNames] IS NULL AND @original_Other_OtherNames IS NULL)) AND (([Other_LastName] = @original_Other_LastName) OR ([Other_LastName] IS NULL AND @original_Other_LastName IS NULL)) AND (([Other_DOB] = @original_Other_DOB) OR ([Other_DOB] IS NULL AND @original_Other_DOB IS NULL)) AND (([Other_Gender] = @original_Other_Gender) OR ([Other_Gender] IS NULL AND @original_Other_Gender IS NULL)) AND (([Other_AUCitizenStat] = @original_Other_AUCitizenStat) OR ([Other_AUCitizenStat] IS NULL AND @original_Other_AUCitizenStat IS NULL)) AND (([Other_Dependants] = @original_Other_Dependants) OR ([Other_Dependants] IS NULL AND @original_Other_Dependants IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND (([Mobile] = @original_Mobile) OR ([Mobile] IS NULL AND @original_Mobile IS NULL)) AND (([Res_Street1] = @original_Res_Street1) OR ([Res_Street1] IS NULL AND @original_Res_Street1 IS NULL)) AND (([Res_Street2] = @original_Res_Street2) OR ([Res_Street2] IS NULL AND @original_Res_Street2 IS NULL)) AND (([Res_City] = @original_Res_City) OR ([Res_City] IS NULL AND @original_Res_City IS NULL)) AND (([Res_PostCode] = @original_Res_PostCode) OR ([Res_PostCode] IS NULL AND @original_Res_PostCode IS NULL)) AND (([Res_State] = @original_Res_State) OR ([Res_State] IS NULL AND @original_Res_State IS NULL)) AND (([Res_Country] = @original_Res_Country) OR ([Res_Country] IS NULL AND @original_Res_Country IS NULL)) AND (([YrsCurrAddr] = @original_YrsCurrAddr) OR ([YrsCurrAddr] IS NULL AND @original_YrsCurrAddr IS NULL)) AND (([CurrResidStatus] = @original_CurrResidStatus) OR ([CurrResidStatus] IS NULL AND @original_CurrResidStatus IS NULL)) AND (([YrsPrevAddr] = @original_YrsPrevAddr) OR ([YrsPrevAddr] IS NULL AND @original_YrsPrevAddr IS NULL)) AND (([PrevResStatus] = @original_PrevResStatus) OR ([PrevResStatus] IS NULL AND @original_PrevResStatus IS NULL)) AND (([CurrOccupType] = @original_CurrOccupType) OR ([CurrOccupType] IS NULL AND @original_CurrOccupType IS NULL)) AND (([CurrEmploymentStatus] = @original_CurrEmploymentStatus) OR ([CurrEmploymentStatus] IS NULL AND @original_CurrEmploymentStatus IS NULL)) AND (([YrsCurrEmployer] = @original_YrsCurrEmployer) OR ([YrsCurrEmployer] IS NULL AND @original_YrsCurrEmployer IS NULL)) AND (([YrsPrevEmployer] = @original_YrsPrevEmployer) OR ([YrsPrevEmployer] IS NULL AND @original_YrsPrevEmployer IS NULL)) AND (([IsSmoker] = @original_IsSmoker) OR ([IsSmoker] IS NULL AND @original_IsSmoker IS NULL)) AND (([HasPrivateHealthIns] = @original_HasPrivateHealthIns) OR ([HasPrivateHealthIns] IS NULL AND @original_HasPrivateHealthIns IS NULL)) AND (([CreatedBy] = @original_CreatedBy) OR ([CreatedBy] IS NULL AND @original_CreatedBy IS NULL)) AND (([Created] = @original_Created) OR ([Created] IS NULL AND @original_Created IS NULL)) AND (([ModifiedBy] = @original_ModifiedBy) OR ([ModifiedBy] IS NULL AND @original_ModifiedBy IS NULL)) AND (([Modified] = @original_Modified) OR ([Modified] IS NULL AND @original_Modified IS NULL)) AND [RowVersion] = @original_RowVersion AND (([InvestorApplicant_AssquireInvestor] = @original_InvestorApplicant_AssquireInvestor) OR ([InvestorApplicant_AssquireInvestor] IS NULL AND @original_InvestorApplicant_AssquireInvestor IS NULL)) AND (([InvestorApplication_Gender] = @original_InvestorApplication_Gender) OR ([InvestorApplication_Gender] IS NULL AND @original_InvestorApplication_Gender IS NULL)) AND (([Primary_IncomeMoAT] = @original_Primary_IncomeMoAT) OR ([Primary_IncomeMoAT] IS NULL AND @original_Primary_IncomeMoAT IS NULL)) AND (([Other_IncomeMoAT] = @original_Other_IncomeMoAT) OR ([Other_IncomeMoAT] IS NULL AND @original_Other_IncomeMoAT IS NULL)) AND (([HouseholdIncomeGrossPA] = @original_HouseholdIncomeGrossPA) OR ([HouseholdIncomeGrossPA] IS NULL AND @original_HouseholdIncomeGrossPA IS NULL)) AND (([LookingLocation] = @original_LookingLocation) OR ([LookingLocation] IS NULL AND @original_LookingLocation IS NULL)) AND (([FoundLocation] = @original_FoundLocation) OR ([FoundLocation] IS NULL AND @original_FoundLocation IS NULL)) AND (([Property_Street1] = @original_Property_Street1) OR ([Property_Street1] IS NULL AND @original_Property_Street1 IS NULL)) AND (([Property_Street2] = @original_Property_Street2) OR ([Property_Street2] IS NULL AND @original_Property_Street2 IS NULL)) AND (([Property_City] = @original_Property_City) OR ([Property_City] IS NULL AND @original_Property_City IS NULL)) AND (([Property_Vendor] = @original_Property_Vendor) OR ([Property_Vendor] IS NULL AND @original_Property_Vendor IS NULL)) AND (([EstSpend] = @original_EstSpend) OR ([EstSpend] IS NULL AND @original_EstSpend IS NULL)) AND [EntryDate] = @original_EntryDate AND (([Primary_DOB] = @original_Primary_DOB) OR ([Primary_DOB] IS NULL AND @original_Primary_DOB IS NULL))" InsertCommand="INSERT INTO [InvestorApplications] ([ApplicantType], [Primary_FirstName], [Primary_OtherNames], [Primary_LastName], [Primary_AUCitizenStat], [Primary_Dependants], [Other_FirstName], [Other_OtherNames], [Other_LastName], [Other_DOB], [Other_Gender], [Other_AUCitizenStat], [Other_Dependants], [Email], [Mobile], [Res_Street1], [Res_Street2], [Res_City], [Res_PostCode], [Res_State], [Res_Country], [YrsCurrAddr], [CurrResidStatus], [YrsPrevAddr], [PrevResStatus], [CurrOccupType], [CurrEmploymentStatus], [YrsCurrEmployer], [YrsPrevEmployer], [IsSmoker], [HasPrivateHealthIns], [CreatedBy], [Created], [ModifiedBy], [Modified], [RowVersion], [InvestorApplicant_AssquireInvestor], [InvestorApplication_Gender], [Primary_IncomeMoAT], [Other_IncomeMoAT], [HouseholdIncomeGrossPA], [LookingLocation], [FoundLocation], [Property_Street1], [Property_Street2], [Property_City], [Property_Vendor], [EstSpend], [EntryDate], [Primary_DOB]) VALUES (@ApplicantType, @Primary_FirstName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitizenStat, @Primary_Dependants, @Other_FirstName, @Other_OtherNames, @Other_LastName, @Other_DOB, @Other_Gender, @Other_AUCitizenStat, @Other_Dependants, @Email, @Mobile, @Res_Street1, @Res_Street2, @Res_City, @Res_PostCode, @Res_State, @Res_Country, @YrsCurrAddr, @CurrResidStatus, @YrsPrevAddr, @PrevResStatus, @CurrOccupType, @CurrEmploymentStatus, @YrsCurrEmployer, @YrsPrevEmployer, @IsSmoker, @HasPrivateHealthIns, @CreatedBy, @Created, @ModifiedBy, @Modified, @RowVersion, @InvestorApplicant_AssquireInvestor, @InvestorApplication_Gender, @Primary_IncomeMoAT, @Other_IncomeMoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLocation, @Property_Street1, @Property_Street2, @Property_City, @Property_Vendor, @EstSpend, @EntryDate, @Primary_DOB)" OldValuesParameterFormatString="original_{0}" SelectCommand="SELECT * FROM [InvestorApplications] WHERE ([Id] = @Id)" UpdateCommand="UPDATE [InvestorApplications] SET [ApplicantType] = @ApplicantType, [Primary_FirstName] = @Primary_FirstName, [Primary_OtherNames] = @Primary_OtherNames, [Primary_LastName] = @Primary_LastName, [Primary_AUCitizenStat] = @Primary_AUCitizenStat, [Primary_Dependants] = @Primary_Dependants, [Other_FirstName] = @Other_FirstName, [Other_OtherNames] = @Other_OtherNames, [Other_LastName] = @Other_LastName, [Other_DOB] = @Other_DOB, [Other_Gender] = @Other_Gender, [Other_AUCitizenStat] = @Other_AUCitizenStat, [Other_Dependants] = @Other_Dependants, [Email] = @Email, [Mobile] = @Mobile, [Res_Street1] = @Res_Street1, [Res_Street2] = @Res_Street2, [Res_City] = @Res_City, [Res_PostCode] = @Res_PostCode, [Res_State] = @Res_State, [Res_Country] = @Res_Country, [YrsCurrAddr] = @YrsCurrAddr, [CurrResidStatus] = @CurrResidStatus, [YrsPrevAddr] = @YrsPrevAddr, [PrevResStatus] = @PrevResStatus, [CurrOccupType] = @CurrOccupType, [CurrEmploymentStatus] = @CurrEmploymentStatus, [YrsCurrEmployer] = @YrsCurrEmployer, [YrsPrevEmployer] = @YrsPrevEmployer, [IsSmoker] = @IsSmoker, [HasPrivateHealthIns] = @HasPrivateHealthIns, [CreatedBy] = @CreatedBy, [Created] = @Created, [ModifiedBy] = @ModifiedBy, [Modified] = @Modified, [RowVersion] = @RowVersion, [InvestorApplicant_AssquireInvestor] = @InvestorApplicant_AssquireInvestor, [InvestorApplication_Gender] = @InvestorApplication_Gender, [Primary_IncomeMoAT] = @Primary_IncomeMoAT, [Other_IncomeMoAT] = @Other_IncomeMoAT, [HouseholdIncomeGrossPA] = @HouseholdIncomeGrossPA, [LookingLocation] = @LookingLocation, [FoundLocation] = @FoundLocation, [Property_Street1] = @Property_Street1, [Property_Street2] = @Property_Street2, [Property_City] = @Property_City, [Property_Vendor] = @Property_Vendor, [EstSpend] = @EstSpend, [EntryDate] = @EntryDate, [Primary_DOB] = @Primary_DOB WHERE [Id] = @original_Id AND (([ApplicantType] = @original_ApplicantType) OR ([ApplicantType] IS NULL AND @original_ApplicantType IS NULL)) AND (([Primary_FirstName] = @original_Primary_FirstName) OR ([Primary_FirstName] IS NULL AND @original_Primary_FirstName IS NULL)) AND (([Primary_OtherNames] = @original_Primary_OtherNames) OR ([Primary_OtherNames] IS NULL AND @original_Primary_OtherNames IS NULL)) AND (([Primary_LastName] = @original_Primary_LastName) OR ([Primary_LastName] IS NULL AND @original_Primary_LastName IS NULL)) AND (([Primary_AUCitizenStat] = @original_Primary_AUCitizenStat) OR ([Primary_AUCitizenStat] IS NULL AND @original_Primary_AUCitizenStat IS NULL)) AND (([Primary_Dependants] = @original_Primary_Dependants) OR ([Primary_Dependants] IS NULL AND @original_Primary_Dependants IS NULL)) AND (([Other_FirstName] = @original_Other_FirstName) OR ([Other_FirstName] IS NULL AND @original_Other_FirstName IS NULL)) AND (([Other_OtherNames] = @original_Other_OtherNames) OR ([Other_OtherNames] IS NULL AND @original_Other_OtherNames IS NULL)) AND (([Other_LastName] = @original_Other_LastName) OR ([Other_LastName] IS NULL AND @original_Other_LastName IS NULL)) AND (([Other_DOB] = @original_Other_DOB) OR ([Other_DOB] IS NULL AND @original_Other_DOB IS NULL)) AND (([Other_Gender] = @original_Other_Gender) OR ([Other_Gender] IS NULL AND @original_Other_Gender IS NULL)) AND (([Other_AUCitizenStat] = @original_Other_AUCitizenStat) OR ([Other_AUCitizenStat] IS NULL AND @original_Other_AUCitizenStat IS NULL)) AND (([Other_Dependants] = @original_Other_Dependants) OR ([Other_Dependants] IS NULL AND @original_Other_Dependants IS NULL)) AND (([Email] = @original_Email) OR ([Email] IS NULL AND @original_Email IS NULL)) AND (([Mobile] = @original_Mobile) OR ([Mobile] IS NULL AND @original_Mobile IS NULL)) AND (([Res_Street1] = @original_Res_Street1) OR ([Res_Street1] IS NULL AND @original_Res_Street1 IS NULL)) AND (([Res_Street2] = @original_Res_Street2) OR ([Res_Street2] IS NULL AND @original_Res_Street2 IS NULL)) AND (([Res_City] = @original_Res_City) OR ([Res_City] IS NULL AND @original_Res_City IS NULL)) AND (([Res_PostCode] = @original_Res_PostCode) OR ([Res_PostCode] IS NULL AND @original_Res_PostCode IS NULL)) AND (([Res_State] = @original_Res_State) OR ([Res_State] IS NULL AND @original_Res_State IS NULL)) AND (([Res_Country] = @original_Res_Country) OR ([Res_Country] IS NULL AND @original_Res_Country IS NULL)) AND (([YrsCurrAddr] = @original_YrsCurrAddr) OR ([YrsCurrAddr] IS NULL AND @original_YrsCurrAddr IS NULL)) AND (([CurrResidStatus] = @original_CurrResidStatus) OR ([CurrResidStatus] IS NULL AND @original_CurrResidStatus IS NULL)) AND (([YrsPrevAddr] = @original_YrsPrevAddr) OR ([YrsPrevAddr] IS NULL AND @original_YrsPrevAddr IS NULL)) AND (([PrevResStatus] = @original_PrevResStatus) OR ([PrevResStatus] IS NULL AND @original_PrevResStatus IS NULL)) AND (([CurrOccupType] = @original_CurrOccupType) OR ([CurrOccupType] IS NULL AND @original_CurrOccupType IS NULL)) AND (([CurrEmploymentStatus] = @original_CurrEmploymentStatus) OR ([CurrEmploymentStatus] IS NULL AND @original_CurrEmploymentStatus IS NULL)) AND (([YrsCurrEmployer] = @original_YrsCurrEmployer) OR ([YrsCurrEmployer] IS NULL AND @original_YrsCurrEmployer IS NULL)) AND (([YrsPrevEmployer] = @original_YrsPrevEmployer) OR ([YrsPrevEmployer] IS NULL AND @original_YrsPrevEmployer IS NULL)) AND (([IsSmoker] = @original_IsSmoker) OR ([IsSmoker] IS NULL AND @original_IsSmoker IS NULL)) AND (([HasPrivateHealthIns] = @original_HasPrivateHealthIns) OR ([HasPrivateHealthIns] IS NULL AND @original_HasPrivateHealthIns IS NULL)) AND (([CreatedBy] = @original_CreatedBy) OR ([CreatedBy] IS NULL AND @original_CreatedBy IS NULL)) AND (([Created] = @original_Created) OR ([Created] IS NULL AND @original_Created IS NULL)) AND (([ModifiedBy] = @original_ModifiedBy) OR ([ModifiedBy] IS NULL AND @original_ModifiedBy IS NULL)) AND (([Modified] = @original_Modified) OR ([Modified] IS NULL AND @original_Modified IS NULL)) AND [RowVersion] = @original_RowVersion AND (([InvestorApplicant_AssquireInvestor] = @original_InvestorApplicant_AssquireInvestor) OR ([InvestorApplicant_AssquireInvestor] IS NULL AND @original_InvestorApplicant_AssquireInvestor IS NULL)) AND (([InvestorApplication_Gender] = @original_InvestorApplication_Gender) OR ([InvestorApplication_Gender] IS NULL AND @original_InvestorApplication_Gender IS NULL)) AND (([Primary_IncomeMoAT] = @original_Primary_IncomeMoAT) OR ([Primary_IncomeMoAT] IS NULL AND @original_Primary_IncomeMoAT IS NULL)) AND (([Other_IncomeMoAT] = @original_Other_IncomeMoAT) OR ([Other_IncomeMoAT] IS NULL AND @original_Other_IncomeMoAT IS NULL)) AND (([HouseholdIncomeGrossPA] = @original_HouseholdIncomeGrossPA) OR ([HouseholdIncomeGrossPA] IS NULL AND @original_HouseholdIncomeGrossPA IS NULL)) AND (([LookingLocation] = @original_LookingLocation) OR ([LookingLocation] IS NULL AND @original_LookingLocation IS NULL)) AND (([FoundLocation] = @original_FoundLocation) OR ([FoundLocation] IS NULL AND @original_FoundLocation IS NULL)) AND (([Property_Street1] = @original_Property_Street1) OR ([Property_Street1] IS NULL AND @original_Property_Street1 IS NULL)) AND (([Property_Street2] = @original_Property_Street2) OR ([Property_Street2] IS NULL AND @original_Property_Street2 IS NULL)) AND (([Property_City] = @original_Property_City) OR ([Property_City] IS NULL AND @original_Property_City IS NULL)) AND (([Property_Vendor] = @original_Property_Vendor) OR ([Property_Vendor] IS NULL AND @original_Property_Vendor IS NULL)) AND (([EstSpend] = @original_EstSpend) OR ([EstSpend] IS NULL AND @original_EstSpend IS NULL)) AND [EntryDate] = @original_EntryDate AND (([Primary_DOB] = @original_Primary_DOB) OR ([Primary_DOB] IS NULL AND @original_Primary_DOB IS NULL))">
-            <DeleteParameters>
-                <asp:Parameter Name="original_Id" Type="Int32" />
-                <asp:Parameter Name="original_ApplicantType" Type="String" />
-                <asp:Parameter Name="original_Primary_FirstName" Type="String" />
-                <asp:Parameter Name="original_Primary_OtherNames" Type="String" />
-                <asp:Parameter Name="original_Primary_LastName" Type="String" />
-                <asp:Parameter Name="original_Primary_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="original_Primary_Dependants" Type="Byte" />
-                <asp:Parameter Name="original_Other_FirstName" Type="String" />
-                <asp:Parameter Name="original_Other_OtherNames" Type="String" />
-                <asp:Parameter Name="original_Other_LastName" Type="String" />
-                <asp:Parameter Name="original_Other_DOB" Type="DateTime" />
-                <asp:Parameter Name="original_Other_Gender" Type="String" />
-                <asp:Parameter Name="original_Other_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="original_Other_Dependants" Type="Byte" />
-                <asp:Parameter Name="original_Email" Type="String" />
-                <asp:Parameter Name="original_Mobile" Type="String" />
-                <asp:Parameter Name="original_Res_Street1" Type="String" />
-                <asp:Parameter Name="original_Res_Street2" Type="String" />
-                <asp:Parameter Name="original_Res_City" Type="String" />
-                <asp:Parameter Name="original_Res_PostCode" Type="Int16" />
-                <asp:Parameter Name="original_Res_State" Type="String" />
-                <asp:Parameter Name="original_Res_Country" Type="String" />
-                <asp:Parameter Name="original_YrsCurrAddr" Type="Byte" />
-                <asp:Parameter Name="original_CurrResidStatus" Type="String" />
-                <asp:Parameter Name="original_YrsPrevAddr" Type="Byte" />
-                <asp:Parameter Name="original_PrevResStatus" Type="String" />
-                <asp:Parameter Name="original_CurrOccupType" Type="String" />
-                <asp:Parameter Name="original_CurrEmploymentStatus" Type="String" />
-                <asp:Parameter Name="original_YrsCurrEmployer" Type="Byte" />
-                <asp:Parameter Name="original_YrsPrevEmployer" Type="Byte" />
-                <asp:Parameter Name="original_IsSmoker" Type="String" />
-                <asp:Parameter Name="original_HasPrivateHealthIns" Type="String" />
-                <asp:Parameter Name="original_CreatedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="original_Created" />
-                <asp:Parameter Name="original_ModifiedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="original_Modified" />
-                <asp:Parameter Name="original_RowVersion" Type="Object" />
-                <asp:Parameter Name="original_InvestorApplicant_AssquireInvestor" Type="Int32" />
-                <asp:Parameter Name="original_InvestorApplication_Gender" Type="Int32" />
-                <asp:Parameter Name="original_Primary_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="original_Other_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="original_HouseholdIncomeGrossPA" Type="String" />
-                <asp:Parameter Name="original_LookingLocation" Type="String" />
-                <asp:Parameter Name="original_FoundLocation" Type="String" />
-                <asp:Parameter Name="original_Property_Street1" Type="String" />
-                <asp:Parameter Name="original_Property_Street2" Type="String" />
-                <asp:Parameter Name="original_Property_City" Type="String" />
-                <asp:Parameter Name="original_Property_Vendor" Type="String" />
-                <asp:Parameter Name="original_EstSpend" Type="String" />
-                <asp:Parameter Name="original_EntryDate" Type="DateTime" />
-                <asp:Parameter Name="original_Primary_DOB" Type="DateTime" />
-            </DeleteParameters>
-            <InsertParameters>
-                <asp:Parameter Name="ApplicantType" Type="String" />
-                <asp:Parameter Name="Primary_FirstName" Type="String" />
-                <asp:Parameter Name="Primary_OtherNames" Type="String" />
-                <asp:Parameter Name="Primary_LastName" Type="String" />
-                <asp:Parameter Name="Primary_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="Primary_Dependants" Type="Byte" />
-                <asp:Parameter Name="Other_FirstName" Type="String" />
-                <asp:Parameter Name="Other_OtherNames" Type="String" />
-                <asp:Parameter Name="Other_LastName" Type="String" />
-                <asp:Parameter Name="Other_DOB" Type="DateTime" />
-                <asp:Parameter Name="Other_Gender" Type="String" />
-                <asp:Parameter Name="Other_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="Other_Dependants" Type="Byte" />
-                <asp:Parameter Name="Email" Type="String" />
-                <asp:Parameter Name="Mobile" Type="String" />
-                <asp:Parameter Name="Res_Street1" Type="String" />
-                <asp:Parameter Name="Res_Street2" Type="String" />
-                <asp:Parameter Name="Res_City" Type="String" />
-                <asp:Parameter Name="Res_PostCode" Type="Int16" />
-                <asp:Parameter Name="Res_State" Type="String" />
-                <asp:Parameter Name="Res_Country" Type="String" />
-                <asp:Parameter Name="YrsCurrAddr" Type="Byte" />
-                <asp:Parameter Name="CurrResidStatus" Type="String" />
-                <asp:Parameter Name="YrsPrevAddr" Type="Byte" />
-                <asp:Parameter Name="PrevResStatus" Type="String" />
-                <asp:Parameter Name="CurrOccupType" Type="String" />
-                <asp:Parameter Name="CurrEmploymentStatus" Type="String" />
-                <asp:Parameter Name="YrsCurrEmployer" Type="Byte" />
-                <asp:Parameter Name="YrsPrevEmployer" Type="Byte" />
-                <asp:Parameter Name="IsSmoker" Type="String" />
-                <asp:Parameter Name="HasPrivateHealthIns" Type="String" />
-                <asp:Parameter Name="CreatedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="Created" />
-                <asp:Parameter Name="ModifiedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="Modified" />
-                <asp:Parameter Name="RowVersion" Type="Object" />
-                <asp:Parameter Name="InvestorApplicant_AssquireInvestor" Type="Int32" />
-                <asp:Parameter Name="InvestorApplication_Gender" Type="Int32" />
-                <asp:Parameter Name="Primary_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="Other_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="HouseholdIncomeGrossPA" Type="String" />
-                <asp:Parameter Name="LookingLocation" Type="String" />
-                <asp:Parameter Name="FoundLocation" Type="String" />
-                <asp:Parameter Name="Property_Street1" Type="String" />
-                <asp:Parameter Name="Property_Street2" Type="String" />
-                <asp:Parameter Name="Property_City" Type="String" />
-                <asp:Parameter Name="Property_Vendor" Type="String" />
-                <asp:Parameter Name="EstSpend" Type="String" />
-                <asp:Parameter Name="EntryDate" Type="DateTime" />
-                <asp:Parameter Name="Primary_DOB" Type="DateTime" />
-            </InsertParameters>
-            <SelectParameters>
-                <asp:QueryStringParameter DefaultValue="-1" Name="Id" QueryStringField="Id" Type="Int32" />
-            </SelectParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="ApplicantType" Type="String" />
-                <asp:Parameter Name="Primary_FirstName" Type="String" />
-                <asp:Parameter Name="Primary_OtherNames" Type="String" />
-                <asp:Parameter Name="Primary_LastName" Type="String" />
-                <asp:Parameter Name="Primary_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="Primary_Dependants" Type="Byte" />
-                <asp:Parameter Name="Other_FirstName" Type="String" />
-                <asp:Parameter Name="Other_OtherNames" Type="String" />
-                <asp:Parameter Name="Other_LastName" Type="String" />
-                <asp:Parameter Name="Other_DOB" Type="DateTime" />
-                <asp:Parameter Name="Other_Gender" Type="String" />
-                <asp:Parameter Name="Other_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="Other_Dependants" Type="Byte" />
-                <asp:Parameter Name="Email" Type="String" />
-                <asp:Parameter Name="Mobile" Type="String" />
-                <asp:Parameter Name="Res_Street1" Type="String" />
-                <asp:Parameter Name="Res_Street2" Type="String" />
-                <asp:Parameter Name="Res_City" Type="String" />
-                <asp:Parameter Name="Res_PostCode" Type="Int16" />
-                <asp:Parameter Name="Res_State" Type="String" />
-                <asp:Parameter Name="Res_Country" Type="String" />
-                <asp:Parameter Name="YrsCurrAddr" Type="Byte" />
-                <asp:Parameter Name="CurrResidStatus" Type="String" />
-                <asp:Parameter Name="YrsPrevAddr" Type="Byte" />
-                <asp:Parameter Name="PrevResStatus" Type="String" />
-                <asp:Parameter Name="CurrOccupType" Type="String" />
-                <asp:Parameter Name="CurrEmploymentStatus" Type="String" />
-                <asp:Parameter Name="YrsCurrEmployer" Type="Byte" />
-                <asp:Parameter Name="YrsPrevEmployer" Type="Byte" />
-                <asp:Parameter Name="IsSmoker" Type="String" />
-                <asp:Parameter Name="HasPrivateHealthIns" Type="String" />
-                <asp:Parameter Name="CreatedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="Created" />
-                <asp:Parameter Name="ModifiedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="Modified" />
-                <asp:Parameter Name="RowVersion" Type="Object" />
-                <asp:Parameter Name="InvestorApplicant_AssquireInvestor" Type="Int32" />
-                <asp:Parameter Name="InvestorApplication_Gender" Type="Int32" />
-                <asp:Parameter Name="Primary_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="Other_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="HouseholdIncomeGrossPA" Type="String" />
-                <asp:Parameter Name="LookingLocation" Type="String" />
-                <asp:Parameter Name="FoundLocation" Type="String" />
-                <asp:Parameter Name="Property_Street1" Type="String" />
-                <asp:Parameter Name="Property_Street2" Type="String" />
-                <asp:Parameter Name="Property_City" Type="String" />
-                <asp:Parameter Name="Property_Vendor" Type="String" />
-                <asp:Parameter Name="EstSpend" Type="String" />
-                <asp:Parameter Name="EntryDate" Type="DateTime" />
-                <asp:Parameter Name="Primary_DOB" Type="DateTime" />
-                <asp:Parameter Name="original_Id" Type="Int32" />
-                <asp:Parameter Name="original_ApplicantType" Type="String" />
-                <asp:Parameter Name="original_Primary_FirstName" Type="String" />
-                <asp:Parameter Name="original_Primary_OtherNames" Type="String" />
-                <asp:Parameter Name="original_Primary_LastName" Type="String" />
-                <asp:Parameter Name="original_Primary_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="original_Primary_Dependants" Type="Byte" />
-                <asp:Parameter Name="original_Other_FirstName" Type="String" />
-                <asp:Parameter Name="original_Other_OtherNames" Type="String" />
-                <asp:Parameter Name="original_Other_LastName" Type="String" />
-                <asp:Parameter Name="original_Other_DOB" Type="DateTime" />
-                <asp:Parameter Name="original_Other_Gender" Type="String" />
-                <asp:Parameter Name="original_Other_AUCitizenStat" Type="String" />
-                <asp:Parameter Name="original_Other_Dependants" Type="Byte" />
-                <asp:Parameter Name="original_Email" Type="String" />
-                <asp:Parameter Name="original_Mobile" Type="String" />
-                <asp:Parameter Name="original_Res_Street1" Type="String" />
-                <asp:Parameter Name="original_Res_Street2" Type="String" />
-                <asp:Parameter Name="original_Res_City" Type="String" />
-                <asp:Parameter Name="original_Res_PostCode" Type="Int16" />
-                <asp:Parameter Name="original_Res_State" Type="String" />
-                <asp:Parameter Name="original_Res_Country" Type="String" />
-                <asp:Parameter Name="original_YrsCurrAddr" Type="Byte" />
-                <asp:Parameter Name="original_CurrResidStatus" Type="String" />
-                <asp:Parameter Name="original_YrsPrevAddr" Type="Byte" />
-                <asp:Parameter Name="original_PrevResStatus" Type="String" />
-                <asp:Parameter Name="original_CurrOccupType" Type="String" />
-                <asp:Parameter Name="original_CurrEmploymentStatus" Type="String" />
-                <asp:Parameter Name="original_YrsCurrEmployer" Type="Byte" />
-                <asp:Parameter Name="original_YrsPrevEmployer" Type="Byte" />
-                <asp:Parameter Name="original_IsSmoker" Type="String" />
-                <asp:Parameter Name="original_HasPrivateHealthIns" Type="String" />
-                <asp:Parameter Name="original_CreatedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="original_Created" />
-                <asp:Parameter Name="original_ModifiedBy" Type="String" />
-                <asp:Parameter DbType="DateTimeOffset" Name="original_Modified" />
-                <asp:Parameter Name="original_RowVersion" Type="Object" />
-                <asp:Parameter Name="original_InvestorApplicant_AssquireInvestor" Type="Int32" />
-                <asp:Parameter Name="original_InvestorApplication_Gender" Type="Int32" />
-                <asp:Parameter Name="original_Primary_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="original_Other_IncomeMoAT" Type="String" />
-                <asp:Parameter Name="original_HouseholdIncomeGrossPA" Type="String" />
-                <asp:Parameter Name="original_LookingLocation" Type="String" />
-                <asp:Parameter Name="original_FoundLocation" Type="String" />
-                <asp:Parameter Name="original_Property_Street1" Type="String" />
-                <asp:Parameter Name="original_Property_Street2" Type="String" />
-                <asp:Parameter Name="original_Property_City" Type="String" />
-                <asp:Parameter Name="original_Property_Vendor" Type="String" />
-                <asp:Parameter Name="original_EstSpend" Type="String" />
-                <asp:Parameter Name="original_EntryDate" Type="DateTime" />
-                <asp:Parameter Name="original_Primary_DOB" Type="DateTime" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-        <hr />
+    <asp:SqlDataSource ID="InvestorApplicationDetailsSqlDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT Id, ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Property_City, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondApproved, Property_PostCode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_City, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondApprovedBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AutoRejected, AutoRejectedInformed, AutoRejecetedBy, AutoRejectedInformedBy, AutoAccepted, AutoAcceptedBy, AutoAcceptedInformed, AutoAcceptedInformedBy FROM InvestorApplications WHERE (Id = @Id)">
+        <SelectParameters>
+            <asp:QueryStringParameter DbType="Int32" DefaultValue="0" Name="Id" QueryStringField="Id" />
+        </SelectParameters>
+    </asp:SqlDataSource>
+    <hr />
         <div>
         <p>
           <span style="font-weight: bold">Conditional Approval:</span></p>
@@ -314,9 +148,10 @@
         <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" OnClick="Button1_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal"/>
            </p>
         </div>
-        
+
+     <hr />
         <!-- COnditional approval confirmation -->
-<div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+        <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -335,36 +170,37 @@
     </div>
 </div>
   
-
     <hr />
-    <p>
-        <span style="font-weight: bold">Credit Fee Received:</span></p>
-    <p>
-        Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
-    </p>
-<p>
-    <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Credit Fee Received" CausesValidation="False" OnClick="Button1_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
-</p>     
-   <!-- Credit Fee Received Confirmation -->
-<div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h3 id="myModalLabel4">Confirmation</h3>
 
-            </div>
-            <div class="modal-body">
-                <p>Confirm the credit fee payment has been received.</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                <button class="btn-primary btn" id="Confirm">Confirm</button>
+     <hr />
+        <p>
+            <span style="font-weight: bold">Credit Fee Received:</span>
+
+        </p>
+        <p>
+            Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
+        </p>
+        <p>
+        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Credit Fee Received" CausesValidation="False" OnClick="Button1_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
+    </p>     
+   <!-- Credit Fee Received Confirmation -->
+        <div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                         <h3 id="myModalLabel4">Confirmation</h3>
+
+                    </div>
+                    <div class="modal-body">
+                        <p>Confirm the credit fee payment has been received.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <button class="btn-primary btn" id="Confirm">Confirm</button>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</div>
 
-    </form>
-    </body>
-</html>
+</asp:Content>
