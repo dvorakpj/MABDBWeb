@@ -12,8 +12,10 @@
 	 ia.Email,
 	 ia.Primary_Res_State,
 	 ia.Primary_Res_PostCode	  
+	 , ia.Cond
 	  ,[Score_Status]
 	  ,[Score_Total]	
+	  
 	FROM  InvestorApplications ia
 LEFT JOIN InvestorScoreCard sc on sc.InvestorApplicationId = ia.Id
 GO

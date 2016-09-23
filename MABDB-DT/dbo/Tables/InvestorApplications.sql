@@ -46,7 +46,7 @@
     [EntryDate]                          DATETIME           DEFAULT (getdate()) NOT NULL,
     [Primary_DOB]                        DATETIME           NULL,
     [CreatedUTC]                         DATETIME           CONSTRAINT [DF__InvestorApplications__CreatedUTC] DEFAULT (getutcdate()) NOT NULL,
-    [CondApproved]                       DATETIME           NULL,
+    [CondDecision]                       DATETIME           NULL,
     [Property_PostCode]                  SMALLINT           NULL,
     [Property_State]                     NVARCHAR (255)     NULL,
     [Property_Country]                   VARCHAR (50)       NULL,
@@ -103,15 +103,15 @@
     [Other_PropertyAssets]               VARCHAR (550)      NULL,
     [Primary_PersonalLoansList]          VARCHAR (550)      NULL,
     [Other_PersonalLoansList]            VARCHAR (550)      NULL,
-    [Primary_OtherAssetsList]            VARCHAR (50)       NULL,
-    [Other_OtherAssetsList]              VARCHAR (50)       NULL,
+    [Primary_OtherAssetsList]            VARCHAR (550)       NULL,
+    [Other_OtherAssetsList]              VARCHAR (550)       NULL,
     [Primary_OtherLiabilitiesList]       VARCHAR (550)      NULL,
     [Other_OtherLiabilitiesList]         VARCHAR (550)      NULL,
     [UserId]                             VARCHAR (15)       NULL,
     [TransactionId]                      VARCHAR (15)       NULL,
     [SourceURL]                          VARCHAR (255)      NULL,
     [Other_Res_Street1]                  NVARCHAR (255)     NULL,
-    [CondApprovedBy]                     VARCHAR (25)       NULL,
+    [CondDecisionBy]                     VARCHAR (25)       NULL,
     [HasReqestedPriority]                VARCHAR (100)      NULL,
     [HasAgreedPACLicence]                VARCHAR (100)      NULL,
     [EntryId]                            INT                DEFAULT ((-1)) NOT NULL,
@@ -131,6 +131,7 @@
     [AutoAcceptedInformedBy]			VARCHAR(50) NULL
     PRIMARY KEY CLUSTERED ([Id] ASC),
     [HasReadPO6] VARCHAR(100) NULL, 
+    [CondApproved] BIT NULL, 
     CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
 );
 

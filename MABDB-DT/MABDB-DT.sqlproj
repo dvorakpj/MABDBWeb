@@ -238,6 +238,8 @@
     <Build Include="dbo\Views\vw_NewInvestorAppAutoRejectedNotInformed.sql" />
     <Build Include="dbo\Views\vw_NewInvestorAppAutoAcceptedNotInformed.sql" />
     <Build Include="vw_NewInvestorAppAutoRejected.sql" />
+    <Build Include="dbo\Views\vw_NewInvestorAppAutoRejected.sql" />
+    <Build Include="dbo\Views\vw_NewInvestorAppAutoAccepted.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

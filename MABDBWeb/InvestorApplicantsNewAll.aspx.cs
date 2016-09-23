@@ -663,6 +663,7 @@ namespace MABDBWeb
                 cmdBldInvApps = null;
 
 
+
                 SqlDataAdapter daInvApps2 = new SqlDataAdapter(daInvApps.SelectCommand.CommandText, con);
                 daInvApps2.UpdateCommand = daInvApps.UpdateCommand;
 

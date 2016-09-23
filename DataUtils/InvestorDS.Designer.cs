@@ -1262,8 +1262,6 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnOther_Res_Street1;
             
-            private global::System.Data.DataColumn columnCondApprovedBy;
-            
             private global::System.Data.DataColumn columnHasReqestedPriority;
             
             private global::System.Data.DataColumn columnHasAgreedPACLicence;
@@ -1281,6 +1279,28 @@ namespace DataUtils {
             private global::System.Data.DataColumn columnYrsCurrEmployer;
             
             private global::System.Data.DataColumn columnYrsPrevEmployer;
+            
+            private global::System.Data.DataColumn columnCondDecision;
+            
+            private global::System.Data.DataColumn columnCondDecisionBy;
+            
+            private global::System.Data.DataColumn columnAutoRejected;
+            
+            private global::System.Data.DataColumn columnAutoRejectedInformed;
+            
+            private global::System.Data.DataColumn columnAutoRejecetedBy;
+            
+            private global::System.Data.DataColumn columnAutoRejectedInformedBy;
+            
+            private global::System.Data.DataColumn columnAutoAccepted;
+            
+            private global::System.Data.DataColumn columnAutoAcceptedBy;
+            
+            private global::System.Data.DataColumn columnAutoAcceptedInformed;
+            
+            private global::System.Data.DataColumn columnAutoAcceptedInformedBy;
+            
+            private global::System.Data.DataColumn columnHasReadPO6;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -2213,14 +2233,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CondApprovedByColumn {
-                get {
-                    return this.columnCondApprovedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn HasReqestedPriorityColumn {
                 get {
                     return this.columnHasReqestedPriority;
@@ -2288,6 +2300,94 @@ namespace DataUtils {
             public global::System.Data.DataColumn YrsPrevEmployerColumn {
                 get {
                     return this.columnYrsPrevEmployer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondDecisionColumn {
+                get {
+                    return this.columnCondDecision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondDecisionByColumn {
+                get {
+                    return this.columnCondDecisionBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoRejectedColumn {
+                get {
+                    return this.columnAutoRejected;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoRejectedInformedColumn {
+                get {
+                    return this.columnAutoRejectedInformed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoRejecetedByColumn {
+                get {
+                    return this.columnAutoRejecetedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoRejectedInformedByColumn {
+                get {
+                    return this.columnAutoRejectedInformedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoAcceptedColumn {
+                get {
+                    return this.columnAutoAccepted;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoAcceptedByColumn {
+                get {
+                    return this.columnAutoAcceptedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoAcceptedInformedColumn {
+                get {
+                    return this.columnAutoAcceptedInformed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AutoAcceptedInformedByColumn {
+                get {
+                    return this.columnAutoAcceptedInformedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn HasReadPO6Column {
+                get {
+                    return this.columnHasReadPO6;
                 }
             }
             
@@ -2375,7 +2475,7 @@ namespace DataUtils {
                         System.DateTime EntryDate, 
                         System.DateTime Primary_DOB, 
                         System.DateTime CreatedUTC, 
-                        System.DateTime CondApproved, 
+                        bool CondApproved, 
                         short Property_PostCode, 
                         string Property_State, 
                         string Property_Country, 
@@ -2440,7 +2540,6 @@ namespace DataUtils {
                         string TransactionId, 
                         string SourceURL, 
                         string Other_Res_Street1, 
-                        string CondApprovedBy, 
                         string HasReqestedPriority, 
                         string HasAgreedPACLicence, 
                         int EntryId, 
@@ -2449,7 +2548,18 @@ namespace DataUtils {
                         string Other_YrsPrevAddr, 
                         string YrsPrevAddr, 
                         string YrsCurrEmployer, 
-                        string YrsPrevEmployer) {
+                        string YrsPrevEmployer, 
+                        System.DateTime CondDecision, 
+                        string CondDecisionBy, 
+                        System.DateTime AutoRejected, 
+                        System.DateTime AutoRejectedInformed, 
+                        string AutoRejecetedBy, 
+                        string AutoRejectedInformedBy, 
+                        System.DateTime AutoAccepted, 
+                        string AutoAcceptedBy, 
+                        System.DateTime AutoAcceptedInformed, 
+                        string AutoAcceptedInformedBy, 
+                        string HasReadPO6) {
                 InvestorApplicationsRow rowInvestorApplicationsRow = ((InvestorApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2564,7 +2674,6 @@ namespace DataUtils {
                         TransactionId,
                         SourceURL,
                         Other_Res_Street1,
-                        CondApprovedBy,
                         HasReqestedPriority,
                         HasAgreedPACLicence,
                         EntryId,
@@ -2573,7 +2682,18 @@ namespace DataUtils {
                         Other_YrsPrevAddr,
                         YrsPrevAddr,
                         YrsCurrEmployer,
-                        YrsPrevEmployer};
+                        YrsPrevEmployer,
+                        CondDecision,
+                        CondDecisionBy,
+                        AutoRejected,
+                        AutoRejectedInformed,
+                        AutoRejecetedBy,
+                        AutoRejectedInformedBy,
+                        AutoAccepted,
+                        AutoAcceptedBy,
+                        AutoAcceptedInformed,
+                        AutoAcceptedInformedBy,
+                        HasReadPO6};
                 rowInvestorApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvestorApplicationsRow);
                 return rowInvestorApplicationsRow;
@@ -2715,7 +2835,6 @@ namespace DataUtils {
                 this.columnTransactionId = base.Columns["TransactionId"];
                 this.columnSourceURL = base.Columns["SourceURL"];
                 this.columnOther_Res_Street1 = base.Columns["Other_Res_Street1"];
-                this.columnCondApprovedBy = base.Columns["CondApprovedBy"];
                 this.columnHasReqestedPriority = base.Columns["HasReqestedPriority"];
                 this.columnHasAgreedPACLicence = base.Columns["HasAgreedPACLicence"];
                 this.columnEntryId = base.Columns["EntryId"];
@@ -2725,6 +2844,17 @@ namespace DataUtils {
                 this.columnYrsPrevAddr = base.Columns["YrsPrevAddr"];
                 this.columnYrsCurrEmployer = base.Columns["YrsCurrEmployer"];
                 this.columnYrsPrevEmployer = base.Columns["YrsPrevEmployer"];
+                this.columnCondDecision = base.Columns["CondDecision"];
+                this.columnCondDecisionBy = base.Columns["CondDecisionBy"];
+                this.columnAutoRejected = base.Columns["AutoRejected"];
+                this.columnAutoRejectedInformed = base.Columns["AutoRejectedInformed"];
+                this.columnAutoRejecetedBy = base.Columns["AutoRejecetedBy"];
+                this.columnAutoRejectedInformedBy = base.Columns["AutoRejectedInformedBy"];
+                this.columnAutoAccepted = base.Columns["AutoAccepted"];
+                this.columnAutoAcceptedBy = base.Columns["AutoAcceptedBy"];
+                this.columnAutoAcceptedInformed = base.Columns["AutoAcceptedInformed"];
+                this.columnAutoAcceptedInformedBy = base.Columns["AutoAcceptedInformedBy"];
+                this.columnHasReadPO6 = base.Columns["HasReadPO6"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2824,7 +2954,7 @@ namespace DataUtils {
                 base.Columns.Add(this.columnPrimary_DOB);
                 this.columnCreatedUTC = new global::System.Data.DataColumn("CreatedUTC", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedUTC);
-                this.columnCondApproved = new global::System.Data.DataColumn("CondApproved", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnCondApproved = new global::System.Data.DataColumn("CondApproved", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCondApproved);
                 this.columnProperty_PostCode = new global::System.Data.DataColumn("Property_PostCode", typeof(short), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnProperty_PostCode);
@@ -2954,8 +3084,6 @@ namespace DataUtils {
                 base.Columns.Add(this.columnSourceURL);
                 this.columnOther_Res_Street1 = new global::System.Data.DataColumn("Other_Res_Street1", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOther_Res_Street1);
-                this.columnCondApprovedBy = new global::System.Data.DataColumn("CondApprovedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCondApprovedBy);
                 this.columnHasReqestedPriority = new global::System.Data.DataColumn("HasReqestedPriority", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHasReqestedPriority);
                 this.columnHasAgreedPACLicence = new global::System.Data.DataColumn("HasAgreedPACLicence", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2974,6 +3102,28 @@ namespace DataUtils {
                 base.Columns.Add(this.columnYrsCurrEmployer);
                 this.columnYrsPrevEmployer = new global::System.Data.DataColumn("YrsPrevEmployer", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnYrsPrevEmployer);
+                this.columnCondDecision = new global::System.Data.DataColumn("CondDecision", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondDecision);
+                this.columnCondDecisionBy = new global::System.Data.DataColumn("CondDecisionBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondDecisionBy);
+                this.columnAutoRejected = new global::System.Data.DataColumn("AutoRejected", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoRejected);
+                this.columnAutoRejectedInformed = new global::System.Data.DataColumn("AutoRejectedInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoRejectedInformed);
+                this.columnAutoRejecetedBy = new global::System.Data.DataColumn("AutoRejecetedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoRejecetedBy);
+                this.columnAutoRejectedInformedBy = new global::System.Data.DataColumn("AutoRejectedInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoRejectedInformedBy);
+                this.columnAutoAccepted = new global::System.Data.DataColumn("AutoAccepted", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoAccepted);
+                this.columnAutoAcceptedBy = new global::System.Data.DataColumn("AutoAcceptedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoAcceptedBy);
+                this.columnAutoAcceptedInformed = new global::System.Data.DataColumn("AutoAcceptedInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoAcceptedInformed);
+                this.columnAutoAcceptedInformedBy = new global::System.Data.DataColumn("AutoAcceptedInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAutoAcceptedInformedBy);
+                this.columnHasReadPO6 = new global::System.Data.DataColumn("HasReadPO6", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHasReadPO6);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -3080,7 +3230,6 @@ namespace DataUtils {
                 this.columnTransactionId.MaxLength = 15;
                 this.columnSourceURL.MaxLength = 255;
                 this.columnOther_Res_Street1.MaxLength = 255;
-                this.columnCondApprovedBy.MaxLength = 25;
                 this.columnHasReqestedPriority.MaxLength = 100;
                 this.columnHasAgreedPACLicence.MaxLength = 100;
                 this.columnEntryId.AllowDBNull = false;
@@ -3090,6 +3239,12 @@ namespace DataUtils {
                 this.columnYrsPrevAddr.MaxLength = 120;
                 this.columnYrsCurrEmployer.MaxLength = 120;
                 this.columnYrsPrevEmployer.MaxLength = 120;
+                this.columnCondDecisionBy.MaxLength = 25;
+                this.columnAutoRejecetedBy.MaxLength = 50;
+                this.columnAutoRejectedInformedBy.MaxLength = 50;
+                this.columnAutoAcceptedBy.MaxLength = 50;
+                this.columnAutoAcceptedInformedBy.MaxLength = 50;
+                this.columnHasReadPO6.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4664,10 +4819,10 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CondApproved {
+            public bool CondApproved {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvestorApplications.CondApprovedColumn]));
+                        return ((bool)(this[this.tableInvestorApplications.CondApprovedColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'CondApproved\' in table \'InvestorApplications\' is DBNull.", e);
@@ -5759,22 +5914,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CondApprovedBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.CondApprovedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondApprovedBy\' in table \'InvestorApplications\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvestorApplications.CondApprovedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string HasReqestedPriority {
                 get {
                     try {
@@ -5916,6 +6055,187 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableInvestorApplications.YrsPrevEmployerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CondDecision {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableInvestorApplications.CondDecisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondDecision\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.CondDecisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CondDecisionBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.CondDecisionByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondDecisionBy\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.CondDecisionByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime AutoRejected {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableInvestorApplications.AutoRejectedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejected\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoRejectedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime AutoRejectedInformed {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableInvestorApplications.AutoRejectedInformedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejectedInformed\' in table \'InvestorApplications\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoRejectedInformedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AutoRejecetedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.AutoRejecetedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejecetedBy\' in table \'InvestorApplications\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoRejecetedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AutoRejectedInformedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.AutoRejectedInformedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejectedInformedBy\' in table \'InvestorApplications\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoRejectedInformedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime AutoAccepted {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableInvestorApplications.AutoAcceptedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAccepted\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoAcceptedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AutoAcceptedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.AutoAcceptedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAcceptedBy\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoAcceptedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime AutoAcceptedInformed {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableInvestorApplications.AutoAcceptedInformedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAcceptedInformed\' in table \'InvestorApplications\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoAcceptedInformedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string AutoAcceptedInformedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.AutoAcceptedInformedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAcceptedInformedBy\' in table \'InvestorApplications\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.AutoAcceptedInformedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string HasReadPO6 {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.HasReadPO6Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'HasReadPO6\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.HasReadPO6Column] = value;
                 }
             }
             
@@ -7229,18 +7549,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCondApprovedByNull() {
-                return this.IsNull(this.tableInvestorApplications.CondApprovedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCondApprovedByNull() {
-                this[this.tableInvestorApplications.CondApprovedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsHasReqestedPriorityNull() {
                 return this.IsNull(this.tableInvestorApplications.HasReqestedPriorityColumn);
             }
@@ -7333,6 +7641,138 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetYrsPrevEmployerNull() {
                 this[this.tableInvestorApplications.YrsPrevEmployerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondDecisionNull() {
+                return this.IsNull(this.tableInvestorApplications.CondDecisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondDecisionNull() {
+                this[this.tableInvestorApplications.CondDecisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondDecisionByNull() {
+                return this.IsNull(this.tableInvestorApplications.CondDecisionByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondDecisionByNull() {
+                this[this.tableInvestorApplications.CondDecisionByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoRejectedNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoRejectedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoRejectedNull() {
+                this[this.tableInvestorApplications.AutoRejectedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoRejectedInformedNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoRejectedInformedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoRejectedInformedNull() {
+                this[this.tableInvestorApplications.AutoRejectedInformedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoRejecetedByNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoRejecetedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoRejecetedByNull() {
+                this[this.tableInvestorApplications.AutoRejecetedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoRejectedInformedByNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoRejectedInformedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoRejectedInformedByNull() {
+                this[this.tableInvestorApplications.AutoRejectedInformedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoAcceptedNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoAcceptedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoAcceptedNull() {
+                this[this.tableInvestorApplications.AutoAcceptedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoAcceptedByNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoAcceptedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoAcceptedByNull() {
+                this[this.tableInvestorApplications.AutoAcceptedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoAcceptedInformedNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoAcceptedInformedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoAcceptedInformedNull() {
+                this[this.tableInvestorApplications.AutoAcceptedInformedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsAutoAcceptedInformedByNull() {
+                return this.IsNull(this.tableInvestorApplications.AutoAcceptedInformedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetAutoAcceptedInformedByNull() {
+                this[this.tableInvestorApplications.AutoAcceptedInformedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsHasReadPO6Null() {
+                return this.IsNull(this.tableInvestorApplications.HasReadPO6Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetHasReadPO6Null() {
+                this[this.tableInvestorApplications.HasReadPO6Column] = global::System.Convert.DBNull;
             }
         }
         
@@ -8947,7 +9387,6 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             tableMapping.ColumnMappings.Add("EntryDate", "EntryDate");
             tableMapping.ColumnMappings.Add("Primary_DOB", "Primary_DOB");
             tableMapping.ColumnMappings.Add("CreatedUTC", "CreatedUTC");
-            tableMapping.ColumnMappings.Add("CondApproved", "CondApproved");
             tableMapping.ColumnMappings.Add("Property_PostCode", "Property_PostCode");
             tableMapping.ColumnMappings.Add("Property_State", "Property_State");
             tableMapping.ColumnMappings.Add("Property_Country", "Property_Country");
@@ -9012,7 +9451,6 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             tableMapping.ColumnMappings.Add("TransactionId", "TransactionId");
             tableMapping.ColumnMappings.Add("SourceURL", "SourceURL");
             tableMapping.ColumnMappings.Add("Other_Res_Street1", "Other_Res_Street1");
-            tableMapping.ColumnMappings.Add("CondApprovedBy", "CondApprovedBy");
             tableMapping.ColumnMappings.Add("HasReqestedPriority", "HasReqestedPriority");
             tableMapping.ColumnMappings.Add("HasAgreedPACLicence", "HasAgreedPACLicence");
             tableMapping.ColumnMappings.Add("EntryId", "EntryId");
@@ -9022,6 +9460,18 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             tableMapping.ColumnMappings.Add("YrsPrevAddr", "YrsPrevAddr");
             tableMapping.ColumnMappings.Add("YrsCurrEmployer", "YrsCurrEmployer");
             tableMapping.ColumnMappings.Add("YrsPrevEmployer", "YrsPrevEmployer");
+            tableMapping.ColumnMappings.Add("CondDecision", "CondDecision");
+            tableMapping.ColumnMappings.Add("CondDecisionBy", "CondDecisionBy");
+            tableMapping.ColumnMappings.Add("AutoRejected", "AutoRejected");
+            tableMapping.ColumnMappings.Add("AutoRejectedInformed", "AutoRejectedInformed");
+            tableMapping.ColumnMappings.Add("AutoRejecetedBy", "AutoRejecetedBy");
+            tableMapping.ColumnMappings.Add("AutoRejectedInformedBy", "AutoRejectedInformedBy");
+            tableMapping.ColumnMappings.Add("AutoAccepted", "AutoAccepted");
+            tableMapping.ColumnMappings.Add("AutoAcceptedBy", "AutoAcceptedBy");
+            tableMapping.ColumnMappings.Add("AutoAcceptedInformed", "AutoAcceptedInformed");
+            tableMapping.ColumnMappings.Add("AutoAcceptedInformedBy", "AutoAcceptedInformedBy");
+            tableMapping.ColumnMappings.Add("HasReadPO6", "HasReadPO6");
+            tableMapping.ColumnMappings.Add("CondApproved", "CondApproved");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -9043,7 +9493,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 " [InvestorApplication_Gender], [Primary_IncomeMoAT], [Other_IncomeMoAT], [Househ" +
                 "oldIncomeGrossPA], [LookingLocation], [FoundLocation], [Property_Street1], [Prop" +
                 "erty_Street2], [Property_City], [Property_Vendor], [EstSpend], [EntryDate], [Pri" +
-                "mary_DOB], [CreatedUTC], [CondApproved], [Property_PostCode], [Property_State], " +
+                "mary_DOB], [CreatedUTC], [CondDecision], [Property_PostCode], [Property_State], " +
                 "[Property_Country], [Property_AgentDetails], [HasAgreedPrivacy], [Primary_Gender" +
                 "], [DesiredPropertyAddr], [Primary_MaritalStats], [Other_MaritalStats], [Other_E" +
                 "mail], [Primary_HomePhone], [Other_HomePhone], [Other_Mobile], [Primary_Passport" +
@@ -9061,70 +9511,77 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 "itCardList], [RentPM], [Primary_PropertyAssets], [Other_PropertyAssets], [Primar" +
                 "y_PersonalLoansList], [Other_PersonalLoansList], [Primary_OtherAssetsList], [Oth" +
                 "er_OtherAssetsList], [Primary_OtherLiabilitiesList], [Other_OtherLiabilitiesList" +
-                "], [UserId], [TransactionId], [SourceURL], [Other_Res_Street1], [CondApprovedBy]" +
+                "], [UserId], [TransactionId], [SourceURL], [Other_Res_Street1], [CondDecisionBy]" +
                 ", [HasReqestedPriority], [HasAgreedPACLicence], [EntryId], [Primary_YrsCurrAddr]" +
                 ", [Other_YrsCurrAddr], [Other_YrsPrevAddr], [YrsPrevAddr], [YrsCurrEmployer], [Y" +
-                "rsPrevEmployer]) VALUES (@ApplicantType, @Primary_FirstName, @Primary_OtherNames" +
-                ", @Primary_LastName, @Primary_AUCitizenStat, @Primary_Dependants, @Other_FirstNa" +
-                "me, @Other_OtherNames, @Other_LastName, @Other_DOB, @Other_Gender, @Other_AUCiti" +
-                "zenStat, @Other_Dependants, @Email, @Mobile, @Primary_Res_Street1, @Primary_Res_" +
-                "Street2, @Primary_Res_City, @Primary_Res_PostCode, @Primary_Res_State, @Primary_" +
-                "Res_Country, @Primary_CurrResidStatus, @PrevResStatus, @CurrOccupType, @CurrEmpl" +
-                "oymentStatus, @IsSmoker, @HasPrivateHealthIns, @CreatedBy, @ModifiedBy, @Modifie" +
-                "d, @InvestorApplicant_AssquireInvestor, @InvestorApplication_Gender, @Primary_In" +
-                "comeMoAT, @Other_IncomeMoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLo" +
-                "cation, @Property_Street1, @Property_Street2, @Property_City, @Property_Vendor, " +
-                "@EstSpend, @EntryDate, @Primary_DOB, @CreatedUTC, @CondApproved, @Property_PostC" +
-                "ode, @Property_State, @Property_Country, @Property_AgentDetails, @HasAgreedPriva" +
-                "cy, @Primary_Gender, @DesiredPropertyAddr, @Primary_MaritalStats, @Other_Marital" +
-                "Stats, @Other_Email, @Primary_HomePhone, @Other_HomePhone, @Other_Mobile, @Prima" +
-                "ry_PassportNo, @Other_PassportNo, @Primary_PassportCountry, @Other_PassportCount" +
-                "ry, @Primary_DriversLicenceNo, @Other_DriversLicenceNo, @Primary_DriversLicenceS" +
-                "tate, @Other_DriversLicenceState, @Other_Res_Street2, @Other_Res_City, @Other_Re" +
-                "s_PostCode, @Other_Res_State, @Other_Res_Country, @Other_CurrResidStatus, @PrimP" +
-                "rev_Res_Street1, @PrimPrev_Res_Street2, @PrimPrev_Res_City, @PrimPrev_Res_PostCo" +
-                "de, @PrimPrev_Res_State, @PrimPrev_Res_Country, @OthPrev_Res_Street1, @OthPrev_R" +
-                "es_Street2, @OthPrev_Res_City, @OthPrev_Res_PostCode, @OthPrev_Res_State, @OthPr" +
-                "ev_Res_Country, @Other_PrevResStatus, @Other_CurrOccupType, @Primary_BusIncomeAP" +
-                "AYGTaxPA, @Other_BusIncomeAPAYGTaxPA, @Primary_OtherIncomePA, @Other_OtherIncome" +
-                "PA, @Primary_OtherIncomeType, @Other_OtherIncomeType, @Primary_HomeLoanList, @Ot" +
-                "her_HomeLoanList, @Primary_CreditCardList, @Other_CreditCardList, @RentPM, @Prim" +
-                "ary_PropertyAssets, @Other_PropertyAssets, @Primary_PersonalLoansList, @Other_Pe" +
-                "rsonalLoansList, @Primary_OtherAssetsList, @Other_OtherAssetsList, @Primary_Othe" +
-                "rLiabilitiesList, @Other_OtherLiabilitiesList, @UserId, @TransactionId, @SourceU" +
-                "RL, @Other_Res_Street1, @CondApprovedBy, @HasReqestedPriority, @HasAgreedPACLice" +
-                "nce, @EntryId, @Primary_YrsCurrAddr, @Other_YrsCurrAddr, @Other_YrsPrevAddr, @Yr" +
-                "sPrevAddr, @YrsCurrEmployer, @YrsPrevEmployer);\r\nSELECT Id, ApplicantType, Prima" +
-                "ry_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Prima" +
-                "ry_Dependants, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Oth" +
-                "er_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Str" +
-                "eet1, Primary_Res_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_S" +
-                "tate, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType" +
-                ", CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Mo" +
-                "dified, RowVersion, InvestorApplicant_AssquireInvestor, InvestorApplication_Gend" +
-                "er, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocatio" +
-                "n, FoundLocation, Property_Street1, Property_Street2, Property_City, Property_Ve" +
-                "ndor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondApproved, Property_PostC" +
-                "ode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, " +
-                "Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, O" +
-                "ther_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo" +
-                ", Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_Driv" +
-                "ersLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_Drivers" +
-                "LicenceState, Other_Res_Street2, Other_Res_City, Other_Res_PostCode, Other_Res_S" +
-                "tate, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_R" +
-                "es_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPr" +
-                "ev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_City, OthP" +
-                "rev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, O" +
-                "ther_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Prim" +
-                "ary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherInco" +
-                "meType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_" +
-                "CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_Pe" +
-                "rsonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAs" +
-                "setsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, Tran" +
-                "sactionId, SourceURL, Other_Res_Street1, CondApprovedBy, HasReqestedPriority, Ha" +
-                "sAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPre" +
-                "vAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer FROM InvestorApplications W" +
-                "HERE (Id = SCOPE_IDENTITY())";
+                "rsPrevEmployer], [AutoRejected], [AutoRejectedInformed], [AutoRejecetedBy], [Aut" +
+                "oRejectedInformedBy], [AutoAccepted], [AutoAcceptedBy], [AutoAcceptedInformed], " +
+                "[AutoAcceptedInformedBy], [HasReadPO6], [CondApproved]) VALUES (@ApplicantType, " +
+                "@Primary_FirstName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitizenSt" +
+                "at, @Primary_Dependants, @Other_FirstName, @Other_OtherNames, @Other_LastName, @" +
+                "Other_DOB, @Other_Gender, @Other_AUCitizenStat, @Other_Dependants, @Email, @Mobi" +
+                "le, @Primary_Res_Street1, @Primary_Res_Street2, @Primary_Res_City, @Primary_Res_" +
+                "PostCode, @Primary_Res_State, @Primary_Res_Country, @Primary_CurrResidStatus, @P" +
+                "revResStatus, @CurrOccupType, @CurrEmploymentStatus, @IsSmoker, @HasPrivateHealt" +
+                "hIns, @CreatedBy, @ModifiedBy, @Modified, @InvestorApplicant_AssquireInvestor, @" +
+                "InvestorApplication_Gender, @Primary_IncomeMoAT, @Other_IncomeMoAT, @HouseholdIn" +
+                "comeGrossPA, @LookingLocation, @FoundLocation, @Property_Street1, @Property_Stre" +
+                "et2, @Property_City, @Property_Vendor, @EstSpend, @EntryDate, @Primary_DOB, @Cre" +
+                "atedUTC, @CondDecision, @Property_PostCode, @Property_State, @Property_Country, " +
+                "@Property_AgentDetails, @HasAgreedPrivacy, @Primary_Gender, @DesiredPropertyAddr" +
+                ", @Primary_MaritalStats, @Other_MaritalStats, @Other_Email, @Primary_HomePhone, " +
+                "@Other_HomePhone, @Other_Mobile, @Primary_PassportNo, @Other_PassportNo, @Primar" +
+                "y_PassportCountry, @Other_PassportCountry, @Primary_DriversLicenceNo, @Other_Dri" +
+                "versLicenceNo, @Primary_DriversLicenceState, @Other_DriversLicenceState, @Other_" +
+                "Res_Street2, @Other_Res_City, @Other_Res_PostCode, @Other_Res_State, @Other_Res_" +
+                "Country, @Other_CurrResidStatus, @PrimPrev_Res_Street1, @PrimPrev_Res_Street2, @" +
+                "PrimPrev_Res_City, @PrimPrev_Res_PostCode, @PrimPrev_Res_State, @PrimPrev_Res_Co" +
+                "untry, @OthPrev_Res_Street1, @OthPrev_Res_Street2, @OthPrev_Res_City, @OthPrev_R" +
+                "es_PostCode, @OthPrev_Res_State, @OthPrev_Res_Country, @Other_PrevResStatus, @Ot" +
+                "her_CurrOccupType, @Primary_BusIncomeAPAYGTaxPA, @Other_BusIncomeAPAYGTaxPA, @Pr" +
+                "imary_OtherIncomePA, @Other_OtherIncomePA, @Primary_OtherIncomeType, @Other_Othe" +
+                "rIncomeType, @Primary_HomeLoanList, @Other_HomeLoanList, @Primary_CreditCardList" +
+                ", @Other_CreditCardList, @RentPM, @Primary_PropertyAssets, @Other_PropertyAssets" +
+                ", @Primary_PersonalLoansList, @Other_PersonalLoansList, @Primary_OtherAssetsList" +
+                ", @Other_OtherAssetsList, @Primary_OtherLiabilitiesList, @Other_OtherLiabilities" +
+                "List, @UserId, @TransactionId, @SourceURL, @Other_Res_Street1, @CondDecisionBy, " +
+                "@HasReqestedPriority, @HasAgreedPACLicence, @EntryId, @Primary_YrsCurrAddr, @Oth" +
+                "er_YrsCurrAddr, @Other_YrsPrevAddr, @YrsPrevAddr, @YrsCurrEmployer, @YrsPrevEmpl" +
+                "oyer, @AutoRejected, @AutoRejectedInformed, @AutoRejecetedBy, @AutoRejectedInfor" +
+                "medBy, @AutoAccepted, @AutoAcceptedBy, @AutoAcceptedInformed, @AutoAcceptedInfor" +
+                "medBy, @HasReadPO6, @CondApproved);\r\nSELECT Id, ApplicantType, Primary_FirstName" +
+                ", Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependant" +
+                "s, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, O" +
+                "ther_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primar" +
+                "y_Res_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_State, Primar" +
+                "y_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploy" +
+                "mentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, RowV" +
+                "ersion, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_" +
+                "IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLoca" +
+                "tion, Property_Street1, Property_Street2, Property_City, Property_Vendor, EstSpe" +
+                "nd, EntryDate, Primary_DOB, CreatedUTC, CondDecision, Property_PostCode, Propert" +
+                "y_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gend" +
+                "er, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, " +
+                "Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_Pass" +
+                "portNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo" +
+                ", Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState" +
+                ", Other_Res_Street2, Other_Res_City, Other_Res_PostCode, Other_Res_State, Other_" +
+                "Res_Country, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, " +
+                "PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Count" +
+                "ry, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_City, OthPrev_Res_Post" +
+                "Code, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOcc" +
+                "upType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherInc" +
+                "omePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Prim" +
+                "ary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardLi" +
+                "st, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansL" +
+                "ist, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Pr" +
+                "imary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, S" +
+                "ourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLi" +
+                "cence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPr" +
+                "evAddr, YrsCurrEmployer, YrsPrevEmployer, AutoRejected, AutoRejectedInformed, Au" +
+                "toRejecetedBy, AutoRejectedInformedBy, AutoAccepted, AutoAcceptedBy, AutoAccepte" +
+                "dInformed, AutoAcceptedInformedBy, HasReadPO6, CondApproved FROM InvestorApplica" +
+                "tions AS ia WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9171,7 +9628,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_DOB", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedUTC", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUTC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApproved", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApproved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecision", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_PostCode", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_PostCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_Country", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9236,7 +9693,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceURL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_Res_Street1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_Res_Street1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApprovedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasReqestedPriority", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasReqestedPriority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasAgreedPACLicence", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasAgreedPACLicence", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9246,6 +9703,16 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsPrevAddr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsPrevAddr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsCurrEmployer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsCurrEmployer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsPrevEmployer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsPrevEmployer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejected", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejected", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejectedInformed", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejectedInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejecetedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejecetedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejectedInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejectedInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAccepted", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAccepted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedInformed", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasReadPO6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasReadPO6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApproved", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApproved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [InvestorApplications] SET [ApplicantType] = @ApplicantType, [Primary_Firs" +
@@ -9270,7 +9737,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 "ty_Street1] = @Property_Street1, [Property_Street2] = @Property_Street2, [Proper" +
                 "ty_City] = @Property_City, [Property_Vendor] = @Property_Vendor, [EstSpend] = @E" +
                 "stSpend, [EntryDate] = @EntryDate, [Primary_DOB] = @Primary_DOB, [CreatedUTC] = " +
-                "@CreatedUTC, [CondApproved] = @CondApproved, [Property_PostCode] = @Property_Pos" +
+                "@CreatedUTC, [CondDecision] = @CondDecision, [Property_PostCode] = @Property_Pos" +
                 "tCode, [Property_State] = @Property_State, [Property_Country] = @Property_Countr" +
                 "y, [Property_AgentDetails] = @Property_AgentDetails, [HasAgreedPrivacy] = @HasAg" +
                 "reedPrivacy, [Primary_Gender] = @Primary_Gender, [DesiredPropertyAddr] = @Desire" +
@@ -9307,42 +9774,49 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 "ist, [Primary_OtherLiabilitiesList] = @Primary_OtherLiabilitiesList, [Other_Othe" +
                 "rLiabilitiesList] = @Other_OtherLiabilitiesList, [UserId] = @UserId, [Transactio" +
                 "nId] = @TransactionId, [SourceURL] = @SourceURL, [Other_Res_Street1] = @Other_Re" +
-                "s_Street1, [CondApprovedBy] = @CondApprovedBy, [HasReqestedPriority] = @HasReqes" +
+                "s_Street1, [CondDecisionBy] = @CondDecisionBy, [HasReqestedPriority] = @HasReqes" +
                 "tedPriority, [HasAgreedPACLicence] = @HasAgreedPACLicence, [EntryId] = @EntryId," +
                 " [Primary_YrsCurrAddr] = @Primary_YrsCurrAddr, [Other_YrsCurrAddr] = @Other_YrsC" +
                 "urrAddr, [Other_YrsPrevAddr] = @Other_YrsPrevAddr, [YrsPrevAddr] = @YrsPrevAddr," +
-                " [YrsCurrEmployer] = @YrsCurrEmployer, [YrsPrevEmployer] = @YrsPrevEmployer WHER" +
-                "E (([Id] = @Original_Id) AND ([RowVersion] = @Original_RowVersion));\r\nSELECT Id," +
-                " ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary" +
-                "_AUCitizenStat, Primary_Dependants, Other_FirstName, Other_OtherNames, Other_Las" +
-                "tName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mo" +
-                "bile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_City, Primary_Res_Po" +
-                "stCode, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevRes" +
-                "Status, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, Crea" +
-                "tedBy, ModifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, Inv" +
-                "estorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGr" +
-                "ossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Prope" +
-                "rty_City, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondApp" +
-                "roved, Property_PostCode, Property_State, Property_Country, Property_AgentDetail" +
-                "s, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, " +
-                "Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobil" +
-                "e, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_Passport" +
-                "Country, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenc" +
-                "eState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_City, Other_Res_" +
-                "PostCode, Other_Res_State, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Re" +
-                "s_Street1, PrimPrev_Res_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimP" +
-                "rev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, O" +
-                "thPrev_Res_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, O" +
-                "ther_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusI" +
-                "ncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncome" +
-                "Type, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_C" +
-                "reditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_Prope" +
-                "rtyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAsse" +
-                "tsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilit" +
-                "iesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondApprovedBy, Ha" +
-                "sReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsC" +
-                "urrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer FROM I" +
-                "nvestorApplications WHERE (Id = @Id)";
+                " [YrsCurrEmployer] = @YrsCurrEmployer, [YrsPrevEmployer] = @YrsPrevEmployer, [Au" +
+                "toRejected] = @AutoRejected, [AutoRejectedInformed] = @AutoRejectedInformed, [Au" +
+                "toRejecetedBy] = @AutoRejecetedBy, [AutoRejectedInformedBy] = @AutoRejectedInfor" +
+                "medBy, [AutoAccepted] = @AutoAccepted, [AutoAcceptedBy] = @AutoAcceptedBy, [Auto" +
+                "AcceptedInformed] = @AutoAcceptedInformed, [AutoAcceptedInformedBy] = @AutoAccep" +
+                "tedInformedBy, [HasReadPO6] = @HasReadPO6, [CondApproved] = @CondApproved WHERE " +
+                "(([Id] = @Original_Id) AND ([RowVersion] = @Original_RowVersion));\r\nSELECT Id, A" +
+                "pplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_A" +
+                "UCitizenStat, Primary_Dependants, Other_FirstName, Other_OtherNames, Other_LastN" +
+                "ame, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobi" +
+                "le, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_City, Primary_Res_Post" +
+                "Code, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResSt" +
+                "atus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, Create" +
+                "dBy, ModifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, Inves" +
+                "torApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGros" +
+                "sPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Propert" +
+                "y_City, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondDecis" +
+                "ion, Property_PostCode, Property_State, Property_Country, Property_AgentDetails," +
+                " HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Ot" +
+                "her_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile," +
+                " Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCo" +
+                "untry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceS" +
+                "tate, Other_DriversLicenceState, Other_Res_Street2, Other_Res_City, Other_Res_Po" +
+                "stCode, Other_Res_State, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Res_" +
+                "Street1, PrimPrev_Res_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPre" +
+                "v_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, Oth" +
+                "Prev_Res_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Oth" +
+                "er_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusInc" +
+                "omeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeTy" +
+                "pe, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_Cre" +
+                "ditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_Propert" +
+                "yAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssets" +
+                "List, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitie" +
+                "sList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasR" +
+                "eqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCur" +
+                "rAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AutoRej" +
+                "ected, AutoRejectedInformed, AutoRejecetedBy, AutoRejectedInformedBy, AutoAccept" +
+                "ed, AutoAcceptedBy, AutoAcceptedInformed, AutoAcceptedInformedBy, HasReadPO6, Co" +
+                "ndApproved FROM InvestorApplications AS ia WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_FirstName", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9389,7 +9863,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_DOB", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_DOB", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedUTC", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedUTC", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApproved", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApproved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecision", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_PostCode", global::System.Data.SqlDbType.SmallInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_PostCode", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_State", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_State", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_Country", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Property_Country", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9454,7 +9928,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TransactionId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TransactionId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@SourceURL", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "SourceURL", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_Res_Street1", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_Res_Street1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApprovedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasReqestedPriority", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasReqestedPriority", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasAgreedPACLicence", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasAgreedPACLicence", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@EntryId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "EntryId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9464,6 +9938,16 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsPrevAddr", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsPrevAddr", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsCurrEmployer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsCurrEmployer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@YrsPrevEmployer", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "YrsPrevEmployer", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejected", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejected", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejectedInformed", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejectedInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejecetedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejecetedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejectedInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejectedInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAccepted", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAccepted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedInformed", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@HasReadPO6", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "HasReadPO6", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApproved", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApproved", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RowVersion", global::System.Data.SqlDbType.Timestamp, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RowVersion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -9482,12 +9966,78 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        InvestorApplications.*\r\nFROM            InvestorApplications";
+            this._commandCollection[0].CommandText = "SELECT        Id, ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_L" +
+                "astName, Primary_AUCitizenStat, Primary_Dependants, Other_FirstName, Other_Other" +
+                "Names, Other_LastName, Other_DOB, \r\n                         Other_Gender, Other" +
+                "_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Re" +
+                "s_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_State, Primary_Re" +
+                "s_Country, \r\n                         Primary_CurrResidStatus, PrevResStatus, Cu" +
+                "rrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, Mod" +
+                "ifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, \r\n           " +
+                "              InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, " +
+                "HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Proper" +
+                "ty_Street2, Property_City, Property_Vendor, \r\n                         EstSpend," +
+                " EntryDate, Primary_DOB, CreatedUTC, CondDecision, Property_PostCode, Property_S" +
+                "tate, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender," +
+                " DesiredPropertyAddr, \r\n                         Primary_MaritalStats, Other_Mar" +
+                "italStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primar" +
+                "y_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, " +
+                "\r\n                         Primary_DriversLicenceNo, Other_DriversLicenceNo, Pri" +
+                "mary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Re" +
+                "s_City, Other_Res_PostCode, Other_Res_State, Other_Res_Country, \r\n              " +
+                "           Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, Pr" +
+                "imPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country" +
+                ", OthPrev_Res_Street1, OthPrev_Res_Street2, \r\n                         OthPrev_R" +
+                "es_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_Pre" +
+                "vResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPA" +
+                "YGTaxPA, \r\n                         Primary_OtherIncomePA, Other_OtherIncomePA, " +
+                "Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_Home" +
+                "LoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, \r\n              " +
+                "           Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansLi" +
+                "st, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Pri" +
+                "mary_OtherLiabilitiesList, Other_OtherLiabilitiesList, \r\n                       " +
+                "  UserId, TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqest" +
+                "edPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr" +
+                ", Other_YrsPrevAddr, YrsPrevAddr, \r\n                         YrsCurrEmployer, Yr" +
+                "sPrevEmployer, AutoRejected, AutoRejectedInformed, AutoRejecetedBy, AutoRejected" +
+                "InformedBy, AutoAccepted, AutoAcceptedBy, AutoAcceptedInformed, AutoAcceptedInfo" +
+                "rmedBy, \r\n                         HasReadPO6, CondApproved\r\nFROM            Inv" +
+                "estorApplications AS ia";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        InvestorApplications.*\r\nFROM            InvestorApplications\r\nWHERE" +
-                " Id = @Id";
+            this._commandCollection[1].CommandText = "SELECT ApplicantType, AutoAccepted, AutoAcceptedBy, AutoAcceptedInformed, AutoAcc" +
+                "eptedInformedBy, AutoRejecetedBy, AutoRejected, AutoRejectedInformed, AutoReject" +
+                "edInformedBy, CondApproved, CondDecision, CondDecisionBy, CreatedBy, CreatedUTC," +
+                " CurrEmploymentStatus, CurrOccupType, DesiredPropertyAddr, Email, EntryDate, Ent" +
+                "ryId, EstSpend, FoundLocation, HasAgreedPACLicence, HasAgreedPrivacy, HasPrivate" +
+                "HealthIns, HasReadPO6, HasReqestedPriority, HouseholdIncomeGrossPA, Id, Investor" +
+                "Applicant_AssquireInvestor, InvestorApplication_Gender, IsSmoker, LookingLocatio" +
+                "n, Mobile, Modified, ModifiedBy, OthPrev_Res_City, OthPrev_Res_Country, OthPrev_" +
+                "Res_PostCode, OthPrev_Res_State, OthPrev_Res_Street1, OthPrev_Res_Street2, Other" +
+                "_AUCitizenStat, Other_BusIncomeAPAYGTaxPA, Other_CreditCardList, Other_CurrOccup" +
+                "Type, Other_CurrResidStatus, Other_DOB, Other_Dependants, Other_DriversLicenceNo" +
+                ", Other_DriversLicenceState, Other_Email, Other_FirstName, Other_Gender, Other_H" +
+                "omeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_LastName, Other_MaritalSta" +
+                "ts, Other_Mobile, Other_OtherAssetsList, Other_OtherIncomePA, Other_OtherIncomeT" +
+                "ype, Other_OtherLiabilitiesList, Other_OtherNames, Other_PassportCountry, Other_" +
+                "PassportNo, Other_PersonalLoansList, Other_PrevResStatus, Other_PropertyAssets, " +
+                "Other_Res_City, Other_Res_Country, Other_Res_PostCode, Other_Res_State, Other_Re" +
+                "s_Street1, Other_Res_Street2, Other_YrsCurrAddr, Other_YrsPrevAddr, PrevResStatu" +
+                "s, PrimPrev_Res_City, PrimPrev_Res_Country, PrimPrev_Res_PostCode, PrimPrev_Res_" +
+                "State, PrimPrev_Res_Street1, PrimPrev_Res_Street2, Primary_AUCitizenStat, Primar" +
+                "y_BusIncomeAPAYGTaxPA, Primary_CreditCardList, Primary_CurrResidStatus, Primary_" +
+                "DOB, Primary_Dependants, Primary_DriversLicenceNo, Primary_DriversLicenceState, " +
+                "Primary_FirstName, Primary_Gender, Primary_HomeLoanList, Primary_HomePhone, Prim" +
+                "ary_IncomeMoAT, Primary_LastName, Primary_MaritalStats, Primary_OtherAssetsList," +
+                " Primary_OtherIncomePA, Primary_OtherIncomeType, Primary_OtherLiabilitiesList, P" +
+                "rimary_OtherNames, Primary_PassportCountry, Primary_PassportNo, Primary_Personal" +
+                "LoansList, Primary_PropertyAssets, Primary_Res_City, Primary_Res_Country, Primar" +
+                "y_Res_PostCode, Primary_Res_State, Primary_Res_Street1, Primary_Res_Street2, Pri" +
+                "mary_YrsCurrAddr, Property_AgentDetails, Property_City, Property_Country, Proper" +
+                "ty_PostCode, Property_State, Property_Street1, Property_Street2, Property_Vendor" +
+                ", RentPM, RowVersion, SourceURL, TransactionId, UserId, YrsCurrEmployer, YrsPrev" +
+                "Addr, YrsPrevEmployer FROM InvestorApplications WHERE (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -9649,7 +10199,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     System.DateTime EntryDate, 
                     global::System.Nullable<global::System.DateTime> Primary_DOB, 
                     System.DateTime CreatedUTC, 
-                    global::System.Nullable<global::System.DateTime> CondApproved, 
+                    global::System.Nullable<global::System.DateTime> CondDecision, 
                     global::System.Nullable<short> Property_PostCode, 
                     string Property_State, 
                     string Property_Country, 
@@ -9714,7 +10264,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string TransactionId, 
                     string SourceURL, 
                     string Other_Res_Street1, 
-                    string CondApprovedBy, 
+                    string CondDecisionBy, 
                     string HasReqestedPriority, 
                     string HasAgreedPACLicence, 
                     int EntryId, 
@@ -9723,7 +10273,17 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string Other_YrsPrevAddr, 
                     string YrsPrevAddr, 
                     string YrsCurrEmployer, 
-                    string YrsPrevEmployer) {
+                    string YrsPrevEmployer, 
+                    global::System.Nullable<global::System.DateTime> AutoRejected, 
+                    global::System.Nullable<global::System.DateTime> AutoRejectedInformed, 
+                    string AutoRejecetedBy, 
+                    string AutoRejectedInformedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAccepted, 
+                    string AutoAcceptedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAcceptedInformed, 
+                    string AutoAcceptedInformedBy, 
+                    string HasReadPO6, 
+                    global::System.Nullable<bool> CondApproved) {
             if ((ApplicantType == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -9984,8 +10544,8 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 this.Adapter.InsertCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             this.Adapter.InsertCommand.Parameters[44].Value = ((System.DateTime)(CreatedUTC));
-            if ((CondApproved.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[45].Value = ((System.DateTime)(CondApproved.Value));
+            if ((CondDecision.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[45].Value = ((System.DateTime)(CondDecision.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[45].Value = global::System.DBNull.Value;
@@ -10374,11 +10934,11 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             else {
                 this.Adapter.InsertCommand.Parameters[109].Value = ((string)(Other_Res_Street1));
             }
-            if ((CondApprovedBy == null)) {
+            if ((CondDecisionBy == null)) {
                 this.Adapter.InsertCommand.Parameters[110].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[110].Value = ((string)(CondApprovedBy));
+                this.Adapter.InsertCommand.Parameters[110].Value = ((string)(CondDecisionBy));
             }
             if ((HasReqestedPriority == null)) {
                 this.Adapter.InsertCommand.Parameters[111].Value = global::System.DBNull.Value;
@@ -10428,6 +10988,66 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             }
             else {
                 this.Adapter.InsertCommand.Parameters[119].Value = ((string)(YrsPrevEmployer));
+            }
+            if ((AutoRejected.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[120].Value = ((System.DateTime)(AutoRejected.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[120].Value = global::System.DBNull.Value;
+            }
+            if ((AutoRejectedInformed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[121].Value = ((System.DateTime)(AutoRejectedInformed.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[121].Value = global::System.DBNull.Value;
+            }
+            if ((AutoRejecetedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[122].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[122].Value = ((string)(AutoRejecetedBy));
+            }
+            if ((AutoRejectedInformedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[123].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[123].Value = ((string)(AutoRejectedInformedBy));
+            }
+            if ((AutoAccepted.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[124].Value = ((System.DateTime)(AutoAccepted.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[124].Value = global::System.DBNull.Value;
+            }
+            if ((AutoAcceptedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[125].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[125].Value = ((string)(AutoAcceptedBy));
+            }
+            if ((AutoAcceptedInformed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[126].Value = ((System.DateTime)(AutoAcceptedInformed.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[126].Value = global::System.DBNull.Value;
+            }
+            if ((AutoAcceptedInformedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[127].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[127].Value = ((string)(AutoAcceptedInformedBy));
+            }
+            if ((HasReadPO6 == null)) {
+                this.Adapter.InsertCommand.Parameters[128].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[128].Value = ((string)(HasReadPO6));
+            }
+            if ((CondApproved.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[129].Value = ((bool)(CondApproved.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[129].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -10495,7 +11115,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     System.DateTime EntryDate, 
                     global::System.Nullable<global::System.DateTime> Primary_DOB, 
                     System.DateTime CreatedUTC, 
-                    global::System.Nullable<global::System.DateTime> CondApproved, 
+                    global::System.Nullable<global::System.DateTime> CondDecision, 
                     global::System.Nullable<short> Property_PostCode, 
                     string Property_State, 
                     string Property_Country, 
@@ -10560,7 +11180,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string TransactionId, 
                     string SourceURL, 
                     string Other_Res_Street1, 
-                    string CondApprovedBy, 
+                    string CondDecisionBy, 
                     string HasReqestedPriority, 
                     string HasAgreedPACLicence, 
                     int EntryId, 
@@ -10570,6 +11190,16 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string YrsPrevAddr, 
                     string YrsCurrEmployer, 
                     string YrsPrevEmployer, 
+                    global::System.Nullable<global::System.DateTime> AutoRejected, 
+                    global::System.Nullable<global::System.DateTime> AutoRejectedInformed, 
+                    string AutoRejecetedBy, 
+                    string AutoRejectedInformedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAccepted, 
+                    string AutoAcceptedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAcceptedInformed, 
+                    string AutoAcceptedInformedBy, 
+                    string HasReadPO6, 
+                    global::System.Nullable<bool> CondApproved, 
                     int Original_Id, 
                     byte[] Original_RowVersion, 
                     int Id) {
@@ -10833,8 +11463,8 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                 this.Adapter.UpdateCommand.Parameters[43].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[44].Value = ((System.DateTime)(CreatedUTC));
-            if ((CondApproved.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(CondApproved.Value));
+            if ((CondDecision.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((System.DateTime)(CondDecision.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[45].Value = global::System.DBNull.Value;
@@ -11223,11 +11853,11 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             else {
                 this.Adapter.UpdateCommand.Parameters[109].Value = ((string)(Other_Res_Street1));
             }
-            if ((CondApprovedBy == null)) {
+            if ((CondDecisionBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(CondApprovedBy));
+                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(CondDecisionBy));
             }
             if ((HasReqestedPriority == null)) {
                 this.Adapter.UpdateCommand.Parameters[111].Value = global::System.DBNull.Value;
@@ -11278,14 +11908,74 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
             else {
                 this.Adapter.UpdateCommand.Parameters[119].Value = ((string)(YrsPrevEmployer));
             }
-            this.Adapter.UpdateCommand.Parameters[120].Value = ((int)(Original_Id));
+            if ((AutoRejected.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((System.DateTime)(AutoRejected.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
+            }
+            if ((AutoRejectedInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[121].Value = ((System.DateTime)(AutoRejectedInformed.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[121].Value = global::System.DBNull.Value;
+            }
+            if ((AutoRejecetedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[122].Value = ((string)(AutoRejecetedBy));
+            }
+            if ((AutoRejectedInformedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[123].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[123].Value = ((string)(AutoRejectedInformedBy));
+            }
+            if ((AutoAccepted.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[124].Value = ((System.DateTime)(AutoAccepted.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
+            }
+            if ((AutoAcceptedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[125].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[125].Value = ((string)(AutoAcceptedBy));
+            }
+            if ((AutoAcceptedInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[126].Value = ((System.DateTime)(AutoAcceptedInformed.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
+            }
+            if ((AutoAcceptedInformedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[127].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[127].Value = ((string)(AutoAcceptedInformedBy));
+            }
+            if ((HasReadPO6 == null)) {
+                this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(HasReadPO6));
+            }
+            if ((CondApproved.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[129].Value = ((bool)(CondApproved.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[129].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[130].Value = ((int)(Original_Id));
             if ((Original_RowVersion == null)) {
                 throw new global::System.ArgumentNullException("Original_RowVersion");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[121].Value = ((byte[])(Original_RowVersion));
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((byte[])(Original_RowVersion));
             }
-            this.Adapter.UpdateCommand.Parameters[122].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[132].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11352,7 +12042,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     System.DateTime EntryDate, 
                     global::System.Nullable<global::System.DateTime> Primary_DOB, 
                     System.DateTime CreatedUTC, 
-                    global::System.Nullable<global::System.DateTime> CondApproved, 
+                    global::System.Nullable<global::System.DateTime> CondDecision, 
                     global::System.Nullable<short> Property_PostCode, 
                     string Property_State, 
                     string Property_Country, 
@@ -11417,7 +12107,7 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string TransactionId, 
                     string SourceURL, 
                     string Other_Res_Street1, 
-                    string CondApprovedBy, 
+                    string CondDecisionBy, 
                     string HasReqestedPriority, 
                     string HasAgreedPACLicence, 
                     int EntryId, 
@@ -11427,9 +12117,19 @@ SELECT Id, MAId, PrimaryInvestorID, FirstName, MiddleNames, LastName, Title, DOB
                     string YrsPrevAddr, 
                     string YrsCurrEmployer, 
                     string YrsPrevEmployer, 
+                    global::System.Nullable<global::System.DateTime> AutoRejected, 
+                    global::System.Nullable<global::System.DateTime> AutoRejectedInformed, 
+                    string AutoRejecetedBy, 
+                    string AutoRejectedInformedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAccepted, 
+                    string AutoAcceptedBy, 
+                    global::System.Nullable<global::System.DateTime> AutoAcceptedInformed, 
+                    string AutoAcceptedInformedBy, 
+                    string HasReadPO6, 
+                    global::System.Nullable<bool> CondApproved, 
                     int Original_Id, 
                     byte[] Original_RowVersion) {
-            return this.Update(ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Property_City, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondApproved, Property_PostCode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_City, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondApprovedBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, Original_Id, Original_RowVersion, Original_Id);
+            return this.Update(ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_City, Primary_Res_PostCode, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Property_City, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondDecision, Property_PostCode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_City, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_City, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_City, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AutoRejected, AutoRejectedInformed, AutoRejecetedBy, AutoRejectedInformedBy, AutoAccepted, AutoAcceptedBy, AutoAcceptedInformed, AutoAcceptedInformedBy, HasReadPO6, CondApproved, Original_Id, Original_RowVersion, Original_Id);
         }
     }
     
