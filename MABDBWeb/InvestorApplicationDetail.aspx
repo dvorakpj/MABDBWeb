@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorApplicationDetail.aspx.cs" Inherits="MABDBWeb.InvestorApplicationDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
+    <asp:Label ID="lblValidationErrorsTxtBoxLabel" runat="server" ForeColor="Red" Text="Validation Errors:" Visible="False"></asp:Label>
+    <br />
+    <asp:TextBox ID="txtValidationErrors" runat="server" ForeColor="Red" Visible="False" Wrap="False"></asp:TextBox>
     <br />
     <asp:Label ID="Label1" runat="server" style="font-weight: 700" Text="Investor Application Details"></asp:Label>
     <br />
@@ -412,7 +415,8 @@
     <hr />
         <div>
         <p>
-          <span style="font-weight: bold">Conditional Approval:</span></p>
+          <span style="font-weight: bold">Conditional Approval:</span>
+        </p>
            Approver: <asp:Label ID="lblApprover" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as approver of the Application."></asp:Label>
         <br />
             <p>
@@ -423,7 +427,7 @@
   
         <!-- COnditional approval confirmation -->
         <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
-    <div class="modal-dialog">
+         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
@@ -434,16 +438,44 @@
                 <p>Are you sure you want to conditionally approve this application?</p>
             </div>
             <div class="modal-footer">
-              <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
                  <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
                  <asp:Button runat="server" ID="ButtonCondApprovedModal" Text="Conditionally Approve" CssClass="btn" OnClick="ButtonCondApprovedModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
             </div>
         </div>
     </div>
-</div>
+        </div>
   
     <hr />
+
+     <br />
+        <p>
+            <span style="font-weight: bold">Conditional Result </span><asp:Label ID="lblCondApproved" runat="server" Text="Label"></asp:Label><span style="font-weight: bold">&nbsp;Sent (emailed):</span>
+        </p>
+
+        <p>
+        <asp:Button ID="btnCondResultSent" runat="server" Text="Mark Conditional Result as Sent" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondResultSentModal"/>
+        </p>
+
+      <div id="CondResultSentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+         <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">                
+                 <h3 id="myModalLabel3">Confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you have sent the result of conditional approval result <%=this.lblCondApproved.Text%> to this applicant?</p>
+            </div>
+            <div class="modal-footer">
+              <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
+                 <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
+                 <asp:Button runat="server" ID="Button1" Text="Mark Result as Sent" CssClass="btn" OnClick="ButtonCondResultSentModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+            </div>
+        </div>
+    </div>
+        </div>
 
      <hr />
         <p>
@@ -454,7 +486,7 @@
             Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
         </p>
         <p>
-        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Credit Fee Received" CausesValidation="False" OnClick="btnCreditFeeReceived_Click" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
+        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Credit Fee Received" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
     </p>     
    <!-- Credit Fee Received Confirmation -->
         <div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
@@ -470,7 +502,7 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-                        <button class="btn-primary btn" id="Confirm">Confirm</button>
+                 <asp:Button runat="server" ID="Button2" Text="Mark Result as Sent" CssClass="btn" OnClick="btnCreditFeeReceived_Click" UseSubmitBehavior="false" data-dismiss="modal" />
                     </div>
                 </div>
             </div>

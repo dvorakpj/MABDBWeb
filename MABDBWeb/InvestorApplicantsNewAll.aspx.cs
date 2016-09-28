@@ -149,7 +149,7 @@ namespace MABDBWeb
             #region set up columns in dt
             DataColumn[] impCols;
 
-            impCols = new DataColumn[131]; //total 128 columns in the table
+            impCols = new DataColumn[132]; //total 128 columns in the table
                                            //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
@@ -190,14 +190,15 @@ namespace MABDBWeb
 
             impCols[30] = new DataColumn("Primary_Res_Street1", typeof(string));
             impCols[31] = new DataColumn("Primary_Res_Street2", typeof(string));
-            impCols[32] = new DataColumn("Primary_Res_City", typeof(string));
+            //impCols[32] = new DataColumn("Primary_Res_City", typeof(string));
+            impCols[32] = new DataColumn("Primary_Res_Suburb", typeof(string));            
             impCols[33] = new DataColumn("Primary_Res_State", typeof(string));
             impCols[34] = new DataColumn("Primary_Res_PostCode", typeof(string));
             impCols[35] = new DataColumn("Primary_Res_Country", typeof(string));
             // 
             impCols[36] = new DataColumn("Other_Res_Street1", typeof(string));
             impCols[37] = new DataColumn("Other_Res_Street2", typeof(string));
-            impCols[38] = new DataColumn("Other_Res_City", typeof(string));
+            impCols[38] = new DataColumn("Other_Res_Suburb", typeof(string));
             impCols[39] = new DataColumn("Other_Res_State", typeof(string));
             impCols[40] = new DataColumn("Other_Res_PostCode", typeof(string));
             impCols[41] = new DataColumn("Other_Res_Country", typeof(string));
@@ -210,14 +211,14 @@ namespace MABDBWeb
             //Previous residential address Primary and Other applicants
             impCols[46] = new DataColumn("PrimPrev_Res_Street1", typeof(string));
             impCols[47] = new DataColumn("PrimPrev_Res_Street2", typeof(string));
-            impCols[48] = new DataColumn("PrimPrev_Res_City", typeof(string));
+            impCols[48] = new DataColumn("PrimPrev_Res_Suburb", typeof(string));
             impCols[49] = new DataColumn("PrimPrev_Res_State", typeof(string));
             impCols[50] = new DataColumn("PrimPrev_Res_PostCode", typeof(string));
             impCols[51] = new DataColumn("PrimPrev_Res_Country", typeof(string));
             // 
             impCols[52] = new DataColumn("OthPrev_Res_Street1", typeof(string));
             impCols[53] = new DataColumn("OthPrev_Res_Street2", typeof(string));
-            impCols[54] = new DataColumn("OthPrev_Res_City", typeof(string));
+            impCols[54] = new DataColumn("OthPrev_Res_Suburb", typeof(string));
             impCols[55] = new DataColumn("OthPrev_Res_State", typeof(string));
             impCols[56] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
             impCols[57] = new DataColumn("OthPrev_Res_Country", typeof(string));
@@ -297,17 +298,17 @@ namespace MABDBWeb
             impCols[95] = new DataColumn("HasAgreedPACLicence", typeof(string));
 
             int maxImportedColId = 95;
-
+            // ignored columns
             // columns not populated
-            impCols[96] = new DataColumn("CondApproved", typeof(DateTime));
-            impCols[97] = new DataColumn("CondApprovedBy", typeof(string));
+            impCols[96] = new DataColumn("CondDecision", typeof(DateTime));
+            impCols[97] = new DataColumn("CondDecisionBy", typeof(string));
 
             impCols[98] = new DataColumn("Other_Dependants", typeof(string));
             impCols[99] = new DataColumn("LookingLocation", typeof(string));
             impCols[100] = new DataColumn("FoundLocation", typeof(string));
             impCols[101] = new DataColumn("Property_Street1", typeof(string));
             impCols[102] = new DataColumn("Property_Street2", typeof(string));
-            impCols[103] = new DataColumn("Property_City", typeof(string));
+            impCols[103] = new DataColumn("Property_Suburb", typeof(string));
             impCols[104] = new DataColumn("Property_State", typeof(string));
             impCols[105] = new DataColumn("Property_PostCode", typeof(string));
             impCols[106] = new DataColumn("Property_Vendor", typeof(string));
@@ -334,14 +335,15 @@ namespace MABDBWeb
             impCols[127] = new DataColumn("AutoAcceptedBy", typeof(string));
             impCols[128] = new DataColumn("AutoAcceptedInformed", typeof(string));
             impCols[129] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
+            impCols[130] = new DataColumn("CondApproved", typeof(Boolean));
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
 
-            // ignored columns
-            impCols[130] = new DataColumn("Id", typeof(int));
-            impCols[130].AutoIncrement = true;
-            impCols[130].AutoIncrementSeed = -1;
-            impCols[130].AutoIncrementStep = -1;
+          
+            impCols[131] = new DataColumn("Id", typeof(int));
+            impCols[131].AutoIncrement = true;
+            impCols[131].AutoIncrementSeed = -1;
+            impCols[131].AutoIncrementStep = -1;
 
             //modified
             //impCols[116] = DateTime.UtcNow;
@@ -466,10 +468,16 @@ namespace MABDBWeb
                             ("Other_OtherNames" == currentColumnName) ||
                             ("Other_AUCitizenStat" == currentColumnName) ||
                             ("Other_Dependants" == currentColumnName) ||
-                            ("CondApproved" == currentColumnName) ||
-                            ("CondApprovedBy" == currentColumnName) ||
+                            ("CondDecision" == currentColumnName) ||
+                            ("CondDecisionBy" == currentColumnName) ||
                             ("CreatedUTC" == currentColumnName) ||
-                            ("HasAgreedPACLicence" == currentColumnName)
+                            ("HasAgreedPACLicence" == currentColumnName) ||
+                            ("Primary_Res_City" == currentColumnName) ||
+                            ("Other_Res_City" == currentColumnName) ||
+                            ("Primary_Res_Street2" == currentColumnName) ||
+                            ("Other_Res_Street2" == currentColumnName) ||
+                            ("CondDecision" == currentColumnName) ||
+                            ("CondDecisionBy" == currentColumnName)
                             )
                         {
                             newRow[col] = DBNull.Value;
@@ -700,6 +708,8 @@ namespace MABDBWeb
                 //    con.Close();
                 //}
             }
+
+            GridView1.DataBind();
 
             return rowCnt - 1 - duplIds.Count;
         }

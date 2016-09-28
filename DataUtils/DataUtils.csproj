@@ -40,14 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvestorApplicationDS.cs">
-      <DependentUpon>InvestorApplicationDS.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="InvestorApplicationDS.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InvestorApplicationDS.xsd</DependentUpon>
-    </Compile>
     <Compile Include="InvestorDS.cs">
       <DependentUpon>InvestorDS.xsd</DependentUpon>
     </Compile>
@@ -66,17 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="InvestorApplicationDS.xsc">
-      <DependentUpon>InvestorApplicationDS.xsd</DependentUpon>
-    </None>
-    <None Include="InvestorApplicationDS.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>InvestorApplicationDS.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="InvestorApplicationDS.xss">
-      <DependentUpon>InvestorApplicationDS.xsd</DependentUpon>
-    </None>
     <None Include="InvestorDS.xsc">
       <DependentUpon>InvestorDS.xsd</DependentUpon>
     </None>

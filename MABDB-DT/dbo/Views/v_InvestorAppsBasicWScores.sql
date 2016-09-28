@@ -12,7 +12,6 @@
 	 ia.Email,
 	 ia.Primary_Res_State,
 	 ia.Primary_Res_PostCode	  
-	 , ia.Cond
 	  ,[Score_Status]
 	  ,[Score_Total]	
 	  
