@@ -29,6 +29,13 @@ namespace MABDBWeb
     }
 
 
+    enum AutoCondApprovalResult
+    {
+        Accepted = 'A',
+        Rejected = 'R',
+        Referred = 'F'
+    }
+
     public partial class InvestorApplicantsNewAll : System.Web.UI.Page
     {
 
@@ -229,48 +236,59 @@ namespace MABDBWeb
             impCols[60] = new DataColumn("PrevResStatus", typeof(string)); // Other
                                                                            // pre residential status other
             impCols[61] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other
-            impCols[62] = new DataColumn("CurrOccupType", typeof(string)); // Primary
-            impCols[63] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
 
 
-            impCols[64] = new DataColumn("Primary_IncomeMoAT", typeof(string));
-            impCols[65] = new DataColumn("Other_IncomeMoAT", typeof(string));
+            impCols[62] = new DataColumn("IsSmoker", typeof(string));
+            impCols[63] = new DataColumn("HasPrivateHealthIns", typeof(string));
+
+
+
+            impCols[64] = new DataColumn("CurrOccupType", typeof(string)); // Primary    
+            impCols[65] = new DataColumn("CurrEmploymentStatus", typeof(string));
+            impCols[66] = new DataColumn("YrsCurrEmployer", typeof(string));
+            impCols[67] = new DataColumn("YrsPrevEmployer", typeof(string));
+
+            impCols[68] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
+
+
+            impCols[69] = new DataColumn("Primary_IncomeMoAT", typeof(string));
+            impCols[70] = new DataColumn("Other_IncomeMoAT", typeof(string));
             // Primary Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa $",
-            impCols[66] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[71] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa",
-            impCols[67] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[72] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other $ Income per year - Primary Applicant",
-            impCols[68] = new DataColumn("Primary_OtherIncomePA", typeof(string));
+            impCols[73] = new DataColumn("Primary_OtherIncomePA", typeof(string));
             //"Other $ Income per year - Other Applicant",
-            impCols[69] = new DataColumn("Other_OtherIncomePA", typeof(string));
+            impCols[74] = new DataColumn("Other_OtherIncomePA", typeof(string));
             //"Type of Other Income Primary Applicant (ie, dividends, rent, none)",
-            impCols[70] = new DataColumn("Primary_OtherIncomeType", typeof(string));
+            impCols[75] = new DataColumn("Primary_OtherIncomeType", typeof(string));
             //"Type of other Income Other Applicant (ie, dividends, rent, none)"
-            impCols[71] = new DataColumn("Other_OtherIncomeType", typeof(string));
-            impCols[72] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
+            impCols[76] = new DataColumn("Other_OtherIncomeType", typeof(string));
+            impCols[77] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
 
             //remove
             //Primary Applicant Home and/ or Investment loans (list all) 1",
-            impCols[73] = new DataColumn("Primary_HomeLoanList", typeof(string));
+            impCols[78] = new DataColumn("Primary_HomeLoanList", typeof(string));
             //"Other Applicant Home and/ or Investment loans (list all)",
-            impCols[74] = new DataColumn("Other_HomeLoanList", typeof(string));
+            impCols[79] = new DataColumn("Other_HomeLoanList", typeof(string));
             //"Primary Applicant Car or Personal loans (list all) 1",
-            impCols[75] = new DataColumn("Primary_PersonalLoansList", typeof(string));
+            impCols[80] = new DataColumn("Primary_PersonalLoansList", typeof(string));
             //"Other Applicant Car or Personal loans (list all)",
-            impCols[76] = new DataColumn("Other_PersonalLoansList", typeof(string));
+            impCols[81] = new DataColumn("Other_PersonalLoansList", typeof(string));
             //"Primary Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all) 1",
-            impCols[77] = new DataColumn("Primary_CreditCardList", typeof(string));
+            impCols[82] = new DataColumn("Primary_CreditCardList", typeof(string));
             //"Other Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all)",
-            impCols[78] = new DataColumn("Other_CreditCardList", typeof(string));
+            impCols[83] = new DataColumn("Other_CreditCardList", typeof(string));
             //"Rent/Board per month ($)",
-            impCols[79] = new DataColumn("RentPM", typeof(string));
+            impCols[84] = new DataColumn("RentPM", typeof(string));
             //"Property Assets & Liabilities for Primary Applicant: 1",
-            impCols[80] = new DataColumn("Primary_PropertyAssets", typeof(string));
-            impCols[81] = new DataColumn("Other_PropertyAssets", typeof(string));
-            impCols[82] = new DataColumn("Primary_OtherAssetsList", typeof(string));
-            impCols[83] = new DataColumn("Other_OtherAssetsList", typeof(string));
-            impCols[84] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
-            impCols[85] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
+            impCols[85] = new DataColumn("Primary_PropertyAssets", typeof(string));
+            impCols[86] = new DataColumn("Other_PropertyAssets", typeof(string));
+            impCols[87] = new DataColumn("Primary_OtherAssetsList", typeof(string));
+            impCols[88] = new DataColumn("Other_OtherAssetsList", typeof(string));
+            impCols[89] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
+            impCols[90] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
             //"Property Assets & Liabilities for Other Applicant:",
             //"List Other Assets for Primary Applicant: 1",
             //"List Other Assets for Other Applicant:",
@@ -279,47 +297,44 @@ namespace MABDBWeb
 
 
             // considered for priority
-            impCols[86] = new DataColumn("HasReadPO6", typeof(string));
-            impCols[87] = new DataColumn("HasAgreedPrivacy", typeof(string));
-            impCols[88] = new DataColumn("HasReqestedPriority", typeof(string));
+            impCols[91] = new DataColumn("HasReadPO6", typeof(string));
+            impCols[92] = new DataColumn("HasAgreedPrivacy", typeof(string));
+            impCols[93] = new DataColumn("HasReqestedPriority", typeof(string));
             
             //           has read PAC Licence Agreement."
             // Created by UserID
-            impCols[89] = new DataColumn("UserId", typeof(string));
+            impCols[94] = new DataColumn("UserId", typeof(string));
 
-            impCols[90] = new DataColumn("EntryId", typeof(string));
-            impCols[91] = new DataColumn("EntryDate", typeof(DateTime));
+            impCols[95] = new DataColumn("EntryId", typeof(string));
+            impCols[96] = new DataColumn("EntryDate", typeof(DateTime));
             //"Source Url",
-            impCols[92] = new DataColumn("SourceURL", typeof(string));
+            impCols[97] = new DataColumn("SourceURL", typeof(string));
             //"Transaction Id", 
-            impCols[93] = new DataColumn("TransactionId", typeof(string));
+            impCols[98] = new DataColumn("TransactionId", typeof(string));
 
-            impCols[94] = new DataColumn("CreatedUTC", typeof(DateTime));
-            impCols[95] = new DataColumn("HasAgreedPACLicence", typeof(string));
+            impCols[99] = new DataColumn("CreatedUTC", typeof(DateTime));
+            impCols[100] = new DataColumn("HasAgreedPACLicence", typeof(string));
 
-            int maxImportedColId = 95;
             // ignored columns
             // columns not populated
-            impCols[96] = new DataColumn("CondDecision", typeof(DateTime));
-            impCols[97] = new DataColumn("CondDecisionBy", typeof(string));
+           
+            int maxImportedColId = 100;
 
-            impCols[98] = new DataColumn("Other_Dependants", typeof(string));
-            impCols[99] = new DataColumn("LookingLocation", typeof(string));
-            impCols[100] = new DataColumn("FoundLocation", typeof(string));
-            impCols[101] = new DataColumn("Property_Street1", typeof(string));
-            impCols[102] = new DataColumn("Property_Street2", typeof(string));
-            impCols[103] = new DataColumn("Property_Suburb", typeof(string));
-            impCols[104] = new DataColumn("Property_State", typeof(string));
-            impCols[105] = new DataColumn("Property_PostCode", typeof(string));
-            impCols[106] = new DataColumn("Property_Vendor", typeof(string));
-            impCols[107] = new DataColumn("Property_Country", typeof(string));
-            impCols[108] = new DataColumn("Property_AgentDetails", typeof(string));
-            impCols[109] = new DataColumn("Primary_Dependants", typeof(string));
-            impCols[110] = new DataColumn("CurrEmploymentStatus", typeof(string));
-            impCols[111] = new DataColumn("YrsCurrEmployer", typeof(string));
-            impCols[112] = new DataColumn("YrsPrevEmployer", typeof(string));
-            impCols[113] = new DataColumn("IsSmoker", typeof(string));
-            impCols[114] = new DataColumn("HasPrivateHealthIns", typeof(string));
+            impCols[101] = new DataColumn("Other_Dependants", typeof(string));
+            impCols[102] = new DataColumn("LookingLocation", typeof(string));
+            impCols[103] = new DataColumn("FoundLocation", typeof(string));
+            impCols[104] = new DataColumn("Property_Street1", typeof(string));
+            impCols[105] = new DataColumn("Property_Street2", typeof(string));
+            impCols[106] = new DataColumn("Property_Suburb", typeof(string));
+            impCols[107] = new DataColumn("Property_State", typeof(string));
+            impCols[108] = new DataColumn("Property_PostCode", typeof(string));
+            impCols[109] = new DataColumn("Property_Vendor", typeof(string));
+            impCols[110] = new DataColumn("Property_Country", typeof(string));
+            impCols[111] = new DataColumn("Property_AgentDetails", typeof(string));
+            impCols[112] = new DataColumn("Primary_Dependants", typeof(string));
+            
+            impCols[113] = new DataColumn("CondDecision", typeof(DateTime));
+            impCols[114] = new DataColumn("CondDecisionBy", typeof(string));
             impCols[115] = new DataColumn("CreatedBy", typeof(string));
             impCols[116] = new DataColumn("ModifiedBy", typeof(string));
             impCols[117] = new DataColumn("Modified", typeof(string));
@@ -469,8 +484,7 @@ namespace MABDBWeb
                             ("Other_AUCitizenStat" == currentColumnName) ||
                             ("Other_Dependants" == currentColumnName) ||
                             ("CondDecision" == currentColumnName) ||
-                            ("CondDecisionBy" == currentColumnName) ||
-                            ("CreatedUTC" == currentColumnName) ||
+                            ("CondDecisionBy" == currentColumnName) ||                           
                             ("HasAgreedPACLicence" == currentColumnName) ||
                             ("Primary_Res_City" == currentColumnName) ||
                             ("Other_Res_City" == currentColumnName) ||
@@ -604,6 +618,9 @@ namespace MABDBWeb
                         else if (("CreatedUTC" == currentColumnName) || ("Modified" == currentColumnName))
                         {
                             newRow[col] = DateTime.UtcNow;
+                        } else if ("CreatedBy" == currentColumnName)
+                        {
+                            newRow[col] = "dvorakp";
                         }
 
                         // default parsing                        
@@ -633,12 +650,11 @@ namespace MABDBWeb
 
                     CalcAutoRejections(newRow, newCard);
 
-                    CalcScorecard(newRow, newCard);
-
+                   
                     scoreDT.Rows.Add(newCard);
                     //int score = CalcScoreClass()
-                    newRow[94] = DateTime.UtcNow;
-                    newRow[90] = "3";
+                    //newRow[94] = DateTime.UtcNow;
+                   // newRow[90] = "3";
                 }
             }
 
@@ -900,7 +916,7 @@ namespace MABDBWeb
             tblCols = new DataColumn[18]; //total 119 columns in the table
                                           //Desired Property Address
             tblCols[0] = new DataColumn("Pass_Primary_AUCitizen", typeof(Boolean));
-            tblCols[1] = new DataColumn("Pass_Age25To55", typeof(Boolean));
+            tblCols[1] = new DataColumn("Pass_Age", typeof(Boolean));
             tblCols[2] = new DataColumn("Pass_GrossIncomeSingle", typeof(Boolean));
             tblCols[3] = new DataColumn("Pass_GrossIncomeJoint", typeof(Boolean));
             tblCols[4] = new DataColumn("Pass_Primary_EmplStat", typeof(Boolean));
@@ -929,10 +945,11 @@ namespace MABDBWeb
             return dt;
         }
 
-        private Boolean CalcAutoRejections(DataRow InvAppRow, DataRow newCard)
+        private AutoCondApprovalResult CalcAutoRejections(DataRow InvAppRow, DataRow newCard)
         {
-
-
+            AutoCondApprovalResult result = AutoCondApprovalResult.Rejected;
+            int acceptedScore = 0;
+            int rejectedScore = 0;
 
             newCard["Created"] = DateTime.Today;
             newCard["Modified"] = DBNull.Value;
@@ -943,24 +960,65 @@ namespace MABDBWeb
 
             try
             {
-                newCard["Pass_Primary_AUCitizen"] = SC_IsPrimary_AUCitizen(InvAppRow["Primary_AUCitizenStat"] as string);
-                newCard["Pass_Age25To55"] = SC_IsAge25To55(InvAppRow["Primary_DOB"] as DateTime?);
+                if (SC_IsPrimary_AUCitizen(InvAppRow["Primary_AUCitizenStat"] as string))
+                    {
+                    newCard["Primary_AUCitizen"] = (char)AutoCondApprovalResult.Accepted;
+                    acceptedScore++;
+                } else
+                {
+                    newCard["Primary_AUCitizen"] = (char)AutoCondApprovalResult.Rejected;
+                    rejectedScore++;
+                }
+
+
+                if (SC_IsAge25Plus(InvAppRow["Primary_DOB"] as DateTime?))
+                {
+                    newCard["Age"] = (char)AutoCondApprovalResult.Accepted;
+                    acceptedScore++;
+                }
+                else if (SC_IsAgeUnder21(InvAppRow["Primary_DOB"] as DateTime?))
+                {
+                    newCard["Age"] = (char)AutoCondApprovalResult.Rejected;
+                    rejectedScore++;
+                }
+
+
                 if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
                 {
-                    newCard["Pass_GrossIncomeSingle"] =
-                        SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
-                    newCard["Pass_GrossIncomeJoint"] = true;
+                    //newCard["Pass_GrossIncomeSingle"] =
+                    //    SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
+                    //newCard["Pass_GrossIncomeJoint"] = true;
+                    newCard["GrossIncomeSingle"] = null;
+                    newCard["GrossIncomeJoint"] = null;
                 }
                 else
                 {
-                    newCard["Pass_GrossIncomeSingle"] = true;
-                    newCard["Pass_GrossIncomeJoint"] =
-                        SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 100000);
+                    newCard["GrossIncomeSingle"] = null;
+                    if (SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 120000))
+                    {                      
+                        newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Accepted;
+                        acceptedScore++;
+                    } else if ( SC_IncomeTestEorLT((InvAppRow["HouseholdIncomeGrossPA"] as string), 100000) )
+                    {
+                        newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Rejected;
+                        rejectedScore++;
+                    }
+                    //change from prev $100k Bob 20161004
                 }
-                newCard["Pass_Primary_EmplStat"] = SC_EmplStatTest(InvAppRow["CurrOccupType"] as string);
-                newCard["Pass_ScorecardGt80"] = true;
+
+                if (SC_EmplFullTimeStatTest(InvAppRow["CurrOccupType"] as string))
+                {
+                    newCard["Primary_EmplStat"] = (char)AutoCondApprovalResult.Accepted;
+                    acceptedScore++;
+                    
+                } else if (SC_EmplPartTimeStatTest(InvAppRow["CurrOccupType"] as string))
+                {
+                    newCard["Primary_EmplStat"] = (char)AutoCondApprovalResult.Rejected;
+                    rejectedScore++;
+                }
                 //newCard["Pass_ScorecardGt80"] = true; 
 
+               // newCard["ScorecardGt80"] = true;
 
             }
             catch
@@ -968,8 +1026,34 @@ namespace MABDBWeb
                 throw;
             }
 
+            #region ScoreCard points
+            int scoreSC = CalcScorecard(InvAppRow, newCard);
 
-            return true;
+            if (scoreSC > 80)
+            {
+                newCard["ScorecardLimit"] = (char)AutoCondApprovalResult.Accepted;
+                acceptedScore++;
+            }
+            else
+            {
+                newCard["ScorecardLimit"] = (char)AutoCondApprovalResult.Rejected;
+                rejectedScore++;
+            }
+
+            #endregion ScoreCard points
+
+
+
+            if (rejectedScore > 0)
+            {
+                return AutoCondApprovalResult.Rejected;
+            } else if (acceptedScore >= 5)
+            {
+                return AutoCondApprovalResult.Accepted;
+            } else
+            {
+                return AutoCondApprovalResult.Referred;
+            }
 
             //(newCard["Pass_Primary_AUCitizen"] && newCard["Pass_Age25To55"] && newCard["Pass_GrossIncomeSingle"] &&
             //    newCard["Pass_GrossIncomeJoint"] && newCard["Pass_Primary_EmplStat"] &&
@@ -984,6 +1068,7 @@ namespace MABDBWeb
             int persSC = 0;
             int residSC = 0;
             int emplSC = 0;
+            int health = 0;
 
 
             // personal and income
@@ -1008,17 +1093,17 @@ namespace MABDBWeb
                     {
                         persSC += 0;
                     }
-                    else if ((age >= 25) && (age < 40))
-                    {
-                        persSC += 15;
-                    }
-                    else if ((age >= 40) && (age < 55))
+                    else if ((age >= 25) && (age <= 40))
                     {
                         persSC += 10;
                     }
-                    else
+                    else if ((age > 40) && (age <= 60))
                     {
-                        persSC += 0;
+                        persSC += 15;
+                    }
+                    else if (age >= 60)
+                    {
+                        persSC += 10;
                     }
                 }
             }
@@ -1029,29 +1114,48 @@ namespace MABDBWeb
 
             if (Decimal.TryParse((InvAppRow["HouseholdIncomeGrossPA"] as string), out householdIncomeGrossPA))
             {
-                if (householdIncomeGrossPA < 80000)
+                if (householdIncomeGrossPA < 100000)
                 {
                     persSC += 0;
                 }
-                else if ((householdIncomeGrossPA >= 80000) && (householdIncomeGrossPA < 100000))
-                {
-                    persSC += 10;
-                }
                 else if ((householdIncomeGrossPA >= 100000) && (householdIncomeGrossPA < 150000))
                 {
-                    persSC += 20;
+                    persSC += 10;
                 }
                 else if ((householdIncomeGrossPA >= 150000) && (householdIncomeGrossPA < 200000))
                 {
                     persSC += 25;
                 }
+                //else if ((householdIncomeGrossPA >= 150000) && (householdIncomeGrossPA < 200000))
+                //{
+                //    persSC += 25;  //revision Bob 20161004
+                //}
                 else if (householdIncomeGrossPA >= 200000)
                 {
                     persSC += 40;
                 }
             }
 
+            // Health
+
+            string hasPHI = InvAppRow["HasPrivateHealthIns"] as String;
+            if (hasPHI.Trim().Equals("yes", StringComparison.OrdinalIgnoreCase))
+            {
+                health = +10;
+            }
+
+            string isSmoker = InvAppRow["IsSmoker"] as String;
+            if (hasPHI.Trim().Equals("no", StringComparison.OrdinalIgnoreCase))
+            {
+                health = +5;
+            }
+
+
+            persSC = +health;
+
             scDR["Score_Personal"] = persSC;
+
+           
 
             #endregion personal
             score += persSC;
@@ -1125,7 +1229,7 @@ namespace MABDBWeb
 
             // Employment Assessment
             #region employment
-            String Empl_Status = InvAppRow["CurrOccupType"] as String;
+            String Empl_Status = InvAppRow["CurrEmploymentStatus"] as String;
             if (!String.IsNullOrEmpty(Empl_Status))
             {
                 Empl_Status = Empl_Status.Trim();
@@ -1134,15 +1238,15 @@ namespace MABDBWeb
                 {
                     emplSC += 5;
                 }
-                else if (Empl_Status.Equals("Blue collar / Trade", StringComparison.CurrentCultureIgnoreCase))
+                else if (Empl_Status.Equals("Blue Collar/Trade", StringComparison.CurrentCultureIgnoreCase))
                 {
                     emplSC += 10;
                 }
-                else if (Empl_Status.Equals("Professional", StringComparison.CurrentCultureIgnoreCase))
+                else if (Empl_Status.Equals("Professional", StringComparison.CurrentCultureIgnoreCase) || Empl_Status.Equals("Self-Funded Retiree", StringComparison.CurrentCultureIgnoreCase))
                 {
                     emplSC += 20;
                 }
-                else if (Empl_Status.Equals("White collar", StringComparison.CurrentCultureIgnoreCase))
+                else if (Empl_Status.Equals("White Collar", StringComparison.CurrentCultureIgnoreCase))
                 {
                     emplSC += 15;
                 }
@@ -1191,7 +1295,7 @@ namespace MABDBWeb
                 else if (yrsPrevEmpl.Equals("3 and less than 5 Years", StringComparison.CurrentCultureIgnoreCase))
                 {
                     emplSC += 20;
-                }
+                } 
             }
 
 
@@ -1221,18 +1325,18 @@ namespace MABDBWeb
             {
                 return ScoreClass.Silver;
             }
-            else if (score < 170)
+            else if (score <= 170)
             {
                 return ScoreClass.Gold;
             }
-            else if (score <= 200)
+            else //if (score <= 200) change Bob 20161004
             {
                 return ScoreClass.Platinum;
             }
-            else
-            {
-                return ScoreClass.Undefined;
-            }
+            //else
+            //{
+            //    return ScoreClass.Undefined;
+            //}
         }
 
 
@@ -1265,7 +1369,12 @@ namespace MABDBWeb
             }
         }
 
-        private Boolean SC_IsAge25To55(DateTime? birthday)
+        /// <summary>
+        /// Indicator if the person if 25 years or older
+        /// </summary>
+        /// <param name="birthday">Person's birthday</param>
+        /// <returns>Indicator if the person is 25 years of age or over.</returns>
+        private Boolean SC_IsAge25Plus(DateTime? birthday)
         {
             if (!birthday.HasValue)
             {
@@ -1273,7 +1382,24 @@ namespace MABDBWeb
             }
 
             byte age = Age(birthday.Value);
-            return (age >= 25) && (age <= 55);
+            return (age >= 25); //&& (age <= 55); //rev Bob 20160410
+        }
+
+
+        /// <summary>
+        /// Test if the age is less than 21
+        /// </summary>
+        /// <param name="birthday">Person's birthdate</param>
+        /// <returns>Indicator if the person is less than 21 years of age.</returns>
+        private Boolean SC_IsAgeUnder21(DateTime? birthday)
+        {
+            if (!birthday.HasValue)
+            {
+                throw new ArgumentException("Birthday date value was not provided.");
+            }
+
+            byte age = Age(birthday.Value);
+            return (age < 21); //&& (age <= 55); //rev Bob 20160410
         }
 
         /// <summary>
@@ -1355,7 +1481,7 @@ namespace MABDBWeb
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        private Boolean SC_EmplStatTest(string value)
+        private Boolean SC_EmplFullTimeStatTest(string value)
         {
             if (String.IsNullOrEmpty(value))
             {
@@ -1366,6 +1492,27 @@ namespace MABDBWeb
                 StringComparison comparisonType = StringComparison.OrdinalIgnoreCase;
                 if ((value.Trim().Equals("Employee - Full Time", comparisonType)) ||
                     (value.Trim().Equals("Self employed - Full Time", comparisonType)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        private Boolean SC_EmplPartTimeStatTest(string value)
+        {
+            if (String.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("No value was provided. Value is mandatory.");
+            }
+            else
+            {
+                StringComparison comparisonType = StringComparison.OrdinalIgnoreCase;
+                if ((value.Trim().Equals("Employee - Part Time", comparisonType)) ||
+                    (value.Trim().Equals("Self employed - Part Time", comparisonType)))
                 {
                     return true;
                 }

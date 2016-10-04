@@ -10,6 +10,20 @@ namespace MABDBWeb
 {
     public partial class InvestorApplicationDetails : System.Web.UI.Page
     {
+        /// <summary>
+        /// Was the applicant already conditionally approved
+        /// </summary>
+        public bool? IsCondApproved
+        {
+            get;
+            set;
+        }
+
+        public bool IsAutoApproved
+        {
+            get;
+            set;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             string Id = Request.QueryString["Id"];
@@ -21,8 +35,13 @@ namespace MABDBWeb
             this.txtValidationErrors.Visible = false;
             this.lblValidationErrorsTxtBoxLabel.Visible = false;
             this.txtValidationErrors.Text = String.Empty;
-            
+
             //DateTime condApproved =
+            string hasAssqPpty = Request.QueryString["HiddenField2"];
+            if (!String.IsNullOrWhiteSpace(hasAssqPpty))
+            {
+                HiddenField2.Value = hasAssqPpty;
+            }
 
         }
         protected void ButtonCondApprovedModal_Click(object sender, EventArgs e)
@@ -63,6 +82,8 @@ namespace MABDBWeb
                 dta.Update(currentRow);
             }
 
+
+
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
 
@@ -81,17 +102,43 @@ namespace MABDBWeb
                     this.HiddenField1.Value = intId.ToString();
                 }
 
-                bool isCondApproved = false;
-                string CondApproved = dr["CondApproved"] as string;
-                if (Boolean.TryParse(CondApproved, out isCondApproved) && (isCondApproved))
+                string prop = dr["Property_Street1"] as string;
+                if (!String.IsNullOrWhiteSpace(prop))
                 {
-                        this.lblCondApproved.Text = "Approved";
-                        lblCondApproved.BackColor = System.Drawing.Color.Green;    
-                } 
-                {                     
-                        this.lblCondApproved.Text = "Rejected";
-                        lblCondApproved.BackColor = System.Drawing.Color.Red;                    
+                    HiddenField2.Value = prop.Trim();
                 }
+
+                bool isCondApproved = false;
+                object CondApproved = dr["CondApproved"];
+                if (null != CondApproved)
+                {
+                    string condApprovedStr = CondApproved as string;
+                    if (Boolean.TryParse(condApprovedStr, out isCondApproved))
+                    {
+                        if (isCondApproved)
+                        {
+                            lblCondApproved.Visible = true;
+                            this.lblCondApproved.Text = "Approved";
+                            lblCondApproved.BackColor = System.Drawing.Color.Green;
+                            IsCondApproved = true;
+                        }
+                        {
+                            lblCondApproved.Visible = true;
+                            this.lblCondApproved.Text = "Rejected";
+                            lblCondApproved.BackColor = System.Drawing.Color.Red;
+                            IsCondApproved = false;
+                        }
+                    }
+                } else
+                {
+                    this.lblCondApproved.Text = String.Empty;
+                    lblCondApproved.Visible = false;
+                    lblCondApproved.BackColor = System.Drawing.Color.White;                    
+                    IsCondApproved = null;
+                }
+
+
+               
             }
 
                                                                                              
@@ -122,21 +169,58 @@ namespace MABDBWeb
             }
 
 
-            InvestorApplicationsTableAdapter invAppTA = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
+            InvestorDS ds = new InvestorDS();
+            InvestorDS.InvestorApplicationsDataTable invAppDT = ds.InvestorApplications;
+            InvestorDS.InvestorDataTable invDT = ds.Investor;
+            InvestorDS.PropertyDataTable prptyDT = ds.Property;
 
-            InvestorDS.InvestorApplicationsDataTable invAppDT = invAppTA.GetDataById(invAppId);
+
+            InvestorApplicationsTableAdapter invAppTA = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
+            
+            try
+            {
+                 invAppTA.FillById(invAppDT, invAppId) ;
+                    //GetDataById(invAppId);
+            }
+            catch (System.Data.ConstraintException constrExc)
+            {
+                System.Data.DataRow[] rowsErr = invAppDT.GetErrors();
+                for (int i = 0; i < rowsErr.Length; i++)
+                    if (rowsErr[i].HasErrors)
+                    {
+                        string err = rowsErr[i].RowError;
+                        if (!String.IsNullOrWhiteSpace(err))
+                        {
+                            validationErrorSB.AppendLine(err);
+                            return;
+                        }
+                    }
+            }
+
 
             if (invAppDT.Rows.Count != 1)
             {
                 throw new ArgumentException(String.Concat("InvestorApplication with Id ", invAppId, " could not be found."), "InvestorApplication.Id");
             }
-
+          
             DataUtils.InvestorDS.InvestorApplicationsRow currentInvAppRow = invAppDT.Rows[0] as InvestorDS.InvestorApplicationsRow;
-
-            InvestorDS.InvestorDataTable invDT = new InvestorDS.InvestorDataTable();
             
             InvestorDS.InvestorRow invRow = invDT.NewInvestorRow();
             InvestorDS.InvestorRow othinvRow = null;
+
+            InvestorDS.PropertyRow prptyNewR = prptyDT.NewPropertyRow();
+
+            InvestorTableAdapter invTA = new InvestorTableAdapter();
+            PropertyTableAdapter prtyTA = new PropertyTableAdapter();
+
+
+            TableAdapterManager tam = new TableAdapterManager();
+            //tam.InvestorApplicationsTableAdapter = ;
+            tam.PropertyTableAdapter = prtyTA;
+            tam.InvestorTableAdapter = invTA;
+
+            tam.UpdateOrder = TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            
 
             //InvestorTableAdapter invTA = new InvestorTableAdapter();
 
@@ -270,11 +354,11 @@ namespace MABDBWeb
 
             if (currentInvAppRow.IsPrimary_Res_PostCodeNull())
             {
-                invRow.Res_Postcode = null;
+                invRow.Res_Postcode = -1;
             }
             else
             {
-                invRow.Res_Postcode = currentInvAppRow.Primary_Res_PostCode.ToString();
+                invRow.Res_Postcode = currentInvAppRow.Primary_Res_PostCode;
             }
 
             //  invRow.Res_Suburb = currentInvAppRow.Primary_Res
@@ -287,7 +371,8 @@ namespace MABDBWeb
             {
                 invRow.Res_Suburb = currentInvAppRow.Primary_Res_Suburb.Trim();
             }
-          
+
+            invRow.Res_City = null;
 
             if (currentInvAppRow.IsPrimary_Res_StateNull())
             {
@@ -341,7 +426,52 @@ namespace MABDBWeb
             invRow.Created = DateTime.Now;
             invRow.CreatedBy = "pdvorak";
 
+            invDT.AddInvestorRow(invRow);
+
             #endregion PrimaryInvestor
+
+            #region PrimaryInvestorProperty
+
+            // We will create property only if the details are provided and it must be confirmed
+            bool hasProperty = this.chckPrptyValFeePaid.Checked;
+
+            if (hasProperty)
+            {
+                //                InvestorDS.PropertyDataTable prptyDT = new InvestorDS.PropertyDataTable();               
+
+                prptyNewR.InvestorRow = invRow;
+                prptyNewR.InvestorApplicationsRow = currentInvAppRow;
+
+                prptyNewR.Street1 = currentInvAppRow.Property_Street1;
+
+                prptyNewR.Street2 = currentInvAppRow.Property_Street2;
+           
+                prptyNewR.Suburb = currentInvAppRow.Property_Suburb;
+
+                if (currentInvAppRow.IsProperty_PostCodeNull())
+                {
+                    prptyNewR.Postcode = -1;
+                }
+                else
+                {
+                    prptyNewR.Postcode = currentInvAppRow.Property_PostCode;
+                }
+
+                prptyNewR.State = currentInvAppRow.Property_State;
+
+                prptyNewR.Country = currentInvAppRow.Property_Country;
+
+                //prptyNewR.PrimaryInvestorId = invRow.Id;
+               // prptyNewR.InvestorApplicationId = currentInvAppRow.Id;
+
+                //prptyNewR.
+
+                prptyDT.AddPropertyRow(prptyNewR);
+
+            }
+
+
+            #endregion PrimaryInvestorProperty
 
             #region OtherApplicant
             if (IsOtherApplicantPresent)
@@ -349,7 +479,9 @@ namespace MABDBWeb
 
                 othinvRow = invDT.NewInvestorRow();
 
+
                 othinvRow.PrimaryInvestorID = invRow.Id;
+                //othinvRow.PrimaryInvestorID = invRow.Id;
 
                 othinvRow.LastName = currentInvAppRow.Other_LastName;
 
@@ -379,9 +511,9 @@ namespace MABDBWeb
                 }
 
 
-                if (currentInvAppRow.IsPrimary_Res_Street1Null() || String.IsNullOrWhiteSpace(currentInvAppRow.Other_Res_Street1))
+                if (currentInvAppRow.IsOther_Res_Street1Null() || String.IsNullOrWhiteSpace(currentInvAppRow.Other_Res_Street1))
                 {
-                    validationErrorSB.AppendLine("Primary Applicant's Street address is empty or invalid");
+                    validationErrorSB.AppendLine("Other Applicant's Street address is empty or invalid");
                 }
                 else
                 {
@@ -420,11 +552,11 @@ namespace MABDBWeb
 
                 if (currentInvAppRow.IsOther_Res_PostCodeNull())
                 {
-                    othinvRow.Res_Postcode = null;
+                    othinvRow.Res_Postcode = -1;
                 }
                 else
                 {
-                    othinvRow.Res_Postcode = currentInvAppRow.Other_Res_PostCode.ToString();
+                    othinvRow.Res_Postcode = currentInvAppRow.Other_Res_PostCode;
                 }
 
                 //  othinvRow.Res_Suburb = currentInvAppRow.Other_Res
@@ -436,8 +568,10 @@ namespace MABDBWeb
                 else
                 {
                     othinvRow.Res_Suburb = currentInvAppRow.Other_Res_Suburb.Trim();
+                    
                 }
-               
+
+                othinvRow.Res_City = null;
 
                 if (currentInvAppRow.IsOther_Res_StateNull())
                 {
@@ -490,10 +624,14 @@ namespace MABDBWeb
                 othinvRow.Bill_Street4 = null;
                 othinvRow.Bill_Street5 = null;
 
+                othinvRow.InvestorApplicationId = currentInvAppRow.Id;
+
                 othinvRow.AssquireStatus = "New";
                 othinvRow.AppliedDate = currentInvAppRow.EntryDate;
                 othinvRow.Created = DateTime.Now;
                 othinvRow.CreatedBy = "pdvorak";
+
+                invDT.AddInvestorRow(othinvRow);
 
             }
             #endregion OtherApplicant
@@ -513,17 +651,24 @@ namespace MABDBWeb
                 this.txtValidationErrors.Visible  = false;
                 this.txtValidationErrors.Text = validationErrorSB.ToString();
 
-                invDT.AddInvestorRow(invRow);
-                if (IsOtherApplicantPresent)
-                {
-                    invDT.AddInvestorRow(othinvRow);
-                }
-
+                                           
                 try
                 {
-                    InvestorTableAdapter invTA = new InvestorTableAdapter();  
-                                      
-                    invTA.Update(invRow);
+
+                    //invTA.Update(invRow);
+                    //invTA.Update(othinvRow);
+                    //prtyTA.Update(prptyNewR);
+
+                    //Inserts
+                    tam.UpdateAll(ds);
+
+                    othinvRow.PrimaryInvestorID = invRow.Id;
+                    prptyNewR.PrimaryInvestorId = invRow.Id;
+
+
+                    //update relationships
+                    tam.UpdateAll(ds);
+
                 } catch (SqlException se)
                 {
                     this.lblValidationErrorsTxtBoxLabel.Visible = true;
@@ -616,6 +761,9 @@ namespace MABDBWeb
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
 
-     
+        protected void HiddenField2_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

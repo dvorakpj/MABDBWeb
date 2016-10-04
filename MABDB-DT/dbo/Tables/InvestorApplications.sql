@@ -131,8 +131,7 @@
 	[AutoAcceptedInformedBy]			VARCHAR(50) NULL
 	PRIMARY KEY CLUSTERED ([Id] ASC),
 	[HasReadPO6] VARCHAR(100) NULL, 
-	[CondApproved] BIT NULL, 
-	CONSTRAINT [InvestorApplication_AssquireInvestor] FOREIGN KEY ([InvestorApplicant_AssquireInvestor]) REFERENCES [dbo].[AssquireInvestors] ([Id]) ON DELETE SET NULL
+	[CondApproved] BIT NULL 
 );
 
 

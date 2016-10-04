@@ -2,12 +2,12 @@
 	AS 
 	SELECT ia.*, 
 	sc.[Id] as [SC_Id]
-	  ,sc.[Pass_Primary_AUCitizen]
-	  ,[Pass_Age25To55]
-	  ,[Pass_GrossIncomeSingle]
-	  ,[Pass_GrossIncomeJoint]
-	  ,[Pass_Primary_EmplStat]
-	  ,[Pass_ScorecardGt80]
+	  ,sc.[Primary_AUCitizen]
+	  ,[Age]
+	  ,[GrossIncomeSingle]
+	  ,[GrossIncomeJoint]
+	  ,[Primary_EmplStat]
+	  ,[ScorecardLimit]
 	  ,[Score_Personal]
 	  ,[Score_Residential]
 	  ,[Score_Employment]
