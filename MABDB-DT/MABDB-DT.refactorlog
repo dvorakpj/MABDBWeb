@@ -609,4 +609,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Score_Class" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ffc4d03f-ef1d-43cc-b0bb-5bc4fcc55c01" ChangeDateTime="10/06/2016 05:18:04">
+    <Property Name="ElementName" Value="[dbo].[BuyerScoreCard].[InvestorApplicationId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerScoreCard]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="BuyerApplicationId" />
+  </Operation>
 </Operations>
