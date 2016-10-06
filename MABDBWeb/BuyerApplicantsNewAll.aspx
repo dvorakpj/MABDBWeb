@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorApplicantsNewAll.aspx.cs" Inherits="MABDBWeb.InvestorApplicantsNewAll" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuyerApplicantsNewAll.aspx.cs" Inherits="MABDBWeb.InvestorApplicantsNewAll" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
       <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Investor Applications"></asp:Label>
@@ -6,10 +6,10 @@
 
            <div>
            
-            <asp:SqlDataSource ID="InvestorApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT Id, EntryDate, ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_DOB, Primary_Gender, Email, Primary_Res_State, Primary_Res_PostCode, AutoCondResult, Score_Class, Score_Total FROM v_InvestorAppsBasicWScores ORDER BY Id DESC"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="BuyerApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT Id, EntryDate, ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_DOB, Primary_Gender, Email, Primary_Res_State, Primary_Res_PostCode, AutoCondResult, Score_Class, Score_Total FROM v_InvestorAppsBasicWScores ORDER BY Id DESC"></asp:SqlDataSource>
             <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>
 
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="InvestorApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnDataBound="GridView1_DataBound">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="BuyerApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnDataBound="GridView1_DataBound">
            <Columns>
                 <%--<asp:CommandField ButtonType="Button" SelectText="[V]" ShowSelectButton="True" />--%>
                 <asp:TemplateField>                                        

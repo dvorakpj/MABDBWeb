@@ -11,7 +11,7 @@
 	  ,[Score_Personal]
 	  ,[Score_Residential]
 	  ,[Score_Employment]
-	  ,[Score_Status]
+	  ,[Score_Class]
 	  ,[Score_Total]
 	
 	FROM  InvestorApplications ia

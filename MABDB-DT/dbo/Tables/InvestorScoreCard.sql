@@ -10,7 +10,7 @@
     [Score_Residential]      INT           NULL,
     [Score_Employment]       INT           NULL,
 	[Score_Total]            INT           NULL,
-    [Score_Status]           VARCHAR (50)  NULL,
+    [Score_Class]           VARCHAR (50)  NULL,
     [InvestorApplicationId]  INT           NOT NULL,
     [Created]                DATETIME      DEFAULT (getdate()) NOT NULL,
     [CreatedBy]              VARCHAR (255) DEFAULT (suser_sname()) NOT NULL,
