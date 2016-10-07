@@ -298,13 +298,14 @@ namespace MABDBWeb
 
             impCols[99] = new DataColumn("CreatedUTC", typeof(DateTime));
             impCols[100] = new DataColumn("HasAgreedPACLicence", typeof(string));
+            impCols[101] = new DataColumn("CreatedBy", typeof(string));
 
             // ignored columns
             // columns not populated
-           
-            int maxImportedColId = 100;
 
-            impCols[101] = new DataColumn("Other_Dependants", typeof(string));
+            int maxImportedColId = 101;
+
+            
             impCols[102] = new DataColumn("LookingLocation", typeof(string));
             impCols[103] = new DataColumn("FoundLocation", typeof(string));
             impCols[104] = new DataColumn("Property_Street1", typeof(string));
@@ -315,11 +316,10 @@ namespace MABDBWeb
             impCols[109] = new DataColumn("Property_Vendor", typeof(string));
             impCols[110] = new DataColumn("Property_Country", typeof(string));
             impCols[111] = new DataColumn("Property_AgentDetails", typeof(string));
-            impCols[112] = new DataColumn("Primary_Dependants", typeof(string));
-            
+            impCols[112] = new DataColumn("Primary_Dependants", typeof(string));            
             impCols[113] = new DataColumn("CondDecision", typeof(DateTime));
-            impCols[114] = new DataColumn("CondDecisionBy", typeof(string));
-            impCols[115] = new DataColumn("CreatedBy", typeof(string));
+            impCols[115] = new DataColumn("Other_Dependants", typeof(string));
+            impCols[114] = new DataColumn("CondDecisionBy", typeof(string));            
             impCols[116] = new DataColumn("ModifiedBy", typeof(string));
             impCols[117] = new DataColumn("Modified", typeof(string));
             impCols[118] = new DataColumn("RowVersion", typeof(string));
@@ -542,6 +542,9 @@ namespace MABDBWeb
                                     duplIDFound = true;
                                     duplIds.Add(intID);
                                     break;
+                                } else
+                                {
+                                    newRow[col] = intID;
                                 }
                             } else  // default Entry ID to -1
                             {

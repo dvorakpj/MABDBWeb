@@ -13,9 +13,9 @@
 	[Score_Class]           VARCHAR (50)  NULL,
 	[BuyerApplicationId]  INT           NOT NULL,
 	[Created]                DATETIME      DEFAULT (getdate()) NOT NULL,
-	[CreatedBy]              VARCHAR (255) DEFAULT (suser_sname()) NOT NULL,
+	[CreatedBy]              VARCHAR (15) DEFAULT (suser_sname()) NOT NULL,
 	[Modified]               DATETIME      NULL,
-	[ModifiedBy]             VARCHAR (255) NULL
+	[ModifiedBy]             VARCHAR (15) NULL
 	PRIMARY KEY CLUSTERED ([Id] ASC),
 	CONSTRAINT [FK_BuyerScoreCard_BuyerApplications] FOREIGN KEY ([BuyerApplicationId]) REFERENCES [dbo].[BuyerApplications] ([Id])
 );

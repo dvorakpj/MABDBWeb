@@ -310,7 +310,7 @@
             <asp:Parameter Name="CondApproved" Type="Boolean" />
         </InsertParameters>
         <SelectParameters>
-            <asp:QueryStringParameter DbType="Int32" DefaultValue="-1" Name="Id" QueryStringField="Id" Type="Int32" />
+            <asp:QueryStringParameter DefaultValue="-1" Name="Id" QueryStringField="Id" Type="Int32" />
         </SelectParameters>
         <UpdateParameters>
             <asp:Parameter Name="ApplicantType" Type="String" />

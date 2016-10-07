@@ -146,7 +146,7 @@ namespace MABDBWeb
             #region set up columns in dt
             DataColumn[] impCols;
 
-            impCols = new DataColumn[155]; //total 128 columns in the table
+            impCols = new DataColumn[157]; //total 128 columns in the table
                                            //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
@@ -288,8 +288,6 @@ namespace MABDBWeb
             impCols[110] = new DataColumn("Other_PropertyAssets", typeof(string));
             impCols[111] = new DataColumn("Primary_OtherAssetsList", typeof(string));
             impCols[112] = new DataColumn("Other_OtherAssetsList", typeof(string));
-            //impCols[113] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
-            //impCols[114] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
             //"Property Assets & Liabilities for Other Applicant:",
             //"List Other Assets for Primary Applicant: 1",
             //"List Other Assets for Other Applicant:",
@@ -312,13 +310,13 @@ namespace MABDBWeb
             //"Source Url",
             impCols[122] = new DataColumn("SourceURL", typeof(string));
             //"Transaction Id", 
-            int maxImportedColId = 124;
+            
 
 
             impCols[123] = new DataColumn("TransactionId", typeof(string));
 
-            
 
+           
             // ignored columns
             //[Payment Amount]
             //[Payment Date]
@@ -327,13 +325,13 @@ namespace MABDBWeb
             //[User Agent]
             //[User ID]
             impCols[124] = new DataColumn("CreatedUTC", typeof(DateTime));
+            impCols[125] = new DataColumn("CreatedBy", typeof(string));
             //impCols[100] = new DataColumn("HasAgreedPACLicence", typeof(string));
 
             // ignored columns
             // columns not populated
-  
+            int maxImportedColId = 125;
 
-            impCols[125] = new DataColumn("Other_Dependants", typeof(string));
             
             impCols[126] = new DataColumn("FoundLocation", typeof(string));
             impCols[127] = new DataColumn("Property_Street1", typeof(string));
@@ -347,7 +345,7 @@ namespace MABDBWeb
             impCols[135] = new DataColumn("PropertyID", typeof(string));            
             impCols[136] = new DataColumn("CondDecision", typeof(DateTime));
             impCols[137] = new DataColumn("CondDecisionBy", typeof(string));
-            impCols[138] = new DataColumn("CreatedBy", typeof(string));
+            impCols[138] = new DataColumn("Other_Dependants", typeof(string));
             impCols[139] = new DataColumn("ModifiedBy", typeof(string));
             impCols[140] = new DataColumn("Modified", typeof(string));
             impCols[141] = new DataColumn("RowVersion", typeof(string));
@@ -363,14 +361,17 @@ namespace MABDBWeb
             impCols[151] = new DataColumn("AutoAcceptedInformed", typeof(string));
             impCols[152] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
             impCols[153] = new DataColumn("HasReqestedPriority", typeof(string));
+            impCols[154] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
+            impCols[155] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
+
 
             //impCols[163] = new DataColumn("", typeof(Boolean));
 
 
-            impCols[154] = new DataColumn("Id", typeof(int));
-            impCols[154].AutoIncrement = true;
-            impCols[154].AutoIncrementSeed = -1;
-            impCols[154].AutoIncrementStep = -1;
+            impCols[156] = new DataColumn("Id", typeof(int));
+            impCols[156].AutoIncrement = true;
+            impCols[156].AutoIncrementSeed = -1;
+            impCols[156].AutoIncrementStep = -1;
 
 
             int rowCnt = 0;
@@ -500,8 +501,8 @@ namespace MABDBWeb
                            //("Primary_OtherNames" == currentColumnName) ||
                            //("Other_OtherNames" == currentColumnName) ||
                            // ("Other_AUCitizenStat" == currentColumnName) ||
-                           ("Primary_OtherLiabilitiesList" == currentColumnName) ||
-                           ("Other_OtherLiabilitiesList" == currentColumnName) ||
+                           //("Primary_OtherLiabilitiesList" == currentColumnName) ||
+                           //("Other_OtherLiabilitiesList" == currentColumnName) ||
                             ("Other_Dependants" == currentColumnName) ||
                             ("CondDecision" == currentColumnName) ||
                             ("CondDecisionBy" == currentColumnName) ||                           
@@ -578,6 +579,9 @@ namespace MABDBWeb
                                     duplIDFound = true;
                                     duplIds.Add(intID);
                                     break;
+                                } else
+                                {
+                                    newRow[col] = intID;
                                 }
                             } else  // default Entry ID to -1
                             {
@@ -944,7 +948,7 @@ namespace MABDBWeb
             tblCols[2] = new DataColumn("GrossIncomeSingle", typeof(Char));
             tblCols[3] = new DataColumn("GrossIncomeJoint", typeof(Char));
             tblCols[4] = new DataColumn("Primary_EmplStat", typeof(Char));
-            tblCols[5] = new DataColumn("ScorecardLimit", typeof(int));
+            tblCols[5] = new DataColumn("ScorecardLimit", typeof(Char));
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
             tblCols[7] = new DataColumn("Score_Residential", typeof(int));
             tblCols[8] = new DataColumn("Score_Employment", typeof(int));
