@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Agency]
+﻿CREATE TABLE [dbo].[Agent]
 (
 	[Id] INT NOT NULL PRIMARY KEY, 
 	[MAId] VARCHAR(10) NULL, 
@@ -16,6 +16,12 @@
 	[ContactPhone] VARCHAR(15) NULL,
 	[ContactPhoneOther] VARCHAR(15) NULL,
 	[ABN] VARCHAR(15) NOT NULL,
+	[ACN] VARCHAR(15) NULL,
+	[REStateLicenceNum] VARCHAR(15) NULL,
+	[RELicState] VARCHAR(3) NULL,
+	[RELicExpiry] DATE NULL,
+	[REINum] VARCHAR(25) NULL,
+	[REALNum] VARCHAR(25) NULL,
 	[Fax] VARCHAR(15) NULL,
 	[Email] VARCHAR(15) NULL,
 	[EmailOther] VARCHAR(15) NULL,

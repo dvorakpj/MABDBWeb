@@ -18,23 +18,7 @@ using System.Web.UI.WebControls;
 namespace MABDBWeb
 {
 
-    enum ScoreClass
-    {
-        Undefined,
-        Reject,
-        Bronze,
-        Silver,
-        Gold,
-        Platinum,
-    }
-
-
-    enum AutoCondApprovalResult
-    {
-        Accepted = 'A',
-        Rejected = 'R',
-        Referred = 'F'
-    }
+    
 
     public partial class InvestorApplicantsNewAll : System.Web.UI.Page
     {
@@ -919,17 +903,17 @@ namespace MABDBWeb
 
             tblCols = new DataColumn[18]; //total 119 columns in the table
                                           //Desired Property Address
-            tblCols[0] = new DataColumn("Pass_Primary_AUCitizen", typeof(Boolean));
-            tblCols[1] = new DataColumn("Pass_Age", typeof(Boolean));
-            tblCols[2] = new DataColumn("Pass_GrossIncomeSingle", typeof(Boolean));
-            tblCols[3] = new DataColumn("Pass_GrossIncomeJoint", typeof(Boolean));
-            tblCols[4] = new DataColumn("Pass_Primary_EmplStat", typeof(Boolean));
-            tblCols[5] = new DataColumn("Pass_ScorecardGt80", typeof(Boolean));
+            tblCols[0] = new DataColumn("Primary_AUCitizen", typeof(Char));
+            tblCols[1] = new DataColumn("Age", typeof(Char));
+            tblCols[2] = new DataColumn("GrossIncomeSingle", typeof(Char));
+            tblCols[3] = new DataColumn("GrossIncomeJoint", typeof(Char));
+            tblCols[4] = new DataColumn("Primary_EmplStat", typeof(Char));
+            tblCols[5] = new DataColumn("ScorecardLimit", typeof(int));
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
-            tblCols[7] = new DataColumn("Score_Residential", typeof(Boolean));
-            tblCols[8] = new DataColumn("Score_Employment", typeof(Boolean));
+            tblCols[7] = new DataColumn("Score_Residential", typeof(int));
+            tblCols[8] = new DataColumn("Score_Employment", typeof(int));
             tblCols[9] = new DataColumn("Score_Class", typeof(string));
-            tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
+            tblCols[10] = new DataColumn("BuyerApplicationId", typeof(int));
             tblCols[11] = new DataColumn("CreatedBy", typeof(string));
             tblCols[12] = new DataColumn("Id", typeof(int));
             tblCols[12].AutoIncrement = true;

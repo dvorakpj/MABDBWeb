@@ -10,7 +10,7 @@
 namespace MABDBWeb {
     
     
-    public partial class InvestorApplicantsNewAll {
+    public partial class BuyerApplicantsNewAll {
         
         /// <summary>
         /// Label2 control.

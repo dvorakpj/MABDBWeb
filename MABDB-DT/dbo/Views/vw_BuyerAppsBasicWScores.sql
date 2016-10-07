@@ -1,4 +1,4 @@
-﻿CREATE VIEW [dbo].[v_BuyerAppsBasicWScores]
+﻿CREATE VIEW [dbo].[vw_BuyerAppsBasicWScores]
 	AS 
 	SELECT
 	 ia.[Id],
@@ -21,6 +21,6 @@
 	  ,[Score_Class]
 	  ,[Score_Total]	
 	  
-	FROM  InvestorApplications ia
-LEFT JOIN InvestorScoreCard sc on sc.InvestorApplicationId = ia.Id
+	FROM  BuyerApplications ia
+LEFT JOIN BuyerScoreCard sc on sc.BuyerApplicationId = ia.Id
 GO

@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuyerDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BuyerDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="InvestorDS.cs">
       <DependentUpon>InvestorDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="PropertyDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PropertyDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="StatusUpdate.cs" />
     <Compile Include="InvestorDS.Designer.cs">
@@ -58,6 +68,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="BuyerDS.xsc">
+      <DependentUpon>BuyerDS.xsd</DependentUpon>
+    </None>
+    <None Include="BuyerDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BuyerDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="BuyerDS.xss">
+      <DependentUpon>BuyerDS.xsd</DependentUpon>
+    </None>
     <None Include="InvestorDS.xsc">
       <DependentUpon>InvestorDS.xsd</DependentUpon>
     </None>
@@ -72,6 +93,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PropertyDS.xsc">
+      <DependentUpon>PropertyDS.xsd</DependentUpon>
+    </None>
+    <None Include="PropertyDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>PropertyDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="PropertyDS.xss">
+      <DependentUpon>PropertyDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

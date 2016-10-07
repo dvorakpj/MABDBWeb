@@ -18,25 +18,9 @@ using System.Web.UI.WebControls;
 namespace MABDBWeb
 {
 
-    enum ScoreClass
-    {
-        Undefined,
-        Reject,
-        Bronze,
-        Silver,
-        Gold,
-        Platinum,
-    }
+   
 
-
-    enum AutoCondApprovalResult
-    {
-        Accepted = 'A',
-        Rejected = 'R',
-        Referred = 'F'
-    }
-
-    public partial class InvestorApplicantsNewAll : System.Web.UI.Page
+    public partial class BuyerApplicantsNewAll : System.Web.UI.Page
     {
 
         private List<int> entryIdSelected = new List<int>();
@@ -113,7 +97,7 @@ namespace MABDBWeb
 
             try
             {
-                rowCnt = UploadInvestorApplicsCSV(csvPath);
+                rowCnt = UploadBuyerApplicsCSV(csvPath);
             }
             catch (ApplicationException aex)
             {
@@ -133,12 +117,18 @@ namespace MABDBWeb
 
         }
 
-        private int UploadInvestorApplicsCSV(string csvPath)
+
+        /// <summary>
+        /// Loads a CSV with Buyer application data and loads into BuyerApplications table, a record per row
+        /// </summary>
+        /// <param name="csvPath">Local path to CSV file uploaded view HTTP file upload to Web server</param>
+        /// <returns>number of rows successfully uploaded.</returns>
+        private int UploadBuyerApplicsCSV(string csvPath)
         {
             List<int> existIDs = new List<int>();
             List<int> duplIds = new List<int>();
             // definition of DataTable to read the CSV into
-            DataSet ds = new DataSet("InvApplication");
+            DataSet ds = new DataSet("BuyerApplication");
 
             DataTable dt = new DataTable();
             //dt.Columns.AddRange(
@@ -156,15 +146,15 @@ namespace MABDBWeb
             #region set up columns in dt
             DataColumn[] impCols;
 
-            impCols = new DataColumn[132]; //total 128 columns in the table
+            impCols = new DataColumn[155]; //total 128 columns in the table
                                            //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
             impCols[2] = new DataColumn("Primary_FirstName", typeof(string));
-            impCols[3] = new DataColumn("Primary_OtherNames", typeof(string));
-            impCols[4] = new DataColumn("Primary_LastName", typeof(string));
-            impCols[5] = new DataColumn("Other_FirstName", typeof(string));
-            impCols[6] = new DataColumn("Other_OtherNames", typeof(string));
+            impCols[3] = new DataColumn("Other_FirstName", typeof(string));
+            impCols[4] = new DataColumn("Primary_OtherNames", typeof(string));
+            impCols[5] = new DataColumn("Other_OtherNames", typeof(string));
+            impCols[6] = new DataColumn("Primary_LastName", typeof(string));            
             impCols[7] = new DataColumn("Other_LastName", typeof(string));
             impCols[8] = new DataColumn("Primary_DOB", typeof(DateTime));
             impCols[9] = new DataColumn("Other_DOB", typeof(DateTime));
@@ -221,144 +211,172 @@ namespace MABDBWeb
             impCols[48] = new DataColumn("PrimPrev_Res_Suburb", typeof(string));
             impCols[49] = new DataColumn("PrimPrev_Res_State", typeof(string));
             impCols[50] = new DataColumn("PrimPrev_Res_PostCode", typeof(string));
-            impCols[51] = new DataColumn("PrimPrev_Res_Country", typeof(string));
-            // 
+            impCols[51] = new DataColumn("PrimPrev_Res_Country", typeof(string));            
             impCols[52] = new DataColumn("OthPrev_Res_Street1", typeof(string));
             impCols[53] = new DataColumn("OthPrev_Res_Street2", typeof(string));
             impCols[54] = new DataColumn("OthPrev_Res_Suburb", typeof(string));
             impCols[55] = new DataColumn("OthPrev_Res_State", typeof(string));
             impCols[56] = new DataColumn("OthPrev_Res_PostCode", typeof(string));
             impCols[57] = new DataColumn("OthPrev_Res_Country", typeof(string));
-
             impCols[58] = new DataColumn("YrsPrevAddr", typeof(string)); // primary
-                                                                         // years at previous address Other
             impCols[59] = new DataColumn("Other_YrsPrevAddr", typeof(string)); // primary
             impCols[60] = new DataColumn("PrevResStatus", typeof(string)); // Other
-                                                                           // pre residential status other
-            impCols[61] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other
-
-
-            impCols[62] = new DataColumn("IsSmoker", typeof(string));
-            impCols[63] = new DataColumn("HasPrivateHealthIns", typeof(string));
-
-
-
-            impCols[64] = new DataColumn("CurrOccupType", typeof(string)); // Primary    
-            impCols[65] = new DataColumn("CurrEmploymentStatus", typeof(string));
-            impCols[66] = new DataColumn("YrsCurrEmployer", typeof(string));
-            impCols[67] = new DataColumn("YrsPrevEmployer", typeof(string));
-
-            impCols[68] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
-
-
-            impCols[69] = new DataColumn("Primary_IncomeMoAT", typeof(string));
-            impCols[70] = new DataColumn("Other_IncomeMoAT", typeof(string));
+            impCols[61] = new DataColumn("Other_PrevResStatus", typeof(string)); // Other        
+            impCols[62] = new DataColumn("Primary_Dependants", typeof(string));         
+            impCols[63] = new DataColumn("CurrOccupType", typeof(string)); // Primary    
+            impCols[64] = new DataColumn("Other_CurrOccupType", typeof(string)); // Other
+            impCols[65] = new DataColumn("CurrEmploymentStatus", typeof(string));            
+            impCols[66] = new DataColumn("Other_CurrEmploymentStatus", typeof(string));
+            impCols[67] = new DataColumn("CurrJobTitle", typeof(string));
+            impCols[68] = new DataColumn("Other_JobTitle", typeof(string));
+            impCols[69] = new DataColumn("CurrEmployerName", typeof(string));
+            impCols[70] = new DataColumn("Other_CurrEmployerName", typeof(string));        
+            impCols[71] = new DataColumn("YrsCurrEmployer", typeof(string));
+            impCols[72] = new DataColumn("Other_YrsCurrEmployer", typeof(string));
+            impCols[73] = new DataColumn("PrevJobTitle", typeof(string));
+            impCols[74] = new DataColumn("Other_PrevJobTitle", typeof(string));
+            impCols[75] = new DataColumn("PrevEmploymentStatus", typeof(string));           
+            impCols[76] = new DataColumn("Other_PrevEmploymentStatus", typeof(string));
+            impCols[77] = new DataColumn("PrevEmployerName", typeof(string));
+            impCols[78] = new DataColumn("Other_PrevEmployerName", typeof(string));
+            impCols[79] = new DataColumn("YrsPrevEmployer", typeof(string));
+            impCols[80] = new DataColumn("Other_YrsPrevEmployer", typeof(string));
+            impCols[81] = new DataColumn("HealthSelfRating", typeof(string));
+            impCols[82] = new DataColumn("Other_HealthSelfRating", typeof(string));
+            impCols[83] = new DataColumn("IsSmoker", typeof(string));            
+        impCols[84] = new DataColumn("Other_IsSmoker", typeof(string));
+        impCols[85] = new DataColumn("HasPrivateHealthIns", typeof(string));
+        impCols[86] = new DataColumn("Other_HasPrivateHealthIns", typeof(string));
+        impCols[87] = new DataColumn("ReasonNoPHI", typeof(string));
+        impCols[88] = new DataColumn("Other_ReasonNoPHI", typeof(string));//UPDATE FORM!
+        impCols[89] = new DataColumn("RefusedHICover", typeof(string));
+        impCols[90] = new DataColumn("Other_RefusedHICover", typeof(string));
+        impCols[91] = new DataColumn("ReasonRefusedHI", typeof(string));
+       impCols[92] = new DataColumn("Other_ReasonRefusedHI", typeof(string));
+            impCols[93] = new DataColumn("Primary_IncomeMoAT", typeof(string));
+            impCols[94] = new DataColumn("Other_IncomeMoAT", typeof(string));
             // Primary Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa $",
-            impCols[71] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[95] = new DataColumn("Primary_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other Applicant $ Business Income (Personal Drawings/Share of Profits) after PAYG tax pa",
-            impCols[72] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
+            impCols[96] = new DataColumn("Other_BusIncomeAPAYGTaxPA", typeof(string));
             //"Other $ Income per year - Primary Applicant",
-            impCols[73] = new DataColumn("Primary_OtherIncomePA", typeof(string));
+            impCols[97] = new DataColumn("Primary_OtherIncomePA", typeof(string));
             //"Other $ Income per year - Other Applicant",
-            impCols[74] = new DataColumn("Other_OtherIncomePA", typeof(string));
+            impCols[98] = new DataColumn("Other_OtherIncomePA", typeof(string));
             //"Type of Other Income Primary Applicant (ie, dividends, rent, none)",
-            impCols[75] = new DataColumn("Primary_OtherIncomeType", typeof(string));
+            impCols[99] = new DataColumn("Primary_OtherIncomeType", typeof(string));
             //"Type of other Income Other Applicant (ie, dividends, rent, none)"
-            impCols[76] = new DataColumn("Other_OtherIncomeType", typeof(string));
-            impCols[77] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
-
+            impCols[100] = new DataColumn("Other_OtherIncomeType", typeof(string));
+            impCols[101] = new DataColumn("HouseholdIncomeGrossPA", typeof(string));
             //remove
             //Primary Applicant Home and/ or Investment loans (list all) 1",
-            impCols[78] = new DataColumn("Primary_HomeLoanList", typeof(string));
+            impCols[102] = new DataColumn("Primary_HomeLoanList", typeof(string));
             //"Other Applicant Home and/ or Investment loans (list all)",
-            impCols[79] = new DataColumn("Other_HomeLoanList", typeof(string));
+            impCols[103] = new DataColumn("Other_HomeLoanList", typeof(string));
             //"Primary Applicant Car or Personal loans (list all) 1",
-            impCols[80] = new DataColumn("Primary_PersonalLoansList", typeof(string));
+            impCols[104] = new DataColumn("Primary_PersonalLoansList", typeof(string));
             //"Other Applicant Car or Personal loans (list all)",
-            impCols[81] = new DataColumn("Other_PersonalLoansList", typeof(string));
+            impCols[105] = new DataColumn("Other_PersonalLoansList", typeof(string));
             //"Primary Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all) 1",
-            impCols[82] = new DataColumn("Primary_CreditCardList", typeof(string));
+            impCols[106] = new DataColumn("Primary_CreditCardList", typeof(string));
             //"Other Applicant Credit and/ or Store(eg, Myer, David Jones) cards(list all)",
-            impCols[83] = new DataColumn("Other_CreditCardList", typeof(string));
+            impCols[107] = new DataColumn("Other_CreditCardList", typeof(string));
             //"Rent/Board per month ($)",
-            impCols[84] = new DataColumn("RentPM", typeof(string));
+            impCols[108] = new DataColumn("RentPM", typeof(string));
             //"Property Assets & Liabilities for Primary Applicant: 1",
-            impCols[85] = new DataColumn("Primary_PropertyAssets", typeof(string));
-            impCols[86] = new DataColumn("Other_PropertyAssets", typeof(string));
-            impCols[87] = new DataColumn("Primary_OtherAssetsList", typeof(string));
-            impCols[88] = new DataColumn("Other_OtherAssetsList", typeof(string));
-            impCols[89] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
-            impCols[90] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
+            impCols[109] = new DataColumn("Primary_PropertyAssets", typeof(string));
+            impCols[110] = new DataColumn("Other_PropertyAssets", typeof(string));
+            impCols[111] = new DataColumn("Primary_OtherAssetsList", typeof(string));
+            impCols[112] = new DataColumn("Other_OtherAssetsList", typeof(string));
+            //impCols[113] = new DataColumn("Primary_OtherLiabilitiesList", typeof(string));
+            //impCols[114] = new DataColumn("Other_OtherLiabilitiesList", typeof(string));
             //"Property Assets & Liabilities for Other Applicant:",
             //"List Other Assets for Primary Applicant: 1",
             //"List Other Assets for Other Applicant:",
             //"List Other Liabilities for Primary Applicant: 1",
             //"List Other Liabilities for Other Applicant:"
-
-
+            impCols[113] = new DataColumn("LookingLocation", typeof(string));
+        impCols[114] = new DataColumn("EstSpend", typeof(string));
+        impCols[115] = new DataColumn("IntendedDeposit", typeof(string));
+           impCols[116] = new DataColumn("Broker", typeof(string));
+            impCols[117] = new DataColumn("BrokerDetails", typeof(string));
             // considered for priority
-            impCols[91] = new DataColumn("HasReadPO6", typeof(string));
-            impCols[92] = new DataColumn("HasAgreedPrivacy", typeof(string));
-            impCols[93] = new DataColumn("HasReqestedPriority", typeof(string));
+            // impCols[91] = new DataColumn("HasReadPO6", typeof(string));
+            impCols[118] = new DataColumn("HasAgreedPrivacy", typeof(string));
             
             //           has read PAC Licence Agreement."
             // Created by UserID
-            impCols[94] = new DataColumn("UserId", typeof(string));
-
-            impCols[95] = new DataColumn("EntryId", typeof(string));
-            impCols[96] = new DataColumn("EntryDate", typeof(DateTime));
+            impCols[119] = new DataColumn("EntryUserId", typeof(string));
+            impCols[120] = new DataColumn("EntryId", typeof(string));
+            impCols[121] = new DataColumn("EntryDate", typeof(DateTime));
             //"Source Url",
-            impCols[97] = new DataColumn("SourceURL", typeof(string));
+            impCols[122] = new DataColumn("SourceURL", typeof(string));
             //"Transaction Id", 
-            impCols[98] = new DataColumn("TransactionId", typeof(string));
+            int maxImportedColId = 124;
 
-            impCols[99] = new DataColumn("CreatedUTC", typeof(DateTime));
-            impCols[100] = new DataColumn("HasAgreedPACLicence", typeof(string));
+
+            impCols[123] = new DataColumn("TransactionId", typeof(string));
+
+            
+
+            // ignored columns
+            //[Payment Amount]
+            //[Payment Date]
+            //[Payment Status]
+            //[Post iD]
+            //[User Agent]
+            //[User ID]
+            impCols[124] = new DataColumn("CreatedUTC", typeof(DateTime));
+            //impCols[100] = new DataColumn("HasAgreedPACLicence", typeof(string));
 
             // ignored columns
             // columns not populated
-           
-            int maxImportedColId = 100;
+  
 
-            impCols[101] = new DataColumn("Other_Dependants", typeof(string));
-            impCols[102] = new DataColumn("LookingLocation", typeof(string));
-            impCols[103] = new DataColumn("FoundLocation", typeof(string));
-            impCols[104] = new DataColumn("Property_Street1", typeof(string));
-            impCols[105] = new DataColumn("Property_Street2", typeof(string));
-            impCols[106] = new DataColumn("Property_Suburb", typeof(string));
-            impCols[107] = new DataColumn("Property_State", typeof(string));
-            impCols[108] = new DataColumn("Property_PostCode", typeof(string));
-            impCols[109] = new DataColumn("Property_Vendor", typeof(string));
-            impCols[110] = new DataColumn("Property_Country", typeof(string));
-            impCols[111] = new DataColumn("Property_AgentDetails", typeof(string));
-            impCols[112] = new DataColumn("Primary_Dependants", typeof(string));
+            impCols[125] = new DataColumn("Other_Dependants", typeof(string));
             
-            impCols[113] = new DataColumn("CondDecision", typeof(DateTime));
-            impCols[114] = new DataColumn("CondDecisionBy", typeof(string));
-            impCols[115] = new DataColumn("CreatedBy", typeof(string));
-            impCols[116] = new DataColumn("ModifiedBy", typeof(string));
-            impCols[117] = new DataColumn("Modified", typeof(string));
-            impCols[118] = new DataColumn("RowVersion", typeof(string));
-            impCols[119] = new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string));
-            impCols[120] = new DataColumn("InvestorApplication_Gender", typeof(string));
-            impCols[121] = new DataColumn("EstSpend", typeof(string));
-            impCols[122] = new DataColumn("AutoRejected", typeof(string));
-            impCols[123] = new DataColumn("AutoRejectedInformed", typeof(string));
-            impCols[124] = new DataColumn("AutoRejecetedBy", typeof(string));
-            impCols[125] = new DataColumn("AutoRejectedInformedBy", typeof(string));
-            impCols[126] = new DataColumn("AutoAccepted", typeof(string));
-            impCols[127] = new DataColumn("AutoAcceptedBy", typeof(string));
-            impCols[128] = new DataColumn("AutoAcceptedInformed", typeof(string));
-            impCols[129] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
-            impCols[130] = new DataColumn("CondApproved", typeof(Boolean));
+            impCols[126] = new DataColumn("FoundLocation", typeof(string));
+            impCols[127] = new DataColumn("Property_Street1", typeof(string));
+            impCols[128] = new DataColumn("Property_Street2", typeof(string));
+            impCols[129] = new DataColumn("Property_Suburb", typeof(string));
+            impCols[130] = new DataColumn("Property_State", typeof(string));
+            impCols[131] = new DataColumn("Property_PostCode", typeof(string));
+            impCols[132] = new DataColumn("Property_Vendor", typeof(string));
+            impCols[133] = new DataColumn("Property_Country", typeof(string));
+            impCols[134] = new DataColumn("Property_AgentDetails", typeof(string));
+            impCols[135] = new DataColumn("PropertyID", typeof(string));            
+            impCols[136] = new DataColumn("CondDecision", typeof(DateTime));
+            impCols[137] = new DataColumn("CondDecisionBy", typeof(string));
+            impCols[138] = new DataColumn("CreatedBy", typeof(string));
+            impCols[139] = new DataColumn("ModifiedBy", typeof(string));
+            impCols[140] = new DataColumn("Modified", typeof(string));
+            impCols[141] = new DataColumn("RowVersion", typeof(string));
+            impCols[142] = new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string));
+            impCols[143] = new DataColumn("InvestorApplication_Gender", typeof(string));
+            impCols[144] = new DataColumn("CondApproved", typeof(string));
+            impCols[145] = new DataColumn("AutoRejected", typeof(string));
+            impCols[146] = new DataColumn("AutoRejectedInformed", typeof(string));
+            impCols[147] = new DataColumn("AutoRejecetedBy", typeof(string));
+            impCols[148] = new DataColumn("AutoRejectedInformedBy", typeof(string));
+            impCols[149] = new DataColumn("AutoAccepted", typeof(string));
+            impCols[150] = new DataColumn("AutoAcceptedBy", typeof(string));
+            impCols[151] = new DataColumn("AutoAcceptedInformed", typeof(string));
+            impCols[152] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
+            impCols[153] = new DataColumn("HasReqestedPriority", typeof(string));
+
+            //impCols[163] = new DataColumn("", typeof(Boolean));
+
+
+            impCols[154] = new DataColumn("Id", typeof(int));
+            impCols[154].AutoIncrement = true;
+            impCols[154].AutoIncrementSeed = -1;
+            impCols[154].AutoIncrementStep = -1;
+
+
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
-
           
-            impCols[131] = new DataColumn("Id", typeof(int));
-            impCols[131].AutoIncrement = true;
-            impCols[131].AutoIncrementSeed = -1;
-            impCols[131].AutoIncrementStep = -1;
+       
 
             //modified
             //impCols[116] = DateTime.UtcNow;
@@ -396,10 +414,10 @@ namespace MABDBWeb
             listColumns.Add(t);
             t = new string[1, 2] { { "List Other Assets for Other Applicant:", "Other_OtherAssetsList" } };
             listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Liabilities for Primary Applicant:", "Primary_OtherLiabilitiesList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Liabilities for Other Applicant:", "Other_OtherLiabilitiesList" } };
-            listColumns.Add(t);
+            //t = new string[1, 2] { { "List Other Liabilities for Primary Applicant:", "Primary_OtherLiabilitiesList" } };
+            //listColumns.Add(t);
+            //t = new string[1, 2] { { "List Other Liabilities for Other Applicant:", "Other_OtherLiabilitiesList" } };
+            //listColumns.Add(t);
 
             //listColumns.Add(new Dictionary<string, string>().Add("Primary Applicant Home and/or Investment loans (list all)", "") ); 
             //listColumns.Add("");
@@ -431,7 +449,7 @@ namespace MABDBWeb
             //DataRelation dr = new DataRelation("Rel_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
             //ForeignKeyConstraint fkc = new ForeignKeyConstraint("FK_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
             //fkc.UpdateRule = Rule.Cascade;            
-            DataRelation dr = ds.Relations.Add(dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
+            DataRelation dr = ds.Relations.Add(dt.Columns["Id"], scoreDT.Columns["BuyerApplicationId"]);
             dr.ChildKeyConstraint.UpdateRule = Rule.Cascade;
 
             //scoreDT.Constraints.Add(fkc);
@@ -479,9 +497,11 @@ namespace MABDBWeb
 
                         //initialisation of skipped columns
                         if (
-                            ("Primary_OtherNames" == currentColumnName) ||
-                            ("Other_OtherNames" == currentColumnName) ||
-                            ("Other_AUCitizenStat" == currentColumnName) ||
+                           //("Primary_OtherNames" == currentColumnName) ||
+                           //("Other_OtherNames" == currentColumnName) ||
+                           // ("Other_AUCitizenStat" == currentColumnName) ||
+                           ("Primary_OtherLiabilitiesList" == currentColumnName) ||
+                           ("Other_OtherLiabilitiesList" == currentColumnName) ||
                             ("Other_Dependants" == currentColumnName) ||
                             ("CondDecision" == currentColumnName) ||
                             ("CondDecisionBy" == currentColumnName) ||                           
@@ -666,7 +686,7 @@ namespace MABDBWeb
             using (SqlConnection con = new SqlConnection(consString))
             {
                 SqlDataAdapter daInvApps =
-                    new SqlDataAdapter("SELECT * FROM [dbo].[InvestorApplications]", con);
+                    new SqlDataAdapter("SELECT * FROM [dbo].[BuyerApplications]", con);
 
                 SqlCommandBuilder cmdBldInvApps
                     = new SqlCommandBuilder(daInvApps);
@@ -683,7 +703,7 @@ namespace MABDBWeb
 
                 //sc.CommandType = CommandType.Text;
                 //daInvApps.InsertCommand = sc;
-                daInvApps.InsertCommand.CommandText += "; Select Id From [dbo].[InvestorApplications] Where Id = @@IDENTITY";
+                daInvApps.InsertCommand.CommandText += "; Select Id From [dbo].[BuyerApplications] Where Id = @@IDENTITY";
                 daInvApps.InsertCommand.UpdatedRowSource = UpdateRowSource.FirstReturnedRecord;
                 string insCmd = daInvApps.InsertCommand.CommandText;
                 //daInvApps.RowUpdated += new SqlRowUpdatedEventHandler(MyHandler);
@@ -704,7 +724,7 @@ namespace MABDBWeb
                 //daInvApps.Update(dt);
 
 
-                SqlDataAdapter daSC = new SqlDataAdapter("select * from [dbo].[InvestorScoreCard]", con);
+                SqlDataAdapter daSC = new SqlDataAdapter("select * from [dbo].[BuyerScoreCard]", con);
 
                 SqlCommandBuilder cmdBldSC = new SqlCommandBuilder(daSC);
 
@@ -915,21 +935,21 @@ namespace MABDBWeb
         {
             DataTable dt = new DataTable();
 
-            DataColumn[] tblCols;
+            DataColumn[] tblCols;            
 
             tblCols = new DataColumn[18]; //total 119 columns in the table
                                           //Desired Property Address
-            tblCols[0] = new DataColumn("Pass_Primary_AUCitizen", typeof(Boolean));
-            tblCols[1] = new DataColumn("Pass_Age", typeof(Boolean));
-            tblCols[2] = new DataColumn("Pass_GrossIncomeSingle", typeof(Boolean));
-            tblCols[3] = new DataColumn("Pass_GrossIncomeJoint", typeof(Boolean));
-            tblCols[4] = new DataColumn("Pass_Primary_EmplStat", typeof(Boolean));
-            tblCols[5] = new DataColumn("Pass_ScorecardGt80", typeof(Boolean));
+            tblCols[0] = new DataColumn("Primary_AUCitizen", typeof(Char));
+            tblCols[1] = new DataColumn("Age", typeof(Char));
+            tblCols[2] = new DataColumn("GrossIncomeSingle", typeof(Char));
+            tblCols[3] = new DataColumn("GrossIncomeJoint", typeof(Char));
+            tblCols[4] = new DataColumn("Primary_EmplStat", typeof(Char));
+            tblCols[5] = new DataColumn("ScorecardLimit", typeof(int));
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
-            tblCols[7] = new DataColumn("Score_Residential", typeof(Boolean));
-            tblCols[8] = new DataColumn("Score_Employment", typeof(Boolean));
+            tblCols[7] = new DataColumn("Score_Residential", typeof(int));
+            tblCols[8] = new DataColumn("Score_Employment", typeof(int));
             tblCols[9] = new DataColumn("Score_Class", typeof(string));
-            tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
+            tblCols[10] = new DataColumn("BuyerApplicationId", typeof(int));
             tblCols[11] = new DataColumn("CreatedBy", typeof(string));
             tblCols[12] = new DataColumn("Id", typeof(int));
             tblCols[12].AutoIncrement = true;
@@ -954,14 +974,15 @@ namespace MABDBWeb
             //AutoCondApprovalResult result = AutoCondApprovalResult.Rejected;
             int acceptedScore = 0;
             int rejectedScore = 0;
-                
+
             try
             {
                 if (SC_IsPrimary_AUCitizen(InvAppRow["Primary_AUCitizenStat"] as string))
-                    {
+                {
                     newCard["Primary_AUCitizen"] = (char)AutoCondApprovalResult.Accepted;
                     acceptedScore++;
-                } else
+                }
+                else
                 {
                     newCard["Primary_AUCitizen"] = (char)AutoCondApprovalResult.Rejected;
                     rejectedScore++;
@@ -977,31 +998,39 @@ namespace MABDBWeb
                 {
                     newCard["Age"] = (char)AutoCondApprovalResult.Rejected;
                     rejectedScore++;
+                } else
+                {
+                    newCard["Age"] = (char)AutoCondApprovalResult.Referred;
                 }
 
 
-                if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
+                //if (SC_IsSingleApplic(InvAppRow["ApplicantType"] as string))
+                //{
+                //    //newCard["Pass_GrossIncomeSingle"] =
+                //    //    SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
+                //    //newCard["Pass_GrossIncomeJoint"] = true;
+                //    newCard["GrossIncomeSingle"] = DBNull.Value;
+                //    newCard["GrossIncomeJoint"] = DBNull.Value;
+                //}
+                //else
+                //{
+                newCard["GrossIncomeSingle"] = DBNull.Value;
+                if (SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 120000))
                 {
-                    //newCard["Pass_GrossIncomeSingle"] =
-                    //    SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
-                    //newCard["Pass_GrossIncomeJoint"] = true;
-                    newCard["GrossIncomeSingle"] = null;
-                    newCard["GrossIncomeJoint"] = null;
+                    newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Accepted;
+                    acceptedScore++;
+                }
+                else if (SC_IncomeTestEorLT((InvAppRow["HouseholdIncomeGrossPA"] as string), 100000))
+                {
+                    newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Rejected;
+                    rejectedScore++;
                 }
                 else
                 {
-                    newCard["GrossIncomeSingle"] = null;
-                    if (SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 120000))
-                    {                      
-                        newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Accepted;
-                        acceptedScore++;
-                    } else if ( SC_IncomeTestEorLT((InvAppRow["HouseholdIncomeGrossPA"] as string), 100000) )
-                    {
-                        newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Rejected;
-                        rejectedScore++;
-                    }
-                    //change from prev $100k Bob 20161004
+                    newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Referred;
                 }
+                //change from prev $100k Bob 20161004
+            
 
                 if (SC_EmplFullTimeStatTest(InvAppRow["CurrOccupType"] as string))
                 {
@@ -1012,6 +1041,9 @@ namespace MABDBWeb
                 {
                     newCard["Primary_EmplStat"] = (char)AutoCondApprovalResult.Rejected;
                     rejectedScore++;
+                } else
+                {
+                    newCard["Primary_EmplStat"] = (char)AutoCondApprovalResult.Referred;
                 }
                 //newCard["Pass_ScorecardGt80"] = true; 
 

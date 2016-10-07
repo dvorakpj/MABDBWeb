@@ -234,7 +234,7 @@
     <Build Include="dbo\Tables\Investor.sql" />
     <Build Include="dbo\Tables\Property.sql" />
     <Build Include="dbo\Tables\Vendor.sql" />
-    <Build Include="dbo\Tables\Agency.sql" />
+    <Build Include="dbo\Tables\Agent.sql" />
     <Build Include="dbo\Views\vw_NewInvestorAppAutoRejectedNotInformed.sql" />
     <Build Include="dbo\Views\vw_NewInvestorAppAutoAcceptedNotInformed.sql" />
     <Build Include="vw_NewInvestorAppAutoRejected.sql" />
@@ -243,7 +243,7 @@
     <Build Include="dbo\Tables\InvestorApplications.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
-    <Build Include="dbo\Views\v_BuyerAppsBasicWScores.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppsBasicWScores.sql" />
     <Build Include="dbo\Tables\BuyerScoreCard.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -251,6 +251,7 @@
     <Build Include="dbo\Views\vw_NewBuyerAppAutoAcceptedNotInformed.sql" />
     <Build Include="dbo\Views\vw_BuyerInvestorAppAutoRejected.sql" />
     <Build Include="dbo\Views\vw_NewBuyerAppAutoRejectedNotInformed.sql" />
+    <Build Include="dbo\Tables\Buyer.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

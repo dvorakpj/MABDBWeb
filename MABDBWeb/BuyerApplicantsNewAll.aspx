@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuyerApplicantsNewAll.aspx.cs" Inherits="MABDBWeb.InvestorApplicantsNewAll" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuyerApplicantsNewAll.aspx.cs" Inherits="MABDBWeb.BuyerApplicantsNewAll" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
       <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Investor Applications"></asp:Label>
@@ -6,8 +6,8 @@
 
            <div>
            
-            <asp:SqlDataSource ID="BuyerApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT Id, EntryDate, ApplicantType, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_DOB, Primary_Gender, Email, Primary_Res_State, Primary_Res_PostCode, AutoCondResult, Score_Class, Score_Total FROM v_InvestorAppsBasicWScores ORDER BY Id DESC"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [InvestorApplications]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="BuyerApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [vw_BuyerAppsBasicWScores]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [BuyerApplications]"></asp:SqlDataSource>
 
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="BuyerApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnDataBound="GridView1_DataBound">
            <Columns>
@@ -21,7 +21,7 @@
                         </ItemTemplate>
                 </asp:TemplateField>
                 <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-                <asp:HyperLinkField HeaderText="Details" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/InvestorApplicationDetail.aspx?Id={0}" Text="Details" >
+                <asp:HyperLinkField HeaderText="Details" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/BuyerApplicationDetail.aspx?Id={0}" Text="Details" >
                 <ItemStyle BackColor="#CCCCCC" BorderStyle="Solid" />
                 </asp:HyperLinkField>
                 <asp:BoundField DataField="EntryDate" DataFormatString="{0:dd/MM/yyyy}" HeaderText="App Date" SortExpression="EntryDate" />

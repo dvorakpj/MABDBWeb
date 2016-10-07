@@ -183,6 +183,7 @@
     <Content Include="InvestorApplicantsNewAll.aspx" />
     <Content Include="InvestorApplicationDetail.aspx" />
     <Content Include="NewAutoRejectedInvestorApps.aspx" />
+    <Content Include="BuyerApplicationDetail.aspx" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\MABDBWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -351,6 +352,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Enums.cs" />
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -419,6 +421,13 @@
     </Compile>
     <Compile Include="NewAutoRejectedInvestorApps.aspx.designer.cs">
       <DependentUpon>NewAutoRejectedInvestorApps.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BuyerApplicationDetail.aspx.cs">
+      <DependentUpon>BuyerApplicationDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BuyerApplicationDetail.aspx.designer.cs">
+      <DependentUpon>BuyerApplicationDetail.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
