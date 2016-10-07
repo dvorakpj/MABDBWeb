@@ -10,33 +10,24 @@
 namespace MABDBWeb {
     
     
-    public partial class WebForm1 {
+    public partial class Properties {
         
         /// <summary>
-        /// lblTitle control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// DetailsView1 control.
+        /// PropertiesDataSource1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DetailsView DetailsView1;
-        
-        /// <summary>
-        /// BuyerApplicationDSDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource BuyerApplicationDSDataSource1;
+        protected global::System.Web.UI.WebControls.ObjectDataSource PropertiesDataSource1;
     }
 }

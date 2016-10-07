@@ -184,6 +184,8 @@
     <Content Include="InvestorApplicationDetail.aspx" />
     <Content Include="NewAutoRejectedInvestorApps.aspx" />
     <Content Include="BuyerApplicationDetail.aspx" />
+    <Content Include="Properties.aspx" />
+    <Content Include="WebForm2.aspx" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\MABDBWeb - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -392,6 +394,13 @@
       <DependentUpon>InvestorApplicationDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Properties.aspx.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Properties.aspx.designer.cs">
+      <DependentUpon>Properties.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -428,6 +437,13 @@
     </Compile>
     <Compile Include="BuyerApplicationDetail.aspx.designer.cs">
       <DependentUpon>BuyerApplicationDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
