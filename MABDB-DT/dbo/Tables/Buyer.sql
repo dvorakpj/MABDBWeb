@@ -6,7 +6,6 @@
 	[PrimaryBuyerId] int NULL FOREIGN KEY REFERENCES [Buyer] (id),
 	[Title] VARCHAR(25) NULL, 
 	[FirstName] NVARCHAR(50) NULL, 
-	[PersonalSalutation] VARCHAR(25) NULL, 
 	[OtherNames] NVARCHAR(150) NULL, 
 	[LastName] NVARCHAR(50) NULL, 
 	[DOB] DATE NULL, 

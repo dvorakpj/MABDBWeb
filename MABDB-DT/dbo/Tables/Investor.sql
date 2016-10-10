@@ -5,7 +5,6 @@
 	[InvestorApplicationId] int NOT NULL,   
 	[PrimaryInvestorID] INT NULL, 
 	[Title] VARCHAR(25) NULL,
-	[PersonalSalutation] VARCHAR(25) NULL,
 	[FirstName] NVARCHAR(50) NULL, 
 	[OtherNames] NVARCHAR(250) NULL, 
 	[LastName] NVARCHAR(50) NOT NULL, 
