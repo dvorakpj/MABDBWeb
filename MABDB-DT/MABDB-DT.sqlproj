@@ -234,11 +234,9 @@
     <Build Include="dbo\Tables\Property.sql" />
     <Build Include="dbo\Tables\Vendor.sql" />
     <Build Include="dbo\Tables\Agent.sql" />
-    <Build Include="dbo\Views\vw_NewInvestorAppAutoRejectedNotInformed.sql" />
-    <Build Include="dbo\Views\vw_NewInvestorAppAutoAcceptedNotInformed.sql" />
     <Build Include="vw_NewInvestorAppAutoRejected.sql" />
-    <Build Include="dbo\Views\vw_NewInvestorAppAutoRejected.sql" />
-    <Build Include="dbo\Views\vw_NewInvestorAppAutoAccepted.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppAutoRejected.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppAutoAccepted.sql" />
     <Build Include="dbo\Tables\InvestorApplications.sql">
       <AnsiNulls>Off</AnsiNulls>
     </Build>
@@ -247,16 +245,28 @@
       <AnsiNulls>Off</AnsiNulls>
     </Build>
     <Build Include="dbo\Views\vw_NewBuyerAppAutoAccepted.sql" />
-    <Build Include="dbo\Views\vw_NewBuyerAppAutoAcceptedNotInformed.sql" />
-    <Build Include="dbo\Views\vw_BuyerInvestorAppAutoRejected.sql" />
-    <Build Include="dbo\Views\vw_NewBuyerAppAutoRejectedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppAutoRejected.sql" />
     <Build Include="dbo\Tables\Buyer.sql" />
-    <Build Include="dbo\Views\vw_InvestorsApprovedAppliedLimit.sql" />
-    <Build Include="dbo\Views\vw_InvestorCreditApproved.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditApprovedAppliedLimit.sql" />
     <Build Include="dbo\Views\vw_InvestorApplications.sql" />
     <Build Include="dbo\Views\vw_BuyerApplications.sql" />
-    <Build Include="dbo\Views\vw_InvestorsCAApproved.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditApproved.sql" />
     <Build Include="dbo\Views\vw_InvestorApplicationsNew.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppCondAccepted.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppCondAcceptedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppCondRejectedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppCondRejected.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditApprovedLowerLimit.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditApprovedLowerLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditApprovedAppliedLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_Investors.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditRejected.sql" />
+    <Build Include="dbo\Views\vw_InvestorsCreditRejectedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppAutoAccepted.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppCondAccepted.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppCondRejected.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppCondAcceptedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyerAppCondRejectedNotInformed.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

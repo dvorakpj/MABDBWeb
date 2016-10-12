@@ -89,7 +89,6 @@
 		[EntryId]                            INT                DEFAULT ((-1)) NOT NULL,
 		[EntryUserId]                             VARCHAR (15)       NULL,
 	[CreatedUTC]                         DATETIME           CONSTRAINT [DF__BuyerApplications__CreatedUTC] DEFAULT (getutcdate()) NOT NULL,
-	[CondDecision]                       DATETIME           NULL,
 	[HasAgreedPrivacy]                   VARCHAR (100)       NULL,
 	[DesiredPropertyAddr]                VARCHAR (255)      NULL,
 	[Primary_MaritalStats]               VARCHAR (25)       NULL,
@@ -143,18 +142,17 @@
 	[Other_OtherLiabilitiesList]         VARCHAR (550)      NULL,
 	[TransactionId]                      VARCHAR (15)       NULL,
 	[SourceURL]                          VARCHAR (255)      NULL,
-	[CondDecisionBy]                     VARCHAR (25)       NULL,
 	[HasReqestedPriority]                VARCHAR (100)      NULL,
 	[AutoRejected]					 Date NULL,
-	[AutoRejectedInformed]					 Date NULL,
 	[AutoRejecetedBy]				VARCHAR(50) NULL,
-	[AutoRejectedInformedBy]		VARCHAR(50) NULL,
 	[AutoAccepted]			Date NULL,
 	[AutoAcceptedBy]			VARCHAR(50) NULL,
-	[AutoAcceptedInformed]					 Date NULL,
-	[AutoAcceptedInformedBy]			VARCHAR(50) NULL
-	PRIMARY KEY CLUSTERED ([Id] ASC),
-	[CondApproved] BIT NULL, 
+	[CondCreditDecisionDate]                       DATETIME           NULL,
+    [CondCreditDecision] CHAR(1) NULL, 
+		[CondCreditDecisionBy]                     VARCHAR (25)       NULL,
+    [CondCreditDecisionInformed] DATETIME2 NULL, 
+    [CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
+    CONSTRAINT [PK_BuyerApplications] PRIMARY KEY ([Id]), 
 );
 
 

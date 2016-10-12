@@ -1,9 +1,9 @@
 ﻿CREATE TABLE [dbo].[Buyer]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL IDENTITY(1, 1) , 
 	[MABuyerId] int NULL,
 	[BuyerApplicationId] int NULL FOREIGN KEY REFERENCES [BuyerApplications] (Id),
-	[PrimaryBuyerId] int NULL FOREIGN KEY REFERENCES [Buyer] (id),
+	[PrimaryBuyerId] int NULL FOREIGN KEY REFERENCES [Buyer] (Id),
 	[Title] VARCHAR(25) NULL, 
 	[FirstName] NVARCHAR(50) NULL, 
 	[OtherNames] NVARCHAR(150) NULL, 
@@ -51,5 +51,6 @@
 	[CreatedBy] VARCHAR(50) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] DATETIME2 NULL, 
+    CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
 
 )

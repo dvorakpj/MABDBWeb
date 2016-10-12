@@ -1,7 +1,7 @@
 ﻿CREATE VIEW [dbo].[vw_BuyerApplications]
 	AS 
 	SELECT 
-	ba.Id,	
+	ba.Id as [ApplicationId],
 	ba.ApplicantType,
 	ba.EntryDate,
 	ba.EntryId,
@@ -38,15 +38,13 @@
 	NULL as [MthlyRent],
 	NULL as [MthlyDeposit],
 	ba.DesiredPropertyAddr,
-	CASE ba.CondApproved WHEN 1 THEN 'Approved' WHEN 0 THEN 'Rejected' END AS CondApprovedResult,
-	ba.CondDecision,
-	ba.CondDecisionBy,
+	ba.CondCreditDecision,
+	ba.CondCreditDecisionDate,
+	ba.CondCreditDecisionBy,
+	ba.CondCreditDecisionInformed,
+	ba.CondCreditDecisionInformedBy,
 	ba.AutoAccepted,
 	ba.AutoAcceptedBy,
-	ba.AutoAcceptedInformed,
-	ba.AutoAcceptedInformedBy,
 	ba.AutoRejected,
-	ba.AutoRejecetedBy,
-	ba.AutoRejectedInformed,
-	ba.AutoRejectedInformedBy
+	ba.AutoRejecetedBy
 FROM [dbo].[BuyerApplications] ba

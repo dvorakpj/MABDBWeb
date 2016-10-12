@@ -1,9 +1,11 @@
 ﻿CREATE VIEW [dbo].[vw_InvestorApplications]
 	AS SELECT 
+	ia.Id as [ApplicationId],
 	ia.ApplicantType,
 	ia.EntryDate,
 	ia.EntryId,
 	CASE WHEN ( (ia.Primary_Title  IS NULL) OR (LEN(ia.Primary_Title )=0 )) THEN ( CASE WHEN (ia.Primary_Gender LIKE 'FEM%' ) Then 'Ms.' WHEN (ia.Primary_Gender LIKE 'M%' ) Then 'Mr.' Else '' END) ELSE   ia.Primary_Title END  + ' ' + ia.Primary_LastName AS [Primary_Salutation],
+	ia.Primary_Title,
 	ia.Primary_FirstName,
 	ia.Primary_OtherNames,
 	ia.Primary_LastName,
@@ -17,7 +19,7 @@
 	ia.Primary_Res_PostCode,
 	ia.Primary_Res_State,
 	ia.Other_Title, 
-	CASE WHEN ( (ia.Primary_Title  IS NULL) OR (LEN(ia.Primary_Title )=0 )) THEN ( CASE WHEN (ia.Primary_Gender LIKE 'FEM%' ) Then 'Ms.' WHEN (ia.Primary_Gender LIKE 'M%' ) Then 'Mr.' Else '' END) ELSE   ia.Primary_Title END  + ' ' + ia.Primary_LastName AS [Other_Salutation],
+	CASE WHEN ( (ia.Other_Title  IS NULL) OR (LEN(ia.Other_Title )=0 )) THEN ( CASE WHEN (ia.Other_Gender LIKE 'FEM%' ) Then 'Ms.' WHEN (ia.Other_Gender LIKE 'M%' ) Then 'Mr.' Else '' END) ELSE   ia.Other_Title END  + ' ' + ia.Other_LastName AS [Other_Salutation],
 	ia.Other_FirstName,	
 	ia.Other_OtherNames,
 	ia.Other_LastName,
@@ -32,15 +34,13 @@
 	ia.Other_Res_State,
 	ia.EstSpend as [CondAppliedLimit$],
 	ia.DesiredPropertyAddr,
-	CASE ia.CondApproved WHEN 1 THEN 'Approved' WHEN 0 THEN 'Rejected' END AS CondApprovedResult,
-	ia.CondDecision,
+	ia.CondCreditDecision,
+	ia.CondCreditDecisionDate,
 	ia.CondDecisionBy,
 	ia.AutoAccepted,
 	ia.AutoAcceptedBy,
-	ia.AutoAcceptedInformed,
-	ia.AutoAcceptedInformedBy,
 	ia.AutoRejected,
-	ia.AutoRejecetedBy,
-	ia.AutoRejectedInformed,
-	ia.AutoRejectedInformedBy	 	 	
+	ia.AutoRejectedBy,
+	ia.CondCreditDecisionInformed,
+	ia.CondCreditDecisionInformedBy 	 	
 	FROM [dbo].[InvestorApplications] ia

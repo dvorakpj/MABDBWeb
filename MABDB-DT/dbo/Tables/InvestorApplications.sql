@@ -48,7 +48,7 @@
 	[EntryDate]                          DATETIME           DEFAULT (getdate()) NOT NULL,
 	[Primary_DOB]                        DATETIME           NULL,
 	[CreatedUTC]                         DATETIME           CONSTRAINT [DF__InvestorApplications__CreatedUTC] DEFAULT (getutcdate()) NOT NULL,
-	[CondDecision]                       DATETIME           NULL,
+	[CondCreditDecisionDate]                       DATETIME           NULL,
 	[Property_PostCode]                  SMALLINT           NULL,
 	[Property_State]                     NVARCHAR (255)     NULL,
 	[Property_Country]                   VARCHAR (50)       NULL,
@@ -125,16 +125,15 @@
 	[YrsPrevEmployer]                    VARCHAR (120)      NULL,
 	[AppliedLimit]						 DECIMAL(10,2)	NULL,
 	[AutoRejected]                       DATE               NULL,
-	[AutoRejectedInformed]               DATE               NULL,
-	[AutoRejecetedBy]                    VARCHAR (50)       NULL,
-	[AutoRejectedInformedBy]             VARCHAR (50)       NULL,
+	[AutoRejectedBy]                    VARCHAR (50)       NULL,
 	[AutoAccepted]                       DATE               NULL,
 	[AutoAcceptedBy]                     VARCHAR (50)       NULL,
-	[AutoAcceptedInformed]               DATE               NULL,
-	[AutoAcceptedInformedBy]             VARCHAR (50)       NULL,
 	[HasReadPO6]                         VARCHAR (100)      NULL,
-	[CondApproved]                       BIT                NULL,
-	PRIMARY KEY CLUSTERED ([Id] ASC)
+	[CondCreditDecision]                       CHAR(1)                NULL,
+	[CondCreditDecisionInformed] DATETIME2 NULL, 
+    [CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
+    [CondCreditDecisionBy] VARCHAR(50) NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 

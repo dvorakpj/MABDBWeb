@@ -616,4 +616,74 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="BuyerApplicationId" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="83a47938-6759-4f42-8334-8919bb9c7b4d" ChangeDateTime="10/12/2016 04:59:54">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[AutoRejecetedBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AutoRejectedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="96f40bfe-fc9b-41e2-af5d-d0d9eb5af3dc" ChangeDateTime="10/12/2016 05:00:10">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[CondApprovedInformed]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondDecisionInformed" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="65e34fd7-fb0a-4543-917d-42ff38d9b6bb" ChangeDateTime="10/12/2016 05:00:16">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[CondApprovedInformedBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondDecisionInformedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="193de526-c7a9-4304-844a-07e54b5cb9ae" ChangeDateTime="10/12/2016 05:05:02">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[CondApproved]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondDecision" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05f634f5-88e3-46d5-a5ec-27390a507ec3" ChangeDateTime="10/12/2016 06:05:35">
+    <Property Name="ElementName" Value="[dbo].[Investor].[AssquireCreditDecision]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Investor]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssquireCreditDecisionDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="16d31c45-46f5-47d2-9c65-155e9121de3b" ChangeDateTime="10/12/2016 10:29:08">
+    <Property Name="ElementName" Value="[dbo].[BuyerApplications].[CondDecisionDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondCreditDecisionDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="57d4e926-e4de-44fb-8910-285b28722fe1" ChangeDateTime="10/12/2016 10:29:13">
+    <Property Name="ElementName" Value="[dbo].[BuyerApplications].[CondDecision]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondCreditDecision" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6a3b53c8-db42-4d85-892f-25a2956b3138" ChangeDateTime="10/12/2016 10:29:17">
+    <Property Name="ElementName" Value="[dbo].[BuyerApplications].[CondDecisionInformed]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondCreditDecisionInformed" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="79e224ea-800b-46d8-b81d-675ac9c546ef" ChangeDateTime="10/12/2016 10:29:22">
+    <Property Name="ElementName" Value="[dbo].[BuyerApplications].[CondDecisionInformedBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondCreditDecisionInformedBy" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c73bcdba-9371-498f-a8dc-71953db13dff" ChangeDateTime="10/12/2016 10:29:38">
+    <Property Name="ElementName" Value="[dbo].[BuyerApplications].[CondDecisionBy]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[BuyerApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CondCreditDecisionBy" />
+  </Operation>
 </Operations>
