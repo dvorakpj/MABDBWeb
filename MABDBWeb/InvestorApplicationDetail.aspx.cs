@@ -155,40 +155,59 @@ namespace MABDBWeb
                     HiddenField2.Value = prop.Trim();
                 }
 
-                bool isCondApproved = false;
-                object CondApproved = dr["CondApproved"];
+                bool? isCondApproved = null;
+                string condStatus = String.Empty;
+
+                object CondApproved = dr["CondCreditDecision"];
                 if (null != CondApproved)
                 {
                     string condApprovedStr = CondApproved as string;
-                    if (Boolean.TryParse(condApprovedStr, out isCondApproved))
+                    if (!String.IsNullOrEmpty(condApprovedStr))
                     {
-                        if (isCondApproved)
+                        char condApprovedSt = condApprovedStr[0];
+
+                        //if (Char.TryParse(condApprovedStr, out isCondApproved))
+                        //{
+                        if (((char)CondCreditDecisionResult.Accepted) == condApprovedSt)
                         {
-                            lblCondApproved.Visible = true;
-                            this.lblCondApproved.Text = "Approved";
-                            lblCondApproved.BackColor = System.Drawing.Color.Green;
-                            IsCondApproved = true;
+                            isCondApproved = true;
+                            condStatus = "Approved";
+
                         }
+                        else if (((char)CondCreditDecisionResult.AcceptedLowerPrtyValLimit) == condApprovedSt)
                         {
-                            lblCondApproved.Visible = true;
-                            this.lblCondApproved.Text = "Rejected";
-                            lblCondApproved.BackColor = System.Drawing.Color.Red;
-                            IsCondApproved = false;
+                            isCondApproved = true;
+                            condStatus = "Approved for Lower Limit";
+                        }
+                        else if (((char)CondCreditDecisionResult.Rejected) == condApprovedSt)
+                        {
+                            isCondApproved = false;
+                            condStatus = "Rejected";
                         }
                     }
-                } else
-                {
-                    this.lblCondApproved.Text = String.Empty;
-                    lblCondApproved.Visible = false;
-                    lblCondApproved.BackColor = System.Drawing.Color.White;                    
-                    IsCondApproved = null;
                 }
 
 
-               
-            }
-
-                                                                                             
+                if (isCondApproved.HasValue)
+                {
+                    lblCondApproved.Visible = true;
+                    this.lblCondApproved.Text = condStatus;
+                    lblCondApproved.BackColor = isCondApproved.Value ? System.Drawing.Color.Green : System.Drawing.Color.Red;
+                    IsCondApproved = isCondApproved;
+                }
+                else
+                {
+                    this.lblCondApproved.Text = String.Empty;
+                    lblCondApproved.Visible = false;
+                    lblCondApproved.BackColor = System.Drawing.Color.White;
+                    IsCondApproved = null;
+                }
+            } else
+            {
+                txtValidationErrors.Text = "Could not load Investor Application Id:" + Request.QueryString["Id"];
+                txtValidationErrors.Visible = true;
+                return;
+            }                                                                                     
         }
 
         protected void btnCreditFeeReceived_Click(object sender, EventArgs e)
