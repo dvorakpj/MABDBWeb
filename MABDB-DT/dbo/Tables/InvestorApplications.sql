@@ -131,9 +131,13 @@
 	[HasReadPO6]                         VARCHAR (100)      NULL,
 	[CondCreditDecision]                       CHAR(1)                NULL,
 	[CondCreditDecisionInformed] DATETIME2 NULL, 
-    [CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
-    [CondCreditDecisionBy] VARCHAR(50) NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+	[CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
+	[CondCreditDecisionBy] VARCHAR(50) NULL, 
+	[AppAckLetterSent] DATETIME2 NULL, 
+	[AppAckLetterSentBy] VARCHAR(50) NULL, 
+	[ApplicantsNotes] VARCHAR(1200) NULL, 
+	[CondDecisionOfficeNotes] VARCHAR(1200) NULL, 
+	PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 

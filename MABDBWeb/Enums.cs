@@ -19,4 +19,11 @@
         Referred = 'F'
     }
 
+    enum CondCreditDecisionResult
+    {
+        Accepted = 'A',
+        AcceptedLowerPrtyValLimit = 'L',
+        Rejected = 'R',
+    }
+
 }

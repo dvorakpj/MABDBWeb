@@ -140,7 +140,7 @@ namespace MABDBWeb
             #region set up columns in dt
             DataColumn[] impCols;
 
-            impCols = new DataColumn[134]; //total 134 columns in the table
+            impCols = new DataColumn[138]; //total 138 columns in the table
                                            //Desired Property Address
             impCols[0] = new DataColumn("DesiredPropertyAddr", typeof(string));
             impCols[1] = new DataColumn("ApplicantType", typeof(string));
@@ -313,23 +313,29 @@ namespace MABDBWeb
             impCols[121] = new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string));
             impCols[122] = new DataColumn("InvestorApplication_Gender", typeof(string));
             impCols[123] = new DataColumn("EstSpend", typeof(string));
-            impCols[124] = new DataColumn("AutoRejected", typeof(string));
-            impCols[125] = new DataColumn("AutoRejectedInformed", typeof(string));
-            impCols[126] = new DataColumn("AutoRejecetedBy", typeof(string));
-            impCols[127] = new DataColumn("AutoRejectedInformedBy", typeof(string));
-            impCols[128] = new DataColumn("AutoAccepted", typeof(string));
-            impCols[129] = new DataColumn("AutoAcceptedBy", typeof(string));
-            impCols[130] = new DataColumn("AutoAcceptedInformed", typeof(string));
-            impCols[131] = new DataColumn("AutoAcceptedInformedBy", typeof(string));
-            impCols[132] = new DataColumn("CondApproved", typeof(Boolean));
+            impCols[124] = new DataColumn("AutoRejected", typeof(string));            
+            impCols[125] = new DataColumn("AutoRejecetedBy", typeof(string));            
+            impCols[126] = new DataColumn("AutoAccepted", typeof(string));
+            impCols[127] = new DataColumn("AutoAcceptedBy", typeof(string));            
+            impCols[128] = new DataColumn("CondCreditDecision", typeof(Boolean));
+            impCols[129] = new DataColumn("CondCreditDecisionInformed", typeof(Boolean));
+            impCols[130] = new DataColumn("CondCreditDecisionInformedBy", typeof(Boolean));
+            impCols[131] = new DataColumn("CondCreditDecisionBy", typeof(Boolean));
+            impCols[132] = new DataColumn("AppAckLetterSent", typeof(Boolean));
+            impCols[133] = new DataColumn("AppAckLetterSentBy", typeof(Boolean));
+            impCols[134] = new DataColumn("ApplicantsNotes", typeof(Boolean));
+            impCols[135] = new DataColumn("CondDecisionOfficeNotes", typeof(Boolean));
+            impCols[136] = new DataColumn("AppliedLimit", typeof(Boolean));
+
+
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
 
           
-            impCols[133] = new DataColumn("Id", typeof(int));
-            impCols[133].AutoIncrement = true;
-            impCols[133].AutoIncrementSeed = -1;
-            impCols[133].AutoIncrementStep = -1;
+            impCols[137] = new DataColumn("Id", typeof(int));
+            impCols[137].AutoIncrement = true;
+            impCols[137].AutoIncrementSeed = -1;
+            impCols[137].AutoIncrementStep = -1;
 
             //modified
             //impCols[116] = DateTime.UtcNow;

@@ -76,9 +76,9 @@ namespace MABDBWeb
             DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
             if (null != currentRow)
             {
-                currentRow.CondDecision = DateTime.Now;
-                currentRow.CondDecisionBy = "pdvorak";
-                currentRow.CondApproved = true;
+                currentRow.CondCreditDecisionDate = DateTime.Now;
+                currentRow.CondCreditDecisionBy = "pdvorak";
+                currentRow.CondCreditDecision = ((char)CondCreditDecisionResult.Accepted).ToString();
                 dta.Update(currentRow);
             }
 
@@ -86,6 +86,53 @@ namespace MABDBWeb
 
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
+
+
+
+        protected void ButtonAppAckLetter_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+            //throw new ApplicationException("Test.");
+            // check if the status is autaccepted
+            // extract the record from DB
+
+            if (String.IsNullOrEmpty(this.HiddenField1.Value))
+            {
+                return;
+            }
+            else if (!Int32.TryParse(this.HiddenField1.Value, out id))
+            {
+                return;
+            }
+            //InvestorApplicationDS investor = new InvestorApplicationDS();
+
+            DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
+
+            //DataUtils.InvestorApplicationTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorApplicationTableAdapters.InvestorApplicationsTableAdapter();
+
+            DataUtils.InvestorDS.InvestorApplicationsDataTable dt = new InvestorDS.InvestorApplicationsDataTable();
+            dt = dta.GetDataById(id);
+
+            if (dt.Rows.Count != 1)
+            {
+                throw new ArgumentException(String.Concat("InvestorApplication with Id ", id, " could not be found."), "InvestorApplication.Id");
+            }
+
+            DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
+            if (null != currentRow)
+            {
+                currentRow.CondCreditDecisionDate = DateTime.Now;
+                currentRow.CondCreditDecisionBy = "pdvorak";
+                currentRow.CondCreditDecision = ((char)CondCreditDecisionResult.Accepted).ToString();
+                dta.Update(currentRow);
+            }
+
+
+
+            Response.Redirect("~/InvestorApplicantsNewAll.aspx");
+        }
+
+
 
         protected void DetailsView1_DataBound(object sender, EventArgs e)
         {
@@ -733,18 +780,18 @@ namespace MABDBWeb
 
                 try
                 {
-                    condApproved = currentRow.CondApproved;
+                    condApproved =  (("A" == currentRow.CondCreditDecision) || ("L" == currentRow.CondCreditDecision))  ;
                     if (condApproved.HasValue)
                     {
                         if (condApproved.Value)
                         {
-                            currentRow.AutoAcceptedInformed = DateTime.Now;
-                            currentRow.AutoAcceptedInformedBy = "pdvorak";
+                            //currentRow.AutoAcceptedInformed = DateTime.Now;
+                            //currentRow.AutoAcceptedInformedBy = "pdvorak";
                         }
                         else
                         {
-                            currentRow.AutoRejectedInformed = DateTime.Now;
-                            currentRow.AutoRejectedInformedBy = "pdvorak";
+                            //currentRow.AutoRejectedInformed = DateTime.Now;
+                            //currentRow.AutoRejectedInformedBy = "pdvorak";
                         }
                     }
                     else
@@ -761,9 +808,75 @@ namespace MABDBWeb
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
 
-        protected void HiddenField2_ValueChanged(object sender, EventArgs e)
-        {
 
+        protected void ButtonAppAckSentModal_Click(object sender, EventArgs e)
+        {
+            int id = 0;
+           
+
+            // read current InvAppId
+            if (String.IsNullOrEmpty(this.HiddenField1.Value))
+            {
+                return;
+            }
+            else if (!Int32.TryParse(this.HiddenField1.Value, out id))
+            {
+                return;
+            }
+            
+
+            //get inv app row form DB for update
+            DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();           
+            DataUtils.InvestorDS.InvestorApplicationsDataTable dt = new InvestorDS.InvestorApplicationsDataTable();
+            dt = dta.GetDataById(id);
+
+            if (dt.Rows.Count != 1)
+            {
+                throw new ArgumentException(String.Concat("InvestorApplication with Id ", id, " could not be found."), "InvestorApplication.Id");
+            }
+
+            DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
+
+
+            if (null != currentRow)
+            {
+                //bool condApproved = false;
+
+                try
+                {
+                    //condApproved = (("A" == currentRow.CondCreditDecision) || ("L" == currentRow.CondCreditDecision));
+                    if (!String.IsNullOrEmpty(currentRow.CondCreditDecision))
+                    {
+                        this.txtValidationErrors.Text = "Cannot send a letter of acknowledgement to already conditionally decisioned application.";
+                        //currentRow.AutoAcceptedInformed = DateTime.Now;
+                        //currentRow.AutoAcceptedInformedBy = "pdvorak";
+                        //currentRow.AutoRejectedInformed = DateTime.Now;
+                        //currentRow.AutoRejectedInformedBy = "pdvorak";
+                        this.DetailsView1.DataBind();
+                        return;
+                    } else
+                    {
+                        currentRow.AppAckLetterSent = DateTime.Now;
+                        currentRow.AppAckLetterSentBy = "pdvorak";
+                        currentRow.Modified = currentRow.AppAckLetterSent;
+                        currentRow.ModifiedBy = currentRow.AppAckLetterSentBy;
+                        dta.Update(currentRow);
+                    }
+                    
+                }
+                catch
+                {
+                    this.txtValidationErrors.Text = "Error saving update";
+                    this.DetailsView1.DataBind();
+                    return;
+                    //error this app has to be approved first 
+                }
+            }
+
+            Response.Redirect("~/InvestorApplicantsNewAll.aspx");
+            return;
         }
+
+
     }
 }

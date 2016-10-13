@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorApplicationDetail.aspx.cs" Inherits="MABDBWeb.InvestorApplicationDetails" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:HiddenField ID="HiddenField1" runat="server" Visible="False" />
-    <asp:HiddenField ID="HiddenField2" runat="server" OnValueChanged="HiddenField2_ValueChanged" />
+    <asp:HiddenField ID="HiddenField2" runat="server" />
     <asp:Label ID="lblValidationErrorsTxtBoxLabel" runat="server" ForeColor="Red" Text="Validation Errors:" Visible="False"></asp:Label>
     <br />
     <asp:TextBox ID="txtValidationErrors" runat="server" ForeColor="Red" Visible="False" Wrap="False"></asp:TextBox>
@@ -128,15 +128,11 @@
             <asp:BoundField DataField="YrsPrevAddr" HeaderText="Yrs Prev Addr" SortExpression="YrsPrevAddr" />
             <asp:BoundField DataField="YrsCurrEmployer" HeaderText="Yrs Curr Employer" SortExpression="YrsCurrEmployer" />
             <asp:BoundField DataField="YrsPrevEmployer" HeaderText="Yrs Prev Employer" SortExpression="YrsPrevEmployer" />
-            <asp:BoundField DataField="AutoRejecetedBy" HeaderText="Auto Rejeceted By" SortExpression="AutoRejecetedBy" />
+            <asp:BoundField DataField="AppAckLetterSent" HeaderText="App Ack Letter Sent" SortExpression="AppAckLetterSent" />
             <asp:BoundField DataField="AutoRejected" HeaderText="Date Auto Rejected" SortExpression="AutoRejected" />
-            <asp:BoundField DataField="AutoRejectedInformed" HeaderText="Date Auto Rejected Informed" SortExpression="AutoRejectedInformed" />
-            <asp:BoundField DataField="AutoRejectedInformedBy" HeaderText="Auto Rejected Informed By" SortExpression="AutoRejectedInformedBy" />
             <asp:BoundField DataField="AutoAccepted" HeaderText="Date Auto Accepted" SortExpression="AutoAccepted" />
-            <asp:BoundField DataField="AutoAcceptedBy" HeaderText="Auto Accepted By" SortExpression="AutoAcceptedBy" />
-            <asp:BoundField DataField="AutoAcceptedInformed" HeaderText="Date Auto Accepted Informed" SortExpression="AutoAcceptedInformed" />
-            <asp:BoundField DataField="AutoAcceptedInformedBy" HeaderText="Auto Accepted Informed By" SortExpression="AutoAcceptedInformedBy" />
-            <asp:BoundField DataField="CondApproved" HeaderText="Is Cond. Approved?" SortExpression="CondApproved" />
+            <asp:BoundField DataField="CondCreditDecision" HeaderText="Cond. Decision" SortExpression="CondCreditDecision" />
+            <asp:BoundField DataField="CondCreditDecisionBy" HeaderText="Cond. Decision By" SortExpression="CondCreditDecisionBy" />
         </Fields>
         <RowStyle Wrap="False" />
     </asp:DetailsView>
@@ -147,6 +143,45 @@
             <asp:QueryStringParameter DefaultValue="-1" Name="Id" QueryStringField="Id" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
+
+
+    <hr/>
+        <div>
+            <p>
+              <span style="font-weight: bold">Acknowledgment of Application:</span>
+            </p>
+               Approver: <asp:Label ID="Label3" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as sender of the letter of acknowledgement."></asp:Label>
+            <br />
+                <p>
+            <asp:Button ID="Button8" runat="server" Text="Record Letter of Acknowledgement of Application Sent" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#AppAckModal"/>
+               </p>
+        </div>
+
+  
+        <!-- Application Acknowledgement Letter Sent -->
+        <div id="AppAckModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="AppAckLabel" aria-hidden="true">
+         <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 id="AppAckLabelmyModalLabel3">Confirmation</h3>
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to record that the Letter of Acknowledgement of Investor Application was sent?</p>
+            </div>
+            <div class="modal-footer">
+                <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
+                 <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
+                 <asp:Button runat="server" ID="Button9" Text="Record Applic Ack Letter" CssClass="btn" OnClick="ButtonAppAckSentModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+            </div>
+        </div>
+    </div>
+        </div>
+  
+
+
     <hr />
         <div>
         <p>
