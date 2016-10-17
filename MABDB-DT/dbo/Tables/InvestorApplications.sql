@@ -1,10 +1,10 @@
 ﻿CREATE TABLE [dbo].[InvestorApplications] (
 	[Id]                                 INT                IDENTITY (1, 1) NOT NULL,
 	[ApplicantType]                      VARCHAR (10)       NULL,
-	[Primary_Title]						 VARCHAR(25)		NULL,	
-	[Primary_FirstName]                  NVARCHAR (255)     NULL,
-	[Primary_OtherNames]                 NVARCHAR (255)     NULL,
-	[Primary_LastName]                   NVARCHAR (255)     NULL,
+	[Primary_Title]						 VARCHAR(10)		NULL,	
+	[Primary_FirstName]                  NVARCHAR (50)     NULL,
+	[Primary_OtherNames]                 NVARCHAR (50)     NULL,
+	[Primary_LastName]                   NVARCHAR (50)     NULL,
 	[Primary_AUCitizenStat]              VARCHAR (25)       NULL,
 	[Primary_Dependants]                 TINYINT            NULL,
 	[Other_Title]						 VARCHAR(25)		NULL,	
@@ -137,7 +137,12 @@
 	[AppAckLetterSentBy] VARCHAR(50) NULL, 
 	[ApplicantsNotes] VARCHAR(1200) NULL, 
 	[CondDecisionOfficeNotes] VARCHAR(1200) NULL, 
-	PRIMARY KEY CLUSTERED ([Id] ASC)
+	[IsCompany] VARCHAR(10) NULL, 
+    [CompanyName] VARCHAR(50) NULL, 
+    [CompanyABN] VARCHAR(15) NULL, 
+    [CompanyACN] VARCHAR(12) NULL, 
+    [Primary_CompRole] VARCHAR(100) NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 

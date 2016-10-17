@@ -686,4 +686,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CondCreditDecisionBy" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="54af37cc-7708-46bc-90e2-df3ef5e35eb3" ChangeDateTime="10/17/2016 08:21:37">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[ABN]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CompanyABN" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="cfff10f7-b5b0-4018-bbc1-d2f27247b745" ChangeDateTime="10/17/2016 08:21:41">
+    <Property Name="ElementName" Value="[dbo].[InvestorApplications].[ACN]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[InvestorApplications]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CompanyACN" />
+  </Operation>
 </Operations>
