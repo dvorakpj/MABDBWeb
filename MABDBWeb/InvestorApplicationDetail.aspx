@@ -148,7 +148,7 @@
     <hr/>
         <div>
             <p>
-              <span style="font-weight: bold">Acknowledgment of Application:</span>
+              <span style="font-weight: bold">Acknowledgment of Application Letter Sent:</span>
             </p>
                Approver: <asp:Label ID="Label3" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as sender of the letter of acknowledgement."></asp:Label>
             <br />
@@ -174,7 +174,7 @@
                 <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
                  <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
-                 <asp:Button runat="server" ID="Button9" Text="Record Applic Ack Letter" CssClass="btn" OnClick="ButtonAppAckSentModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                 <asp:Button runat="server" ID="Button9" Text="Record Applic Ack Letter" CssClass="btn" OnClick="ButtonAppAckLetterSentModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
             </div>
         </div>
     </div>

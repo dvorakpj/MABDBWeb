@@ -34,9 +34,9 @@ namespace DataUtils {
         
         private global::System.Data.DataRelation relationFK_InvestorApplications_Investor;
         
-        private global::System.Data.DataRelation relationProperty_Investor;
-        
         private global::System.Data.DataRelation relationFK_InvestorApplications_Property;
+        
+        private global::System.Data.DataRelation relationProperty_Investor;
         
         private global::System.Data.DataRelation relationFK_InvestorScoreCard_InvestorApplication;
         
@@ -275,8 +275,8 @@ namespace DataUtils {
                 }
             }
             this.relationFK_InvestorApplications_Investor = this.Relations["FK_InvestorApplications_Investor"];
-            this.relationProperty_Investor = this.Relations["Property_Investor"];
             this.relationFK_InvestorApplications_Property = this.Relations["FK_InvestorApplications_Property"];
+            this.relationProperty_Investor = this.Relations["Property_Investor"];
             this.relationFK_InvestorScoreCard_InvestorApplication = this.Relations["FK_InvestorScoreCard_InvestorApplication"];
         }
         
@@ -305,13 +305,6 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("Property_Investor", new global::System.Data.DataColumn[] {
-                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.PrimaryInvestorIdColumn});
-            this.tableProperty.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.SetNull;
-            fkc.UpdateRule = global::System.Data.Rule.SetNull;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.InvestorApplicationIdColumn});
@@ -319,18 +312,25 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("Property_Investor", new global::System.Data.DataColumn[] {
+                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.PrimaryInvestorIdColumn});
+            this.tableProperty.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.SetNull;
+            fkc.UpdateRule = global::System.Data.Rule.SetNull;
             this.relationFK_InvestorApplications_Investor = new global::System.Data.DataRelation("FK_InvestorApplications_Investor", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestor.InvestorApplicationIdColumn}, false);
             this.Relations.Add(this.relationFK_InvestorApplications_Investor);
-            this.relationProperty_Investor = new global::System.Data.DataRelation("Property_Investor", new global::System.Data.DataColumn[] {
-                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.PrimaryInvestorIdColumn}, false);
-            this.Relations.Add(this.relationProperty_Investor);
             this.relationFK_InvestorApplications_Property = new global::System.Data.DataRelation("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.InvestorApplicationIdColumn}, false);
             this.Relations.Add(this.relationFK_InvestorApplications_Property);
+            this.relationProperty_Investor = new global::System.Data.DataRelation("Property_Investor", new global::System.Data.DataColumn[] {
+                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.PrimaryInvestorIdColumn}, false);
+            this.Relations.Add(this.relationProperty_Investor);
             this.relationFK_InvestorScoreCard_InvestorApplication = new global::System.Data.DataRelation("FK_InvestorScoreCard_InvestorApplication", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestorScoreCard.InvestorApplicationIdColumn}, false);
@@ -7671,12 +7671,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CondCreditDecision {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionColumn]));
+                    if (this.IsCondCreditDecisionNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecision\' in table \'InvestorApplications\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionColumn]));
                     }
                 }
                 set {
@@ -7705,12 +7704,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CondCreditDecisionInformedBy {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionInformedByColumn]));
+                    if (this.IsCondCreditDecisionInformedByNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionInformedBy\' in table \'InvestorApplication" +
-                                "s\' is DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionInformedByColumn]));
                     }
                 }
                 set {
@@ -7722,12 +7720,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CondCreditDecisionBy {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionByColumn]));
+                    if (this.IsCondCreditDecisionByNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionBy\' in table \'InvestorApplications\' is DB" +
-                                "Null.", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.CondCreditDecisionByColumn]));
                     }
                 }
                 set {
@@ -7756,12 +7753,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string AppAckLetterSentBy {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.AppAckLetterSentByColumn]));
+                    if (this.IsAppAckLetterSentByNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AppAckLetterSentBy\' in table \'InvestorApplications\' is DBNu" +
-                                "ll.", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.AppAckLetterSentByColumn]));
                     }
                 }
                 set {
@@ -7773,12 +7769,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string ApplicantsNotes {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.ApplicantsNotesColumn]));
+                    if (this.IsApplicantsNotesNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ApplicantsNotes\' in table \'InvestorApplications\' is DBNull." +
-                                "", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.ApplicantsNotesColumn]));
                     }
                 }
                 set {
@@ -7790,12 +7785,11 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string CondDecisionOfficeNotes {
                 get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.CondDecisionOfficeNotesColumn]));
+                    if (this.IsCondDecisionOfficeNotesNull()) {
+                        return null;
                     }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondDecisionOfficeNotes\' in table \'InvestorApplications\' is" +
-                                " DBNull.", e);
+                    else {
+                        return ((string)(this[this.tableInvestorApplications.CondDecisionOfficeNotesColumn]));
                     }
                 }
                 set {
@@ -11726,23 +11720,23 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvestorRow InvestorRow {
-                get {
-                    return ((InvestorRow)(this.GetParentRow(this.Table.ParentRelations["Property_Investor"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Property_Investor"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvestorApplicationsRow InvestorApplicationsRow {
                 get {
                     return ((InvestorApplicationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvestorApplications_Property"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_InvestorApplications_Property"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public InvestorRow InvestorRow {
+                get {
+                    return ((InvestorRow)(this.GetParentRow(this.Table.ParentRelations["Property_Investor"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Property_Investor"]);
                 }
             }
             

@@ -909,7 +909,7 @@ namespace MABDBWeb
             tblCols[7] = new DataColumn("Score_Residential", typeof(int));
             tblCols[8] = new DataColumn("Score_Employment", typeof(int));
             tblCols[9] = new DataColumn("Score_Class", typeof(string));
-            tblCols[10] = new DataColumn("BuyerApplicationId", typeof(int));
+            tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
             tblCols[11] = new DataColumn("CreatedBy", typeof(string));
             tblCols[12] = new DataColumn("Id", typeof(int));
             tblCols[12].AutoIncrement = true;

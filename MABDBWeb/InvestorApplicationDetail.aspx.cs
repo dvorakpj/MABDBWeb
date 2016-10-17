@@ -828,7 +828,7 @@ namespace MABDBWeb
         }
 
 
-        protected void ButtonAppAckSentModal_Click(object sender, EventArgs e)
+        protected void ButtonAppAckLetterSentModal_Click(object sender, EventArgs e)
         {
             int id = 0;
            
