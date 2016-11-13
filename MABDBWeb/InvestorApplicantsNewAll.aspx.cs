@@ -301,7 +301,7 @@ namespace MABDBWeb
             impColsList.Add(new DataColumn("CreatedBy", typeof(string)));
             // ignored columns
             // columns not populated
-            int maxImportedColId = 103;
+            int maxImportedColId = 109;
 
             
             impColsList.Add(new DataColumn("LookingLocation", typeof(string)));
@@ -322,16 +322,16 @@ namespace MABDBWeb
             impColsList.Add(new DataColumn("Modified", typeof(string)));
             impColsList.Add(new DataColumn("RowVersion", typeof(string)));
             impColsList.Add(new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string)));
-            impColsList.Add(new DataColumn("InvestorApplication_Gender", typeof(string)));
-            
+            impColsList.Add(new DataColumn("InvestorApplication_Gender", typeof(string)));            
             impColsList.Add(new DataColumn("AutoRejected", typeof(string)));            
-            impColsList.Add(new DataColumn("AutoRejecetedBy", typeof(string)));            
+            impColsList.Add(new DataColumn("AutoRejectedBy", typeof(string)));            
             impColsList.Add(new DataColumn("AutoAccepted", typeof(string)));
-            impColsList.Add(new DataColumn("AutoAcceptedBy", typeof(string)));            
-            impColsList.Add(new DataColumn("CondCreditDecision", typeof(Boolean)));
+            impColsList.Add(new DataColumn("AutoAcceptedBy", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecisionDate", typeof(Boolean)));
             impColsList.Add(new DataColumn("CondCreditDecisionInformed", typeof(Boolean)));
             impColsList.Add(new DataColumn("CondCreditDecisionInformedBy", typeof(Boolean)));
             impColsList.Add(new DataColumn("CondCreditDecisionBy", typeof(Boolean)));
+            impColsList.Add(new DataColumn("CondCreditDecision", typeof(Boolean)));
             impColsList.Add(new DataColumn("AppAckLetterSent", typeof(Boolean)));
             impColsList.Add(new DataColumn("AppAckLetterSentBy", typeof(Boolean)));
             impColsList.Add(new DataColumn("ApplicantsNotes", typeof(Boolean)));
@@ -339,7 +339,7 @@ namespace MABDBWeb
             impColsList.Add(new DataColumn("AppliedLimit", typeof(Boolean)));
             impColsList.Add(new DataColumn("YrsCurrEmployer", typeof(string)));
             impColsList.Add(new DataColumn("YrsPrevEmployer", typeof(string)));
-
+            impColsList.Add(new DataColumn("CompanyACN", typeof(string)));  
 
             int rowCnt = 0;
             int colsCnt = dt.Columns.Count;
@@ -920,9 +920,11 @@ namespace MABDBWeb
             tblCols[0] = new DataColumn("Primary_AUCitizen", typeof(Char));
             tblCols[1] = new DataColumn("Age", typeof(Char));
             tblCols[2] = new DataColumn("GrossIncomeSingle", typeof(Char));
+            tblCols[2].AllowDBNull = true;
             tblCols[3] = new DataColumn("GrossIncomeJoint", typeof(Char));
+            tblCols[2].AllowDBNull = true;     
             tblCols[4] = new DataColumn("Primary_EmplStat", typeof(Char));
-            tblCols[5] = new DataColumn("ScorecardLimit", typeof(int));
+            tblCols[5] = new DataColumn("ScorecardLimit", typeof(Char));
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
             tblCols[7] = new DataColumn("Score_Residential", typeof(int));
             tblCols[8] = new DataColumn("Score_Employment", typeof(int));
@@ -983,12 +985,12 @@ namespace MABDBWeb
                     //newCard["Pass_GrossIncomeSingle"] =
                     //    SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 80000);
                     //newCard["Pass_GrossIncomeJoint"] = true;
-                    newCard["GrossIncomeSingle"] = null;
-                    newCard["GrossIncomeJoint"] = null;
+                    newCard["GrossIncomeSingle"] = DBNull.Value;
+                    newCard["GrossIncomeJoint"] = DBNull.Value;
                 }
                 else
                 {
-                    newCard["GrossIncomeSingle"] = null;
+                    newCard["GrossIncomeSingle"] = DBNull.Value;
                     if (SC_IncomeTestEorGT((InvAppRow["HouseholdIncomeGrossPA"] as string), 120000))
                     {                      
                         newCard["GrossIncomeJoint"] = (char)AutoCondApprovalResult.Accepted;
