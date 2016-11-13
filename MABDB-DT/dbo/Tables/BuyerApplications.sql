@@ -132,8 +132,8 @@
 	[Primary_CreditCardList]             VARCHAR (550)      NULL,
 	[Other_CreditCardList]               VARCHAR (550)      NULL,
 	[RentPM]                             VARCHAR (15)       NULL,
-	[Primary_PropertyAssets]             VARCHAR (550)      NULL,
-	[Other_PropertyAssets]               VARCHAR (550)      NULL,
+	[Primary_PropertyAssetsList]             VARCHAR (550)      NULL,
+	[Other_PropertyAssetsList]               VARCHAR (550)      NULL,
 	[Primary_PersonalLoansList]          VARCHAR (550)      NULL,
 	[Other_PersonalLoansList]            VARCHAR (550)      NULL,
 	[Primary_OtherAssetsList]            VARCHAR (550)       NULL,
@@ -148,11 +148,11 @@
 	[AutoAccepted]			Date NULL,
 	[AutoAcceptedBy]			VARCHAR(50) NULL,
 	[CondCreditDecisionDate]                       DATETIME           NULL,
-    [CondCreditDecision] CHAR(1) NULL, 
+	[CondCreditDecision] CHAR(1) NULL, 
 		[CondCreditDecisionBy]                     VARCHAR (25)       NULL,
-    [CondCreditDecisionInformed] DATETIME2 NULL, 
-    [CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
-    CONSTRAINT [PK_BuyerApplications] PRIMARY KEY ([Id]), 
+	[CondCreditDecisionInformed] DATETIME2 NULL, 
+	[CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
+	CONSTRAINT [PK_BuyerApplications] PRIMARY KEY ([Id]), 
 );
 
 

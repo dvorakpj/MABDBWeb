@@ -101,8 +101,8 @@
 	[Primary_CreditCardList]             VARCHAR (550)      NULL,
 	[Other_CreditCardList]               VARCHAR (550)      NULL,
 	[RentPM]                             VARCHAR (15)       NULL,
-	[Primary_PropertyAssets]             VARCHAR (550)      NULL,
-	[Other_PropertyAssets]               VARCHAR (550)      NULL,
+	[Primary_PropertyAssetsList]             VARCHAR (550)      NULL,
+	[Other_PropertyAssetsList]               VARCHAR (550)      NULL,
 	[Primary_PersonalLoansList]          VARCHAR (550)      NULL,
 	[Other_PersonalLoansList]            VARCHAR (550)      NULL,
 	[Primary_OtherAssetsList]            VARCHAR (550)      NULL,
@@ -138,11 +138,15 @@
 	[ApplicantsNotes] VARCHAR(1200) NULL, 
 	[CondDecisionOfficeNotes] VARCHAR(1200) NULL, 
 	[IsCompany] VARCHAR(10) NULL, 
-    [CompanyName] VARCHAR(50) NULL, 
-    [CompanyABN] VARCHAR(15) NULL, 
-    [CompanyACN] VARCHAR(12) NULL, 
-    [Primary_CompRole] VARCHAR(100) NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC)
+	[CompanyName] VARCHAR(50) NULL, 
+	[CompanyABN] VARCHAR(15) NULL, 
+	[CompanyACN] VARCHAR(12) NULL, 
+	[Primary_CompRole] VARCHAR(100) NULL, 
+	   [Property_LoanOutstanding] DECIMAL(12,2) NULL,
+		[Property_Deposit] DECIMAL(12,2) NULL,
+		[Broker] VARCHAR(50) NULL, 
+	[BrokerDetails] VARCHAR(100) NULL
+	PRIMARY KEY CLUSTERED ([Id] ASC)
 );
 
 
