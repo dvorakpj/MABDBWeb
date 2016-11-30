@@ -1,5 +1,6 @@
 ﻿CREATE VIEW [dbo].[vw_InvestorApplicationsNew]
-	AS SELECT 
+	AS 
+	SELECT 
 	ia.ApplicationId,
 	ia.ApplicantType,
 	ia.EntryDate AS [ApplicationDate],
