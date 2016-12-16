@@ -33,10 +33,10 @@
 	[Bill_State] NVARCHAR(50) NULL, 
 	[Bill_Country] VARCHAR(50) NULL,         
 	[Comments] VARCHAR(250) NULL, 
-	[PhoneMobile] VARCHAR(50) NULL,
-	[PhoneHome] VARCHAR(50) NULL,
-	[PhoneWork] VARCHAR(50) NULL, 
-	[PhoneOther] VARCHAR(50) NULL, 
+	[PhoneMobile] VARCHAR(15) NULL,
+	[PhoneHome] VARCHAR(15) NULL,
+	[PhoneWork] VARCHAR(15) NULL, 
+	[PhoneOther] VARCHAR(15) NULL, 
 	[Email] VARCHAR(50) NULL, 
 	[EmailOther] VARCHAR(50) NULL, 
 	[ContactComments] VARCHAR(50) NULL,
@@ -51,6 +51,6 @@
 	[CreatedBy] VARCHAR(50) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] DATETIME2 NULL, 
-    CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
+	CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
 
 )

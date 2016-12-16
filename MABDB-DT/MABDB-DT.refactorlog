@@ -819,4 +819,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="[FK_Property_Builder]" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="83dd2867-5db8-467f-b48c-01dba37964c1" ChangeDateTime="12/16/2016 05:56:47">
+    <Property Name="ElementName" Value="[dbo].[Valuer].[MobilePhone]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Valuer]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PhoneMobile" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d588afc9-eeea-4e94-ad84-30f7dce8cd3e" ChangeDateTime="12/16/2016 06:00:04">
+    <Property Name="ElementName" Value="[dbo].[Valuer].[Regaddr_State]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Valuer]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="RegAddr_State" />
+  </Operation>
 </Operations>

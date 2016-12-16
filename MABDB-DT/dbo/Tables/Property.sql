@@ -42,11 +42,13 @@
 	[UpdatedBy] VARCHAR(50) NULL, 
 	[BuilderId] INT NULL,	
 	[DevelopmentId] INT NULL,
+	[ValuerId] INT NULL, 
 	CONSTRAINT [FK_Property_Investor] FOREIGN KEY ([PrimaryInvestorId]) REFERENCES [Investor]([Id]), 
 	CONSTRAINT [FK_Property_InvestorApplications] FOREIGN KEY ([InvestorApplicationId]) REFERENCES [InvestorApplications]([Id]),
 	CONSTRAINT [FK_Property_InvestorListingAgent] FOREIGN KEY ([InvestorListingAgentId]) REFERENCES Agent([Id]), 
 	CONSTRAINT [FK_Property_ManagingAgent] FOREIGN KEY ([ManagingAgentId]) REFERENCES Agent([Id]), 	
 	CONSTRAINT [FK_Property_Vendor] FOREIGN KEY ([VendorId]) REFERENCES Vendor([Id]), 
 	CONSTRAINT [FK_Property_Buyer] FOREIGN KEY ([BuyerId]) REFERENCES Buyer([Id]), 
-	CONSTRAINT [FK_Property_Builder] FOREIGN KEY ([BuilderId]) REFERENCES [Builder]([Id])
+	CONSTRAINT [FK_Property_Builder] FOREIGN KEY ([BuilderId]) REFERENCES [Builder]([Id]), 
+	CONSTRAINT [FK_Property_Valuer] FOREIGN KEY ([ValuerId]) REFERENCES [Valuer]([Id])
 )
