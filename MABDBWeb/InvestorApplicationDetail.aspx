@@ -256,7 +256,7 @@
             Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
         </p>
         <p>
-        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Investor Credit Fee Received" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
+        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Investor Credit Fee Received" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal" OnClick="btnCreditFeeReceived_Click1"/>
     </p>     
    <!-- Credit Fee Received Confirmation -->
         <div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">

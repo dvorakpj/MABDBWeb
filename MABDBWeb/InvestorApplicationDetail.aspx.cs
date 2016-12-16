@@ -896,6 +896,9 @@ namespace MABDBWeb
             return;
         }
 
+        protected void btnCreditFeeReceived_Click1(object sender, EventArgs e)
+        {
 
+        }
     }
 }

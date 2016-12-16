@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[Development]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+	[DeveloperId] INT NULL, 
+	[BuilderId] INT NULL,
+	[Addr_Street1] VARCHAR(50) NULL, 
+	[Addr_Street2] VARCHAR(50) NULL, 
+	[Addr_Street3] VARCHAR(50) NULL, 
+	[Addr_Suburb] VARCHAR(50) NULL, 
+	[Addr_City] VARCHAR(50) NULL, 
+	[Addr_Postcode] VARCHAR(10) NULL, 
+	[Addr_State] VARCHAR(50) NULL, 
+	[Addr_Country] VARCHAR(50) NULL, 
+	[Size] VARCHAR(20) NULL, 
+	[Stage] VARCHAR(20) NULL, 
+	[EstCompletion] DATE NULL, 
+	[CurrDevStateDesc] VARCHAR(50) NULL, 
+	[EstPriceLow] MONEY NULL, 
+	[EstPriceHigh] MONEY NULL, 
+	[Contact_Name] NCHAR(10) NULL, 
+	[Contact_Phone] VARCHAR(50) NULL, 
+	[Contact_Email] VARCHAR(50) NULL, 
+	[Contact_Notes] VARCHAR(150) NULL, 
+	[DevApplication] VARCHAR(20) NULL, 
+	[OwnershipEvidence] VARCHAR(50) NULL, 
+	[PrevDevelopmentId] INT NULL, 
+	CONSTRAINT [FK_Development_Builder] FOREIGN KEY ([BuilderId]) REFERENCES [Builder]([ID])
+)

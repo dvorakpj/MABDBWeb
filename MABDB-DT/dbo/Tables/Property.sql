@@ -31,7 +31,6 @@
 	[ListingComments] VARCHAR(250) NULL, 
 	[InvestorListingAgentId] INT NULL, 
 	[VendorId] INT NULL, 
-	[DevelopmentId] INT NULL, 
 	[PrimaryInvestorId] INT NULL, 
 	[InvestorContractId] INT NULL,
 	[BuyerContractId] INT NULL,
@@ -41,11 +40,13 @@
 	[CreatedBy] VARCHAR(50) NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] VARCHAR(50) NULL, 
-
+	[BuilderId] INT NULL,	
+	[DevelopmentId] INT NULL,
 	CONSTRAINT [FK_Property_Investor] FOREIGN KEY ([PrimaryInvestorId]) REFERENCES [Investor]([Id]), 
 	CONSTRAINT [FK_Property_InvestorApplications] FOREIGN KEY ([InvestorApplicationId]) REFERENCES [InvestorApplications]([Id]),
 	CONSTRAINT [FK_Property_InvestorListingAgent] FOREIGN KEY ([InvestorListingAgentId]) REFERENCES Agent([Id]), 
 	CONSTRAINT [FK_Property_ManagingAgent] FOREIGN KEY ([ManagingAgentId]) REFERENCES Agent([Id]), 	
 	CONSTRAINT [FK_Property_Vendor] FOREIGN KEY ([VendorId]) REFERENCES Vendor([Id]), 
 	CONSTRAINT [FK_Property_Buyer] FOREIGN KEY ([BuyerId]) REFERENCES Buyer([Id]), 
+	CONSTRAINT [FK_Property_Builder] FOREIGN KEY ([BuilderId]) REFERENCES [Builder]([Id])
 )
