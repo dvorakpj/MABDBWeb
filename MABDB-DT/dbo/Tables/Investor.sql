@@ -57,7 +57,7 @@
 	[CreditDecisionInformed] datetime2 NULL,
 	[CreditDecisionInformedBy] varchar(50) null,
 	[Created] DATETIME2 NOT NULL, 
-	[CreatedBy] VARCHAR(50) NOT NULL, 
+	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
-	[UpdatedBy] DATETIME2 NULL, 
+	[UpdatedBy] VARCHAR(25) NULL, 
 )

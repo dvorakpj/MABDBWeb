@@ -28,5 +28,11 @@
 	[BillAddr_Suburb] VARCHAR(50) NULL, 
 	[BillAddr_Postcode] VARCHAR(10) NULL, 
 	[BillAddr_State] VARCHAR(50) NULL, 
-	[BillAddr_Country] VARCHAR(50) NULL
+	[BillAddr_Country] VARCHAR(50) NULL, 
+	[RegionalOfficeId] INT NULL, 
+	[Created] DATETIME2 NOT NULL, 
+	[CreatedBy] VARCHAR(25) NOT NULL, 
+	[Updated] DATETIME2 NULL, 
+	[UpdatedBy] VARCHAR(25) NULL, 
+	CONSTRAINT [FK_InspectionSupplier_RegionalOffice] FOREIGN KEY ([RegionalOfficeId]) REFERENCES [InspectionSupplier]([Id])
 )

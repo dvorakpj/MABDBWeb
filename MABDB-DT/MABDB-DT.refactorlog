@@ -833,4 +833,18 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="RegAddr_State" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="ccffe71c-eaaf-46bb-901b-f01d8fcf89cd" ChangeDateTime="12/16/2016 06:22:02">
+    <Property Name="ElementName" Value="[dbo].[Property].[Inspector]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Property]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="InspectorId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf1361ee-fff3-4948-8a5a-6cabb007c9cc" ChangeDateTime="12/16/2016 06:24:10">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[CompanyNameName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="CompanyName" />
+  </Operation>
 </Operations>

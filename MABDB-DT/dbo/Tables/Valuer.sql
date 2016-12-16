@@ -30,6 +30,10 @@
 	[BillAddr_Suburb] VARCHAR(50) NULL, 
 	[BillAddr_Postcode] VARCHAR(10) NULL, 
 	[BillAddr_State] VARCHAR(50) NULL, 
-	[BillAddr_Country] VARCHAR(50) NULL,
+	[BillAddr_Country] VARCHAR(50) NULL, 
+	[Created] DATETIME2 NULL, 
+	[CreatedBy] VARCHAR(25) NULL, 
+	[Updated] DATETIME2 NULL, 
+	[UpdatedBy] VARCHAR(25) NULL,
 
 )

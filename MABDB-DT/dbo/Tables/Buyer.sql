@@ -48,9 +48,9 @@
 	[AppliedDate] DATETIME2 NOT NULL, 
 	[MAApprovedDate] DATETIME2 NULL, 
 	[Created] DATETIME2 NOT NULL, 
-	[CreatedBy] VARCHAR(50) NOT NULL, 
+	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
-	[UpdatedBy] DATETIME2 NULL, 
+	[UpdatedBy] VARCHAR(25) NULL, 
 	CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
 
 )
