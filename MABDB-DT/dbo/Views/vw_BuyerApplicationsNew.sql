@@ -1,4 +1,4 @@
-﻿CREATE VIEW [dbo].[vw_BuyerApplications]
+﻿CREATE VIEW [dbo].[vw_BuyerApplicationsNew]
 	AS 
 	SELECT 
 	ba.Id as [ApplicationId],
@@ -33,10 +33,10 @@
 	ba.Other_Res_PostCode,
 	ba.Other_Res_State,
 	ba.EstSpend as [AppliedLimit$],
-	ba.[CondApprovedLimit$],
-	ba.[FinalApprovedLimit$],
-	ba.[MthlyRent],
-	ba.[MthlyDeposit],
+	NULL as [CondApprovedLimit$],
+	NULL as [FinalApprovedLimit$],
+	NULL as [MthlyRent],
+	NULL as [MthlyDeposit],
 	ba.DesiredPropertyAddr,
 	ba.CondCreditDecision,
 	ba.CondCreditDecisionDate,
@@ -48,3 +48,5 @@
 	ba.AutoRejected,
 	ba.AutoRejecetedBy
 FROM [dbo].[BuyerApplications] ba
+JOIN BuyerScoreCard bsc ON bsc.BuyerApplicationId = ba.Id
+WHERE ba.CondCreditDecision IS NULL AND ba.CondCreditDecisionDate IS NULL
