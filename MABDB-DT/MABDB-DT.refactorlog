@@ -847,4 +847,81 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="CompanyName" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="e9325cea-736f-4934-9ffd-83db41ba3ea1" ChangeDateTime="12/18/2016 11:59:42">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[MainContactName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminContactName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6dbc8b17-e419-403c-b2c1-20cbbd7d3858" ChangeDateTime="12/18/2016 12:02:44">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OtherContactName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminContactName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="83bf9792-d3bf-4615-a479-b74f2b57aa0e" ChangeDateTime="12/18/2016 12:03:03">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[EmailMain]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminContactEmail" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="05a56bb1-d12f-45e6-bd31-aa32ab3ac99b" ChangeDateTime="12/18/2016 12:03:14">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[EmailOther]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminContactEmailOther" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3635b7da-9e04-4667-ade6-3e22beacd98d" ChangeDateTime="12/18/2016 12:03:33">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[MainPhoneWork]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminPhone" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8ec72dee-3087-4431-82be-198e58d141b7" ChangeDateTime="12/18/2016 12:03:39">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OfficeAdminContactEmailOther]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminEmailOther" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0b0ad537-c3de-441e-a7f6-87e227ee3444" ChangeDateTime="12/18/2016 12:03:43">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OfficeAdminContactEmail]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminEmail" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="f05293ad-5254-4940-ba83-f795b6364f02" ChangeDateTime="12/18/2016 12:03:48">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OfficeAdminContactName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="166ee885-17f1-4b52-9438-5a915481f501" ChangeDateTime="12/18/2016 12:03:54">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OfficeAdminContactName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminName" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="fc6b66b1-a905-4a08-8d42-ed2a3387341d" ChangeDateTime="12/18/2016 12:04:33">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[MainPhoneMobile]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminPhoneMobile" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="30935c71-863f-42b0-ada3-85cb9d27ef1d" ChangeDateTime="12/18/2016 12:04:47">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[OtherPhoneMobile]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="OfficeAdminPhoneOther" />
+  </Operation>
 </Operations>

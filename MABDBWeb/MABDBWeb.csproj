@@ -454,6 +454,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ApplicationAssessment\ApplicationAssessment.csproj">
+      <Project>{7e3c1859-6bbd-46b3-82a4-0111ad5977b3}</Project>
+      <Name>ApplicationAssessment</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataUtils\DataUtils.csproj">
       <Project>{d752060a-3649-412d-af8d-26c62d62e726}</Project>
       <Name>DataUtils</Name>

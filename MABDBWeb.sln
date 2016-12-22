@@ -11,6 +11,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "MABDB-DT", "MABDB-DT\MABDB-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataUtils", "DataUtils\DataUtils.csproj", "{D752060A-3649-412D-AF8D-26C62D62E726}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationAssessment", "ApplicationAssessment\ApplicationAssessment.csproj", "{7E3C1859-6BBD-46B3-82A4-0111AD5977B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{D752060A-3649-412D-AF8D-26C62D62E726}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D752060A-3649-412D-AF8D-26C62D62E726}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D752060A-3649-412D-AF8D-26C62D62E726}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E3C1859-6BBD-46B3-82A4-0111AD5977B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3C1859-6BBD-46B3-82A4-0111AD5977B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3C1859-6BBD-46B3-82A4-0111AD5977B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3C1859-6BBD-46B3-82A4-0111AD5977B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
