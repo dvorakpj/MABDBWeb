@@ -108,6 +108,8 @@ namespace MABDBWeb
                 return;
             }
 
+            lblUploadError.Visible = false;
+            lblUploadError.Text = String.Empty;
             lblImportRes.Text = String.Concat("Sucessfully imported ", rowCnt.ToString(), " new applications.");
             //if (dupl)
 

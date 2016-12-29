@@ -21,25 +21,10 @@ namespace ApplicationAssessment
 
         }
 
-        public  int UploadInvestorApplicsCSV(string csvPath, List<int> existingFormIds)
+        private DataSet SetupInvApplicDS(out int maxImportedColId)
         {
-            //List<int> existingFormIds = new List<int>();
-            List<int> duplIds = new List<int>();
-            // definition of DataTable to read the CSV into
-            DataSet ds = new DataSet("InvApplication");
-
-            DataTable dt = new DataTable();
-            //dt.Columns.AddRange(
-
-            //try
-            //{
-            //    existingFormIds = existingFormIds;  // note this is 
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw new ApplicationException("Could not load list of Existing IDs", ex);
-            //}
-
+            DataTable InvApplicsDT = new DataTable("InvestorApplications");
+            DataSet InvApplicationDS = new DataSet("InvApplication");
 
             #region set up columns in dt
 
@@ -205,8 +190,7 @@ namespace ApplicationAssessment
             impColsList.Add(new DataColumn("CreatedBy", typeof(string)));
             // ignored columns
             // columns not populated
-            int maxImportedColId = 109;
-
+            maxImportedColId = 109;
 
             impColsList.Add(new DataColumn("LookingLocation", typeof(string)));
             impColsList.Add(new DataColumn("FoundLocation", typeof(string)));
@@ -245,9 +229,7 @@ namespace ApplicationAssessment
             impColsList.Add(new DataColumn("YrsPrevEmployer", typeof(string)));
             impColsList.Add(new DataColumn("CompanyACN", typeof(string)));
 
-            int rowCnt = 0;
-            int colsCnt = dt.Columns.Count;
-
+         
             DataColumn idCol = new DataColumn("Id", typeof(int));
             idCol.AutoIncrement = true;
             idCol.AutoIncrementSeed = -1;
@@ -261,44 +243,41 @@ namespace ApplicationAssessment
             //impCols[96] = DateTime.UtcNow;
 
 
+
             DataColumn[] impCols;
             impCols = new DataColumn[impColsList.Count]; //total 138 columns in the table
             impCols = impColsList.ToArray<DataColumn>();
-            dt.Columns.AddRange(impCols);
+            InvApplicsDT.Columns.AddRange(impCols);
+
+            InvApplicationDS.Tables.Add(InvApplicsDT);
+
+            DataTable scoreDT = SetupAsqInvScoreCardTable();
+            InvApplicationDS.Tables.Add(scoreDT);
+
+            //DataRelation dr = new DataRelation("Rel_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
+            //DataRelation dr = new DataRelation("Rel_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
+            //ForeignKeyConstraint fkc = new ForeignKeyConstraint("FK_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
+            //fkc.UpdateRule = Rule.Cascade;            
+            DataRelation dr = InvApplicationDS.Relations.Add(InvApplicsDT.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
+            dr.ChildKeyConstraint.UpdateRule = Rule.Cascade;
 
             #endregion set up columns
 
+            return InvApplicationDS;
+        }
+
+        public  int UploadInvestorApplicsCSV(string csvPath, List<int> existingFormIds)
+        {
+            //List<int> existingFormIds = new List<int>();
+            List<int> duplIds = new List<int>();
+            // definition of DataTable to read the CSV into
+
+            int rowCnt = 0;
 
             //"Payment Amount","Payment Date","Payment Status","Post Id","User Agent","User IP"
 
-
-            //prepare list columns
-            List<string[,]> listColumns = new List<string[,]>();
-
-            string[,] t = new string[1, 2] { { "Primary Applicant Home and/or Investment loans (list all)", "Primary_HomeLoanList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Other Applicant Home and/or Investment loans (list all)", "Other_HomeLoanList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Primary Applicant Car or Personal loans (list all)", "Primary_PersonalLoansList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Other Applicant Car or Personal loans (list all)", "Other_PersonalLoansList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Primary Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Primary_CreditCardList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Other Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Other_CreditCardList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Property Assets & Liabilities for Primary Applicant:", "Primary_PropertyAssetsList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "Property Assets & Liabilities for Other Applicant:", "Other_PropertyAssetsList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Assets for Primary Applicant:", "Primary_OtherAssetsList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Assets for Other Applicant:", "Other_OtherAssetsList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Liabilities for Primary Applicant:", "Primary_OtherLiabilitiesList" } };
-            listColumns.Add(t);
-            t = new string[1, 2] { { "List Other Liabilities for Other Applicant:", "Other_OtherLiabilitiesList" } };
-            listColumns.Add(t);
+            #region prepare list columns
+            //prepare list columns           
 
             //listColumns.Add(new Dictionary<string, string>().Add("Primary Applicant Home and/or Investment loans (list all)", "") ); 
             //listColumns.Add("");
@@ -313,30 +292,23 @@ namespace ApplicationAssessment
             //listColumns.Add();
             //listColumns.Add();
 
-            string csvData = File.ReadAllText(csvPath);
+ #endregion prepare list columns
 
+            string csvData = File.ReadAllText(csvPath);
 
             bool duplIDFound = false;
             bool skipHeaderRow = true;
 
-            DataTable scoreDT = SetupScoreCard();
 
 
             Dictionary<string[,], short> listColsMaxCounts = null;
 
-            ds.Tables.Add(dt);
-            ds.Tables.Add(scoreDT);
-            //DataRelation dr = new DataRelation("Rel_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
-            //DataRelation dr = new DataRelation("Rel_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"], true);
-            //ForeignKeyConstraint fkc = new ForeignKeyConstraint("FK_InvestorScoreCard_InvestorApplication", dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
-            //fkc.UpdateRule = Rule.Cascade;            
-            DataRelation dr = ds.Relations.Add(dt.Columns["Id"], scoreDT.Columns["InvestorApplicationId"]);
-            dr.ChildKeyConstraint.UpdateRule = Rule.Cascade;
+            int maxImportedColId = -1;
+            DataSet InvApplicsDS = this.SetupInvApplicDS(out maxImportedColId);
+            DataTable InvApplicsDT = InvApplicsDS.Tables["InvestorApplications"];
+            DataTable scoreDT = InvApplicsDS.Tables["InvestorScoreCard"];
 
-            //scoreDT.Constraints.Add(fkc);
-
-            //dr.ChildKeyConstraint = fkc;
-            //dr.ChildKeyConstraint.UpdateRule = 
+            List<string[,]> listColumns = SetupInvApplicListColumns();
 
 
             // skips header row
@@ -358,7 +330,7 @@ namespace ApplicationAssessment
 
                 if (!string.IsNullOrEmpty(row))
                 {
-                    DataRow newRow = dt.Rows.Add();
+                    DataRow newRow = InvApplicsDT.Rows.Add();
                     int col = 0;
                     string currentColumnName = string.Empty;
                     string currentListColumn = String.Empty;
@@ -374,7 +346,7 @@ namespace ApplicationAssessment
                             break;
                         }
 
-                        currentColumnName = dt.Columns[col].ColumnName;
+                        currentColumnName = InvApplicsDT.Columns[col].ColumnName;
 
                         //initialisation of skipped columns
                         if (
@@ -540,7 +512,7 @@ namespace ApplicationAssessment
                     // ID already exists in the DB
                     if (duplIDFound)
                     {
-                        dt.Rows.Remove(newRow);
+                        InvApplicsDT.Rows.Remove(newRow);
                         break;
                     }
                     else
@@ -567,7 +539,21 @@ namespace ApplicationAssessment
                 }
             }
 
+            
+            return rowCnt - 1 - duplIds.Count;
+        }
+
+
+        /// <summary>
+        /// Insert New Investor Application and related records (ScoreCard) to the MATDBD.
+        /// </summary>
+        /// <param name="InvestorApplicsDS">DataSet ready to be saved.</param>
+        /// <returns>Number of new inv applications saved.</returns>
+        /// <exception cref="ApplicationException">ApplicationException when integrity of records is found in violation of logi rules.</exception>
+        private int InsNewInvApplics(DataSet InvestorApplicsDS)
+        {
             string consString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
+            int invApplicsUpdated, invSCsUpdated;
             using (SqlConnection con = new SqlConnection(consString))
             {
                 SqlDataAdapter daInvApps =
@@ -580,7 +566,6 @@ namespace ApplicationAssessment
                 //dataAdapter.SelectCommand = new SqlCommand();
                 daInvApps.UpdateCommand = cmdBldInvApps.GetUpdateCommand();
                 daInvApps.InsertCommand = cmdBldInvApps.GetInsertCommand();
-
 
                 //SqlCommand sc =
                 //    new SqlCommand(cmdBldInvApps.GetInsertCommand().CommandText +
@@ -595,8 +580,6 @@ namespace ApplicationAssessment
                 daInvApps.DeleteCommand = cmdBldInvApps.GetDeleteCommand();
                 cmdBldInvApps = null;
 
-
-
                 SqlDataAdapter daInvApps2 = new SqlDataAdapter(daInvApps.SelectCommand.CommandText, con);
                 daInvApps2.UpdateCommand = daInvApps.UpdateCommand;
 
@@ -605,9 +588,12 @@ namespace ApplicationAssessment
                 //daInvApps2.RowUpdated += new SqlRowUpdatedEventHandler(MyHandler);
                 daInvApps2.DeleteCommand = daInvApps.DeleteCommand;
 
-                daInvApps2.Update(dt);
-                //daInvApps.Update(dt);
 
+                
+                //daInvApps2.Update(InvApplicsDT);
+                invApplicsUpdated = daInvApps2.Update(InvestorApplicsDS.Tables["InvestorApplications"]);
+
+                //daInvApps.Update(dt);
 
                 SqlDataAdapter daSC = new SqlDataAdapter("select * from [dbo].[InvestorScoreCard]", con);
 
@@ -619,10 +605,7 @@ namespace ApplicationAssessment
                 daSC.InsertCommand.UpdatedRowSource = UpdateRowSource.FirstReturnedRecord;
                 daSC.DeleteCommand = cmdBldSC.GetDeleteCommand(true);
 
-
-                daSC.Update(scoreDT);
-
-
+                invSCsUpdated = daSC.Update(InvestorApplicsDS.Tables["InvestorScoreCard"]);
 
                 //using (SqlBulkCopy sqlBulkCopy = new SqlBulkCopy(con))
                 //{
@@ -632,13 +615,17 @@ namespace ApplicationAssessment
                 //    sqlBulkCopy.WriteToServer(dt);
                 //    con.Close();
                 //}
-            }
-           
 
-            return rowCnt - 1 - duplIds.Count;
+                if (invApplicsUpdated != invSCsUpdated)
+                {
+                    throw new ApplicationException(String.Format("Number of new inv applications and scorecards don't match. Applics: {0}, SCs: {1}", invApplicsUpdated, invSCsUpdated));
+                }
+
+            }          
+            return invApplicsUpdated;
+
         }
 
-       
 
         private string[] SplitCSV(string input)
         {
@@ -659,41 +646,44 @@ namespace ApplicationAssessment
             return list.ToArray<string>();
         }
 
-        private DataTable SetupScoreCard()
+
+        /// <summary>
+        /// Set up struture of the Investor ScoreCard table
+        /// </summary>
+        /// <returns>Data table with structure corresponding to the Investor Score Card table.</returns>
+        private DataTable SetupAsqInvScoreCardTable()
         {
-            DataTable dt = new DataTable();
+            DataTable dt = new DataTable("InvestorScoreCard");
 
             DataColumn[] tblCols;
 
-            tblCols = new DataColumn[18]; //total 119 columns in the table
-                                          //Desired Property Address
+            tblCols = new DataColumn[17]; //total 17 columns in the table
             tblCols[0] = new DataColumn("Primary_AUCitizen", typeof(Char));
             tblCols[1] = new DataColumn("Age", typeof(Char));
             tblCols[2] = new DataColumn("GrossIncomeSingle", typeof(Char));
             tblCols[2].AllowDBNull = true;
             tblCols[3] = new DataColumn("GrossIncomeJoint", typeof(Char));
-            tblCols[2].AllowDBNull = true;
+            tblCols[3].AllowDBNull = true;
             tblCols[4] = new DataColumn("Primary_EmplStat", typeof(Char));
             tblCols[5] = new DataColumn("ScorecardLimit", typeof(Char));
             tblCols[6] = new DataColumn("Score_Personal", typeof(int));
             tblCols[7] = new DataColumn("Score_Residential", typeof(int));
             tblCols[8] = new DataColumn("Score_Employment", typeof(int));
-            tblCols[9] = new DataColumn("Score_Class", typeof(string));
-            tblCols[10] = new DataColumn("InvestorApplicationId", typeof(int));
-            tblCols[11] = new DataColumn("CreatedBy", typeof(string));
+            tblCols[9] = new DataColumn("Score_Total", typeof(int));
+            tblCols[10] = new DataColumn("Score_Class", typeof(string));
+            tblCols[11] = new DataColumn("InvestorApplicationId", typeof(int));
             tblCols[12] = new DataColumn("Id", typeof(int));
             tblCols[12].AutoIncrement = true;
             tblCols[12].AutoIncrementSeed = -1;
             tblCols[12].AutoIncrementStep = -1;
-
             tblCols[13] = new DataColumn("Created", typeof(DateTime));
-            tblCols[15] = new DataColumn("CreatedBy", typeof(string));
+            tblCols[13].AllowDBNull = false;
+            tblCols[14] = new DataColumn("CreatedBy", typeof(string));
+            tblCols[14].AllowDBNull = false;              
+           // tblCols[15] = new DataColumn("CreatedBy", typeof(string));
             tblCols[15] = new DataColumn("Modified", typeof(DateTime));
             tblCols[16] = new DataColumn("ModifiedBy", typeof(string));
-            tblCols[17] = new DataColumn("Score_Total", typeof(int));
-
-
-
+                       
             dt.Columns.AddRange(tblCols);
 
             return dt;
@@ -811,6 +801,43 @@ namespace ApplicationAssessment
             }
 
             return listColsMaxCounts;
+        }
+
+
+        /// <summary>
+        /// Sets up mapping from List Columns in the Investor Application Import CSV based on the structure of the online form to the corresponding DB columns.
+        /// </summary>
+        /// <returns>2d array of question, DB field that are lists of answers in the online form.</returns>
+        private List<string[,]> SetupInvApplicListColumns()
+        {
+            List<string[,]> listColumns = new List<string[,]>();
+
+            string[,] t = new string[1, 2] { { "Primary Applicant Home and/or Investment loans (list all)", "Primary_HomeLoanList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Home and/or Investment loans (list all)", "Other_HomeLoanList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Primary Applicant Car or Personal loans (list all)", "Primary_PersonalLoansList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Car or Personal loans (list all)", "Other_PersonalLoansList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Primary Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Primary_CreditCardList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Other Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Other_CreditCardList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Property Assets & Liabilities for Primary Applicant:", "Primary_PropertyAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "Property Assets & Liabilities for Other Applicant:", "Other_PropertyAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Assets for Primary Applicant:", "Primary_OtherAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Assets for Other Applicant:", "Other_OtherAssetsList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Liabilities for Primary Applicant:", "Primary_OtherLiabilitiesList" } };
+            listColumns.Add(t);
+            t = new string[1, 2] { { "List Other Liabilities for Other Applicant:", "Other_OtherLiabilitiesList" } };
+            listColumns.Add(t);
+
+            return listColumns;
         }
 
     }
