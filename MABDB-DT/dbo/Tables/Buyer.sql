@@ -50,7 +50,17 @@
 	[Created] DATETIME2 NOT NULL, 
 	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
-	[UpdatedBy] VARCHAR(25) NULL, 
+	[UpdatedBy] VARCHAR(25) NULL,
+	[CondCreditDecisionDate]                       DATETIME           NULL,
+	[CondCreditDecision] CHAR(1) NULL, 
+	[CondCreditDecisionBy]     VARCHAR (25)       NULL,
+	[CondCreditDecisionInformed] DATETIME2 NULL, 
+	[CondCreditDecisionInformedBy] VARCHAR(50) NULL,  
+	[FinalCreditDecisionInformed] DATETIME2 NULL, 
+	[FinalCreditDecisionInformedBy] VARCHAR(50) NULL, 
+	[AppliedLimit$] Decimal(12,2) NULL,
+	[CondApprovedLimit$]	Decimal(12,2) NULL,
+	[FinalApprovedLimit$] Decimal(12,2) NULL
 	CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
 
 )

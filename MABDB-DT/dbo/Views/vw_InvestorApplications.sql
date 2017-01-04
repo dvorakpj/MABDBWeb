@@ -42,5 +42,6 @@
 	ia.AutoRejected,
 	ia.AutoRejectedBy,
 	ia.CondCreditDecisionInformed,
-	ia.CondCreditDecisionInformedBy 	 	
+	ia.CondCreditDecisionInformedBy,
+	ia.AppAckLetterSent	 	
 	FROM [dbo].[InvestorApplications] ia

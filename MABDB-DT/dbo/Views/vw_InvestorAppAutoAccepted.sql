@@ -28,7 +28,10 @@
 	ia.Other_LastName,
 	ia.Other_DOB,
 	ia.AutoAccepted,
-	ia.AutoAcceptedBy
+	ia.AutoAcceptedBy,
+	ia.[CondCreditDecision],
+	ia.CondCreditDecisionInformed,
+	ia.CondCreditDecisionInformedBy
 	 --, NULL AS [FinalApprovedLimit$], NULL AS [MthlyRent], NULL AS [MthlyDeposit] 
 	FROM [dbo].[vw_InvestorApplications] ia
 	LEFT JOIN [dbo].InvestorScoreCard isc ON isc.InvestorApplicationId = ia.ApplicationId

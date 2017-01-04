@@ -263,9 +263,7 @@
     <Build Include="dbo\Views\vw_InvestorsCreditRejected.sql" />
     <Build Include="dbo\Views\vw_InvestorsCreditRejectedNotInformed.sql" />
     <Build Include="dbo\Views\vw_BuyerAppAutoAccepted.sql" />
-    <Build Include="dbo\Views\vw_BuyerAppCondAccepted.sql" />
     <Build Include="dbo\Views\vw_BuyerAppCondRejected.sql" />
-    <Build Include="dbo\Views\vw_BuyerAppCondAcceptedNotInformed.sql" />
     <Build Include="dbo\Views\vw_BuyerAppCondRejectedNotInformed.sql" />
     <Build Include="dbo\Tables\Builder.sql" />
     <Build Include="dbo\Tables\Development.sql" />
@@ -276,6 +274,13 @@
     <Build Include="dbo\Views\vw_BuyerApplicationsNew.sql" />
     <Build Include="dbo\Views\vw_BuyerCreditApprovedLowerLimit.sql" />
     <Build Include="dbo\Views\vw_BuyerCreditApprovedLowerLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_InvestorAppNewAckNotSent.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAccepted.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAcceptedNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAcceptedLowerLimit.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAcceptedLowerLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAcceptedAppliedLimit.sql" />
+    <Build Include="dbo\Views\vw_BuyersCondAcceptedAppliedLimitNotInformed.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />

@@ -17,7 +17,6 @@ inv.Res_Suburb,
 inv.Res_City,
 inv.Res_State,
 inv.Res_Country,
-
 inv.AppliedDate,
 inv.AppliedPrtyVal,
 inv.AssquireStatus,

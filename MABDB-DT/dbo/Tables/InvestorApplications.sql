@@ -127,7 +127,7 @@
 	[AutoRejected]                       DATE               NULL,
 	[AutoRejectedBy]                    VARCHAR (50)       NULL,
 	[AutoAccepted]                       DATE               NULL,
-	[AutoAcceptedBy]                     VARCHAR (50)       NULL,
+	[AutoAcceptedBy]					VARCHAR(50) NULL,
 	[HasReadPO6]                         VARCHAR (300)      NULL,
 	[CondCreditDecision]                       CHAR(1)                NULL,
 	[CondCreditDecisionInformed] DATETIME2 NULL, 

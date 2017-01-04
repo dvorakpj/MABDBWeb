@@ -35,7 +35,8 @@
 	ia.Other_Res_PostCode,
 	ia.Other_Res_State,
 	ia.Other_Email,
-	ia.Other_Mobile
+	ia.Other_Mobile,
+	ia.AppAckLetterSent
 	 FROM [dbo].[vw_InvestorApplications] ia
 	 LEFT JOIN InvestorScoreCard isc ON isc.InvestorApplicationId = ia.ApplicationId
 	WHERE ia.CondCreditDecision IS NULL AND ia.CondCreditDecisionDate IS NULL
