@@ -1,13 +1,13 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuyerApplicantsNewAll.aspx.cs" Inherits="MABDBWeb.BuyerApplicantsNewAll" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-      <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Investor Applications"></asp:Label>
+      <asp:Label ID="Label2" runat="server" Font-Bold="True" Text="New Buyer Applications"></asp:Label>
 
 
            <div>
            
             <asp:SqlDataSource ID="BuyerApplications" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT * FROM [vw_BuyerAppsBasicWScores]"></asp:SqlDataSource>
-            <asp:SqlDataSource ID="InvApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId] FROM [BuyerApplications]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="MABApplicUniqueIDs" runat="server" ConnectionString="<%$ ConnectionStrings:MABDBConnectionString %>" SelectCommand="SELECT [EntryId], [Id] FROM [BuyerApplications]"></asp:SqlDataSource>
 
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="BuyerApplications" AllowPaging="True" AllowSorting="True" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" OnDataBound="GridView1_DataBound">
            <Columns>

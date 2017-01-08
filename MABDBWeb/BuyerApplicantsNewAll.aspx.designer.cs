@@ -31,13 +31,13 @@ namespace MABDBWeb {
         protected global::System.Web.UI.WebControls.SqlDataSource BuyerApplications;
         
         /// <summary>
-        /// InvApplicUniqueIDs control.
+        /// MABApplicUniqueIDs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource InvApplicUniqueIDs;
+        protected global::System.Web.UI.WebControls.SqlDataSource MABApplicUniqueIDs;
         
         /// <summary>
         /// GridView1 control.

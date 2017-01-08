@@ -363,6 +363,15 @@ namespace MABDBWeb
             impColsList.Add(new DataColumn("HasReqestedPriority", typeof(string)));
             impColsList.Add(new DataColumn("Primary_OtherAssetsList", typeof(string)));
             impColsList.Add(new DataColumn("Other_OtherAssetsList", typeof(string)));
+            impColsList.Add(new DataColumn("CondApprovedLimit$", typeof(string)));
+            impColsList.Add(new DataColumn("FinalApprovedLimit$", typeof(string)));
+            impColsList.Add(new DataColumn("MthlyRent", typeof(string)));
+            impColsList.Add(new DataColumn("MthlyDeposit", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecisionDate", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecision", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecisionBy", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecisionInformed", typeof(string)));
+            impColsList.Add(new DataColumn("CondCreditDecisionInformedBy", typeof(string)));
 
 
             //impCols[163] = new DataColumn("", typeof(Boolean));
@@ -411,9 +420,9 @@ namespace MABDBWeb
             listColumns.Add(t);
             t = new string[1, 2] { { "Other Applicant Credit and/or Store (eg, Myer, David Jones) cards (list all)", "Other_CreditCardList" } };
             listColumns.Add(t);
-            t = new string[1, 2] { { "List Assets for Primary Applicant:", "Primary_PropertyAssets" } };
+            t = new string[1, 2] { { "List Assets for Primary Applicant:", "Primary_PropertyAssetsList" } };
             listColumns.Add(t);
-            t = new string[1, 2] { { "List Assets for Other Applicant:", "Other_PropertyAssets" } };
+            t = new string[1, 2] { { "List Assets for Other Applicant:", "Other_PropertyAssetsList" } };
             listColumns.Add(t);
             t = new string[1, 2] { { "List Other Assets for Primary Applicant:", "Primary_OtherAssetsList" } };
             listColumns.Add(t);
@@ -672,6 +681,58 @@ namespace MABDBWeb
                     }
 
 
+                    // clean-up unused list columns
+                    
+                    if (String.IsNullOrEmpty(newRow["Primary_HomeLoanList"] as String))
+                    {
+                        newRow["Primary_HomeLoanList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_HomeLoanList"] as String))
+                    {
+                        newRow["Other_HomeLoanList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Primary_PersonalLoansList"] as String))
+                    {
+                        newRow["Primary_PersonalLoansList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_PersonalLoansList"] as String))
+                    {
+                        newRow["Other_PersonalLoansList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Primary_CreditCardList"] as String))
+                    {
+                        newRow["Primary_CreditCardList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_CreditCardList"] as String))
+                    {
+                        newRow["Other_CreditCardList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Primary_PropertyAssetsList"] as String))
+                    {
+                        newRow["Primary_PropertyAssetsList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_PropertyAssetsList"] as String))
+                    {
+                        newRow["Other_PropertyAssetsList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Primary_OtherAssetsList"] as String))
+                    {
+                        newRow["Primary_OtherAssetsList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_OtherAssetsList"] as String))
+                    {
+                        newRow["Other_OtherAssetsList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Primary_OtherLiabilitiesList"] as String))
+                    {
+                        newRow["Primary_OtherLiabilitiesList"] = null;
+                    }
+                    if (String.IsNullOrEmpty(newRow["Other_OtherLiabilitiesList"] as String))
+                    {
+                        newRow["Other_OtherLiabilitiesList"] = null;
+                    }
+
+
                     // calculate scores
                     DataRow newCard = scoreDT.NewRow();
                     newCard.SetParentRow(newRow);
@@ -687,6 +748,7 @@ namespace MABDBWeb
                     //int score = CalcScoreClass()
                     //newRow[94] = DateTime.UtcNow;
                    // newRow[90] = "3";
+
                 }
             }
 
@@ -840,7 +902,7 @@ namespace MABDBWeb
 
 
             IEnumerable ids =
-                        InvApplicUniqueIDs.Select(DataSourceSelectArguments.Empty);
+                        MABApplicUniqueIDs.Select(DataSourceSelectArguments.Empty);
             if (null != ids)
             {
                 foreach (var o in ids)
