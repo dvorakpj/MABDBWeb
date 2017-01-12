@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -45,6 +46,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BuyerDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DataUtil.cs" />
     <Compile Include="InvestorDS.cs">
       <DependentUpon>InvestorDS.xsd</DependentUpon>
     </Compile>

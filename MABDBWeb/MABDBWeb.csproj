@@ -187,7 +187,7 @@
     <Content Include="Properties.aspx" />
     <Content Include="WebForm2.aspx" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
-    <None Include="Properties\PublishProfiles\MABDBWeb - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MABDBWeb - Web Deploy  - Azure MATest Release.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\App\InvestorApplicationDetail.js" />
     <Content Include="Scripts\bootstrap.js" />

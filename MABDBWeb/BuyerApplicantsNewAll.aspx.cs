@@ -66,7 +66,8 @@ namespace MABDBWeb
             //Upload and save the file
 
             lblUploadError.Text = String.Empty;
-            lblUploadError.Visible = false; string csvPath = Server.MapPath("~/Files/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
+            lblUploadError.Visible = false;
+            string csvPath = Server.MapPath("~/") + Path.GetFileName(FileUpload1.PostedFile.FileName);
 
             if (!File.Exists(csvPath))
             {
@@ -81,6 +82,8 @@ namespace MABDBWeb
             {
                 lblUploadError.Visible = true;
                 lblUploadError.Text = "Connection error while uploading, please try again in a moment.";
+                    lblUploadError.Text += he.Message;
+
                 return;
             }
 
