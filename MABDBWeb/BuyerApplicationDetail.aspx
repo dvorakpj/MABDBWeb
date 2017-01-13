@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Text="MA Buyer Application"></asp:Label>
 <br />
-<asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="BuyerApplicationDSDataSource1" Height="50px" Width="125px">
+<asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" DataSourceID="BuyerApplicationDSDataSource1" Height="50px" Width="125px">
     <Fields>
         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
         <asp:BoundField DataField="ApplicantType" HeaderText="Type" SortExpression="ApplicantType" />
@@ -85,7 +85,6 @@
         <asp:BoundField DataField="EntryId" HeaderText="EntryId" SortExpression="EntryId" />
         <asp:BoundField DataField="EntryUserId" HeaderText="EntryUserId" SortExpression="EntryUserId" />
         <asp:BoundField DataField="CreatedUTC" HeaderText="CreatedUTC" SortExpression="CreatedUTC" />
-        <asp:BoundField DataField="CondDecision" HeaderText="CondDecision" SortExpression="CondDecision" />
         <asp:BoundField DataField="HasAgreedPrivacy" HeaderText="HasAgreedPrivacy" SortExpression="HasAgreedPrivacy" />
         <asp:BoundField DataField="Primary_Gender" HeaderText="Primary_Gender" SortExpression="Primary_Gender" />
         <asp:BoundField DataField="DesiredPropertyAddr" HeaderText="DesiredPropertyAddr" SortExpression="DesiredPropertyAddr" />
@@ -129,8 +128,6 @@
         <asp:BoundField DataField="Primary_CreditCardList" HeaderText="Primary_CreditCardList" SortExpression="Primary_CreditCardList" />
         <asp:BoundField DataField="Other_CreditCardList" HeaderText="Other_CreditCardList" SortExpression="Other_CreditCardList" />
         <asp:BoundField DataField="RentPM" HeaderText="RentPM" SortExpression="RentPM" />
-        <asp:BoundField DataField="Primary_PropertyAssets" HeaderText="Primary_PropertyAssets" SortExpression="Primary_PropertyAssets" />
-        <asp:BoundField DataField="Other_PropertyAssets" HeaderText="Other_PropertyAssets" SortExpression="Other_PropertyAssets" />
         <asp:BoundField DataField="Primary_PersonalLoansList" HeaderText="Primary_PersonalLoansList" SortExpression="Primary_PersonalLoansList" />
         <asp:BoundField DataField="Other_PersonalLoansList" HeaderText="Other_PersonalLoansList" SortExpression="Other_PersonalLoansList" />
         <asp:BoundField DataField="Primary_OtherAssetsList" HeaderText="Primary_OtherAssetsList" SortExpression="Primary_OtherAssetsList" />
@@ -139,21 +136,12 @@
         <asp:BoundField DataField="Other_OtherLiabilitiesList" HeaderText="Other_OtherLiabilitiesList" SortExpression="Other_OtherLiabilitiesList" />
         <asp:BoundField DataField="TransactionId" HeaderText="TransactionId" SortExpression="TransactionId" />
         <asp:BoundField DataField="SourceURL" HeaderText="SourceURL" SortExpression="SourceURL" />
-        <asp:BoundField DataField="CondDecisionBy" HeaderText="CondDecisionBy" SortExpression="CondDecisionBy" />
         <asp:BoundField DataField="HasReqestedPriority" HeaderText="HasReqestedPriority" SortExpression="HasReqestedPriority" />
-        <asp:BoundField DataField="HasAgreedPACLicence" HeaderText="HasAgreedPACLicence" SortExpression="HasAgreedPACLicence" />
         <asp:BoundField DataField="YrsPrevAddr" HeaderText="YrsPrevAddr" SortExpression="YrsPrevAddr" />
         <asp:BoundField DataField="AutoRejected" HeaderText="AutoRejected" SortExpression="AutoRejected" />
-        <asp:BoundField DataField="AutoRejectedInformed" HeaderText="AutoRejectedInformed" SortExpression="AutoRejectedInformed" />
         <asp:BoundField DataField="AutoRejecetedBy" HeaderText="AutoRejecetedBy" SortExpression="AutoRejecetedBy" />
-        <asp:BoundField DataField="AutoRejectedInformedBy" HeaderText="AutoRejectedInformedBy" SortExpression="AutoRejectedInformedBy" />
         <asp:BoundField DataField="AutoAccepted" HeaderText="AutoAccepted" SortExpression="AutoAccepted" />
         <asp:BoundField DataField="AutoAcceptedBy" HeaderText="AutoAcceptedBy" SortExpression="AutoAcceptedBy" />
-        <asp:BoundField DataField="AutoAcceptedInformed" HeaderText="AutoAcceptedInformed" SortExpression="AutoAcceptedInformed" />
-        <asp:BoundField DataField="AutoAcceptedInformedBy" HeaderText="AutoAcceptedInformedBy" SortExpression="AutoAcceptedInformedBy" />
-        <asp:BoundField DataField="HasReadPO6" HeaderText="HasReadPO6" SortExpression="HasReadPO6" />
-        <asp:CheckBoxField DataField="CondApproved" HeaderText="CondApproved" SortExpression="CondApproved" />
-        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
     </Fields>
 </asp:DetailsView>
 <asp:ObjectDataSource ID="BuyerApplicationDSDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataBy" TypeName="DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter" UpdateMethod="Update">
@@ -163,12 +151,15 @@
     </DeleteParameters>
     <InsertParameters>
         <asp:Parameter Name="ApplicantType" Type="String" />
+        <asp:Parameter Name="Primary_Title" Type="String" />
         <asp:Parameter Name="Primary_FirstName" Type="String" />
         <asp:Parameter Name="Primary_OtherNames" Type="String" />
         <asp:Parameter Name="Primary_LastName" Type="String" />
         <asp:Parameter Name="Primary_AUCitizenStat" Type="String" />
         <asp:Parameter Name="Primary_Dependants" Type="Byte" />
         <asp:Parameter Name="Primary_DOB" Type="DateTime" />
+        <asp:Parameter Name="Primary_Gender" Type="String" />
+        <asp:Parameter Name="Other_Title" Type="String" />
         <asp:Parameter Name="Other_FirstName" Type="String" />
         <asp:Parameter Name="Other_OtherNames" Type="String" />
         <asp:Parameter Name="Other_LastName" Type="String" />
@@ -200,6 +191,7 @@
         <asp:Parameter Name="CurrEmployerName" Type="String" />
         <asp:Parameter Name="YrsCurrEmployer" Type="String" />
         <asp:Parameter Name="PrevJobTitle" Type="String" />
+        <asp:Parameter Name="PrevEmploymentStatus" Type="String" />
         <asp:Parameter Name="PrevEmployerName" Type="String" />
         <asp:Parameter Name="YrsPrevEmployer" Type="String" />
         <asp:Parameter Name="Other_CurrOccupType" Type="String" />
@@ -209,6 +201,7 @@
         <asp:Parameter Name="Other_YrsCurrEmployer" Type="String" />
         <asp:Parameter Name="Other_PrevJobTitle" Type="String" />
         <asp:Parameter Name="Other_PrevEmployerName" Type="String" />
+        <asp:Parameter Name="Other_PrevEmploymentStatus" Type="String" />
         <asp:Parameter Name="Other_YrsPrevEmployer" Type="String" />
         <asp:Parameter Name="IsSmoker" Type="String" />
         <asp:Parameter Name="HasPrivateHealthIns" Type="String" />
@@ -230,6 +223,9 @@
         <asp:Parameter Name="HouseholdIncomeGrossPA" Type="String" />
         <asp:Parameter Name="LookingLocation" Type="String" />
         <asp:Parameter Name="FoundLocation" Type="String" />
+        <asp:Parameter Name="IntendedDeposit" Type="String" />
+        <asp:Parameter Name="Broker" Type="String" />
+        <asp:Parameter Name="BrokerDetails" Type="String" />
         <asp:Parameter Name="Property_Street1" Type="String" />
         <asp:Parameter Name="Property_Street2" Type="String" />
         <asp:Parameter Name="Property_Suburb" Type="String" />
@@ -242,9 +238,7 @@
         <asp:Parameter Name="EntryId" Type="Int32" />
         <asp:Parameter Name="EntryUserId" Type="String" />
         <asp:Parameter Name="CreatedUTC" Type="DateTime" />
-        <asp:Parameter Name="CondDecision" Type="DateTime" />
         <asp:Parameter Name="HasAgreedPrivacy" Type="String" />
-        <asp:Parameter Name="Primary_Gender" Type="String" />
         <asp:Parameter Name="DesiredPropertyAddr" Type="String" />
         <asp:Parameter Name="Primary_MaritalStats" Type="String" />
         <asp:Parameter Name="Other_MaritalStats" Type="String" />
@@ -267,6 +261,7 @@
         <asp:Parameter Name="PrimPrev_Res_PostCode" Type="Int16" />
         <asp:Parameter Name="PrimPrev_Res_State" Type="String" />
         <asp:Parameter Name="PrimPrev_Res_Country" Type="String" />
+        <asp:Parameter Name="YrsPrevAddr" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Street1" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Street2" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Suburb" Type="String" />
@@ -286,8 +281,8 @@
         <asp:Parameter Name="Primary_CreditCardList" Type="String" />
         <asp:Parameter Name="Other_CreditCardList" Type="String" />
         <asp:Parameter Name="RentPM" Type="String" />
-        <asp:Parameter Name="Primary_PropertyAssets" Type="String" />
-        <asp:Parameter Name="Other_PropertyAssets" Type="String" />
+        <asp:Parameter Name="Primary_PropertyAssetsList" Type="String" />
+        <asp:Parameter Name="Other_PropertyAssetsList" Type="String" />
         <asp:Parameter Name="Primary_PersonalLoansList" Type="String" />
         <asp:Parameter Name="Other_PersonalLoansList" Type="String" />
         <asp:Parameter Name="Primary_OtherAssetsList" Type="String" />
@@ -296,32 +291,35 @@
         <asp:Parameter Name="Other_OtherLiabilitiesList" Type="String" />
         <asp:Parameter Name="TransactionId" Type="String" />
         <asp:Parameter Name="SourceURL" Type="String" />
-        <asp:Parameter Name="CondDecisionBy" Type="String" />
         <asp:Parameter Name="HasReqestedPriority" Type="String" />
-        <asp:Parameter Name="HasAgreedPACLicence" Type="String" />
-        <asp:Parameter Name="YrsPrevAddr" Type="String" />
         <asp:Parameter Name="AutoRejected" Type="DateTime" />
-        <asp:Parameter Name="AutoRejectedInformed" Type="DateTime" />
         <asp:Parameter Name="AutoRejecetedBy" Type="String" />
-        <asp:Parameter Name="AutoRejectedInformedBy" Type="String" />
         <asp:Parameter Name="AutoAccepted" Type="DateTime" />
         <asp:Parameter Name="AutoAcceptedBy" Type="String" />
-        <asp:Parameter Name="AutoAcceptedInformed" Type="DateTime" />
-        <asp:Parameter Name="AutoAcceptedInformedBy" Type="String" />
-        <asp:Parameter Name="HasReadPO6" Type="String" />
-        <asp:Parameter Name="CondApproved" Type="Boolean" />
+        <asp:Parameter Name="_CondApprovedLimit_" Type="Decimal" />
+        <asp:Parameter Name="_FinalApprovedLimit_" Type="Decimal" />
+        <asp:Parameter Name="MthlyRent" Type="Decimal" />
+        <asp:Parameter Name="MthlyDeposit" Type="Decimal" />
+        <asp:Parameter Name="CondCreditDecisionDate" Type="DateTime" />
+        <asp:Parameter Name="CondCreditDecision" Type="String" />
+        <asp:Parameter Name="CondCreditDecisionBy" Type="String" />
+        <asp:Parameter Name="CondCreditDecisionInformed" Type="DateTime" />
+        <asp:Parameter Name="CondCreditDecisionInformedBy" Type="String" />
     </InsertParameters>
     <SelectParameters>
         <asp:QueryStringParameter DefaultValue="-1" Name="Id" QueryStringField="Id" Type="Int32" />
     </SelectParameters>
     <UpdateParameters>
         <asp:Parameter Name="ApplicantType" Type="String" />
+        <asp:Parameter Name="Primary_Title" Type="String" />
         <asp:Parameter Name="Primary_FirstName" Type="String" />
         <asp:Parameter Name="Primary_OtherNames" Type="String" />
         <asp:Parameter Name="Primary_LastName" Type="String" />
         <asp:Parameter Name="Primary_AUCitizenStat" Type="String" />
         <asp:Parameter Name="Primary_Dependants" Type="Byte" />
         <asp:Parameter Name="Primary_DOB" Type="DateTime" />
+        <asp:Parameter Name="Primary_Gender" Type="String" />
+        <asp:Parameter Name="Other_Title" Type="String" />
         <asp:Parameter Name="Other_FirstName" Type="String" />
         <asp:Parameter Name="Other_OtherNames" Type="String" />
         <asp:Parameter Name="Other_LastName" Type="String" />
@@ -353,6 +351,7 @@
         <asp:Parameter Name="CurrEmployerName" Type="String" />
         <asp:Parameter Name="YrsCurrEmployer" Type="String" />
         <asp:Parameter Name="PrevJobTitle" Type="String" />
+        <asp:Parameter Name="PrevEmploymentStatus" Type="String" />
         <asp:Parameter Name="PrevEmployerName" Type="String" />
         <asp:Parameter Name="YrsPrevEmployer" Type="String" />
         <asp:Parameter Name="Other_CurrOccupType" Type="String" />
@@ -362,6 +361,7 @@
         <asp:Parameter Name="Other_YrsCurrEmployer" Type="String" />
         <asp:Parameter Name="Other_PrevJobTitle" Type="String" />
         <asp:Parameter Name="Other_PrevEmployerName" Type="String" />
+        <asp:Parameter Name="Other_PrevEmploymentStatus" Type="String" />
         <asp:Parameter Name="Other_YrsPrevEmployer" Type="String" />
         <asp:Parameter Name="IsSmoker" Type="String" />
         <asp:Parameter Name="HasPrivateHealthIns" Type="String" />
@@ -383,6 +383,9 @@
         <asp:Parameter Name="HouseholdIncomeGrossPA" Type="String" />
         <asp:Parameter Name="LookingLocation" Type="String" />
         <asp:Parameter Name="FoundLocation" Type="String" />
+        <asp:Parameter Name="IntendedDeposit" Type="String" />
+        <asp:Parameter Name="Broker" Type="String" />
+        <asp:Parameter Name="BrokerDetails" Type="String" />
         <asp:Parameter Name="Property_Street1" Type="String" />
         <asp:Parameter Name="Property_Street2" Type="String" />
         <asp:Parameter Name="Property_Suburb" Type="String" />
@@ -395,9 +398,7 @@
         <asp:Parameter Name="EntryId" Type="Int32" />
         <asp:Parameter Name="EntryUserId" Type="String" />
         <asp:Parameter Name="CreatedUTC" Type="DateTime" />
-        <asp:Parameter Name="CondDecision" Type="DateTime" />
         <asp:Parameter Name="HasAgreedPrivacy" Type="String" />
-        <asp:Parameter Name="Primary_Gender" Type="String" />
         <asp:Parameter Name="DesiredPropertyAddr" Type="String" />
         <asp:Parameter Name="Primary_MaritalStats" Type="String" />
         <asp:Parameter Name="Other_MaritalStats" Type="String" />
@@ -420,6 +421,7 @@
         <asp:Parameter Name="PrimPrev_Res_PostCode" Type="Int16" />
         <asp:Parameter Name="PrimPrev_Res_State" Type="String" />
         <asp:Parameter Name="PrimPrev_Res_Country" Type="String" />
+        <asp:Parameter Name="YrsPrevAddr" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Street1" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Street2" Type="String" />
         <asp:Parameter Name="OthPrev_Res_Suburb" Type="String" />
@@ -439,8 +441,8 @@
         <asp:Parameter Name="Primary_CreditCardList" Type="String" />
         <asp:Parameter Name="Other_CreditCardList" Type="String" />
         <asp:Parameter Name="RentPM" Type="String" />
-        <asp:Parameter Name="Primary_PropertyAssets" Type="String" />
-        <asp:Parameter Name="Other_PropertyAssets" Type="String" />
+        <asp:Parameter Name="Primary_PropertyAssetsList" Type="String" />
+        <asp:Parameter Name="Other_PropertyAssetsList" Type="String" />
         <asp:Parameter Name="Primary_PersonalLoansList" Type="String" />
         <asp:Parameter Name="Other_PersonalLoansList" Type="String" />
         <asp:Parameter Name="Primary_OtherAssetsList" Type="String" />
@@ -449,20 +451,20 @@
         <asp:Parameter Name="Other_OtherLiabilitiesList" Type="String" />
         <asp:Parameter Name="TransactionId" Type="String" />
         <asp:Parameter Name="SourceURL" Type="String" />
-        <asp:Parameter Name="CondDecisionBy" Type="String" />
         <asp:Parameter Name="HasReqestedPriority" Type="String" />
-        <asp:Parameter Name="HasAgreedPACLicence" Type="String" />
-        <asp:Parameter Name="YrsPrevAddr" Type="String" />
         <asp:Parameter Name="AutoRejected" Type="DateTime" />
-        <asp:Parameter Name="AutoRejectedInformed" Type="DateTime" />
         <asp:Parameter Name="AutoRejecetedBy" Type="String" />
-        <asp:Parameter Name="AutoRejectedInformedBy" Type="String" />
         <asp:Parameter Name="AutoAccepted" Type="DateTime" />
         <asp:Parameter Name="AutoAcceptedBy" Type="String" />
-        <asp:Parameter Name="AutoAcceptedInformed" Type="DateTime" />
-        <asp:Parameter Name="AutoAcceptedInformedBy" Type="String" />
-        <asp:Parameter Name="HasReadPO6" Type="String" />
-        <asp:Parameter Name="CondApproved" Type="Boolean" />
+        <asp:Parameter Name="_CondApprovedLimit_" Type="Decimal" />
+        <asp:Parameter Name="_FinalApprovedLimit_" Type="Decimal" />
+        <asp:Parameter Name="MthlyRent" Type="Decimal" />
+        <asp:Parameter Name="MthlyDeposit" Type="Decimal" />
+        <asp:Parameter Name="CondCreditDecisionDate" Type="DateTime" />
+        <asp:Parameter Name="CondCreditDecision" Type="String" />
+        <asp:Parameter Name="CondCreditDecisionBy" Type="String" />
+        <asp:Parameter Name="CondCreditDecisionInformed" Type="DateTime" />
+        <asp:Parameter Name="CondCreditDecisionInformedBy" Type="String" />
         <asp:Parameter Name="Original_Id" Type="Int32" />
         <asp:Parameter Name="Original_RowVersion" Type="Object" />
     </UpdateParameters>

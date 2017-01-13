@@ -492,8 +492,6 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnCreatedUTC;
             
-            private global::System.Data.DataColumn columnCondDecision;
-            
             private global::System.Data.DataColumn columnHasAgreedPrivacy;
             
             private global::System.Data.DataColumn columnPrimary_Gender;
@@ -580,10 +578,6 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnRentPM;
             
-            private global::System.Data.DataColumn columnPrimary_PropertyAssets;
-            
-            private global::System.Data.DataColumn columnOther_PropertyAssets;
-            
             private global::System.Data.DataColumn columnPrimary_PersonalLoansList;
             
             private global::System.Data.DataColumn columnOther_PersonalLoansList;
@@ -600,33 +594,17 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnSourceURL;
             
-            private global::System.Data.DataColumn columnCondDecisionBy;
-            
             private global::System.Data.DataColumn columnHasReqestedPriority;
-            
-            private global::System.Data.DataColumn columnHasAgreedPACLicence;
             
             private global::System.Data.DataColumn columnYrsPrevAddr;
             
             private global::System.Data.DataColumn columnAutoRejected;
             
-            private global::System.Data.DataColumn columnAutoRejectedInformed;
-            
             private global::System.Data.DataColumn columnAutoRejecetedBy;
-            
-            private global::System.Data.DataColumn columnAutoRejectedInformedBy;
             
             private global::System.Data.DataColumn columnAutoAccepted;
             
             private global::System.Data.DataColumn columnAutoAcceptedBy;
-            
-            private global::System.Data.DataColumn columnAutoAcceptedInformed;
-            
-            private global::System.Data.DataColumn columnAutoAcceptedInformedBy;
-            
-            private global::System.Data.DataColumn columnHasReadPO6;
-            
-            private global::System.Data.DataColumn columnCondApproved;
             
             private global::System.Data.DataColumn columnPrimary_Title;
             
@@ -651,6 +629,18 @@ namespace DataUtils {
             private global::System.Data.DataColumn columnCondCreditDecisionInformed;
             
             private global::System.Data.DataColumn columnCondCreditDecisionInformedBy;
+            
+            private global::System.Data.DataColumn columnPrimary_PropertyAssetsList;
+            
+            private global::System.Data.DataColumn columnOther_PropertyAssetsList;
+            
+            private global::System.Data.DataColumn _columnCondApprovedLimit_;
+            
+            private global::System.Data.DataColumn _columnFinalApprovedLimit_;
+            
+            private global::System.Data.DataColumn columnMthlyRent;
+            
+            private global::System.Data.DataColumn columnMthlyDeposit;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1343,14 +1333,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CondDecisionColumn {
-                get {
-                    return this.columnCondDecision;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn HasAgreedPrivacyColumn {
                 get {
                     return this.columnHasAgreedPrivacy;
@@ -1695,22 +1677,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Primary_PropertyAssetsColumn {
-                get {
-                    return this.columnPrimary_PropertyAssets;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Other_PropertyAssetsColumn {
-                get {
-                    return this.columnOther_PropertyAssets;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Primary_PersonalLoansListColumn {
                 get {
                     return this.columnPrimary_PersonalLoansList;
@@ -1775,25 +1741,9 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CondDecisionByColumn {
-                get {
-                    return this.columnCondDecisionBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn HasReqestedPriorityColumn {
                 get {
                     return this.columnHasReqestedPriority;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HasAgreedPACLicenceColumn {
-                get {
-                    return this.columnHasAgreedPACLicence;
                 }
             }
             
@@ -1815,25 +1765,9 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AutoRejectedInformedColumn {
-                get {
-                    return this.columnAutoRejectedInformed;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn AutoRejecetedByColumn {
                 get {
                     return this.columnAutoRejecetedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AutoRejectedInformedByColumn {
-                get {
-                    return this.columnAutoRejectedInformedBy;
                 }
             }
             
@@ -1850,38 +1784,6 @@ namespace DataUtils {
             public global::System.Data.DataColumn AutoAcceptedByColumn {
                 get {
                     return this.columnAutoAcceptedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AutoAcceptedInformedColumn {
-                get {
-                    return this.columnAutoAcceptedInformed;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn AutoAcceptedInformedByColumn {
-                get {
-                    return this.columnAutoAcceptedInformedBy;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn HasReadPO6Column {
-                get {
-                    return this.columnHasReadPO6;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn CondApprovedColumn {
-                get {
-                    return this.columnCondApproved;
                 }
             }
             
@@ -1978,6 +1880,54 @@ namespace DataUtils {
             public global::System.Data.DataColumn CondCreditDecisionInformedByColumn {
                 get {
                     return this.columnCondCreditDecisionInformedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Primary_PropertyAssetsListColumn {
+                get {
+                    return this.columnPrimary_PropertyAssetsList;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Other_PropertyAssetsListColumn {
+                get {
+                    return this.columnOther_PropertyAssetsList;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _CondApprovedLimit_Column {
+                get {
+                    return this._columnCondApprovedLimit_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _FinalApprovedLimit_Column {
+                get {
+                    return this._columnFinalApprovedLimit_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MthlyRentColumn {
+                get {
+                    return this.columnMthlyRent;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MthlyDepositColumn {
+                get {
+                    return this.columnMthlyDeposit;
                 }
             }
             
@@ -2100,7 +2050,6 @@ namespace DataUtils {
                         int EntryId, 
                         string EntryUserId, 
                         System.DateTime CreatedUTC, 
-                        System.DateTime CondDecision, 
                         string HasAgreedPrivacy, 
                         string Primary_Gender, 
                         string DesiredPropertyAddr, 
@@ -2144,8 +2093,6 @@ namespace DataUtils {
                         string Primary_CreditCardList, 
                         string Other_CreditCardList, 
                         string RentPM, 
-                        string Primary_PropertyAssets, 
-                        string Other_PropertyAssets, 
                         string Primary_PersonalLoansList, 
                         string Other_PersonalLoansList, 
                         string Primary_OtherAssetsList, 
@@ -2154,20 +2101,12 @@ namespace DataUtils {
                         string Other_OtherLiabilitiesList, 
                         string TransactionId, 
                         string SourceURL, 
-                        string CondDecisionBy, 
                         string HasReqestedPriority, 
-                        string HasAgreedPACLicence, 
                         string YrsPrevAddr, 
                         System.DateTime AutoRejected, 
-                        System.DateTime AutoRejectedInformed, 
                         string AutoRejecetedBy, 
-                        string AutoRejectedInformedBy, 
                         System.DateTime AutoAccepted, 
                         string AutoAcceptedBy, 
-                        System.DateTime AutoAcceptedInformed, 
-                        string AutoAcceptedInformedBy, 
-                        string HasReadPO6, 
-                        bool CondApproved, 
                         string Primary_Title, 
                         string Other_Title, 
                         string PrevEmploymentStatus, 
@@ -2179,7 +2118,13 @@ namespace DataUtils {
                         string CondCreditDecision, 
                         string CondCreditDecisionBy, 
                         System.DateTime CondCreditDecisionInformed, 
-                        string CondCreditDecisionInformedBy) {
+                        string CondCreditDecisionInformedBy, 
+                        string Primary_PropertyAssetsList, 
+                        string Other_PropertyAssetsList, 
+                        decimal _CondApprovedLimit_, 
+                        decimal _FinalApprovedLimit_, 
+                        decimal MthlyRent, 
+                        decimal MthlyDeposit) {
                 BuyerApplicationsRow rowBuyerApplicationsRow = ((BuyerApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2264,7 +2209,6 @@ namespace DataUtils {
                         EntryId,
                         EntryUserId,
                         CreatedUTC,
-                        CondDecision,
                         HasAgreedPrivacy,
                         Primary_Gender,
                         DesiredPropertyAddr,
@@ -2308,8 +2252,6 @@ namespace DataUtils {
                         Primary_CreditCardList,
                         Other_CreditCardList,
                         RentPM,
-                        Primary_PropertyAssets,
-                        Other_PropertyAssets,
                         Primary_PersonalLoansList,
                         Other_PersonalLoansList,
                         Primary_OtherAssetsList,
@@ -2318,20 +2260,12 @@ namespace DataUtils {
                         Other_OtherLiabilitiesList,
                         TransactionId,
                         SourceURL,
-                        CondDecisionBy,
                         HasReqestedPriority,
-                        HasAgreedPACLicence,
                         YrsPrevAddr,
                         AutoRejected,
-                        AutoRejectedInformed,
                         AutoRejecetedBy,
-                        AutoRejectedInformedBy,
                         AutoAccepted,
                         AutoAcceptedBy,
-                        AutoAcceptedInformed,
-                        AutoAcceptedInformedBy,
-                        HasReadPO6,
-                        CondApproved,
                         Primary_Title,
                         Other_Title,
                         PrevEmploymentStatus,
@@ -2343,7 +2277,13 @@ namespace DataUtils {
                         CondCreditDecision,
                         CondCreditDecisionBy,
                         CondCreditDecisionInformed,
-                        CondCreditDecisionInformedBy};
+                        CondCreditDecisionInformedBy,
+                        Primary_PropertyAssetsList,
+                        Other_PropertyAssetsList,
+                        _CondApprovedLimit_,
+                        _FinalApprovedLimit_,
+                        MthlyRent,
+                        MthlyDeposit};
                 rowBuyerApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowBuyerApplicationsRow);
                 return rowBuyerApplicationsRow;
@@ -2455,7 +2395,6 @@ namespace DataUtils {
                 this.columnEntryId = base.Columns["EntryId"];
                 this.columnEntryUserId = base.Columns["EntryUserId"];
                 this.columnCreatedUTC = base.Columns["CreatedUTC"];
-                this.columnCondDecision = base.Columns["CondDecision"];
                 this.columnHasAgreedPrivacy = base.Columns["HasAgreedPrivacy"];
                 this.columnPrimary_Gender = base.Columns["Primary_Gender"];
                 this.columnDesiredPropertyAddr = base.Columns["DesiredPropertyAddr"];
@@ -2499,8 +2438,6 @@ namespace DataUtils {
                 this.columnPrimary_CreditCardList = base.Columns["Primary_CreditCardList"];
                 this.columnOther_CreditCardList = base.Columns["Other_CreditCardList"];
                 this.columnRentPM = base.Columns["RentPM"];
-                this.columnPrimary_PropertyAssets = base.Columns["Primary_PropertyAssets"];
-                this.columnOther_PropertyAssets = base.Columns["Other_PropertyAssets"];
                 this.columnPrimary_PersonalLoansList = base.Columns["Primary_PersonalLoansList"];
                 this.columnOther_PersonalLoansList = base.Columns["Other_PersonalLoansList"];
                 this.columnPrimary_OtherAssetsList = base.Columns["Primary_OtherAssetsList"];
@@ -2509,20 +2446,12 @@ namespace DataUtils {
                 this.columnOther_OtherLiabilitiesList = base.Columns["Other_OtherLiabilitiesList"];
                 this.columnTransactionId = base.Columns["TransactionId"];
                 this.columnSourceURL = base.Columns["SourceURL"];
-                this.columnCondDecisionBy = base.Columns["CondDecisionBy"];
                 this.columnHasReqestedPriority = base.Columns["HasReqestedPriority"];
-                this.columnHasAgreedPACLicence = base.Columns["HasAgreedPACLicence"];
                 this.columnYrsPrevAddr = base.Columns["YrsPrevAddr"];
                 this.columnAutoRejected = base.Columns["AutoRejected"];
-                this.columnAutoRejectedInformed = base.Columns["AutoRejectedInformed"];
                 this.columnAutoRejecetedBy = base.Columns["AutoRejecetedBy"];
-                this.columnAutoRejectedInformedBy = base.Columns["AutoRejectedInformedBy"];
                 this.columnAutoAccepted = base.Columns["AutoAccepted"];
                 this.columnAutoAcceptedBy = base.Columns["AutoAcceptedBy"];
-                this.columnAutoAcceptedInformed = base.Columns["AutoAcceptedInformed"];
-                this.columnAutoAcceptedInformedBy = base.Columns["AutoAcceptedInformedBy"];
-                this.columnHasReadPO6 = base.Columns["HasReadPO6"];
-                this.columnCondApproved = base.Columns["CondApproved"];
                 this.columnPrimary_Title = base.Columns["Primary_Title"];
                 this.columnOther_Title = base.Columns["Other_Title"];
                 this.columnPrevEmploymentStatus = base.Columns["PrevEmploymentStatus"];
@@ -2535,6 +2464,12 @@ namespace DataUtils {
                 this.columnCondCreditDecisionBy = base.Columns["CondCreditDecisionBy"];
                 this.columnCondCreditDecisionInformed = base.Columns["CondCreditDecisionInformed"];
                 this.columnCondCreditDecisionInformedBy = base.Columns["CondCreditDecisionInformedBy"];
+                this.columnPrimary_PropertyAssetsList = base.Columns["Primary_PropertyAssetsList"];
+                this.columnOther_PropertyAssetsList = base.Columns["Other_PropertyAssetsList"];
+                this._columnCondApprovedLimit_ = base.Columns["CondApprovedLimit$"];
+                this._columnFinalApprovedLimit_ = base.Columns["FinalApprovedLimit$"];
+                this.columnMthlyRent = base.Columns["MthlyRent"];
+                this.columnMthlyDeposit = base.Columns["MthlyDeposit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2704,8 +2639,6 @@ namespace DataUtils {
                 base.Columns.Add(this.columnEntryUserId);
                 this.columnCreatedUTC = new global::System.Data.DataColumn("CreatedUTC", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedUTC);
-                this.columnCondDecision = new global::System.Data.DataColumn("CondDecision", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCondDecision);
                 this.columnHasAgreedPrivacy = new global::System.Data.DataColumn("HasAgreedPrivacy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHasAgreedPrivacy);
                 this.columnPrimary_Gender = new global::System.Data.DataColumn("Primary_Gender", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2792,10 +2725,6 @@ namespace DataUtils {
                 base.Columns.Add(this.columnOther_CreditCardList);
                 this.columnRentPM = new global::System.Data.DataColumn("RentPM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRentPM);
-                this.columnPrimary_PropertyAssets = new global::System.Data.DataColumn("Primary_PropertyAssets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrimary_PropertyAssets);
-                this.columnOther_PropertyAssets = new global::System.Data.DataColumn("Other_PropertyAssets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOther_PropertyAssets);
                 this.columnPrimary_PersonalLoansList = new global::System.Data.DataColumn("Primary_PersonalLoansList", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrimary_PersonalLoansList);
                 this.columnOther_PersonalLoansList = new global::System.Data.DataColumn("Other_PersonalLoansList", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2812,34 +2741,18 @@ namespace DataUtils {
                 base.Columns.Add(this.columnTransactionId);
                 this.columnSourceURL = new global::System.Data.DataColumn("SourceURL", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSourceURL);
-                this.columnCondDecisionBy = new global::System.Data.DataColumn("CondDecisionBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCondDecisionBy);
                 this.columnHasReqestedPriority = new global::System.Data.DataColumn("HasReqestedPriority", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnHasReqestedPriority);
-                this.columnHasAgreedPACLicence = new global::System.Data.DataColumn("HasAgreedPACLicence", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHasAgreedPACLicence);
                 this.columnYrsPrevAddr = new global::System.Data.DataColumn("YrsPrevAddr", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnYrsPrevAddr);
                 this.columnAutoRejected = new global::System.Data.DataColumn("AutoRejected", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutoRejected);
-                this.columnAutoRejectedInformed = new global::System.Data.DataColumn("AutoRejectedInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAutoRejectedInformed);
                 this.columnAutoRejecetedBy = new global::System.Data.DataColumn("AutoRejecetedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutoRejecetedBy);
-                this.columnAutoRejectedInformedBy = new global::System.Data.DataColumn("AutoRejectedInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAutoRejectedInformedBy);
                 this.columnAutoAccepted = new global::System.Data.DataColumn("AutoAccepted", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutoAccepted);
                 this.columnAutoAcceptedBy = new global::System.Data.DataColumn("AutoAcceptedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnAutoAcceptedBy);
-                this.columnAutoAcceptedInformed = new global::System.Data.DataColumn("AutoAcceptedInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAutoAcceptedInformed);
-                this.columnAutoAcceptedInformedBy = new global::System.Data.DataColumn("AutoAcceptedInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnAutoAcceptedInformedBy);
-                this.columnHasReadPO6 = new global::System.Data.DataColumn("HasReadPO6", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnHasReadPO6);
-                this.columnCondApproved = new global::System.Data.DataColumn("CondApproved", typeof(bool), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCondApproved);
                 this.columnPrimary_Title = new global::System.Data.DataColumn("Primary_Title", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrimary_Title);
                 this.columnOther_Title = new global::System.Data.DataColumn("Other_Title", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2864,6 +2777,22 @@ namespace DataUtils {
                 base.Columns.Add(this.columnCondCreditDecisionInformed);
                 this.columnCondCreditDecisionInformedBy = new global::System.Data.DataColumn("CondCreditDecisionInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCondCreditDecisionInformedBy);
+                this.columnPrimary_PropertyAssetsList = new global::System.Data.DataColumn("Primary_PropertyAssetsList", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrimary_PropertyAssetsList);
+                this.columnOther_PropertyAssetsList = new global::System.Data.DataColumn("Other_PropertyAssetsList", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOther_PropertyAssetsList);
+                this._columnCondApprovedLimit_ = new global::System.Data.DataColumn("CondApprovedLimit$", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._columnCondApprovedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnCondApprovedLimit_");
+                this._columnCondApprovedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "CondApprovedLimit$");
+                base.Columns.Add(this._columnCondApprovedLimit_);
+                this._columnFinalApprovedLimit_ = new global::System.Data.DataColumn("FinalApprovedLimit$", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFinalApprovedLimit_");
+                this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "FinalApprovedLimit$");
+                base.Columns.Add(this._columnFinalApprovedLimit_);
+                this.columnMthlyRent = new global::System.Data.DataColumn("MthlyRent", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMthlyRent);
+                this.columnMthlyDeposit = new global::System.Data.DataColumn("MthlyDeposit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMthlyDeposit);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2985,8 +2914,6 @@ namespace DataUtils {
                 this.columnPrimary_CreditCardList.MaxLength = 550;
                 this.columnOther_CreditCardList.MaxLength = 550;
                 this.columnRentPM.MaxLength = 15;
-                this.columnPrimary_PropertyAssets.MaxLength = 550;
-                this.columnOther_PropertyAssets.MaxLength = 550;
                 this.columnPrimary_PersonalLoansList.MaxLength = 550;
                 this.columnOther_PersonalLoansList.MaxLength = 550;
                 this.columnPrimary_OtherAssetsList.MaxLength = 550;
@@ -2995,15 +2922,10 @@ namespace DataUtils {
                 this.columnOther_OtherLiabilitiesList.MaxLength = 550;
                 this.columnTransactionId.MaxLength = 15;
                 this.columnSourceURL.MaxLength = 255;
-                this.columnCondDecisionBy.MaxLength = 25;
                 this.columnHasReqestedPriority.MaxLength = 100;
-                this.columnHasAgreedPACLicence.MaxLength = 100;
                 this.columnYrsPrevAddr.MaxLength = 120;
                 this.columnAutoRejecetedBy.MaxLength = 50;
-                this.columnAutoRejectedInformedBy.MaxLength = 50;
                 this.columnAutoAcceptedBy.MaxLength = 50;
-                this.columnAutoAcceptedInformedBy.MaxLength = 50;
-                this.columnHasReadPO6.MaxLength = 100;
                 this.columnPrimary_Title.MaxLength = 25;
                 this.columnOther_Title.MaxLength = 25;
                 this.columnPrevEmploymentStatus.MaxLength = 100;
@@ -3014,6 +2936,8 @@ namespace DataUtils {
                 this.columnCondCreditDecision.MaxLength = 1;
                 this.columnCondCreditDecisionBy.MaxLength = 25;
                 this.columnCondCreditDecisionInformedBy.MaxLength = 50;
+                this.columnPrimary_PropertyAssetsList.MaxLength = 550;
+                this.columnOther_PropertyAssetsList.MaxLength = 550;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3250,6 +3174,28 @@ namespace DataUtils {
             private global::System.Data.DataColumn columnTPDCoverInsurer;
             
             private global::System.Data.DataColumn columnTPDCoverDetail;
+            
+            private global::System.Data.DataColumn columnUpdatedBy1;
+            
+            private global::System.Data.DataColumn columnCondCreditDecisionDate;
+            
+            private global::System.Data.DataColumn columnCondCreditDecision;
+            
+            private global::System.Data.DataColumn columnCondCreditDecisionBy;
+            
+            private global::System.Data.DataColumn columnCondCreditDecisionInformed;
+            
+            private global::System.Data.DataColumn columnCondCreditDecisionInformedBy;
+            
+            private global::System.Data.DataColumn columnFinalCreditDecisionInformed;
+            
+            private global::System.Data.DataColumn columnFinalCreditDecisionInformedBy;
+            
+            private global::System.Data.DataColumn _columnAppliedLimit_;
+            
+            private global::System.Data.DataColumn _columnCondApprovedLimit_;
+            
+            private global::System.Data.DataColumn _columnFinalApprovedLimit_;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3702,6 +3648,94 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn UpdatedBy1Column {
+                get {
+                    return this.columnUpdatedBy1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondCreditDecisionDateColumn {
+                get {
+                    return this.columnCondCreditDecisionDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondCreditDecisionColumn {
+                get {
+                    return this.columnCondCreditDecision;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondCreditDecisionByColumn {
+                get {
+                    return this.columnCondCreditDecisionBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondCreditDecisionInformedColumn {
+                get {
+                    return this.columnCondCreditDecisionInformed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CondCreditDecisionInformedByColumn {
+                get {
+                    return this.columnCondCreditDecisionInformedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FinalCreditDecisionInformedColumn {
+                get {
+                    return this.columnFinalCreditDecisionInformed;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FinalCreditDecisionInformedByColumn {
+                get {
+                    return this.columnFinalCreditDecisionInformedBy;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _AppliedLimit_Column {
+                get {
+                    return this._columnAppliedLimit_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _CondApprovedLimit_Column {
+                get {
+                    return this._columnCondApprovedLimit_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn _FinalApprovedLimit_Column {
+                get {
+                    return this._columnFinalApprovedLimit_;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3789,7 +3823,18 @@ namespace DataUtils {
                         string DeathCoverInsurer, 
                         string DeathCoverDetail, 
                         string TPDCoverInsurer, 
-                        string TPDCoverDetail) {
+                        string TPDCoverDetail, 
+                        string UpdatedBy1, 
+                        System.DateTime CondCreditDecisionDate, 
+                        string CondCreditDecision, 
+                        string CondCreditDecisionBy, 
+                        System.DateTime CondCreditDecisionInformed, 
+                        string CondCreditDecisionInformedBy, 
+                        System.DateTime FinalCreditDecisionInformed, 
+                        string FinalCreditDecisionInformedBy, 
+                        decimal _AppliedLimit_, 
+                        decimal _CondApprovedLimit_, 
+                        decimal _FinalApprovedLimit_) {
                 BuyerRow rowBuyerRow = ((BuyerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Id,
@@ -3843,7 +3888,18 @@ namespace DataUtils {
                         DeathCoverInsurer,
                         DeathCoverDetail,
                         TPDCoverInsurer,
-                        TPDCoverDetail};
+                        TPDCoverDetail,
+                        UpdatedBy1,
+                        CondCreditDecisionDate,
+                        CondCreditDecision,
+                        CondCreditDecisionBy,
+                        CondCreditDecisionInformed,
+                        CondCreditDecisionInformedBy,
+                        FinalCreditDecisionInformed,
+                        FinalCreditDecisionInformedBy,
+                        _AppliedLimit_,
+                        _CondApprovedLimit_,
+                        _FinalApprovedLimit_};
                 if ((parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18 != null)) {
                     columnValuesArray[2] = parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18[0];
                 }
@@ -3931,6 +3987,17 @@ namespace DataUtils {
                 this.columnDeathCoverDetail = base.Columns["DeathCoverDetail"];
                 this.columnTPDCoverInsurer = base.Columns["TPDCoverInsurer"];
                 this.columnTPDCoverDetail = base.Columns["TPDCoverDetail"];
+                this.columnUpdatedBy1 = base.Columns["UpdatedBy1"];
+                this.columnCondCreditDecisionDate = base.Columns["CondCreditDecisionDate"];
+                this.columnCondCreditDecision = base.Columns["CondCreditDecision"];
+                this.columnCondCreditDecisionBy = base.Columns["CondCreditDecisionBy"];
+                this.columnCondCreditDecisionInformed = base.Columns["CondCreditDecisionInformed"];
+                this.columnCondCreditDecisionInformedBy = base.Columns["CondCreditDecisionInformedBy"];
+                this.columnFinalCreditDecisionInformed = base.Columns["FinalCreditDecisionInformed"];
+                this.columnFinalCreditDecisionInformedBy = base.Columns["FinalCreditDecisionInformedBy"];
+                this._columnAppliedLimit_ = base.Columns["AppliedLimit$"];
+                this._columnCondApprovedLimit_ = base.Columns["CondApprovedLimit$"];
+                this._columnFinalApprovedLimit_ = base.Columns["FinalApprovedLimit$"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4040,6 +4107,34 @@ namespace DataUtils {
                 base.Columns.Add(this.columnTPDCoverInsurer);
                 this.columnTPDCoverDetail = new global::System.Data.DataColumn("TPDCoverDetail", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTPDCoverDetail);
+                this.columnUpdatedBy1 = new global::System.Data.DataColumn("UpdatedBy1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUpdatedBy1);
+                this.columnCondCreditDecisionDate = new global::System.Data.DataColumn("CondCreditDecisionDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondCreditDecisionDate);
+                this.columnCondCreditDecision = new global::System.Data.DataColumn("CondCreditDecision", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondCreditDecision);
+                this.columnCondCreditDecisionBy = new global::System.Data.DataColumn("CondCreditDecisionBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondCreditDecisionBy);
+                this.columnCondCreditDecisionInformed = new global::System.Data.DataColumn("CondCreditDecisionInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondCreditDecisionInformed);
+                this.columnCondCreditDecisionInformedBy = new global::System.Data.DataColumn("CondCreditDecisionInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCondCreditDecisionInformedBy);
+                this.columnFinalCreditDecisionInformed = new global::System.Data.DataColumn("FinalCreditDecisionInformed", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalCreditDecisionInformed);
+                this.columnFinalCreditDecisionInformedBy = new global::System.Data.DataColumn("FinalCreditDecisionInformedBy", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalCreditDecisionInformedBy);
+                this._columnAppliedLimit_ = new global::System.Data.DataColumn("AppliedLimit$", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._columnAppliedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnAppliedLimit_");
+                this._columnAppliedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "AppliedLimit$");
+                base.Columns.Add(this._columnAppliedLimit_);
+                this._columnCondApprovedLimit_ = new global::System.Data.DataColumn("CondApprovedLimit$", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._columnCondApprovedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnCondApprovedLimit_");
+                this._columnCondApprovedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "CondApprovedLimit$");
+                base.Columns.Add(this._columnCondApprovedLimit_);
+                this._columnFinalApprovedLimit_ = new global::System.Data.DataColumn("FinalApprovedLimit$", typeof(decimal), null, global::System.Data.MappingType.Element);
+                this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFinalApprovedLimit_");
+                this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "FinalApprovedLimit$");
+                base.Columns.Add(this._columnFinalApprovedLimit_);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AllowDBNull = false;
@@ -4093,6 +4188,12 @@ namespace DataUtils {
                 this.columnDeathCoverDetail.MaxLength = 250;
                 this.columnTPDCoverInsurer.MaxLength = 50;
                 this.columnTPDCoverDetail.MaxLength = 250;
+                this.columnUpdatedBy1.Caption = "UpdatedBy";
+                this.columnUpdatedBy1.MaxLength = 25;
+                this.columnCondCreditDecision.MaxLength = 1;
+                this.columnCondCreditDecisionBy.MaxLength = 25;
+                this.columnCondCreditDecisionInformedBy.MaxLength = 50;
+                this.columnFinalCreditDecisionInformedBy.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5554,22 +5655,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime CondDecision {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableBuyerApplications.CondDecisionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondDecision\' in table \'BuyerApplications\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.CondDecisionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string HasAgreedPrivacy {
                 get {
                     try {
@@ -6291,40 +6376,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Primary_PropertyAssets {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.Primary_PropertyAssetsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Primary_PropertyAssets\' in table \'BuyerApplications\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.Primary_PropertyAssetsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Other_PropertyAssets {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.Other_PropertyAssetsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Other_PropertyAssets\' in table \'BuyerApplications\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.Other_PropertyAssetsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Primary_PersonalLoansList {
                 get {
                     try {
@@ -6459,22 +6510,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string CondDecisionBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.CondDecisionByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondDecisionBy\' in table \'BuyerApplications\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.CondDecisionByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string HasReqestedPriority {
                 get {
                     try {
@@ -6487,23 +6522,6 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableBuyerApplications.HasReqestedPriorityColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HasAgreedPACLicence {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.HasAgreedPACLicenceColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HasAgreedPACLicence\' in table \'BuyerApplications\' is DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.HasAgreedPACLicenceColumn] = value;
                 }
             }
             
@@ -6541,23 +6559,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime AutoRejectedInformed {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableBuyerApplications.AutoRejectedInformedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejectedInformed\' in table \'BuyerApplications\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.AutoRejectedInformedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string AutoRejecetedBy {
                 get {
                     try {
@@ -6569,23 +6570,6 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableBuyerApplications.AutoRejecetedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AutoRejectedInformedBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.AutoRejectedInformedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AutoRejectedInformedBy\' in table \'BuyerApplications\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.AutoRejectedInformedByColumn] = value;
                 }
             }
             
@@ -6618,72 +6602,6 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableBuyerApplications.AutoAcceptedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime AutoAcceptedInformed {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableBuyerApplications.AutoAcceptedInformedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAcceptedInformed\' in table \'BuyerApplications\' is DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.AutoAcceptedInformedColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string AutoAcceptedInformedBy {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.AutoAcceptedInformedByColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'AutoAcceptedInformedBy\' in table \'BuyerApplications\' is DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.AutoAcceptedInformedByColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string HasReadPO6 {
-                get {
-                    try {
-                        return ((string)(this[this.tableBuyerApplications.HasReadPO6Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'HasReadPO6\' in table \'BuyerApplications\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.HasReadPO6Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool CondApproved {
-                get {
-                    try {
-                        return ((bool)(this[this.tableBuyerApplications.CondApprovedColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CondApproved\' in table \'BuyerApplications\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableBuyerApplications.CondApprovedColumn] = value;
                 }
             }
             
@@ -6883,6 +6801,106 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableBuyerApplications.CondCreditDecisionInformedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Primary_PropertyAssetsList {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyerApplications.Primary_PropertyAssetsListColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Primary_PropertyAssetsList\' in table \'BuyerApplications\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications.Primary_PropertyAssetsListColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Other_PropertyAssetsList {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyerApplications.Other_PropertyAssetsListColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Other_PropertyAssetsList\' in table \'BuyerApplications\' is D" +
+                                "BNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications.Other_PropertyAssetsListColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal _CondApprovedLimit_ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyerApplications._CondApprovedLimit_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondApprovedLimit$\' in table \'BuyerApplications\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications._CondApprovedLimit_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal _FinalApprovedLimit_ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyerApplications._FinalApprovedLimit_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalApprovedLimit$\' in table \'BuyerApplications\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications._FinalApprovedLimit_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MthlyRent {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyerApplications.MthlyRentColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MthlyRent\' in table \'BuyerApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications.MthlyRentColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MthlyDeposit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyerApplications.MthlyDepositColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MthlyDeposit\' in table \'BuyerApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyerApplications.MthlyDepositColumn] = value;
                 }
             }
             
@@ -7824,18 +7842,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCondDecisionNull() {
-                return this.IsNull(this.tableBuyerApplications.CondDecisionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCondDecisionNull() {
-                this[this.tableBuyerApplications.CondDecisionColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsHasAgreedPrivacyNull() {
                 return this.IsNull(this.tableBuyerApplications.HasAgreedPrivacyColumn);
             }
@@ -8352,30 +8358,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPrimary_PropertyAssetsNull() {
-                return this.IsNull(this.tableBuyerApplications.Primary_PropertyAssetsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPrimary_PropertyAssetsNull() {
-                this[this.tableBuyerApplications.Primary_PropertyAssetsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOther_PropertyAssetsNull() {
-                return this.IsNull(this.tableBuyerApplications.Other_PropertyAssetsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOther_PropertyAssetsNull() {
-                this[this.tableBuyerApplications.Other_PropertyAssetsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPrimary_PersonalLoansListNull() {
                 return this.IsNull(this.tableBuyerApplications.Primary_PersonalLoansListColumn);
             }
@@ -8472,18 +8454,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCondDecisionByNull() {
-                return this.IsNull(this.tableBuyerApplications.CondDecisionByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCondDecisionByNull() {
-                this[this.tableBuyerApplications.CondDecisionByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsHasReqestedPriorityNull() {
                 return this.IsNull(this.tableBuyerApplications.HasReqestedPriorityColumn);
             }
@@ -8492,18 +8462,6 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetHasReqestedPriorityNull() {
                 this[this.tableBuyerApplications.HasReqestedPriorityColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHasAgreedPACLicenceNull() {
-                return this.IsNull(this.tableBuyerApplications.HasAgreedPACLicenceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHasAgreedPACLicenceNull() {
-                this[this.tableBuyerApplications.HasAgreedPACLicenceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8532,18 +8490,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAutoRejectedInformedNull() {
-                return this.IsNull(this.tableBuyerApplications.AutoRejectedInformedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAutoRejectedInformedNull() {
-                this[this.tableBuyerApplications.AutoRejectedInformedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsAutoRejecetedByNull() {
                 return this.IsNull(this.tableBuyerApplications.AutoRejecetedByColumn);
             }
@@ -8552,18 +8498,6 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAutoRejecetedByNull() {
                 this[this.tableBuyerApplications.AutoRejecetedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAutoRejectedInformedByNull() {
-                return this.IsNull(this.tableBuyerApplications.AutoRejectedInformedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAutoRejectedInformedByNull() {
-                this[this.tableBuyerApplications.AutoRejectedInformedByColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8588,54 +8522,6 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetAutoAcceptedByNull() {
                 this[this.tableBuyerApplications.AutoAcceptedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAutoAcceptedInformedNull() {
-                return this.IsNull(this.tableBuyerApplications.AutoAcceptedInformedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAutoAcceptedInformedNull() {
-                this[this.tableBuyerApplications.AutoAcceptedInformedColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsAutoAcceptedInformedByNull() {
-                return this.IsNull(this.tableBuyerApplications.AutoAcceptedInformedByColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetAutoAcceptedInformedByNull() {
-                this[this.tableBuyerApplications.AutoAcceptedInformedByColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsHasReadPO6Null() {
-                return this.IsNull(this.tableBuyerApplications.HasReadPO6Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetHasReadPO6Null() {
-                this[this.tableBuyerApplications.HasReadPO6Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCondApprovedNull() {
-                return this.IsNull(this.tableBuyerApplications.CondApprovedColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCondApprovedNull() {
-                this[this.tableBuyerApplications.CondApprovedColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8780,6 +8666,78 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCondCreditDecisionInformedByNull() {
                 this[this.tableBuyerApplications.CondCreditDecisionInformedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrimary_PropertyAssetsListNull() {
+                return this.IsNull(this.tableBuyerApplications.Primary_PropertyAssetsListColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrimary_PropertyAssetsListNull() {
+                this[this.tableBuyerApplications.Primary_PropertyAssetsListColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOther_PropertyAssetsListNull() {
+                return this.IsNull(this.tableBuyerApplications.Other_PropertyAssetsListColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOther_PropertyAssetsListNull() {
+                this[this.tableBuyerApplications.Other_PropertyAssetsListColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_CondApprovedLimit_Null() {
+                return this.IsNull(this.tableBuyerApplications._CondApprovedLimit_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_CondApprovedLimit_Null() {
+                this[this.tableBuyerApplications._CondApprovedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_FinalApprovedLimit_Null() {
+                return this.IsNull(this.tableBuyerApplications._FinalApprovedLimit_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_FinalApprovedLimit_Null() {
+                this[this.tableBuyerApplications._FinalApprovedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMthlyRentNull() {
+                return this.IsNull(this.tableBuyerApplications.MthlyRentColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMthlyRentNull() {
+                this[this.tableBuyerApplications.MthlyRentColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMthlyDepositNull() {
+                return this.IsNull(this.tableBuyerApplications.MthlyDepositColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMthlyDepositNull() {
+                this[this.tableBuyerApplications.MthlyDepositColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9597,6 +9555,182 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string UpdatedBy1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.UpdatedBy1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'UpdatedBy1\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.UpdatedBy1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CondCreditDecisionDate {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableBuyer.CondCreditDecisionDateColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionDate\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.CondCreditDecisionDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CondCreditDecision {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.CondCreditDecisionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecision\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.CondCreditDecisionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CondCreditDecisionBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.CondCreditDecisionByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionBy\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.CondCreditDecisionByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime CondCreditDecisionInformed {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableBuyer.CondCreditDecisionInformedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionInformed\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.CondCreditDecisionInformedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CondCreditDecisionInformedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.CondCreditDecisionInformedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondCreditDecisionInformedBy\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.CondCreditDecisionInformedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FinalCreditDecisionInformed {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableBuyer.FinalCreditDecisionInformedColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalCreditDecisionInformed\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.FinalCreditDecisionInformedColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string FinalCreditDecisionInformedBy {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.FinalCreditDecisionInformedByColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalCreditDecisionInformedBy\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.FinalCreditDecisionInformedByColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal _AppliedLimit_ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyer._AppliedLimit_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AppliedLimit$\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer._AppliedLimit_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal _CondApprovedLimit_ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyer._CondApprovedLimit_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CondApprovedLimit$\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer._CondApprovedLimit_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal _FinalApprovedLimit_ {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableBuyer._FinalApprovedLimit_Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalApprovedLimit$\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer._FinalApprovedLimit_Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerRow BuyerRowParent {
                 get {
                     return ((BuyerRow)(this.GetParentRow(this.Table.ParentRelations["FK__Buyer__PrimaryBu__22FF2F51"])));
@@ -10135,6 +10269,138 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsUpdatedBy1Null() {
+                return this.IsNull(this.tableBuyer.UpdatedBy1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetUpdatedBy1Null() {
+                this[this.tableBuyer.UpdatedBy1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondCreditDecisionDateNull() {
+                return this.IsNull(this.tableBuyer.CondCreditDecisionDateColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondCreditDecisionDateNull() {
+                this[this.tableBuyer.CondCreditDecisionDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondCreditDecisionNull() {
+                return this.IsNull(this.tableBuyer.CondCreditDecisionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondCreditDecisionNull() {
+                this[this.tableBuyer.CondCreditDecisionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondCreditDecisionByNull() {
+                return this.IsNull(this.tableBuyer.CondCreditDecisionByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondCreditDecisionByNull() {
+                this[this.tableBuyer.CondCreditDecisionByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondCreditDecisionInformedNull() {
+                return this.IsNull(this.tableBuyer.CondCreditDecisionInformedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondCreditDecisionInformedNull() {
+                this[this.tableBuyer.CondCreditDecisionInformedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCondCreditDecisionInformedByNull() {
+                return this.IsNull(this.tableBuyer.CondCreditDecisionInformedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCondCreditDecisionInformedByNull() {
+                this[this.tableBuyer.CondCreditDecisionInformedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFinalCreditDecisionInformedNull() {
+                return this.IsNull(this.tableBuyer.FinalCreditDecisionInformedColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFinalCreditDecisionInformedNull() {
+                this[this.tableBuyer.FinalCreditDecisionInformedColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFinalCreditDecisionInformedByNull() {
+                return this.IsNull(this.tableBuyer.FinalCreditDecisionInformedByColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFinalCreditDecisionInformedByNull() {
+                this[this.tableBuyer.FinalCreditDecisionInformedByColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_AppliedLimit_Null() {
+                return this.IsNull(this.tableBuyer._AppliedLimit_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_AppliedLimit_Null() {
+                this[this.tableBuyer._AppliedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_CondApprovedLimit_Null() {
+                return this.IsNull(this.tableBuyer._CondApprovedLimit_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_CondApprovedLimit_Null() {
+                this[this.tableBuyer._CondApprovedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Is_FinalApprovedLimit_Null() {
+                return this.IsNull(this.tableBuyer._FinalApprovedLimit_Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Set_FinalApprovedLimit_Null() {
+                this[this.tableBuyer._FinalApprovedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerRow[] GetBuyerRows() {
                 if ((this.Table.ChildRelations["FK__Buyer__PrimaryBu__22FF2F51"] == null)) {
                     return new BuyerRow[0];
@@ -10420,7 +10686,6 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("EntryId", "EntryId");
             tableMapping.ColumnMappings.Add("EntryUserId", "EntryUserId");
             tableMapping.ColumnMappings.Add("CreatedUTC", "CreatedUTC");
-            tableMapping.ColumnMappings.Add("CondDecision", "CondDecision");
             tableMapping.ColumnMappings.Add("HasAgreedPrivacy", "HasAgreedPrivacy");
             tableMapping.ColumnMappings.Add("Primary_Gender", "Primary_Gender");
             tableMapping.ColumnMappings.Add("DesiredPropertyAddr", "DesiredPropertyAddr");
@@ -10464,8 +10729,6 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("Primary_CreditCardList", "Primary_CreditCardList");
             tableMapping.ColumnMappings.Add("Other_CreditCardList", "Other_CreditCardList");
             tableMapping.ColumnMappings.Add("RentPM", "RentPM");
-            tableMapping.ColumnMappings.Add("Primary_PropertyAssets", "Primary_PropertyAssets");
-            tableMapping.ColumnMappings.Add("Other_PropertyAssets", "Other_PropertyAssets");
             tableMapping.ColumnMappings.Add("Primary_PersonalLoansList", "Primary_PersonalLoansList");
             tableMapping.ColumnMappings.Add("Other_PersonalLoansList", "Other_PersonalLoansList");
             tableMapping.ColumnMappings.Add("Primary_OtherAssetsList", "Primary_OtherAssetsList");
@@ -10474,20 +10737,12 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("Other_OtherLiabilitiesList", "Other_OtherLiabilitiesList");
             tableMapping.ColumnMappings.Add("TransactionId", "TransactionId");
             tableMapping.ColumnMappings.Add("SourceURL", "SourceURL");
-            tableMapping.ColumnMappings.Add("CondDecisionBy", "CondDecisionBy");
             tableMapping.ColumnMappings.Add("HasReqestedPriority", "HasReqestedPriority");
-            tableMapping.ColumnMappings.Add("HasAgreedPACLicence", "HasAgreedPACLicence");
             tableMapping.ColumnMappings.Add("YrsPrevAddr", "YrsPrevAddr");
             tableMapping.ColumnMappings.Add("AutoRejected", "AutoRejected");
-            tableMapping.ColumnMappings.Add("AutoRejectedInformed", "AutoRejectedInformed");
             tableMapping.ColumnMappings.Add("AutoRejecetedBy", "AutoRejecetedBy");
-            tableMapping.ColumnMappings.Add("AutoRejectedInformedBy", "AutoRejectedInformedBy");
             tableMapping.ColumnMappings.Add("AutoAccepted", "AutoAccepted");
             tableMapping.ColumnMappings.Add("AutoAcceptedBy", "AutoAcceptedBy");
-            tableMapping.ColumnMappings.Add("AutoAcceptedInformed", "AutoAcceptedInformed");
-            tableMapping.ColumnMappings.Add("AutoAcceptedInformedBy", "AutoAcceptedInformedBy");
-            tableMapping.ColumnMappings.Add("HasReadPO6", "HasReadPO6");
-            tableMapping.ColumnMappings.Add("CondApproved", "CondApproved");
             tableMapping.ColumnMappings.Add("Primary_Title", "Primary_Title");
             tableMapping.ColumnMappings.Add("Other_Title", "Other_Title");
             tableMapping.ColumnMappings.Add("PrevEmploymentStatus", "PrevEmploymentStatus");
@@ -10500,6 +10755,12 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("CondCreditDecisionBy", "CondCreditDecisionBy");
             tableMapping.ColumnMappings.Add("CondCreditDecisionInformed", "CondCreditDecisionInformed");
             tableMapping.ColumnMappings.Add("CondCreditDecisionInformedBy", "CondCreditDecisionInformedBy");
+            tableMapping.ColumnMappings.Add("Primary_PropertyAssetsList", "Primary_PropertyAssetsList");
+            tableMapping.ColumnMappings.Add("Other_PropertyAssetsList", "Other_PropertyAssetsList");
+            tableMapping.ColumnMappings.Add("CondApprovedLimit$", "CondApprovedLimit$");
+            tableMapping.ColumnMappings.Add("FinalApprovedLimit$", "FinalApprovedLimit$");
+            tableMapping.ColumnMappings.Add("MthlyRent", "MthlyRent");
+            tableMapping.ColumnMappings.Add("MthlyDeposit", "MthlyDeposit");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -10544,49 +10805,51 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "ddr], [Primary_BusIncomeAPAYGTaxPA], [Other_BusIncomeAPAYGTaxPA], [Primary_Other" +
                 "IncomePA], [Other_OtherIncomePA], [Primary_OtherIncomeType], [Other_OtherIncomeT" +
                 "ype], [Primary_HomeLoanList], [Other_HomeLoanList], [Primary_CreditCardList], [O" +
-                "ther_CreditCardList], [RentPM], [Primary_PropertyAssets], [Other_PropertyAssets]" +
-                ", [Primary_PersonalLoansList], [Other_PersonalLoansList], [Primary_OtherAssetsLi" +
-                "st], [Other_OtherAssetsList], [Primary_OtherLiabilitiesList], [Other_OtherLiabil" +
-                "itiesList], [TransactionId], [SourceURL], [HasReqestedPriority], [AutoRejected]," +
-                " [AutoRejecetedBy], [AutoAccepted], [AutoAcceptedBy], [CondCreditDecisionDate], " +
-                "[CondCreditDecision], [CondCreditDecisionBy], [CondCreditDecisionInformed], [Con" +
-                "dCreditDecisionInformedBy]) VALUES (@ApplicantType, @Primary_Title, @Primary_Fir" +
-                "stName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitizenStat, @Primary" +
-                "_Dependants, @Primary_DOB, @Primary_Gender, @Other_Title, @Other_FirstName, @Oth" +
-                "er_OtherNames, @Other_LastName, @Other_DOB, @Other_Gender, @Other_AUCitizenStat," +
-                " @Other_Dependants, @Email, @Mobile, @Primary_Res_Street1, @Primary_Res_Street2," +
-                " @Primary_Res_PostCode, @Primary_Res_Suburb, @Primary_Res_State, @Primary_Res_Co" +
-                "untry, @Primary_CurrResidStatus, @Primary_YrsCurrAddr, @Other_Res_Street1, @Othe" +
-                "r_Res_Street2, @Other_Res_PostCode, @Other_Res_State, @Other_Res_Country, @Other" +
-                "_Res_Suburb, @Other_YrsCurrAddr, @PrevResStatus, @CurrOccupType, @CurrEmployment" +
-                "Status, @CurrJobTitle, @CurrEmployerName, @YrsCurrEmployer, @PrevJobTitle, @Prev" +
-                "EmploymentStatus, @PrevEmployerName, @YrsPrevEmployer, @Other_CurrOccupType, @Ot" +
-                "her_CurrEmploymentStatus, @Other_JobTitle, @Other_CurrEmployerName, @Other_YrsCu" +
-                "rrEmployer, @Other_PrevJobTitle, @Other_PrevEmployerName, @Other_PrevEmploymentS" +
-                "tatus, @Other_YrsPrevEmployer, @IsSmoker, @HasPrivateHealthIns, @ReasonNoPHI, @H" +
-                "ealthSelfRating, @RefusedHICover, @ReasonRefusedHI, @Other_IsSmoker, @Other_HasP" +
-                "rivateHealthIns, @Other_ReasonNoPHI, @Other_RefusedHICover, @Other_ReasonRefused" +
-                "HI, @Other_HealthSelfRating, @CreatedBy, @ModifiedBy, @Modified, @Primary_Income" +
-                "MoAT, @Other_IncomeMoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLocati" +
-                "on, @IntendedDeposit, @Broker, @BrokerDetails, @Property_Street1, @Property_Stre" +
-                "et2, @Property_Suburb, @Property_PostCode, @Property_State, @Property_Country, @" +
-                "PropertyID, @EstSpend, @EntryDate, @EntryId, @EntryUserId, @CreatedUTC, @HasAgre" +
-                "edPrivacy, @DesiredPropertyAddr, @Primary_MaritalStats, @Other_MaritalStats, @Ot" +
-                "her_Email, @Primary_HomePhone, @Other_HomePhone, @Other_Mobile, @Primary_Passpor" +
-                "tNo, @Other_PassportNo, @Primary_PassportCountry, @Other_PassportCountry, @Prima" +
-                "ry_DriversLicenceNo, @Other_DriversLicenceNo, @Primary_DriversLicenceState, @Oth" +
-                "er_DriversLicenceState, @Other_CurrResidStatus, @PrimPrev_Res_Street1, @PrimPrev" +
-                "_Res_Street2, @PrimPrev_Res_Suburb, @PrimPrev_Res_PostCode, @PrimPrev_Res_State," +
-                " @PrimPrev_Res_Country, @YrsPrevAddr, @OthPrev_Res_Street1, @OthPrev_Res_Street2" +
-                ", @OthPrev_Res_Suburb, @OthPrev_Res_PostCode, @OthPrev_Res_State, @OthPrev_Res_C" +
-                "ountry, @Other_PrevResStatus, @Other_YrsPrevAddr, @Primary_BusIncomeAPAYGTaxPA, " +
-                "@Other_BusIncomeAPAYGTaxPA, @Primary_OtherIncomePA, @Other_OtherIncomePA, @Prima" +
-                "ry_OtherIncomeType, @Other_OtherIncomeType, @Primary_HomeLoanList, @Other_HomeLo" +
-                "anList, @Primary_CreditCardList, @Other_CreditCardList, @RentPM, @Primary_Proper" +
-                "tyAssets, @Other_PropertyAssets, @Primary_PersonalLoansList, @Other_PersonalLoan" +
-                "sList, @Primary_OtherAssetsList, @Other_OtherAssetsList, @Primary_OtherLiabiliti" +
-                "esList, @Other_OtherLiabilitiesList, @TransactionId, @SourceURL, @HasReqestedPri" +
-                "ority, @AutoRejected, @AutoRejecetedBy, @AutoAccepted, @AutoAcceptedBy, @CondCre" +
+                "ther_CreditCardList], [RentPM], [Primary_PropertyAssetsList], [Other_PropertyAss" +
+                "etsList], [Primary_PersonalLoansList], [Other_PersonalLoansList], [Primary_Other" +
+                "AssetsList], [Other_OtherAssetsList], [Primary_OtherLiabilitiesList], [Other_Oth" +
+                "erLiabilitiesList], [TransactionId], [SourceURL], [HasReqestedPriority], [AutoRe" +
+                "jected], [AutoRejecetedBy], [AutoAccepted], [AutoAcceptedBy], [CondApprovedLimit" +
+                "$], [FinalApprovedLimit$], [MthlyRent], [MthlyDeposit], [CondCreditDecisionDate]" +
+                ", [CondCreditDecision], [CondCreditDecisionBy], [CondCreditDecisionInformed], [C" +
+                "ondCreditDecisionInformedBy]) VALUES (@ApplicantType, @Primary_Title, @Primary_F" +
+                "irstName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitizenStat, @Prima" +
+                "ry_Dependants, @Primary_DOB, @Primary_Gender, @Other_Title, @Other_FirstName, @O" +
+                "ther_OtherNames, @Other_LastName, @Other_DOB, @Other_Gender, @Other_AUCitizenSta" +
+                "t, @Other_Dependants, @Email, @Mobile, @Primary_Res_Street1, @Primary_Res_Street" +
+                "2, @Primary_Res_PostCode, @Primary_Res_Suburb, @Primary_Res_State, @Primary_Res_" +
+                "Country, @Primary_CurrResidStatus, @Primary_YrsCurrAddr, @Other_Res_Street1, @Ot" +
+                "her_Res_Street2, @Other_Res_PostCode, @Other_Res_State, @Other_Res_Country, @Oth" +
+                "er_Res_Suburb, @Other_YrsCurrAddr, @PrevResStatus, @CurrOccupType, @CurrEmployme" +
+                "ntStatus, @CurrJobTitle, @CurrEmployerName, @YrsCurrEmployer, @PrevJobTitle, @Pr" +
+                "evEmploymentStatus, @PrevEmployerName, @YrsPrevEmployer, @Other_CurrOccupType, @" +
+                "Other_CurrEmploymentStatus, @Other_JobTitle, @Other_CurrEmployerName, @Other_Yrs" +
+                "CurrEmployer, @Other_PrevJobTitle, @Other_PrevEmployerName, @Other_PrevEmploymen" +
+                "tStatus, @Other_YrsPrevEmployer, @IsSmoker, @HasPrivateHealthIns, @ReasonNoPHI, " +
+                "@HealthSelfRating, @RefusedHICover, @ReasonRefusedHI, @Other_IsSmoker, @Other_Ha" +
+                "sPrivateHealthIns, @Other_ReasonNoPHI, @Other_RefusedHICover, @Other_ReasonRefus" +
+                "edHI, @Other_HealthSelfRating, @CreatedBy, @ModifiedBy, @Modified, @Primary_Inco" +
+                "meMoAT, @Other_IncomeMoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLoca" +
+                "tion, @IntendedDeposit, @Broker, @BrokerDetails, @Property_Street1, @Property_St" +
+                "reet2, @Property_Suburb, @Property_PostCode, @Property_State, @Property_Country," +
+                " @PropertyID, @EstSpend, @EntryDate, @EntryId, @EntryUserId, @CreatedUTC, @HasAg" +
+                "reedPrivacy, @DesiredPropertyAddr, @Primary_MaritalStats, @Other_MaritalStats, @" +
+                "Other_Email, @Primary_HomePhone, @Other_HomePhone, @Other_Mobile, @Primary_Passp" +
+                "ortNo, @Other_PassportNo, @Primary_PassportCountry, @Other_PassportCountry, @Pri" +
+                "mary_DriversLicenceNo, @Other_DriversLicenceNo, @Primary_DriversLicenceState, @O" +
+                "ther_DriversLicenceState, @Other_CurrResidStatus, @PrimPrev_Res_Street1, @PrimPr" +
+                "ev_Res_Street2, @PrimPrev_Res_Suburb, @PrimPrev_Res_PostCode, @PrimPrev_Res_Stat" +
+                "e, @PrimPrev_Res_Country, @YrsPrevAddr, @OthPrev_Res_Street1, @OthPrev_Res_Stree" +
+                "t2, @OthPrev_Res_Suburb, @OthPrev_Res_PostCode, @OthPrev_Res_State, @OthPrev_Res" +
+                "_Country, @Other_PrevResStatus, @Other_YrsPrevAddr, @Primary_BusIncomeAPAYGTaxPA" +
+                ", @Other_BusIncomeAPAYGTaxPA, @Primary_OtherIncomePA, @Other_OtherIncomePA, @Pri" +
+                "mary_OtherIncomeType, @Other_OtherIncomeType, @Primary_HomeLoanList, @Other_Home" +
+                "LoanList, @Primary_CreditCardList, @Other_CreditCardList, @RentPM, @Primary_Prop" +
+                "ertyAssetsList, @Other_PropertyAssetsList, @Primary_PersonalLoansList, @Other_Pe" +
+                "rsonalLoansList, @Primary_OtherAssetsList, @Other_OtherAssetsList, @Primary_Othe" +
+                "rLiabilitiesList, @Other_OtherLiabilitiesList, @TransactionId, @SourceURL, @HasR" +
+                "eqestedPriority, @AutoRejected, @AutoRejecetedBy, @AutoAccepted, @AutoAcceptedBy" +
+                ", @CondApprovedLimit$, @FinalApprovedLimit$, @MthlyRent, @MthlyDeposit, @CondCre" +
                 "ditDecisionDate, @CondCreditDecision, @CondCreditDecisionBy, @CondCreditDecision" +
                 "Informed, @CondCreditDecisionInformedBy);\r\nSELECT Id, ApplicantType, Primary_Tit" +
                 "le, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenSt" +
@@ -10619,13 +10882,14 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "Other_PrevResStatus, Other_YrsPrevAddr, Primary_BusIncomeAPAYGTaxPA, Other_BusIn" +
                 "comeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeT" +
                 "ype, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_Cr" +
-                "editCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_Proper" +
-                "tyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAsset" +
-                "sList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabiliti" +
-                "esList, TransactionId, SourceURL, HasReqestedPriority, AutoRejected, AutoRejecet" +
-                "edBy, AutoAccepted, AutoAcceptedBy, CondCreditDecisionDate, CondCreditDecision, " +
-                "CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy F" +
-                "ROM BuyerApplications WHERE (Id = SCOPE_IDENTITY())";
+                "editCardList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_Pr" +
+                "opertyAssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_Ot" +
+                "herAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherL" +
+                "iabilitiesList, TransactionId, SourceURL, HasReqestedPriority, AutoRejected, Aut" +
+                "oRejecetedBy, AutoAccepted, AutoAcceptedBy, CondApprovedLimit$, FinalApprovedLim" +
+                "it$, MthlyRent, MthlyDeposit, CondCreditDecisionDate, CondCreditDecision, CondCr" +
+                "editDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy FROM Bu" +
+                "yerApplications WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10758,8 +11022,8 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentPM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentPM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_OtherAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_OtherAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10773,6 +11037,10 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejecetedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejecetedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAccepted", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAccepted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MthlyRent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "MthlyRent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MthlyDeposit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "MthlyDeposit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -10848,57 +11116,60 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "meType, [Other_OtherIncomeType] = @Other_OtherIncomeType, [Primary_HomeLoanList]" +
                 " = @Primary_HomeLoanList, [Other_HomeLoanList] = @Other_HomeLoanList, [Primary_C" +
                 "reditCardList] = @Primary_CreditCardList, [Other_CreditCardList] = @Other_Credit" +
-                "CardList, [RentPM] = @RentPM, [Primary_PropertyAssets] = @Primary_PropertyAssets" +
-                ", [Other_PropertyAssets] = @Other_PropertyAssets, [Primary_PersonalLoansList] = " +
-                "@Primary_PersonalLoansList, [Other_PersonalLoansList] = @Other_PersonalLoansList" +
-                ", [Primary_OtherAssetsList] = @Primary_OtherAssetsList, [Other_OtherAssetsList] " +
-                "= @Other_OtherAssetsList, [Primary_OtherLiabilitiesList] = @Primary_OtherLiabili" +
-                "tiesList, [Other_OtherLiabilitiesList] = @Other_OtherLiabilitiesList, [Transacti" +
-                "onId] = @TransactionId, [SourceURL] = @SourceURL, [HasReqestedPriority] = @HasRe" +
-                "qestedPriority, [AutoRejected] = @AutoRejected, [AutoRejecetedBy] = @AutoRejecet" +
-                "edBy, [AutoAccepted] = @AutoAccepted, [AutoAcceptedBy] = @AutoAcceptedBy, [CondC" +
-                "reditDecisionDate] = @CondCreditDecisionDate, [CondCreditDecision] = @CondCredit" +
-                "Decision, [CondCreditDecisionBy] = @CondCreditDecisionBy, [CondCreditDecisionInf" +
-                "ormed] = @CondCreditDecisionInformed, [CondCreditDecisionInformedBy] = @CondCred" +
-                "itDecisionInformedBy WHERE (([Id] = @Original_Id) AND ([RowVersion] = @Original_" +
-                "RowVersion));\r\nSELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Prima" +
-                "ry_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Prim" +
-                "ary_DOB, Primary_Gender, Other_Title, Other_FirstName, Other_OtherNames, Other_L" +
-                "astName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, " +
-                "Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_" +
-                "Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, Pri" +
-                "mary_YrsCurrAddr, Other_Res_Street1, Other_Res_Street2, Other_Res_PostCode, Othe" +
-                "r_Res_State, Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStat" +
-                "us, CurrOccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurr" +
-                "Employer, PrevJobTitle, PrevEmploymentStatus, PrevEmployerName, YrsPrevEmployer," +
-                " Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTitle, Other_CurrEmpl" +
-                "oyerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_PrevEmployerName, Oth" +
-                "er_PrevEmploymentStatus, Other_YrsPrevEmployer, IsSmoker, HasPrivateHealthIns, R" +
-                "easonNoPHI, HealthSelfRating, RefusedHICover, ReasonRefusedHI, Other_IsSmoker, O" +
-                "ther_HasPrivateHealthIns, Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonR" +
-                "efusedHI, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersion, P" +
-                "rimary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, Fo" +
-                "undLocation, IntendedDeposit, Broker, BrokerDetails, Property_Street1, Property_" +
-                "Street2, Property_Suburb, Property_PostCode, Property_State, Property_Country, P" +
-                "ropertyID, EstSpend, EntryDate, EntryId, EntryUserId, CreatedUTC, HasAgreedPriva" +
-                "cy, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, " +
-                "Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_Pass" +
-                "portNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo" +
-                ", Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState" +
-                ", Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Re" +
-                "s_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, YrsPr" +
-                "evAddr, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Re" +
-                "s_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_Y" +
-                "rsPrevAddr, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_Othe" +
-                "rIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, " +
-                "Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCa" +
-                "rdList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLo" +
-                "ansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList" +
-                ", Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, TransactionId, Sourc" +
-                "eURL, HasReqestedPriority, AutoRejected, AutoRejecetedBy, AutoAccepted, AutoAcce" +
-                "ptedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCr" +
-                "editDecisionInformed, CondCreditDecisionInformedBy FROM BuyerApplications WHERE " +
-                "(Id = @Id)";
+                "CardList, [RentPM] = @RentPM, [Primary_PropertyAssetsList] = @Primary_PropertyAs" +
+                "setsList, [Other_PropertyAssetsList] = @Other_PropertyAssetsList, [Primary_Perso" +
+                "nalLoansList] = @Primary_PersonalLoansList, [Other_PersonalLoansList] = @Other_P" +
+                "ersonalLoansList, [Primary_OtherAssetsList] = @Primary_OtherAssetsList, [Other_O" +
+                "therAssetsList] = @Other_OtherAssetsList, [Primary_OtherLiabilitiesList] = @Prim" +
+                "ary_OtherLiabilitiesList, [Other_OtherLiabilitiesList] = @Other_OtherLiabilities" +
+                "List, [TransactionId] = @TransactionId, [SourceURL] = @SourceURL, [HasReqestedPr" +
+                "iority] = @HasReqestedPriority, [AutoRejected] = @AutoRejected, [AutoRejecetedBy" +
+                "] = @AutoRejecetedBy, [AutoAccepted] = @AutoAccepted, [AutoAcceptedBy] = @AutoAc" +
+                "ceptedBy, [CondApprovedLimit$] = @CondApprovedLimit$, [FinalApprovedLimit$] = @F" +
+                "inalApprovedLimit$, [MthlyRent] = @MthlyRent, [MthlyDeposit] = @MthlyDeposit, [C" +
+                "ondCreditDecisionDate] = @CondCreditDecisionDate, [CondCreditDecision] = @CondCr" +
+                "editDecision, [CondCreditDecisionBy] = @CondCreditDecisionBy, [CondCreditDecisio" +
+                "nInformed] = @CondCreditDecisionInformed, [CondCreditDecisionInformedBy] = @Cond" +
+                "CreditDecisionInformedBy WHERE (([Id] = @Original_Id) AND ([RowVersion] = @Origi" +
+                "nal_RowVersion));\r\nSELECT Id, ApplicantType, Primary_Title, Primary_FirstName, P" +
+                "rimary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, " +
+                "Primary_DOB, Primary_Gender, Other_Title, Other_FirstName, Other_OtherNames, Oth" +
+                "er_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Ema" +
+                "il, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Prim" +
+                "ary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus," +
+                " Primary_YrsCurrAddr, Other_Res_Street1, Other_Res_Street2, Other_Res_PostCode, " +
+                "Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevRes" +
+                "Status, CurrOccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, Yrs" +
+                "CurrEmployer, PrevJobTitle, PrevEmploymentStatus, PrevEmployerName, YrsPrevEmplo" +
+                "yer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTitle, Other_Curr" +
+                "EmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_PrevEmployerName," +
+                " Other_PrevEmploymentStatus, Other_YrsPrevEmployer, IsSmoker, HasPrivateHealthIn" +
+                "s, ReasonNoPHI, HealthSelfRating, RefusedHICover, ReasonRefusedHI, Other_IsSmoke" +
+                "r, Other_HasPrivateHealthIns, Other_ReasonNoPHI, Other_RefusedHICover, Other_Rea" +
+                "sonRefusedHI, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersio" +
+                "n, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation" +
+                ", FoundLocation, IntendedDeposit, Broker, BrokerDetails, Property_Street1, Prope" +
+                "rty_Street2, Property_Suburb, Property_PostCode, Property_State, Property_Countr" +
+                "y, PropertyID, EstSpend, EntryDate, EntryId, EntryUserId, CreatedUTC, HasAgreedP" +
+                "rivacy, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Ema" +
+                "il, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_" +
+                "PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicen" +
+                "ceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceS" +
+                "tate, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPre" +
+                "v_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, Y" +
+                "rsPrevAddr, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPre" +
+                "v_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Oth" +
+                "er_YrsPrevAddr, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_" +
+                "OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeTy" +
+                "pe, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_Cred" +
+                "itCardList, RentPM, Primary_PropertyAssetsList, Other_PropertyAssetsList, Primar" +
+                "y_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_Oth" +
+                "erAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, Transact" +
+                "ionId, SourceURL, HasReqestedPriority, AutoRejected, AutoRejecetedBy, AutoAccept" +
+                "ed, AutoAcceptedBy, CondApprovedLimit$, FinalApprovedLimit$, MthlyRent, MthlyDep" +
+                "osit, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCred" +
+                "itDecisionInformed, CondCreditDecisionInformedBy FROM BuyerApplications WHERE (I" +
+                "d = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11031,8 +11302,8 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentPM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentPM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_OtherAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_OtherAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11046,6 +11317,10 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoRejecetedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoRejecetedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAccepted", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAccepted", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AutoAcceptedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AutoAcceptedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MthlyRent", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "MthlyRent", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MthlyDeposit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "MthlyDeposit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -11069,95 +11344,48 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherN" +
-                "ames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, " +
-                "Primary_Gender, Other_Title, Other_FirstName, \r\n                         Other_O" +
-                "therNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_D" +
-                "ependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_" +
-                "PostCode, \r\n                         Primary_Res_Suburb, Primary_Res_State, Prim" +
-                "ary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1" +
-                ", Other_Res_Street2, Other_Res_PostCode, Other_Res_State, \r\n                    " +
-                "     Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, Curr" +
-                "OccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer" +
-                ", PrevJobTitle, PrevEmploymentStatus, \r\n                         PrevEmployerNam" +
-                "e, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTi" +
-                "tle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_Pr" +
-                "evEmployerName, \r\n                         Other_PrevEmploymentStatus, Other_Yrs" +
-                "PrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, Refu" +
-                "sedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, \r\n      " +
-                "                   Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedH" +
-                "I, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersion, Primary_" +
-                "IncomeMoAT, Other_IncomeMoAT, \r\n                         HouseholdIncomeGrossPA," +
-                " LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Propert" +
-                "y_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State," +
-                " Property_Country, \r\n                         PropertyID, EstSpend, EntryDate, E" +
-                "ntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_" +
-                "MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhon" +
-                "e, \r\n                         Other_Mobile, Primary_PassportNo, Other_PassportNo" +
-                ", Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Othe" +
-                "r_DriversLicenceNo, Primary_DriversLicenceState, \r\n                         Othe" +
-                "r_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res" +
-                "_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPr" +
-                "ev_Res_Country, YrsPrevAddr, \r\n                         OthPrev_Res_Street1, Oth" +
-                "Prev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, O" +
-                "thPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, \r\n                  " +
-                "       Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherInco" +
-                "mePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Prima" +
-                "ry_HomeLoanList, \r\n                         Other_HomeLoanList, Primary_CreditCa" +
-                "rdList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAsse" +
-                "ts, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList," +
-                " \r\n                         Other_OtherAssetsList, Primary_OtherLiabilitiesList," +
-                " Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriority, Auto" +
-                "Rejected, AutoRejecetedBy, AutoAccepted, AutoAcceptedBy, \r\n                     " +
-                "    CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCredit" +
-                "DecisionInformed, CondCreditDecisionInformedBy\r\nFROM            BuyerApplication" +
-                "s";
+            this._commandCollection[0].CommandText = "SELECT        BuyerApplications.*\r\nFROM            BuyerApplications";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        ApplicantType, AutoAccepted, AutoAcceptedBy, AutoRejecetedBy, AutoR" +
-                "ejected, Broker, BrokerDetails, CondCreditDecision, CondCreditDecisionBy, CondCr" +
-                "editDecisionDate, CondCreditDecisionInformed, \r\n                         CondCre" +
-                "ditDecisionInformedBy, CreatedBy, CreatedUTC, CurrEmployerName, CurrEmploymentSt" +
-                "atus, CurrJobTitle, CurrOccupType, DesiredPropertyAddr, Email, EntryDate, EntryI" +
-                "d, EntryUserId, EstSpend, \r\n                         FoundLocation, HasAgreedPri" +
-                "vacy, HasPrivateHealthIns, HasReqestedPriority, HealthSelfRating, HouseholdIncom" +
-                "eGrossPA, Id, IntendedDeposit, IsSmoker, LookingLocation, Mobile, Modified, Modi" +
-                "fiedBy, \r\n                         OthPrev_Res_Country, OthPrev_Res_PostCode, Ot" +
-                "hPrev_Res_State, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, O" +
-                "ther_AUCitizenStat, Other_BusIncomeAPAYGTaxPA, \r\n                         Other_" +
-                "CreditCardList, Other_CurrEmployerName, Other_CurrEmploymentStatus, Other_CurrOc" +
-                "cupType, Other_CurrResidStatus, Other_DOB, Other_Dependants, Other_DriversLicenc" +
-                "eNo, \r\n                         Other_DriversLicenceState, Other_Email, Other_Fi" +
-                "rstName, Other_Gender, Other_HasPrivateHealthIns, Other_HealthSelfRating, Other_" +
-                "HomeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_IsSmoker, \r\n             " +
-                "            Other_JobTitle, Other_LastName, Other_MaritalStats, Other_Mobile, Ot" +
-                "her_OtherAssetsList, Other_OtherIncomePA, Other_OtherIncomeType, Other_OtherLiab" +
-                "ilitiesList, Other_OtherNames, \r\n                         Other_PassportCountry," +
-                " Other_PassportNo, Other_PersonalLoansList, Other_PrevEmployerName, Other_PrevEm" +
-                "ploymentStatus, Other_PrevJobTitle, Other_PrevResStatus, Other_PropertyAssets, \r" +
-                "\n                         Other_ReasonNoPHI, Other_ReasonRefusedHI, Other_Refuse" +
-                "dHICover, Other_Res_Country, Other_Res_PostCode, Other_Res_State, Other_Res_Stre" +
-                "et1, Other_Res_Street2, Other_Res_Suburb, Other_Title, \r\n                       " +
-                "  Other_YrsCurrAddr, Other_YrsCurrEmployer, Other_YrsPrevAddr, Other_YrsPrevEmpl" +
-                "oyer, PrevEmployerName, PrevEmploymentStatus, PrevJobTitle, PrevResStatus, PrimP" +
-                "rev_Res_Country, \r\n                         PrimPrev_Res_PostCode, PrimPrev_Res_" +
-                "State, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, Primary_" +
-                "AUCitizenStat, Primary_BusIncomeAPAYGTaxPA, Primary_CreditCardList, \r\n          " +
-                "               Primary_CurrResidStatus, Primary_DOB, Primary_Dependants, Primary" +
-                "_DriversLicenceNo, Primary_DriversLicenceState, Primary_FirstName, Primary_Gende" +
-                "r, Primary_HomeLoanList, Primary_HomePhone, \r\n                         Primary_I" +
-                "ncomeMoAT, Primary_LastName, Primary_MaritalStats, Primary_OtherAssetsList, Prim" +
-                "ary_OtherIncomePA, Primary_OtherIncomeType, Primary_OtherLiabilitiesList, Primar" +
-                "y_OtherNames, \r\n                         Primary_PassportCountry, Primary_Passpo" +
-                "rtNo, Primary_PersonalLoansList, Primary_PropertyAssets, Primary_Res_Country, Pr" +
-                "imary_Res_PostCode, Primary_Res_State, Primary_Res_Street1, \r\n                  " +
-                "       Primary_Res_Street2, Primary_Res_Suburb, Primary_Title, Primary_YrsCurrAd" +
-                "dr, PropertyID, Property_Country, Property_PostCode, Property_State, Property_St" +
-                "reet1, Property_Street2, Property_Suburb, \r\n                         ReasonNoPHI" +
-                ", ReasonRefusedHI, RefusedHICover, RentPM, RowVersion, SourceURL, TransactionId," +
-                " YrsCurrEmployer, YrsPrevAddr, YrsPrevEmployer\r\nFROM            BuyerApplication" +
-                "s\r\nWHERE        (Id = @Id)";
+            this._commandCollection[1].CommandText = "SELECT ApplicantType, AutoAccepted, AutoAcceptedBy, AutoRejecetedBy, AutoRejected" +
+                ", Broker, BrokerDetails, CondApprovedLimit$, CondCreditDecision, CondCreditDecis" +
+                "ionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInf" +
+                "ormedBy, CreatedBy, CreatedUTC, CurrEmployerName, CurrEmploymentStatus, CurrJobT" +
+                "itle, CurrOccupType, DesiredPropertyAddr, Email, EntryDate, EntryId, EntryUserId" +
+                ", EstSpend, FinalApprovedLimit$, FoundLocation, HasAgreedPrivacy, HasPrivateHeal" +
+                "thIns, HasReqestedPriority, HealthSelfRating, HouseholdIncomeGrossPA, Id, Intend" +
+                "edDeposit, IsSmoker, LookingLocation, Mobile, Modified, ModifiedBy, MthlyDeposit" +
+                ", MthlyRent, OthPrev_Res_Country, OthPrev_Res_PostCode, OthPrev_Res_State, OthPr" +
+                "ev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, Other_AUCitizenStat, Ot" +
+                "her_BusIncomeAPAYGTaxPA, Other_CreditCardList, Other_CurrEmployerName, Other_Cur" +
+                "rEmploymentStatus, Other_CurrOccupType, Other_CurrResidStatus, Other_DOB, Other_" +
+                "Dependants, Other_DriversLicenceNo, Other_DriversLicenceState, Other_Email, Othe" +
+                "r_FirstName, Other_Gender, Other_HasPrivateHealthIns, Other_HealthSelfRating, Ot" +
+                "her_HomeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_IsSmoker, Other_JobTi" +
+                "tle, Other_LastName, Other_MaritalStats, Other_Mobile, Other_OtherAssetsList, Ot" +
+                "her_OtherIncomePA, Other_OtherIncomeType, Other_OtherLiabilitiesList, Other_Othe" +
+                "rNames, Other_PassportCountry, Other_PassportNo, Other_PersonalLoansList, Other_" +
+                "PrevEmployerName, Other_PrevEmploymentStatus, Other_PrevJobTitle, Other_PrevResS" +
+                "tatus, Other_PropertyAssetsList, Other_ReasonNoPHI, Other_ReasonRefusedHI, Other" +
+                "_RefusedHICover, Other_Res_Country, Other_Res_PostCode, Other_Res_State, Other_R" +
+                "es_Street1, Other_Res_Street2, Other_Res_Suburb, Other_Title, Other_YrsCurrAddr," +
+                " Other_YrsCurrEmployer, Other_YrsPrevAddr, Other_YrsPrevEmployer, PrevEmployerNa" +
+                "me, PrevEmploymentStatus, PrevJobTitle, PrevResStatus, PrimPrev_Res_Country, Pri" +
+                "mPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Street1, PrimPrev_Res_Stree" +
+                "t2, PrimPrev_Res_Suburb, Primary_AUCitizenStat, Primary_BusIncomeAPAYGTaxPA, Pri" +
+                "mary_CreditCardList, Primary_CurrResidStatus, Primary_DOB, Primary_Dependants, P" +
+                "rimary_DriversLicenceNo, Primary_DriversLicenceState, Primary_FirstName, Primary" +
+                "_Gender, Primary_HomeLoanList, Primary_HomePhone, Primary_IncomeMoAT, Primary_La" +
+                "stName, Primary_MaritalStats, Primary_OtherAssetsList, Primary_OtherIncomePA, Pr" +
+                "imary_OtherIncomeType, Primary_OtherLiabilitiesList, Primary_OtherNames, Primary" +
+                "_PassportCountry, Primary_PassportNo, Primary_PersonalLoansList, Primary_Propert" +
+                "yAssetsList, Primary_Res_Country, Primary_Res_PostCode, Primary_Res_State, Prima" +
+                "ry_Res_Street1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Title, Primary_" +
+                "YrsCurrAddr, PropertyID, Property_Country, Property_PostCode, Property_State, Pr" +
+                "operty_Street1, Property_Street2, Property_Suburb, ReasonNoPHI, ReasonRefusedHI," +
+                " RefusedHICover, RentPM, RowVersion, SourceURL, TransactionId, YrsCurrEmployer, " +
+                "YrsPrevAddr, YrsPrevEmployer FROM BuyerApplications WHERE (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -11405,8 +11633,8 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -11420,6 +11648,10 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string AutoRejecetedBy, 
                     global::System.Nullable<global::System.DateTime> AutoAccepted, 
                     string AutoAcceptedBy, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_, 
+                    global::System.Nullable<decimal> MthlyRent, 
+                    global::System.Nullable<decimal> MthlyDeposit, 
                     global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
                     string CondCreditDecision, 
                     string CondCreditDecisionBy, 
@@ -12196,17 +12428,17 @@ namespace DataUtils.BuyerDSTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[130].Value = ((string)(RentPM));
             }
-            if ((Primary_PropertyAssets == null)) {
+            if ((Primary_PropertyAssetsList == null)) {
                 this.Adapter.InsertCommand.Parameters[131].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[131].Value = ((string)(Primary_PropertyAssets));
+                this.Adapter.InsertCommand.Parameters[131].Value = ((string)(Primary_PropertyAssetsList));
             }
-            if ((Other_PropertyAssets == null)) {
+            if ((Other_PropertyAssetsList == null)) {
                 this.Adapter.InsertCommand.Parameters[132].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[132].Value = ((string)(Other_PropertyAssets));
+                this.Adapter.InsertCommand.Parameters[132].Value = ((string)(Other_PropertyAssetsList));
             }
             if ((Primary_PersonalLoansList == null)) {
                 this.Adapter.InsertCommand.Parameters[133].Value = global::System.DBNull.Value;
@@ -12286,35 +12518,59 @@ namespace DataUtils.BuyerDSTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[145].Value = ((string)(AutoAcceptedBy));
             }
-            if ((CondCreditDecisionDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[146].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
+            if ((_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[146].Value = ((decimal)(_CondApprovedLimit_.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[146].Value = global::System.DBNull.Value;
             }
-            if ((CondCreditDecision == null)) {
+            if ((_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[147].Value = ((decimal)(_FinalApprovedLimit_.Value));
+            }
+            else {
                 this.Adapter.InsertCommand.Parameters[147].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[147].Value = ((string)(CondCreditDecision));
+            if ((MthlyRent.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[148].Value = ((decimal)(MthlyRent.Value));
             }
-            if ((CondCreditDecisionBy == null)) {
+            else {
                 this.Adapter.InsertCommand.Parameters[148].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.InsertCommand.Parameters[148].Value = ((string)(CondCreditDecisionBy));
-            }
-            if ((CondCreditDecisionInformed.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[149].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
+            if ((MthlyDeposit.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[149].Value = ((decimal)(MthlyDeposit.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[149].Value = global::System.DBNull.Value;
             }
-            if ((CondCreditDecisionInformedBy == null)) {
-                this.Adapter.InsertCommand.Parameters[150].Value = global::System.DBNull.Value;
+            if ((CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[150].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[150].Value = ((string)(CondCreditDecisionInformedBy));
+                this.Adapter.InsertCommand.Parameters[150].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecision == null)) {
+                this.Adapter.InsertCommand.Parameters[151].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[151].Value = ((string)(CondCreditDecision));
+            }
+            if ((CondCreditDecisionBy == null)) {
+                this.Adapter.InsertCommand.Parameters[152].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[152].Value = ((string)(CondCreditDecisionBy));
+            }
+            if ((CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[153].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[153].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecisionInformedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[154].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[154].Value = ((string)(CondCreditDecisionInformedBy));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -12468,8 +12724,8 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -12483,6 +12739,10 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string AutoRejecetedBy, 
                     global::System.Nullable<global::System.DateTime> AutoAccepted, 
                     string AutoAcceptedBy, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_, 
+                    global::System.Nullable<decimal> MthlyRent, 
+                    global::System.Nullable<decimal> MthlyDeposit, 
                     global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
                     string CondCreditDecision, 
                     string CondCreditDecisionBy, 
@@ -13262,17 +13522,17 @@ namespace DataUtils.BuyerDSTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(RentPM));
             }
-            if ((Primary_PropertyAssets == null)) {
+            if ((Primary_PropertyAssetsList == null)) {
                 this.Adapter.UpdateCommand.Parameters[131].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[131].Value = ((string)(Primary_PropertyAssets));
+                this.Adapter.UpdateCommand.Parameters[131].Value = ((string)(Primary_PropertyAssetsList));
             }
-            if ((Other_PropertyAssets == null)) {
+            if ((Other_PropertyAssetsList == null)) {
                 this.Adapter.UpdateCommand.Parameters[132].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Other_PropertyAssets));
+                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Other_PropertyAssetsList));
             }
             if ((Primary_PersonalLoansList == null)) {
                 this.Adapter.UpdateCommand.Parameters[133].Value = global::System.DBNull.Value;
@@ -13352,44 +13612,68 @@ namespace DataUtils.BuyerDSTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[145].Value = ((string)(AutoAcceptedBy));
             }
-            if ((CondCreditDecisionDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[146].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
+            if ((_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[146].Value = ((decimal)(_CondApprovedLimit_.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[146].Value = global::System.DBNull.Value;
             }
-            if ((CondCreditDecision == null)) {
+            if ((_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[147].Value = ((decimal)(_FinalApprovedLimit_.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[147].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[147].Value = ((string)(CondCreditDecision));
+            if ((MthlyRent.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[148].Value = ((decimal)(MthlyRent.Value));
             }
-            if ((CondCreditDecisionBy == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[148].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[148].Value = ((string)(CondCreditDecisionBy));
-            }
-            if ((CondCreditDecisionInformed.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[149].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
+            if ((MthlyDeposit.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[149].Value = ((decimal)(MthlyDeposit.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[149].Value = global::System.DBNull.Value;
             }
-            if ((CondCreditDecisionInformedBy == null)) {
-                this.Adapter.UpdateCommand.Parameters[150].Value = global::System.DBNull.Value;
+            if ((CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[150].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[150].Value = ((string)(CondCreditDecisionInformedBy));
+                this.Adapter.UpdateCommand.Parameters[150].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[151].Value = ((int)(Original_Id));
+            if ((CondCreditDecision == null)) {
+                this.Adapter.UpdateCommand.Parameters[151].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[151].Value = ((string)(CondCreditDecision));
+            }
+            if ((CondCreditDecisionBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[152].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[152].Value = ((string)(CondCreditDecisionBy));
+            }
+            if ((CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[153].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[153].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecisionInformedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[154].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[154].Value = ((string)(CondCreditDecisionInformedBy));
+            }
+            this.Adapter.UpdateCommand.Parameters[155].Value = ((int)(Original_Id));
             if ((Original_RowVersion == null)) {
                 throw new global::System.ArgumentNullException("Original_RowVersion");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[152].Value = ((byte[])(Original_RowVersion));
+                this.Adapter.UpdateCommand.Parameters[156].Value = ((byte[])(Original_RowVersion));
             }
-            this.Adapter.UpdateCommand.Parameters[153].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[157].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13542,8 +13826,8 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -13557,6 +13841,10 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string AutoRejecetedBy, 
                     global::System.Nullable<global::System.DateTime> AutoAccepted, 
                     string AutoAcceptedBy, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_, 
+                    global::System.Nullable<decimal> MthlyRent, 
+                    global::System.Nullable<decimal> MthlyDeposit, 
                     global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
                     string CondCreditDecision, 
                     string CondCreditDecisionBy, 
@@ -13564,7 +13852,7 @@ namespace DataUtils.BuyerDSTableAdapters {
                     string CondCreditDecisionInformedBy, 
                     int Original_Id, 
                     byte[] Original_RowVersion) {
-            return this.Update(ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, Primary_Gender, Other_Title, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, CurrOccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer, PrevJobTitle, PrevEmploymentStatus, PrevEmployerName, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTitle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_PrevEmployerName, Other_PrevEmploymentStatus, Other_YrsPrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, RefusedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedHI, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Property_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State, Property_Country, PropertyID, EstSpend, EntryDate, EntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, YrsPrevAddr, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriority, AutoRejected, AutoRejecetedBy, AutoAccepted, AutoAcceptedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, Original_Id, Original_RowVersion, Original_Id);
+            return this.Update(ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, Primary_Gender, Other_Title, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, CurrOccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer, PrevJobTitle, PrevEmploymentStatus, PrevEmployerName, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTitle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_PrevEmployerName, Other_PrevEmploymentStatus, Other_YrsPrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, RefusedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedHI, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Property_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State, Property_Country, PropertyID, EstSpend, EntryDate, EntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, YrsPrevAddr, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_PropertyAssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriority, AutoRejected, AutoRejecetedBy, AutoAccepted, AutoAcceptedBy, _CondApprovedLimit_, _FinalApprovedLimit_, MthlyRent, MthlyDeposit, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, Original_Id, Original_RowVersion, Original_Id);
         }
     }
     
@@ -13736,11 +14024,21 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("Created", "Created");
             tableMapping.ColumnMappings.Add("CreatedBy", "CreatedBy");
             tableMapping.ColumnMappings.Add("Updated", "Updated");
-            tableMapping.ColumnMappings.Add("UpdatedBy", "UpdatedBy");
             tableMapping.ColumnMappings.Add("DeathCoverInsurer", "DeathCoverInsurer");
             tableMapping.ColumnMappings.Add("DeathCoverDetail", "DeathCoverDetail");
             tableMapping.ColumnMappings.Add("TPDCoverInsurer", "TPDCoverInsurer");
             tableMapping.ColumnMappings.Add("TPDCoverDetail", "TPDCoverDetail");
+            tableMapping.ColumnMappings.Add("UpdatedBy", "UpdatedBy1");
+            tableMapping.ColumnMappings.Add("CondCreditDecisionDate", "CondCreditDecisionDate");
+            tableMapping.ColumnMappings.Add("CondCreditDecision", "CondCreditDecision");
+            tableMapping.ColumnMappings.Add("CondCreditDecisionBy", "CondCreditDecisionBy");
+            tableMapping.ColumnMappings.Add("CondCreditDecisionInformed", "CondCreditDecisionInformed");
+            tableMapping.ColumnMappings.Add("CondCreditDecisionInformedBy", "CondCreditDecisionInformedBy");
+            tableMapping.ColumnMappings.Add("FinalCreditDecisionInformed", "FinalCreditDecisionInformed");
+            tableMapping.ColumnMappings.Add("FinalCreditDecisionInformedBy", "FinalCreditDecisionInformedBy");
+            tableMapping.ColumnMappings.Add("AppliedLimit$", "AppliedLimit$");
+            tableMapping.ColumnMappings.Add("CondApprovedLimit$", "CondApprovedLimit$");
+            tableMapping.ColumnMappings.Add("FinalApprovedLimit$", "FinalApprovedLimit$");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -13801,7 +14099,25 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "pprovedDate)) AND ([Created] = @Original_Created) AND ([CreatedBy] = @Original_C" +
                 "reatedBy) AND ((@IsNull_Updated = 1 AND [Updated] IS NULL) OR ([Updated] = @Orig" +
                 "inal_Updated)) AND ((@IsNull_UpdatedBy = 1 AND [UpdatedBy] IS NULL) OR ([Updated" +
-                "By] = @Original_UpdatedBy)))";
+                "By] = @Original_UpdatedBy)) AND ((@IsNull_CondCreditDecisionDate = 1 AND [CondCr" +
+                "editDecisionDate] IS NULL) OR ([CondCreditDecisionDate] = @Original_CondCreditDe" +
+                "cisionDate)) AND ((@IsNull_CondCreditDecision = 1 AND [CondCreditDecision] IS NU" +
+                "LL) OR ([CondCreditDecision] = @Original_CondCreditDecision)) AND ((@IsNull_Cond" +
+                "CreditDecisionBy = 1 AND [CondCreditDecisionBy] IS NULL) OR ([CondCreditDecision" +
+                "By] = @Original_CondCreditDecisionBy)) AND ((@IsNull_CondCreditDecisionInformed " +
+                "= 1 AND [CondCreditDecisionInformed] IS NULL) OR ([CondCreditDecisionInformed] =" +
+                " @Original_CondCreditDecisionInformed)) AND ((@IsNull_CondCreditDecisionInformed" +
+                "By = 1 AND [CondCreditDecisionInformedBy] IS NULL) OR ([CondCreditDecisionInform" +
+                "edBy] = @Original_CondCreditDecisionInformedBy)) AND ((@IsNull_FinalCreditDecisi" +
+                "onInformed = 1 AND [FinalCreditDecisionInformed] IS NULL) OR ([FinalCreditDecisi" +
+                "onInformed] = @Original_FinalCreditDecisionInformed)) AND ((@IsNull_FinalCreditD" +
+                "ecisionInformedBy = 1 AND [FinalCreditDecisionInformedBy] IS NULL) OR ([FinalCre" +
+                "ditDecisionInformedBy] = @Original_FinalCreditDecisionInformedBy)) AND ((@IsNull" +
+                "_AppliedLimit$ = 1 AND [AppliedLimit$] IS NULL) OR ([AppliedLimit$] = @Original_" +
+                "AppliedLimit$)) AND ((@IsNull_CondApprovedLimit$ = 1 AND [CondApprovedLimit$] IS" +
+                " NULL) OR ([CondApprovedLimit$] = @Original_CondApprovedLimit$)) AND ((@IsNull_F" +
+                "inalApprovedLimit$ = 1 AND [FinalApprovedLimit$] IS NULL) OR ([FinalApprovedLimi" +
+                "t$] = @Original_FinalApprovedLimit$)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -13895,7 +14211,27 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Updated", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Updated", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecision", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionInformed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionInformedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalCreditDecisionInformed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AppliedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppliedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppliedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "AppliedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondApprovedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApprovedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalApprovedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [Buyer] ([MABuyerId], [BuyerApplicationId], [PrimaryBuyerId], [Title]" +
@@ -13907,24 +14243,33 @@ namespace DataUtils.BuyerDSTableAdapters {
                 " [PhoneMobile], [PhoneHome], [PhoneWork], [PhoneOther], [Email], [EmailOther], [" +
                 "ContactComments], [DeathCoverInsurer], [DeathCoverDetail], [TPDCoverInsurer], [T" +
                 "PDCoverDetail], [MAStatus], [AppliedDate], [MAApprovedDate], [Created], [Created" +
-                "By], [Updated], [UpdatedBy]) VALUES (@MABuyerId, @BuyerApplicationId, @PrimaryBu" +
-                "yerId, @Title, @FirstName, @OtherNames, @LastName, @DOB, @Gender, @Res_UnitNum, " +
-                "@Res_Street1, @Res_Street2, @Res_Street3, @Res_Street4, @Res_Street5, @Res_Postc" +
-                "ode, @Res_Suburb, @Res_City, @Res_State, @Res_Country, @Bill_UnitNum, @Bill_Stre" +
-                "et1, @Bill_Street2, @Bill_Street3, @Bill_Street4, @Bill_Street5, @Bill_Postcode," +
-                " @Bill_Suburb, @Bill_City, @Bill_State, @Bill_Country, @Comments, @PhoneMobile, " +
-                "@PhoneHome, @PhoneWork, @PhoneOther, @Email, @EmailOther, @ContactComments, @Dea" +
-                "thCoverInsurer, @DeathCoverDetail, @TPDCoverInsurer, @TPDCoverDetail, @MAStatus," +
-                " @AppliedDate, @MAApprovedDate, @Created, @CreatedBy, @Updated, @UpdatedBy);\r\nSE" +
-                "LECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherN" +
-                "ames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3," +
-                " Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City, Res_State, Res_Co" +
-                "untry, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bil" +
-                "l_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comm" +
-                "ents, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactC" +
-                "omments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, M" +
-                "AStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Updated, UpdatedBy FRO" +
-                "M Buyer WHERE (Id = SCOPE_IDENTITY())";
+                "By], [Updated], [UpdatedBy], [CondCreditDecisionDate], [CondCreditDecision], [Co" +
+                "ndCreditDecisionBy], [CondCreditDecisionInformed], [CondCreditDecisionInformedBy" +
+                "], [FinalCreditDecisionInformed], [FinalCreditDecisionInformedBy], [AppliedLimit" +
+                "$], [CondApprovedLimit$], [FinalApprovedLimit$]) VALUES (@MABuyerId, @BuyerAppli" +
+                "cationId, @PrimaryBuyerId, @Title, @FirstName, @OtherNames, @LastName, @DOB, @Ge" +
+                "nder, @Res_UnitNum, @Res_Street1, @Res_Street2, @Res_Street3, @Res_Street4, @Res" +
+                "_Street5, @Res_Postcode, @Res_Suburb, @Res_City, @Res_State, @Res_Country, @Bill" +
+                "_UnitNum, @Bill_Street1, @Bill_Street2, @Bill_Street3, @Bill_Street4, @Bill_Stre" +
+                "et5, @Bill_Postcode, @Bill_Suburb, @Bill_City, @Bill_State, @Bill_Country, @Comm" +
+                "ents, @PhoneMobile, @PhoneHome, @PhoneWork, @PhoneOther, @Email, @EmailOther, @C" +
+                "ontactComments, @DeathCoverInsurer, @DeathCoverDetail, @TPDCoverInsurer, @TPDCov" +
+                "erDetail, @MAStatus, @AppliedDate, @MAApprovedDate, @Created, @CreatedBy, @Updat" +
+                "ed, @UpdatedBy, @CondCreditDecisionDate, @CondCreditDecision, @CondCreditDecisio" +
+                "nBy, @CondCreditDecisionInformed, @CondCreditDecisionInformedBy, @FinalCreditDec" +
+                "isionInformed, @FinalCreditDecisionInformedBy, @AppliedLimit$, @CondApprovedLimi" +
+                "t$, @FinalApprovedLimit$);\r\nSELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuy" +
+                "erId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Stre" +
+                "et1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Subur" +
+                "b, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, B" +
+                "ill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, " +
+                "Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOthe" +
+                "r, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDC" +
+                "overInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, Cre" +
+                "atedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCred" +
+                "itDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCre" +
+                "ditDecisionInformed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedL" +
+                "imit$, FinalApprovedLimit$ FROM Buyer WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13975,7 +14320,17 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Created", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Created", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppliedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "AppliedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [Buyer] SET [MABuyerId] = @MABuyerId, [BuyerApplicationId] = @BuyerApplica" +
@@ -13996,72 +14351,100 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "athCoverDetail, [TPDCoverInsurer] = @TPDCoverInsurer, [TPDCoverDetail] = @TPDCov" +
                 "erDetail, [MAStatus] = @MAStatus, [AppliedDate] = @AppliedDate, [MAApprovedDate]" +
                 " = @MAApprovedDate, [Created] = @Created, [CreatedBy] = @CreatedBy, [Updated] = " +
-                "@Updated, [UpdatedBy] = @UpdatedBy WHERE (([Id] = @Original_Id) AND ((@IsNull_MA" +
-                "BuyerId = 1 AND [MABuyerId] IS NULL) OR ([MABuyerId] = @Original_MABuyerId)) AND" +
-                " ((@IsNull_BuyerApplicationId = 1 AND [BuyerApplicationId] IS NULL) OR ([BuyerAp" +
-                "plicationId] = @Original_BuyerApplicationId)) AND ((@IsNull_PrimaryBuyerId = 1 A" +
-                "ND [PrimaryBuyerId] IS NULL) OR ([PrimaryBuyerId] = @Original_PrimaryBuyerId)) A" +
-                "ND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND " +
-                "((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_Fir" +
-                "stName)) AND ((@IsNull_OtherNames = 1 AND [OtherNames] IS NULL) OR ([OtherNames]" +
-                " = @Original_OtherNames)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR " +
-                "([LastName] = @Original_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR (" +
-                "[DOB] = @Original_DOB)) AND ([Gender] = @Original_Gender) AND ((@IsNull_Res_Unit" +
-                "Num = 1 AND [Res_UnitNum] IS NULL) OR ([Res_UnitNum] = @Original_Res_UnitNum)) A" +
-                "ND ([Res_Street1] = @Original_Res_Street1) AND ((@IsNull_Res_Street2 = 1 AND [Re" +
-                "s_Street2] IS NULL) OR ([Res_Street2] = @Original_Res_Street2)) AND ((@IsNull_Re" +
-                "s_Street3 = 1 AND [Res_Street3] IS NULL) OR ([Res_Street3] = @Original_Res_Stree" +
-                "t3)) AND ((@IsNull_Res_Street4 = 1 AND [Res_Street4] IS NULL) OR ([Res_Street4] " +
-                "= @Original_Res_Street4)) AND ((@IsNull_Res_Street5 = 1 AND [Res_Street5] IS NUL" +
-                "L) OR ([Res_Street5] = @Original_Res_Street5)) AND ((@IsNull_Res_Postcode = 1 AN" +
-                "D [Res_Postcode] IS NULL) OR ([Res_Postcode] = @Original_Res_Postcode)) AND ([Re" +
-                "s_Suburb] = @Original_Res_Suburb) AND ((@IsNull_Res_City = 1 AND [Res_City] IS N" +
-                "ULL) OR ([Res_City] = @Original_Res_City)) AND ((@IsNull_Res_State = 1 AND [Res_" +
-                "State] IS NULL) OR ([Res_State] = @Original_Res_State)) AND ([Res_Country] = @Or" +
-                "iginal_Res_Country) AND ((@IsNull_Bill_UnitNum = 1 AND [Bill_UnitNum] IS NULL) O" +
-                "R ([Bill_UnitNum] = @Original_Bill_UnitNum)) AND ((@IsNull_Bill_Street1 = 1 AND " +
-                "[Bill_Street1] IS NULL) OR ([Bill_Street1] = @Original_Bill_Street1)) AND ((@IsN" +
-                "ull_Bill_Street2 = 1 AND [Bill_Street2] IS NULL) OR ([Bill_Street2] = @Original_" +
-                "Bill_Street2)) AND ((@IsNull_Bill_Street3 = 1 AND [Bill_Street3] IS NULL) OR ([B" +
-                "ill_Street3] = @Original_Bill_Street3)) AND ((@IsNull_Bill_Street4 = 1 AND [Bill" +
-                "_Street4] IS NULL) OR ([Bill_Street4] = @Original_Bill_Street4)) AND ((@IsNull_B" +
-                "ill_Street5 = 1 AND [Bill_Street5] IS NULL) OR ([Bill_Street5] = @Original_Bill_" +
-                "Street5)) AND ((@IsNull_Bill_Postcode = 1 AND [Bill_Postcode] IS NULL) OR ([Bill" +
-                "_Postcode] = @Original_Bill_Postcode)) AND ((@IsNull_Bill_Suburb = 1 AND [Bill_S" +
-                "uburb] IS NULL) OR ([Bill_Suburb] = @Original_Bill_Suburb)) AND ((@IsNull_Bill_C" +
-                "ity = 1 AND [Bill_City] IS NULL) OR ([Bill_City] = @Original_Bill_City)) AND ((@" +
-                "IsNull_Bill_State = 1 AND [Bill_State] IS NULL) OR ([Bill_State] = @Original_Bil" +
-                "l_State)) AND ((@IsNull_Bill_Country = 1 AND [Bill_Country] IS NULL) OR ([Bill_C" +
-                "ountry] = @Original_Bill_Country)) AND ((@IsNull_Comments = 1 AND [Comments] IS " +
-                "NULL) OR ([Comments] = @Original_Comments)) AND ((@IsNull_PhoneMobile = 1 AND [P" +
-                "honeMobile] IS NULL) OR ([PhoneMobile] = @Original_PhoneMobile)) AND ((@IsNull_P" +
-                "honeHome = 1 AND [PhoneHome] IS NULL) OR ([PhoneHome] = @Original_PhoneHome)) AN" +
-                "D ((@IsNull_PhoneWork = 1 AND [PhoneWork] IS NULL) OR ([PhoneWork] = @Original_P" +
-                "honeWork)) AND ((@IsNull_PhoneOther = 1 AND [PhoneOther] IS NULL) OR ([PhoneOthe" +
-                "r] = @Original_PhoneOther)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Em" +
-                "ail] = @Original_Email)) AND ((@IsNull_EmailOther = 1 AND [EmailOther] IS NULL) " +
-                "OR ([EmailOther] = @Original_EmailOther)) AND ((@IsNull_ContactComments = 1 AND " +
-                "[ContactComments] IS NULL) OR ([ContactComments] = @Original_ContactComments)) A" +
-                "ND ((@IsNull_DeathCoverInsurer = 1 AND [DeathCoverInsurer] IS NULL) OR ([DeathCo" +
-                "verInsurer] = @Original_DeathCoverInsurer)) AND ((@IsNull_DeathCoverDetail = 1 A" +
-                "ND [DeathCoverDetail] IS NULL) OR ([DeathCoverDetail] = @Original_DeathCoverDeta" +
-                "il)) AND ((@IsNull_TPDCoverInsurer = 1 AND [TPDCoverInsurer] IS NULL) OR ([TPDCo" +
-                "verInsurer] = @Original_TPDCoverInsurer)) AND ((@IsNull_TPDCoverDetail = 1 AND [" +
-                "TPDCoverDetail] IS NULL) OR ([TPDCoverDetail] = @Original_TPDCoverDetail)) AND (" +
-                "[MAStatus] = @Original_MAStatus) AND ([AppliedDate] = @Original_AppliedDate) AND" +
-                " ((@IsNull_MAApprovedDate = 1 AND [MAApprovedDate] IS NULL) OR ([MAApprovedDate]" +
-                " = @Original_MAApprovedDate)) AND ([Created] = @Original_Created) AND ([CreatedB" +
-                "y] = @Original_CreatedBy) AND ((@IsNull_Updated = 1 AND [Updated] IS NULL) OR ([" +
-                "Updated] = @Original_Updated)) AND ((@IsNull_UpdatedBy = 1 AND [UpdatedBy] IS NU" +
-                "LL) OR ([UpdatedBy] = @Original_UpdatedBy)));\r\nSELECT Id, MABuyerId, BuyerApplic" +
-                "ationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Re" +
-                "s_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_" +
-                "Postcode, Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Stree" +
-                "t1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_" +
-                "Suburb, Bill_City, Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, P" +
-                "honeWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, Dea" +
-                "thCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprove" +
-                "dDate, Created, CreatedBy, Updated, UpdatedBy FROM Buyer WHERE (Id = @Id)";
+                "@Updated, [UpdatedBy] = @UpdatedBy, [CondCreditDecisionDate] = @CondCreditDecisi" +
+                "onDate, [CondCreditDecision] = @CondCreditDecision, [CondCreditDecisionBy] = @Co" +
+                "ndCreditDecisionBy, [CondCreditDecisionInformed] = @CondCreditDecisionInformed, " +
+                "[CondCreditDecisionInformedBy] = @CondCreditDecisionInformedBy, [FinalCreditDeci" +
+                "sionInformed] = @FinalCreditDecisionInformed, [FinalCreditDecisionInformedBy] = " +
+                "@FinalCreditDecisionInformedBy, [AppliedLimit$] = @AppliedLimit$, [CondApprovedL" +
+                "imit$] = @CondApprovedLimit$, [FinalApprovedLimit$] = @FinalApprovedLimit$ WHERE" +
+                " (([Id] = @Original_Id) AND ((@IsNull_MABuyerId = 1 AND [MABuyerId] IS NULL) OR " +
+                "([MABuyerId] = @Original_MABuyerId)) AND ((@IsNull_BuyerApplicationId = 1 AND [B" +
+                "uyerApplicationId] IS NULL) OR ([BuyerApplicationId] = @Original_BuyerApplicatio" +
+                "nId)) AND ((@IsNull_PrimaryBuyerId = 1 AND [PrimaryBuyerId] IS NULL) OR ([Primar" +
+                "yBuyerId] = @Original_PrimaryBuyerId)) AND ((@IsNull_Title = 1 AND [Title] IS NU" +
+                "LL) OR ([Title] = @Original_Title)) AND ((@IsNull_FirstName = 1 AND [FirstName] " +
+                "IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_OtherNames = 1 AN" +
+                "D [OtherNames] IS NULL) OR ([OtherNames] = @Original_OtherNames)) AND ((@IsNull_" +
+                "LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND (" +
+                "(@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND ([Gender] = " +
+                "@Original_Gender) AND ((@IsNull_Res_UnitNum = 1 AND [Res_UnitNum] IS NULL) OR ([" +
+                "Res_UnitNum] = @Original_Res_UnitNum)) AND ([Res_Street1] = @Original_Res_Street" +
+                "1) AND ((@IsNull_Res_Street2 = 1 AND [Res_Street2] IS NULL) OR ([Res_Street2] = " +
+                "@Original_Res_Street2)) AND ((@IsNull_Res_Street3 = 1 AND [Res_Street3] IS NULL)" +
+                " OR ([Res_Street3] = @Original_Res_Street3)) AND ((@IsNull_Res_Street4 = 1 AND [" +
+                "Res_Street4] IS NULL) OR ([Res_Street4] = @Original_Res_Street4)) AND ((@IsNull_" +
+                "Res_Street5 = 1 AND [Res_Street5] IS NULL) OR ([Res_Street5] = @Original_Res_Str" +
+                "eet5)) AND ((@IsNull_Res_Postcode = 1 AND [Res_Postcode] IS NULL) OR ([Res_Postc" +
+                "ode] = @Original_Res_Postcode)) AND ([Res_Suburb] = @Original_Res_Suburb) AND ((" +
+                "@IsNull_Res_City = 1 AND [Res_City] IS NULL) OR ([Res_City] = @Original_Res_City" +
+                ")) AND ((@IsNull_Res_State = 1 AND [Res_State] IS NULL) OR ([Res_State] = @Origi" +
+                "nal_Res_State)) AND ([Res_Country] = @Original_Res_Country) AND ((@IsNull_Bill_U" +
+                "nitNum = 1 AND [Bill_UnitNum] IS NULL) OR ([Bill_UnitNum] = @Original_Bill_UnitN" +
+                "um)) AND ((@IsNull_Bill_Street1 = 1 AND [Bill_Street1] IS NULL) OR ([Bill_Street" +
+                "1] = @Original_Bill_Street1)) AND ((@IsNull_Bill_Street2 = 1 AND [Bill_Street2] " +
+                "IS NULL) OR ([Bill_Street2] = @Original_Bill_Street2)) AND ((@IsNull_Bill_Street" +
+                "3 = 1 AND [Bill_Street3] IS NULL) OR ([Bill_Street3] = @Original_Bill_Street3)) " +
+                "AND ((@IsNull_Bill_Street4 = 1 AND [Bill_Street4] IS NULL) OR ([Bill_Street4] = " +
+                "@Original_Bill_Street4)) AND ((@IsNull_Bill_Street5 = 1 AND [Bill_Street5] IS NU" +
+                "LL) OR ([Bill_Street5] = @Original_Bill_Street5)) AND ((@IsNull_Bill_Postcode = " +
+                "1 AND [Bill_Postcode] IS NULL) OR ([Bill_Postcode] = @Original_Bill_Postcode)) A" +
+                "ND ((@IsNull_Bill_Suburb = 1 AND [Bill_Suburb] IS NULL) OR ([Bill_Suburb] = @Ori" +
+                "ginal_Bill_Suburb)) AND ((@IsNull_Bill_City = 1 AND [Bill_City] IS NULL) OR ([Bi" +
+                "ll_City] = @Original_Bill_City)) AND ((@IsNull_Bill_State = 1 AND [Bill_State] I" +
+                "S NULL) OR ([Bill_State] = @Original_Bill_State)) AND ((@IsNull_Bill_Country = 1" +
+                " AND [Bill_Country] IS NULL) OR ([Bill_Country] = @Original_Bill_Country)) AND (" +
+                "(@IsNull_Comments = 1 AND [Comments] IS NULL) OR ([Comments] = @Original_Comment" +
+                "s)) AND ((@IsNull_PhoneMobile = 1 AND [PhoneMobile] IS NULL) OR ([PhoneMobile] =" +
+                " @Original_PhoneMobile)) AND ((@IsNull_PhoneHome = 1 AND [PhoneHome] IS NULL) OR" +
+                " ([PhoneHome] = @Original_PhoneHome)) AND ((@IsNull_PhoneWork = 1 AND [PhoneWork" +
+                "] IS NULL) OR ([PhoneWork] = @Original_PhoneWork)) AND ((@IsNull_PhoneOther = 1 " +
+                "AND [PhoneOther] IS NULL) OR ([PhoneOther] = @Original_PhoneOther)) AND ((@IsNul" +
+                "l_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_E" +
+                "mailOther = 1 AND [EmailOther] IS NULL) OR ([EmailOther] = @Original_EmailOther)" +
+                ") AND ((@IsNull_ContactComments = 1 AND [ContactComments] IS NULL) OR ([ContactC" +
+                "omments] = @Original_ContactComments)) AND ((@IsNull_DeathCoverInsurer = 1 AND [" +
+                "DeathCoverInsurer] IS NULL) OR ([DeathCoverInsurer] = @Original_DeathCoverInsure" +
+                "r)) AND ((@IsNull_DeathCoverDetail = 1 AND [DeathCoverDetail] IS NULL) OR ([Deat" +
+                "hCoverDetail] = @Original_DeathCoverDetail)) AND ((@IsNull_TPDCoverInsurer = 1 A" +
+                "ND [TPDCoverInsurer] IS NULL) OR ([TPDCoverInsurer] = @Original_TPDCoverInsurer)" +
+                ") AND ((@IsNull_TPDCoverDetail = 1 AND [TPDCoverDetail] IS NULL) OR ([TPDCoverDe" +
+                "tail] = @Original_TPDCoverDetail)) AND ([MAStatus] = @Original_MAStatus) AND ([A" +
+                "ppliedDate] = @Original_AppliedDate) AND ((@IsNull_MAApprovedDate = 1 AND [MAApp" +
+                "rovedDate] IS NULL) OR ([MAApprovedDate] = @Original_MAApprovedDate)) AND ([Crea" +
+                "ted] = @Original_Created) AND ([CreatedBy] = @Original_CreatedBy) AND ((@IsNull_" +
+                "Updated = 1 AND [Updated] IS NULL) OR ([Updated] = @Original_Updated)) AND ((@Is" +
+                "Null_UpdatedBy = 1 AND [UpdatedBy] IS NULL) OR ([UpdatedBy] = @Original_UpdatedB" +
+                "y)) AND ((@IsNull_CondCreditDecisionDate = 1 AND [CondCreditDecisionDate] IS NUL" +
+                "L) OR ([CondCreditDecisionDate] = @Original_CondCreditDecisionDate)) AND ((@IsNu" +
+                "ll_CondCreditDecision = 1 AND [CondCreditDecision] IS NULL) OR ([CondCreditDecis" +
+                "ion] = @Original_CondCreditDecision)) AND ((@IsNull_CondCreditDecisionBy = 1 AND" +
+                " [CondCreditDecisionBy] IS NULL) OR ([CondCreditDecisionBy] = @Original_CondCred" +
+                "itDecisionBy)) AND ((@IsNull_CondCreditDecisionInformed = 1 AND [CondCreditDecis" +
+                "ionInformed] IS NULL) OR ([CondCreditDecisionInformed] = @Original_CondCreditDec" +
+                "isionInformed)) AND ((@IsNull_CondCreditDecisionInformedBy = 1 AND [CondCreditDe" +
+                "cisionInformedBy] IS NULL) OR ([CondCreditDecisionInformedBy] = @Original_CondCr" +
+                "editDecisionInformedBy)) AND ((@IsNull_FinalCreditDecisionInformed = 1 AND [Fina" +
+                "lCreditDecisionInformed] IS NULL) OR ([FinalCreditDecisionInformed] = @Original_" +
+                "FinalCreditDecisionInformed)) AND ((@IsNull_FinalCreditDecisionInformedBy = 1 AN" +
+                "D [FinalCreditDecisionInformedBy] IS NULL) OR ([FinalCreditDecisionInformedBy] =" +
+                " @Original_FinalCreditDecisionInformedBy)) AND ((@IsNull_AppliedLimit$ = 1 AND [" +
+                "AppliedLimit$] IS NULL) OR ([AppliedLimit$] = @Original_AppliedLimit$)) AND ((@I" +
+                "sNull_CondApprovedLimit$ = 1 AND [CondApprovedLimit$] IS NULL) OR ([CondApproved" +
+                "Limit$] = @Original_CondApprovedLimit$)) AND ((@IsNull_FinalApprovedLimit$ = 1 A" +
+                "ND [FinalApprovedLimit$] IS NULL) OR ([FinalApprovedLimit$] = @Original_FinalApp" +
+                "rovedLimit$)));\r\nSELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title" +
+                ", FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_St" +
+                "reet2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City" +
+                ", Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3" +
+                ", Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State," +
+                " Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, E" +
+                "mailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer" +
+                ", TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Upd" +
+                "ated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionB" +
+                "y, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecision" +
+                "Informed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, Fina" +
+                "lApprovedLimit$ FROM Buyer WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14112,7 +14495,17 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Created", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Created", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CreatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CreatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Updated", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@UpdatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppliedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "AppliedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -14205,7 +14598,27 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_Updated", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Updated", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Updated", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_UpdatedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_UpdatedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "UpdatedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionDate", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionDate", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionDate", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecision", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecision", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecision", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionInformed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondCreditDecisionInformedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalCreditDecisionInformed", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalCreditDecisionInformed", global::System.Data.SqlDbType.DateTime2, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformed", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalCreditDecisionInformedBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalCreditDecisionInformedBy", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_AppliedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppliedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_AppliedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "AppliedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CondApprovedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondApprovedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CondApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "CondApprovedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FinalApprovedLimit$", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -14222,20 +14635,11 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, 
-                         Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, 
-                         PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, 
-                         Created, CreatedBy, Updated, UpdatedBy
-FROM            Buyer";
+            this._commandCollection[0].CommandText = "SELECT        Buyer.*\r\nFROM            Buyer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        AppliedDate, Bill_City, Bill_Country, Bill_Postcode, Bill_State, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Suburb, Bill_UnitNum, BuyerApplicationId, Comments, ContactComments, 
-                         Created, CreatedBy, DOB, DeathCoverDetail, DeathCoverInsurer, Email, EmailOther, FirstName, Gender, Id, LastName, MAApprovedDate, MABuyerId, MAStatus, OtherNames, PhoneHome, PhoneMobile, 
-                         PhoneOther, PhoneWork, PrimaryBuyerId, Res_City, Res_Country, Res_Postcode, Res_State, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Suburb, Res_UnitNum, TPDCoverDetail, 
-                         TPDCoverInsurer, Title, Updated, UpdatedBy
-FROM            Buyer
-WHERE        (Id = @Id)";
+            this._commandCollection[1].CommandText = @"SELECT AppliedDate, AppliedLimit$, Bill_City, Bill_Country, Bill_Postcode, Bill_State, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Suburb, Bill_UnitNum, BuyerApplicationId, Comments, CondApprovedLimit$, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInformedBy, ContactComments, Created, CreatedBy, DOB, DeathCoverDetail, DeathCoverInsurer, Email, EmailOther, FinalApprovedLimit$, FinalCreditDecisionInformed, FinalCreditDecisionInformedBy, FirstName, Gender, Id, LastName, MAApprovedDate, MABuyerId, MAStatus, OtherNames, PhoneHome, PhoneMobile, PhoneOther, PhoneWork, PrimaryBuyerId, Res_City, Res_Country, Res_Postcode, Res_State, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Suburb, Res_UnitNum, TPDCoverDetail, TPDCoverInsurer, Title, Updated, UpdatedBy FROM Buyer WHERE (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -14374,7 +14778,17 @@ WHERE        (Id = @Id)";
                     System.DateTime Original_Created, 
                     string Original_CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Original_Updated, 
-                    global::System.Nullable<global::System.DateTime> Original_UpdatedBy) {
+                    string Original_UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionDate, 
+                    string Original_CondCreditDecision, 
+                    string Original_CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionInformed, 
+                    string Original_CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_FinalCreditDecisionInformed, 
+                    string Original_FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _Original_AppliedLimit_, 
+                    global::System.Nullable<decimal> _Original_CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _Original_FinalApprovedLimit_) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
             if ((Original_MABuyerId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -14742,13 +15156,93 @@ WHERE        (Id = @Id)";
                 this.Adapter.DeleteCommand.Parameters[89].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[90].Value = global::System.DBNull.Value;
             }
-            if ((Original_UpdatedBy.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[91].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[92].Value = ((System.DateTime)(Original_UpdatedBy.Value));
-            }
-            else {
+            if ((Original_UpdatedBy == null)) {
                 this.Adapter.DeleteCommand.Parameters[91].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[92].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[91].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[92].Value = ((string)(Original_UpdatedBy));
+            }
+            if ((Original_CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[93].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[94].Value = ((System.DateTime)(Original_CondCreditDecisionDate.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[93].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[94].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CondCreditDecision == null)) {
+                this.Adapter.DeleteCommand.Parameters[95].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[96].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[95].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[96].Value = ((string)(Original_CondCreditDecision));
+            }
+            if ((Original_CondCreditDecisionBy == null)) {
+                this.Adapter.DeleteCommand.Parameters[97].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[98].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[97].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[98].Value = ((string)(Original_CondCreditDecisionBy));
+            }
+            if ((Original_CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[99].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[100].Value = ((System.DateTime)(Original_CondCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[99].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[100].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CondCreditDecisionInformedBy == null)) {
+                this.Adapter.DeleteCommand.Parameters[101].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[102].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[101].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[102].Value = ((string)(Original_CondCreditDecisionInformedBy));
+            }
+            if ((Original_FinalCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[103].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[104].Value = ((System.DateTime)(Original_FinalCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[103].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[104].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FinalCreditDecisionInformedBy == null)) {
+                this.Adapter.DeleteCommand.Parameters[105].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[106].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[105].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[106].Value = ((string)(Original_FinalCreditDecisionInformedBy));
+            }
+            if ((_Original_AppliedLimit_.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[107].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[108].Value = ((decimal)(_Original_AppliedLimit_.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[107].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[108].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[109].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[110].Value = ((decimal)(_Original_CondApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[109].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[110].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[111].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[112].Value = ((decimal)(_Original_FinalApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[111].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[112].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14820,7 +15314,17 @@ WHERE        (Id = @Id)";
                     System.DateTime Created, 
                     string CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Updated, 
-                    global::System.Nullable<global::System.DateTime> UpdatedBy) {
+                    string UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
+                    string CondCreditDecision, 
+                    string CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionInformed, 
+                    string CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> FinalCreditDecisionInformed, 
+                    string FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _AppliedLimit_, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_) {
             if ((MABuyerId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MABuyerId.Value));
             }
@@ -15105,11 +15609,71 @@ WHERE        (Id = @Id)";
             else {
                 this.Adapter.InsertCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
-            if ((UpdatedBy.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[49].Value = ((System.DateTime)(UpdatedBy.Value));
+            if ((UpdatedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[49].Value = ((string)(UpdatedBy));
+            }
+            if ((CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[50].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecision == null)) {
+                this.Adapter.InsertCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[51].Value = ((string)(CondCreditDecision));
+            }
+            if ((CondCreditDecisionBy == null)) {
+                this.Adapter.InsertCommand.Parameters[52].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[52].Value = ((string)(CondCreditDecisionBy));
+            }
+            if ((CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[53].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecisionInformedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[54].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[54].Value = ((string)(CondCreditDecisionInformedBy));
+            }
+            if ((FinalCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[55].Value = ((System.DateTime)(FinalCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((FinalCreditDecisionInformedBy == null)) {
+                this.Adapter.InsertCommand.Parameters[56].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[56].Value = ((string)(FinalCreditDecisionInformedBy));
+            }
+            if ((_AppliedLimit_.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[57].Value = ((decimal)(_AppliedLimit_.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[58].Value = ((decimal)(_CondApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[58].Value = global::System.DBNull.Value;
+            }
+            if ((_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[59].Value = ((decimal)(_FinalApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -15181,7 +15745,17 @@ WHERE        (Id = @Id)";
                     System.DateTime Created, 
                     string CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Updated, 
-                    global::System.Nullable<global::System.DateTime> UpdatedBy, 
+                    string UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
+                    string CondCreditDecision, 
+                    string CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionInformed, 
+                    string CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> FinalCreditDecisionInformed, 
+                    string FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _AppliedLimit_, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_, 
                     int Original_Id, 
                     global::System.Nullable<int> Original_MABuyerId, 
                     global::System.Nullable<int> Original_BuyerApplicationId, 
@@ -15232,7 +15806,17 @@ WHERE        (Id = @Id)";
                     System.DateTime Original_Created, 
                     string Original_CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Original_Updated, 
-                    global::System.Nullable<global::System.DateTime> Original_UpdatedBy, 
+                    string Original_UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionDate, 
+                    string Original_CondCreditDecision, 
+                    string Original_CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionInformed, 
+                    string Original_CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_FinalCreditDecisionInformed, 
+                    string Original_FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _Original_AppliedLimit_, 
+                    global::System.Nullable<decimal> _Original_CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _Original_FinalApprovedLimit_, 
                     int Id) {
             if ((MABuyerId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MABuyerId.Value));
@@ -15518,388 +16102,528 @@ WHERE        (Id = @Id)";
             else {
                 this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
-            if ((UpdatedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((System.DateTime)(UpdatedBy.Value));
-            }
-            else {
+            if ((UpdatedBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(Original_Id));
-            if ((Original_MABuyerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[52].Value = ((int)(Original_MABuyerId.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((string)(UpdatedBy));
+            }
+            if ((CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((System.DateTime)(CondCreditDecisionDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[51].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecision == null)) {
+                this.Adapter.UpdateCommand.Parameters[51].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[51].Value = ((string)(CondCreditDecision));
+            }
+            if ((CondCreditDecisionBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[52].Value = global::System.DBNull.Value;
             }
-            if ((Original_BuyerApplicationId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[54].Value = ((int)(Original_BuyerApplicationId.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((string)(CondCreditDecisionBy));
+            }
+            if ((CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((System.DateTime)(CondCreditDecisionInformed.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[53].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((CondCreditDecisionInformedBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[54].Value = global::System.DBNull.Value;
             }
-            if ((Original_PrimaryBuyerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[56].Value = ((int)(Original_PrimaryBuyerId.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((string)(CondCreditDecisionInformedBy));
+            }
+            if ((FinalCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((System.DateTime)(FinalCreditDecisionInformed.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[55].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((FinalCreditDecisionInformedBy == null)) {
                 this.Adapter.UpdateCommand.Parameters[56].Value = global::System.DBNull.Value;
             }
-            if ((Original_Title == null)) {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(1));
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((string)(FinalCreditDecisionInformedBy));
+            }
+            if ((_AppliedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((decimal)(_AppliedLimit_.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((decimal)(_CondApprovedLimit_.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[58].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[57].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[58].Value = ((string)(Original_Title));
-            }
-            if ((Original_FirstName == null)) {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[60].Value = global::System.DBNull.Value;
+            if ((_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((decimal)(_FinalApprovedLimit_.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[59].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[60].Value = ((string)(Original_FirstName));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
-            if ((Original_OtherNames == null)) {
+            this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Original_Id));
+            if ((Original_MABuyerId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_MABuyerId.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_OtherNames));
+            if ((Original_BuyerApplicationId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[64].Value = ((int)(Original_BuyerApplicationId.Value));
             }
-            if ((Original_LastName == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[64].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[64].Value = ((string)(Original_LastName));
-            }
-            if ((Original_DOB.HasValue == true)) {
+            if ((Original_PrimaryBuyerId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[66].Value = ((System.DateTime)(Original_DOB.Value));
+                this.Adapter.UpdateCommand.Parameters[66].Value = ((int)(Original_PrimaryBuyerId.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[65].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[66].Value = global::System.DBNull.Value;
             }
-            if ((Original_Gender == null)) {
-                throw new global::System.ArgumentNullException("Original_Gender");
+            if ((Original_Title == null)) {
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[68].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[67].Value = ((string)(Original_Gender));
+                this.Adapter.UpdateCommand.Parameters[67].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[68].Value = ((string)(Original_Title));
             }
-            if ((Original_Res_UnitNum == null)) {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[69].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[68].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[69].Value = ((string)(Original_Res_UnitNum));
-            }
-            if ((Original_Res_Street1 == null)) {
-                throw new global::System.ArgumentNullException("Original_Res_Street1");
+            if ((Original_FirstName == null)) {
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[70].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[70].Value = ((string)(Original_Res_Street1));
+                this.Adapter.UpdateCommand.Parameters[69].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[70].Value = ((string)(Original_FirstName));
             }
-            if ((Original_Res_Street2 == null)) {
+            if ((Original_OtherNames == null)) {
                 this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[72].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[71].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_Res_Street2));
+                this.Adapter.UpdateCommand.Parameters[72].Value = ((string)(Original_OtherNames));
             }
-            if ((Original_Res_Street3 == null)) {
+            if ((Original_LastName == null)) {
                 this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[74].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[73].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_Res_Street3));
+                this.Adapter.UpdateCommand.Parameters[74].Value = ((string)(Original_LastName));
             }
-            if ((Original_Res_Street4 == null)) {
+            if ((Original_DOB.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[76].Value = ((System.DateTime)(Original_DOB.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[76].Value = global::System.DBNull.Value;
             }
+            if ((Original_Gender == null)) {
+                throw new global::System.ArgumentNullException("Original_Gender");
+            }
             else {
-                this.Adapter.UpdateCommand.Parameters[75].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[76].Value = ((string)(Original_Res_Street4));
+                this.Adapter.UpdateCommand.Parameters[77].Value = ((string)(Original_Gender));
+            }
+            if ((Original_Res_UnitNum == null)) {
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[79].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[78].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[79].Value = ((string)(Original_Res_UnitNum));
+            }
+            if ((Original_Res_Street1 == null)) {
+                throw new global::System.ArgumentNullException("Original_Res_Street1");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[80].Value = ((string)(Original_Res_Street1));
+            }
+            if ((Original_Res_Street2 == null)) {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[82].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[81].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[82].Value = ((string)(Original_Res_Street2));
+            }
+            if ((Original_Res_Street3 == null)) {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[84].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[83].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[84].Value = ((string)(Original_Res_Street3));
+            }
+            if ((Original_Res_Street4 == null)) {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[86].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[85].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_Res_Street4));
             }
             if ((Original_Res_Street5 == null)) {
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[78].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[77].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[78].Value = ((string)(Original_Res_Street5));
-            }
-            if ((Original_Res_Postcode.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[80].Value = ((short)(Original_Res_Postcode.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[79].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[80].Value = global::System.DBNull.Value;
-            }
-            if ((Original_Res_Suburb == null)) {
-                throw new global::System.ArgumentNullException("Original_Res_Suburb");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[81].Value = ((string)(Original_Res_Suburb));
-            }
-            if ((Original_Res_City == null)) {
-                this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[83].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[82].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[83].Value = ((string)(Original_Res_City));
-            }
-            if ((Original_Res_State == null)) {
-                this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[85].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[84].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[85].Value = ((string)(Original_Res_State));
-            }
-            if ((Original_Res_Country == null)) {
-                throw new global::System.ArgumentNullException("Original_Res_Country");
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[86].Value = ((string)(Original_Res_Country));
-            }
-            if ((Original_Bill_UnitNum == null)) {
                 this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[88].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[87].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_Bill_UnitNum));
+                this.Adapter.UpdateCommand.Parameters[88].Value = ((string)(Original_Res_Street5));
             }
-            if ((Original_Bill_Street1 == null)) {
+            if ((Original_Res_Postcode.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[90].Value = ((short)(Original_Res_Postcode.Value));
+            }
+            else {
                 this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[90].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[89].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[90].Value = ((string)(Original_Bill_Street1));
-            }
-            if ((Original_Bill_Street2 == null)) {
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[92].Value = global::System.DBNull.Value;
+            if ((Original_Res_Suburb == null)) {
+                throw new global::System.ArgumentNullException("Original_Res_Suburb");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[91].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[92].Value = ((string)(Original_Bill_Street2));
+                this.Adapter.UpdateCommand.Parameters[91].Value = ((string)(Original_Res_Suburb));
             }
-            if ((Original_Bill_Street3 == null)) {
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[94].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[93].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[94].Value = ((string)(Original_Bill_Street3));
-            }
-            if ((Original_Bill_Street4 == null)) {
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[96].Value = global::System.DBNull.Value;
+            if ((Original_Res_City == null)) {
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[93].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[95].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[96].Value = ((string)(Original_Bill_Street4));
+                this.Adapter.UpdateCommand.Parameters[92].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[93].Value = ((string)(Original_Res_City));
             }
-            if ((Original_Bill_Street5 == null)) {
+            if ((Original_Res_State == null)) {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[95].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[94].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[95].Value = ((string)(Original_Res_State));
+            }
+            if ((Original_Res_Country == null)) {
+                throw new global::System.ArgumentNullException("Original_Res_Country");
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[96].Value = ((string)(Original_Res_Country));
+            }
+            if ((Original_Bill_UnitNum == null)) {
                 this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[98].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[97].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[98].Value = ((string)(Original_Bill_Street5));
+                this.Adapter.UpdateCommand.Parameters[98].Value = ((string)(Original_Bill_UnitNum));
             }
-            if ((Original_Bill_Postcode == null)) {
+            if ((Original_Bill_Street1 == null)) {
                 this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[99].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[100].Value = ((string)(Original_Bill_Postcode));
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((string)(Original_Bill_Street1));
             }
-            if ((Original_Bill_Suburb == null)) {
+            if ((Original_Bill_Street2 == null)) {
                 this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[101].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[102].Value = ((string)(Original_Bill_Suburb));
+                this.Adapter.UpdateCommand.Parameters[102].Value = ((string)(Original_Bill_Street2));
             }
-            if ((Original_Bill_City == null)) {
+            if ((Original_Bill_Street3 == null)) {
                 this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[104].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[103].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(Original_Bill_City));
+                this.Adapter.UpdateCommand.Parameters[104].Value = ((string)(Original_Bill_Street3));
             }
-            if ((Original_Bill_State == null)) {
+            if ((Original_Bill_Street4 == null)) {
                 this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[106].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[105].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[106].Value = ((string)(Original_Bill_State));
+                this.Adapter.UpdateCommand.Parameters[106].Value = ((string)(Original_Bill_Street4));
             }
-            if ((Original_Bill_Country == null)) {
+            if ((Original_Bill_Street5 == null)) {
                 this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[108].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[107].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[108].Value = ((string)(Original_Bill_Country));
+                this.Adapter.UpdateCommand.Parameters[108].Value = ((string)(Original_Bill_Street5));
             }
-            if ((Original_Comments == null)) {
+            if ((Original_Bill_Postcode == null)) {
                 this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[110].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[109].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(Original_Comments));
+                this.Adapter.UpdateCommand.Parameters[110].Value = ((string)(Original_Bill_Postcode));
             }
-            if ((Original_PhoneMobile == null)) {
+            if ((Original_Bill_Suburb == null)) {
                 this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[112].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[111].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[112].Value = ((string)(Original_PhoneMobile));
+                this.Adapter.UpdateCommand.Parameters[112].Value = ((string)(Original_Bill_Suburb));
             }
-            if ((Original_PhoneHome == null)) {
+            if ((Original_Bill_City == null)) {
                 this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[114].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[113].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[114].Value = ((string)(Original_PhoneHome));
+                this.Adapter.UpdateCommand.Parameters[114].Value = ((string)(Original_Bill_City));
             }
-            if ((Original_PhoneWork == null)) {
+            if ((Original_Bill_State == null)) {
                 this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[116].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[115].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[116].Value = ((string)(Original_PhoneWork));
+                this.Adapter.UpdateCommand.Parameters[116].Value = ((string)(Original_Bill_State));
             }
-            if ((Original_PhoneOther == null)) {
+            if ((Original_Bill_Country == null)) {
                 this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[118].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[117].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[118].Value = ((string)(Original_PhoneOther));
+                this.Adapter.UpdateCommand.Parameters[118].Value = ((string)(Original_Bill_Country));
             }
-            if ((Original_Email == null)) {
+            if ((Original_Comments == null)) {
                 this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[120].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[119].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[120].Value = ((string)(Original_Email));
+                this.Adapter.UpdateCommand.Parameters[120].Value = ((string)(Original_Comments));
             }
-            if ((Original_EmailOther == null)) {
+            if ((Original_PhoneMobile == null)) {
                 this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[122].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[121].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[122].Value = ((string)(Original_EmailOther));
+                this.Adapter.UpdateCommand.Parameters[122].Value = ((string)(Original_PhoneMobile));
             }
-            if ((Original_ContactComments == null)) {
+            if ((Original_PhoneHome == null)) {
                 this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[124].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[123].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[124].Value = ((string)(Original_ContactComments));
+                this.Adapter.UpdateCommand.Parameters[124].Value = ((string)(Original_PhoneHome));
             }
-            if ((Original_DeathCoverInsurer == null)) {
+            if ((Original_PhoneWork == null)) {
                 this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[126].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[125].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[126].Value = ((string)(Original_DeathCoverInsurer));
+                this.Adapter.UpdateCommand.Parameters[126].Value = ((string)(Original_PhoneWork));
             }
-            if ((Original_DeathCoverDetail == null)) {
+            if ((Original_PhoneOther == null)) {
                 this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[128].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[127].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(Original_DeathCoverDetail));
+                this.Adapter.UpdateCommand.Parameters[128].Value = ((string)(Original_PhoneOther));
             }
-            if ((Original_TPDCoverInsurer == null)) {
+            if ((Original_Email == null)) {
                 this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[130].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[129].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(Original_TPDCoverInsurer));
+                this.Adapter.UpdateCommand.Parameters[130].Value = ((string)(Original_Email));
             }
-            if ((Original_TPDCoverDetail == null)) {
+            if ((Original_EmailOther == null)) {
                 this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[132].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[131].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Original_TPDCoverDetail));
+                this.Adapter.UpdateCommand.Parameters[132].Value = ((string)(Original_EmailOther));
+            }
+            if ((Original_ContactComments == null)) {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[134].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[133].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[134].Value = ((string)(Original_ContactComments));
+            }
+            if ((Original_DeathCoverInsurer == null)) {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[136].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[136].Value = ((string)(Original_DeathCoverInsurer));
+            }
+            if ((Original_DeathCoverDetail == null)) {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[138].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[138].Value = ((string)(Original_DeathCoverDetail));
+            }
+            if ((Original_TPDCoverInsurer == null)) {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[140].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[140].Value = ((string)(Original_TPDCoverInsurer));
+            }
+            if ((Original_TPDCoverDetail == null)) {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[142].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[142].Value = ((string)(Original_TPDCoverDetail));
             }
             if ((Original_MAStatus == null)) {
                 throw new global::System.ArgumentNullException("Original_MAStatus");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[133].Value = ((string)(Original_MAStatus));
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((string)(Original_MAStatus));
             }
-            this.Adapter.UpdateCommand.Parameters[134].Value = ((System.DateTime)(Original_AppliedDate));
+            this.Adapter.UpdateCommand.Parameters[144].Value = ((System.DateTime)(Original_AppliedDate));
             if ((Original_MAApprovedDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[136].Value = ((System.DateTime)(Original_MAApprovedDate.Value));
+                this.Adapter.UpdateCommand.Parameters[145].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[146].Value = ((System.DateTime)(Original_MAApprovedDate.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[135].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[136].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[145].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[146].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[137].Value = ((System.DateTime)(Original_Created));
+            this.Adapter.UpdateCommand.Parameters[147].Value = ((System.DateTime)(Original_Created));
             if ((Original_CreatedBy == null)) {
                 throw new global::System.ArgumentNullException("Original_CreatedBy");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[138].Value = ((string)(Original_CreatedBy));
+                this.Adapter.UpdateCommand.Parameters[148].Value = ((string)(Original_CreatedBy));
             }
             if ((Original_Updated.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[140].Value = ((System.DateTime)(Original_Updated.Value));
+                this.Adapter.UpdateCommand.Parameters[149].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[150].Value = ((System.DateTime)(Original_Updated.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[139].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[140].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[149].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[150].Value = global::System.DBNull.Value;
             }
-            if ((Original_UpdatedBy.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[142].Value = ((System.DateTime)(Original_UpdatedBy.Value));
+            if ((Original_UpdatedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[151].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[152].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[141].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[142].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[151].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[152].Value = ((string)(Original_UpdatedBy));
             }
-            this.Adapter.UpdateCommand.Parameters[143].Value = ((int)(Id));
+            if ((Original_CondCreditDecisionDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[153].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[154].Value = ((System.DateTime)(Original_CondCreditDecisionDate.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[153].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[154].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CondCreditDecision == null)) {
+                this.Adapter.UpdateCommand.Parameters[155].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[156].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[155].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[156].Value = ((string)(Original_CondCreditDecision));
+            }
+            if ((Original_CondCreditDecisionBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[157].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[158].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[157].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[158].Value = ((string)(Original_CondCreditDecisionBy));
+            }
+            if ((Original_CondCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[159].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[160].Value = ((System.DateTime)(Original_CondCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[159].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[160].Value = global::System.DBNull.Value;
+            }
+            if ((Original_CondCreditDecisionInformedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[161].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[162].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[161].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[162].Value = ((string)(Original_CondCreditDecisionInformedBy));
+            }
+            if ((Original_FinalCreditDecisionInformed.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[163].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[164].Value = ((System.DateTime)(Original_FinalCreditDecisionInformed.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[163].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[164].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FinalCreditDecisionInformedBy == null)) {
+                this.Adapter.UpdateCommand.Parameters[165].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[166].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[165].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[166].Value = ((string)(Original_FinalCreditDecisionInformedBy));
+            }
+            if ((_Original_AppliedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[167].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[168].Value = ((decimal)(_Original_AppliedLimit_.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[167].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[168].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_CondApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[169].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[170].Value = ((decimal)(_Original_CondApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[169].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[170].Value = global::System.DBNull.Value;
+            }
+            if ((_Original_FinalApprovedLimit_.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[171].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[172].Value = ((decimal)(_Original_FinalApprovedLimit_.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[171].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[172].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[173].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15970,7 +16694,17 @@ WHERE        (Id = @Id)";
                     System.DateTime Created, 
                     string CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Updated, 
-                    global::System.Nullable<global::System.DateTime> UpdatedBy, 
+                    string UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionDate, 
+                    string CondCreditDecision, 
+                    string CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> CondCreditDecisionInformed, 
+                    string CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> FinalCreditDecisionInformed, 
+                    string FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _AppliedLimit_, 
+                    global::System.Nullable<decimal> _CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _FinalApprovedLimit_, 
                     int Original_Id, 
                     global::System.Nullable<int> Original_MABuyerId, 
                     global::System.Nullable<int> Original_BuyerApplicationId, 
@@ -16021,8 +16755,18 @@ WHERE        (Id = @Id)";
                     System.DateTime Original_Created, 
                     string Original_CreatedBy, 
                     global::System.Nullable<global::System.DateTime> Original_Updated, 
-                    global::System.Nullable<global::System.DateTime> Original_UpdatedBy) {
-            return this.Update(MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Updated, UpdatedBy, Original_Id, Original_MABuyerId, Original_BuyerApplicationId, Original_PrimaryBuyerId, Original_Title, Original_FirstName, Original_OtherNames, Original_LastName, Original_DOB, Original_Gender, Original_Res_UnitNum, Original_Res_Street1, Original_Res_Street2, Original_Res_Street3, Original_Res_Street4, Original_Res_Street5, Original_Res_Postcode, Original_Res_Suburb, Original_Res_City, Original_Res_State, Original_Res_Country, Original_Bill_UnitNum, Original_Bill_Street1, Original_Bill_Street2, Original_Bill_Street3, Original_Bill_Street4, Original_Bill_Street5, Original_Bill_Postcode, Original_Bill_Suburb, Original_Bill_City, Original_Bill_State, Original_Bill_Country, Original_Comments, Original_PhoneMobile, Original_PhoneHome, Original_PhoneWork, Original_PhoneOther, Original_Email, Original_EmailOther, Original_ContactComments, Original_DeathCoverInsurer, Original_DeathCoverDetail, Original_TPDCoverInsurer, Original_TPDCoverDetail, Original_MAStatus, Original_AppliedDate, Original_MAApprovedDate, Original_Created, Original_CreatedBy, Original_Updated, Original_UpdatedBy, Original_Id);
+                    string Original_UpdatedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionDate, 
+                    string Original_CondCreditDecision, 
+                    string Original_CondCreditDecisionBy, 
+                    global::System.Nullable<global::System.DateTime> Original_CondCreditDecisionInformed, 
+                    string Original_CondCreditDecisionInformedBy, 
+                    global::System.Nullable<global::System.DateTime> Original_FinalCreditDecisionInformed, 
+                    string Original_FinalCreditDecisionInformedBy, 
+                    global::System.Nullable<decimal> _Original_AppliedLimit_, 
+                    global::System.Nullable<decimal> _Original_CondApprovedLimit_, 
+                    global::System.Nullable<decimal> _Original_FinalApprovedLimit_) {
+            return this.Update(MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, FinalCreditDecisionInformedBy, _AppliedLimit_, _CondApprovedLimit_, _FinalApprovedLimit_, Original_Id, Original_MABuyerId, Original_BuyerApplicationId, Original_PrimaryBuyerId, Original_Title, Original_FirstName, Original_OtherNames, Original_LastName, Original_DOB, Original_Gender, Original_Res_UnitNum, Original_Res_Street1, Original_Res_Street2, Original_Res_Street3, Original_Res_Street4, Original_Res_Street5, Original_Res_Postcode, Original_Res_Suburb, Original_Res_City, Original_Res_State, Original_Res_Country, Original_Bill_UnitNum, Original_Bill_Street1, Original_Bill_Street2, Original_Bill_Street3, Original_Bill_Street4, Original_Bill_Street5, Original_Bill_Postcode, Original_Bill_Suburb, Original_Bill_City, Original_Bill_State, Original_Bill_Country, Original_Comments, Original_PhoneMobile, Original_PhoneHome, Original_PhoneWork, Original_PhoneOther, Original_Email, Original_EmailOther, Original_ContactComments, Original_DeathCoverInsurer, Original_DeathCoverDetail, Original_TPDCoverInsurer, Original_TPDCoverDetail, Original_MAStatus, Original_AppliedDate, Original_MAApprovedDate, Original_Created, Original_CreatedBy, Original_Updated, Original_UpdatedBy, Original_CondCreditDecisionDate, Original_CondCreditDecision, Original_CondCreditDecisionBy, Original_CondCreditDecisionInformed, Original_CondCreditDecisionInformedBy, Original_FinalCreditDecisionInformed, Original_FinalCreditDecisionInformedBy, _Original_AppliedLimit_, _Original_CondApprovedLimit_, _Original_FinalApprovedLimit_, Original_Id);
         }
     }
     

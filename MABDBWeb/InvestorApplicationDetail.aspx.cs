@@ -1,6 +1,7 @@
 ﻿using DataUtils;
 using DataUtils.InvestorDSTableAdapters;
 using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Globalization;
 using System.Text;
@@ -43,7 +44,11 @@ namespace MABDBWeb
                 HiddenField2.Value = hasAssqPpty;
             }
 
+
+            SqlDataSource sds = this.InvestorApplicationDetailsSqlDataSource;
+            sds.ConnectionString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
         }
+        
         protected void ButtonCondApprovedModal_Click(object sender, EventArgs e)
         {
             int id = 0;
