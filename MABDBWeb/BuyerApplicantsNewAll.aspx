@@ -56,10 +56,13 @@
             <SortedDescendingHeaderStyle BackColor="#00547E" />
         </asp:GridView>
     
+               <br />
+    
     </div>
 
         <div>
             <asp:Label ID="lblUploadError" runat="server" BorderStyle="Solid" BorderColor="Red" BackColor="Red" Visible="false"></asp:Label>
+            <br />
             <asp:FileUpload ID="FileUpload1" runat="server" Width="655px" />            
             <p>
                 <asp:Button ID="btnImport" runat="server" Font-Bold="True" OnClick="btnImport_Click" Text="Import Applications" />
@@ -68,10 +71,11 @@
                 <asp:Label ID="lblImportResLabel" runat="server" Text="Import Results:" Visible="False"></asp:Label>
                 <asp:Label ID="lblImportRes" runat="server" Visible="False"></asp:Label>
             </p>
+            <p>
+                &nbsp;</p>
         </div>
            <p>
-               <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
-        </p>
+               &nbsp;</p>
 
 
 

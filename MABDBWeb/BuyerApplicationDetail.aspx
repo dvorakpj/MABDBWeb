@@ -142,6 +142,7 @@
         <asp:BoundField DataField="AutoRejecetedBy" HeaderText="AutoRejecetedBy" SortExpression="AutoRejecetedBy" />
         <asp:BoundField DataField="AutoAccepted" HeaderText="AutoAccepted" SortExpression="AutoAccepted" />
         <asp:BoundField DataField="AutoAcceptedBy" HeaderText="AutoAcceptedBy" SortExpression="AutoAcceptedBy" />
+        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
     </Fields>
 </asp:DetailsView>
 <asp:ObjectDataSource ID="BuyerApplicationDSDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataBy" TypeName="DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter" UpdateMethod="Update">
@@ -469,4 +470,35 @@
         <asp:Parameter Name="Original_RowVersion" Type="Object" />
     </UpdateParameters>
 </asp:ObjectDataSource>
-</asp:Content>
+    <br />
+        <p>
+          <span style="font-weight: bold">Conditional Approval:</span>
+        </p>
+    <p>
+           Approver: <asp:Label ID="lblApprover" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as approver of the Application."></asp:Label>
+        </p>
+    <p>
+        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal"/>
+        </p>
+    <!-- COnditional approval confirmation -->
+        <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+         <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 id="myModalLabel3">Confirmation</h3>
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to conditionally approve this application?</p>
+            </div>
+            <div class="modal-footer">
+                <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
+                 <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
+                 <asp:Button runat="server" ID="ButtonCondApprovedModal" Text="Conditionally Approve" CssClass="btn" OnClick="ButtonCondApprovedModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+            </div>
+        </div>
+    </div>
+        </div>
+           </asp:Content>

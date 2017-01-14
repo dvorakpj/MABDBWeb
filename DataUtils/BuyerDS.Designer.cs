@@ -3772,7 +3772,6 @@ namespace DataUtils {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerRow AddBuyerRow(
-                        int Id, 
                         int MABuyerId, 
                         BuyerApplicationsRow parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18, 
                         BuyerRow parentBuyerRowByFK__Buyer__PrimaryBu__22FF2F51, 
@@ -3837,7 +3836,7 @@ namespace DataUtils {
                         decimal _FinalApprovedLimit_) {
                 BuyerRow rowBuyerRow = ((BuyerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Id,
+                        null,
                         MABuyerId,
                         null,
                         null,
@@ -4137,6 +4136,9 @@ namespace DataUtils {
                 base.Columns.Add(this._columnFinalApprovedLimit_);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
+                this.columnId.AutoIncrement = true;
+                this.columnId.AutoIncrementSeed = -1;
+                this.columnId.AutoIncrementStep = -1;
                 this.columnId.AllowDBNull = false;
                 this.columnId.Unique = true;
                 this.columnTitle.MaxLength = 25;
@@ -11344,48 +11346,97 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        BuyerApplications.*\r\nFROM            BuyerApplications";
+            this._commandCollection[0].CommandText = "SELECT        Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherN" +
+                "ames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, " +
+                "Primary_Gender, Other_Title, Other_FirstName, \r\n                         Other_O" +
+                "therNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_D" +
+                "ependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_" +
+                "PostCode, \r\n                         Primary_Res_Suburb, Primary_Res_State, Prim" +
+                "ary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1" +
+                ", Other_Res_Street2, Other_Res_PostCode, Other_Res_State, \r\n                    " +
+                "     Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, Curr" +
+                "OccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer" +
+                ", PrevJobTitle, PrevEmploymentStatus, \r\n                         PrevEmployerNam" +
+                "e, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTi" +
+                "tle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_Pr" +
+                "evEmployerName, \r\n                         Other_PrevEmploymentStatus, Other_Yrs" +
+                "PrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, Refu" +
+                "sedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, \r\n      " +
+                "                   Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedH" +
+                "I, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersion, Primary_" +
+                "IncomeMoAT, Other_IncomeMoAT, \r\n                         HouseholdIncomeGrossPA," +
+                " LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Propert" +
+                "y_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State," +
+                " Property_Country, \r\n                         PropertyID, EstSpend, EntryDate, E" +
+                "ntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_" +
+                "MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhon" +
+                "e, \r\n                         Other_Mobile, Primary_PassportNo, Other_PassportNo" +
+                ", Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Othe" +
+                "r_DriversLicenceNo, Primary_DriversLicenceState, \r\n                         Othe" +
+                "r_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res" +
+                "_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPr" +
+                "ev_Res_Country, YrsPrevAddr, \r\n                         OthPrev_Res_Street1, Oth" +
+                "Prev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, O" +
+                "thPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, \r\n                  " +
+                "       Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherInco" +
+                "mePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Prima" +
+                "ry_HomeLoanList, \r\n                         Other_HomeLoanList, Primary_CreditCa" +
+                "rdList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_Property" +
+                "AssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, \r\n              " +
+                "           Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilit" +
+                "iesList, Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriori" +
+                "ty, AutoRejected, AutoRejecetedBy, AutoAccepted, \r\n                         Auto" +
+                "AcceptedBy, CondApprovedLimit$, FinalApprovedLimit$, MthlyRent, MthlyDeposit, Co" +
+                "ndCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisi" +
+                "onInformed, \r\n                         CondCreditDecisionInformedBy\r\nFROM       " +
+                "     BuyerApplications";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT ApplicantType, AutoAccepted, AutoAcceptedBy, AutoRejecetedBy, AutoRejected" +
-                ", Broker, BrokerDetails, CondApprovedLimit$, CondCreditDecision, CondCreditDecis" +
-                "ionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInf" +
-                "ormedBy, CreatedBy, CreatedUTC, CurrEmployerName, CurrEmploymentStatus, CurrJobT" +
-                "itle, CurrOccupType, DesiredPropertyAddr, Email, EntryDate, EntryId, EntryUserId" +
-                ", EstSpend, FinalApprovedLimit$, FoundLocation, HasAgreedPrivacy, HasPrivateHeal" +
-                "thIns, HasReqestedPriority, HealthSelfRating, HouseholdIncomeGrossPA, Id, Intend" +
-                "edDeposit, IsSmoker, LookingLocation, Mobile, Modified, ModifiedBy, MthlyDeposit" +
-                ", MthlyRent, OthPrev_Res_Country, OthPrev_Res_PostCode, OthPrev_Res_State, OthPr" +
-                "ev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, Other_AUCitizenStat, Ot" +
-                "her_BusIncomeAPAYGTaxPA, Other_CreditCardList, Other_CurrEmployerName, Other_Cur" +
-                "rEmploymentStatus, Other_CurrOccupType, Other_CurrResidStatus, Other_DOB, Other_" +
-                "Dependants, Other_DriversLicenceNo, Other_DriversLicenceState, Other_Email, Othe" +
-                "r_FirstName, Other_Gender, Other_HasPrivateHealthIns, Other_HealthSelfRating, Ot" +
-                "her_HomeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_IsSmoker, Other_JobTi" +
-                "tle, Other_LastName, Other_MaritalStats, Other_Mobile, Other_OtherAssetsList, Ot" +
-                "her_OtherIncomePA, Other_OtherIncomeType, Other_OtherLiabilitiesList, Other_Othe" +
-                "rNames, Other_PassportCountry, Other_PassportNo, Other_PersonalLoansList, Other_" +
-                "PrevEmployerName, Other_PrevEmploymentStatus, Other_PrevJobTitle, Other_PrevResS" +
-                "tatus, Other_PropertyAssetsList, Other_ReasonNoPHI, Other_ReasonRefusedHI, Other" +
-                "_RefusedHICover, Other_Res_Country, Other_Res_PostCode, Other_Res_State, Other_R" +
-                "es_Street1, Other_Res_Street2, Other_Res_Suburb, Other_Title, Other_YrsCurrAddr," +
-                " Other_YrsCurrEmployer, Other_YrsPrevAddr, Other_YrsPrevEmployer, PrevEmployerNa" +
-                "me, PrevEmploymentStatus, PrevJobTitle, PrevResStatus, PrimPrev_Res_Country, Pri" +
-                "mPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Street1, PrimPrev_Res_Stree" +
-                "t2, PrimPrev_Res_Suburb, Primary_AUCitizenStat, Primary_BusIncomeAPAYGTaxPA, Pri" +
-                "mary_CreditCardList, Primary_CurrResidStatus, Primary_DOB, Primary_Dependants, P" +
-                "rimary_DriversLicenceNo, Primary_DriversLicenceState, Primary_FirstName, Primary" +
-                "_Gender, Primary_HomeLoanList, Primary_HomePhone, Primary_IncomeMoAT, Primary_La" +
-                "stName, Primary_MaritalStats, Primary_OtherAssetsList, Primary_OtherIncomePA, Pr" +
-                "imary_OtherIncomeType, Primary_OtherLiabilitiesList, Primary_OtherNames, Primary" +
-                "_PassportCountry, Primary_PassportNo, Primary_PersonalLoansList, Primary_Propert" +
-                "yAssetsList, Primary_Res_Country, Primary_Res_PostCode, Primary_Res_State, Prima" +
-                "ry_Res_Street1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Title, Primary_" +
-                "YrsCurrAddr, PropertyID, Property_Country, Property_PostCode, Property_State, Pr" +
-                "operty_Street1, Property_Street2, Property_Suburb, ReasonNoPHI, ReasonRefusedHI," +
-                " RefusedHICover, RentPM, RowVersion, SourceURL, TransactionId, YrsCurrEmployer, " +
-                "YrsPrevAddr, YrsPrevEmployer FROM BuyerApplications WHERE (Id = @Id)";
+            this._commandCollection[1].CommandText = "SELECT        Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherN" +
+                "ames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, " +
+                "Primary_Gender, Other_Title, Other_FirstName, \r\n                         Other_O" +
+                "therNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_D" +
+                "ependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_" +
+                "PostCode, \r\n                         Primary_Res_Suburb, Primary_Res_State, Prim" +
+                "ary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1" +
+                ", Other_Res_Street2, Other_Res_PostCode, Other_Res_State, \r\n                    " +
+                "     Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, Curr" +
+                "OccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer" +
+                ", PrevJobTitle, PrevEmploymentStatus, \r\n                         PrevEmployerNam" +
+                "e, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTi" +
+                "tle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_Pr" +
+                "evEmployerName, \r\n                         Other_PrevEmploymentStatus, Other_Yrs" +
+                "PrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, Refu" +
+                "sedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, \r\n      " +
+                "                   Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedH" +
+                "I, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersion, Primary_" +
+                "IncomeMoAT, Other_IncomeMoAT, \r\n                         HouseholdIncomeGrossPA," +
+                " LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Propert" +
+                "y_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State," +
+                " Property_Country, \r\n                         PropertyID, EstSpend, EntryDate, E" +
+                "ntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_" +
+                "MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhon" +
+                "e, \r\n                         Other_Mobile, Primary_PassportNo, Other_PassportNo" +
+                ", Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Othe" +
+                "r_DriversLicenceNo, Primary_DriversLicenceState, \r\n                         Othe" +
+                "r_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res" +
+                "_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPr" +
+                "ev_Res_Country, YrsPrevAddr, \r\n                         OthPrev_Res_Street1, Oth" +
+                "Prev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, O" +
+                "thPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, \r\n                  " +
+                "       Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherInco" +
+                "mePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Prima" +
+                "ry_HomeLoanList, \r\n                         Other_HomeLoanList, Primary_CreditCa" +
+                "rdList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_Property" +
+                "AssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, \r\n              " +
+                "           Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilit" +
+                "iesList, Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriori" +
+                "ty, AutoRejected, AutoRejecetedBy, AutoAccepted, \r\n                         Auto" +
+                "AcceptedBy, CondApprovedLimit$, FinalApprovedLimit$, MthlyRent, MthlyDeposit, Co" +
+                "ndCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisi" +
+                "onInformed, \r\n                         CondCreditDecisionInformedBy\r\nFROM       " +
+                "     BuyerApplications\r\nWHERE        (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -11436,7 +11487,13 @@ namespace DataUtils.BuyerDSTableAdapters {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             BuyerDS.BuyerApplicationsDataTable dataTable = new BuyerDS.BuyerApplicationsDataTable();
-            this.Adapter.Fill(dataTable);
+            try
+            {
+                this.Adapter.Fill(dataTable);
+            }catch (System.Data.ConstraintException ex)
+            {
+                string s;
+            }
             return dataTable;
         }
         
