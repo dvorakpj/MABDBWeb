@@ -49,12 +49,14 @@ namespace MABDBWeb
             }
             //InvestorApplicationDS investor = new InvestorApplicationDS();
 
-            DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter bata = new DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter();
-           
-            DataUtils.BuyerDS.BuyerDataTable bdt = new DataUtils.BuyerDS.BuyerDataTable();      
-            DataUtils.BuyerDSTableAdapters.BuyerTableAdapter bta = new DataUtils.BuyerDSTableAdapters.BuyerTableAdapter();
+            DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter bata = new DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter();                                 
+            DataUtils.BuyerDS.BuyerDataTable bdt = new DataUtils.BuyerDS.BuyerDataTable();
+            DataUtils.DataUtil.SetConnectionStrFromConfig(bata, null);
 
-            DataUtils.BuyerDS.BuyerApplicationsDataTable badt = bata.GetDataBy(buyerAppIdi);
+
+            DataUtils.BuyerDSTableAdapters.BuyerTableAdapter bta = new DataUtils.BuyerDSTableAdapters.BuyerTableAdapter();
+            DataUtils.DataUtil.SetConnectionStrFromConfig(bta, null);
+            DataUtils.BuyerDS.BuyerApplicationsDataTable badt = bata.GetDataBy(buyerAppIdi);      
 
             if (badt.Rows.Count != 1)
             {
@@ -109,17 +111,14 @@ namespace MABDBWeb
                     newBuyerOth.AppliedDate = newBuyerApp.EntryDate;
                     newBuyerOth.BuyerApplicationId = newBuyerPrim.BuyerApplicationId;
                     newBuyerOth.CreatedBy = newBuyerPrim.CreatedBy;
-                    newBuyerOth.Created = DateTime.Now;
-                    
+                    newBuyerOth.Created = DateTime.Now;                    
 
                     bdt.AddBuyerRow(newBuyerOth);
 
                     int updates2 = bta.Update(bdt);
 
                 }
-
-
-
+                 
             }
 
 

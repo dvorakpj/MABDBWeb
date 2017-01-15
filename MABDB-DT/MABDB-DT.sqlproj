@@ -281,6 +281,10 @@
     <Build Include="dbo\Views\vw_BuyersCondAcceptedLowerLimitNotInformed.sql" />
     <Build Include="dbo\Views\vw_BuyersCondAcceptedAppliedLimit.sql" />
     <Build Include="dbo\Views\vw_BuyersCondAcceptedAppliedLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_BuyerCreditApprovedAppliedLimit.sql" />
+    <Build Include="dbo\Views\vw_BuyerCreditApprovedAppliedLimitNotInformed.sql" />
+    <Build Include="dbo\Views\vw_Buyers.sql" />
+    <Build Include="dbo\Views\vw_BuyerCreditFinalApproved.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="MABDB-DT.refactorlog" />
