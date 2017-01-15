@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="BuyerApplicationDetail.aspx.cs" Inherits="MABDBWeb.WebForm1" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:Label ID="lblTitle" runat="server" Font-Bold="True" Text="MA Buyer Application"></asp:Label>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">&nbsp;<asp:Label ID="lblCondDecLbl" runat="server" Text="Conditional Decision:" Visible="False"></asp:Label>
+    <asp:Label ID="lblCondApproved" runat="server" Visible="False"></asp:Label>
+    <br />
+    <asp:Label ID="lblCondDecInformedLbl" runat="server" Text="Conditional Decision Sent:" Visible="False"></asp:Label>
+    <asp:Label ID="lblCondDecInformed" runat="server" Visible="False"></asp:Label>
 <br />
 <asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" DataSourceID="BuyerApplicationDSDataSource1" Height="50px" Width="125px">
     <Fields>
@@ -480,6 +483,12 @@
     <p>
         <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal"/>
         </p>
+    <p>
+        <asp:Label ID="lblCondApproveError" runat="server" BackColor="Red" ForeColor="White" Visible="False"></asp:Label>
+        </p>
+    <p>
+        &nbsp;</p>
+   
     <!-- COnditional approval confirmation -->
         <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
          <div class="modal-dialog">
@@ -501,4 +510,32 @@
         </div>
     </div>
         </div>
-           </asp:Content>
+
+        
+     <p>
+        <strong>Conditional Approval Letter Sent:</strong></p>
+    <p>
+        Officer: Pavel Dvorak</p>
+      <p>
+        <asp:Button ID="btnCondResultSent" runat="server" Text="Mark Conditional Result as Sent" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondResultSentModal"/>
+        </p>
+
+      <div id="CondResultSentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+         <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">                
+                 <h3 id="myModalLabel2">Confirmation</h3>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you have sent the result of conditional approval result <%=this.lblCondApproved.Text%> to this applicant?</p>
+            </div>
+            <div class="modal-footer">
+              <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
+                 <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
+                 <asp:Button runat="server" ID="Button1" Text="Mark Result as Sent" CssClass="btn" OnClick="ButtonCondResultSentModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+            </div>
+        </div>
+    </div>
+           </div>
+</asp:Content>

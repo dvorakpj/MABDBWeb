@@ -13,13 +13,40 @@ namespace MABDBWeb {
     public partial class WebForm1 {
         
         /// <summary>
-        /// lblTitle control.
+        /// lblCondDecLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTitle;
+        protected global::System.Web.UI.WebControls.Label lblCondDecLbl;
+        
+        /// <summary>
+        /// lblCondApproved control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCondApproved;
+        
+        /// <summary>
+        /// lblCondDecInformedLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCondDecInformedLbl;
+        
+        /// <summary>
+        /// lblCondDecInformed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCondDecInformed;
         
         /// <summary>
         /// DetailsView1 control.
@@ -58,6 +85,15 @@ namespace MABDBWeb {
         protected global::System.Web.UI.WebControls.Button btnCondApprove;
         
         /// <summary>
+        /// lblCondApproveError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCondApproveError;
+        
+        /// <summary>
         /// ButtonCondApprovedModal control.
         /// </summary>
         /// <remarks>
@@ -65,5 +101,23 @@ namespace MABDBWeb {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonCondApprovedModal;
+        
+        /// <summary>
+        /// btnCondResultSent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCondResultSent;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
