@@ -143,10 +143,6 @@
 	[TransactionId]                      VARCHAR (15)       NULL,
 	[SourceURL]                          VARCHAR (255)      NULL,
 	[HasReqestedPriority]                VARCHAR (100)      NULL,
-	[AutoRejected]					 Date NULL,
-	[AutoRejecetedBy]				VARCHAR(50) NULL,
-	[AutoAccepted]			Date NULL,
-	[AutoAcceptedBy]			VARCHAR(50) NULL,
 	[CondApprovedLimit$]	Decimal(12,2) NULL,
 	[FinalApprovedLimit$] Decimal(12,2) NULL,
 	[MthlyRent] Decimal(12,2) NULL,
@@ -156,7 +152,10 @@
 	[CondCreditDecisionBy]                     VARCHAR (25)       NULL,
 	[CondCreditDecisionInformed] DATETIME2 NULL, 
 	[CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
-	CONSTRAINT [PK_BuyerApplications] PRIMARY KEY ([Id]), 
+	[AutoPreApprovalResult] CHAR NULL, 
+    [AutoPreApprovalDate] DATETIME2 NULL, 
+    [AutoPreApprovalBy] VARCHAR(25) NULL, 
+    CONSTRAINT [PK_BuyerApplications] PRIMARY KEY ([Id]), 
 );
 
 

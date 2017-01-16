@@ -43,8 +43,7 @@
 	ba.CondCreditDecisionBy,
 	ba.CondCreditDecisionInformed,
 	ba.CondCreditDecisionInformedBy,
-	ba.AutoAccepted,
-	ba.AutoAcceptedBy,
-	ba.AutoRejected,
-	ba.AutoRejecetedBy
+	ba.AutoPreApprovalResult,
+	ba.AutoPreApprovalDate,
+	ba.AutoPreApprovalBy
 FROM [dbo].[BuyerApplications] ba

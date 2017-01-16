@@ -43,10 +43,9 @@
 	ba.CondCreditDecisionBy,
 	ba.CondCreditDecisionInformed,
 	ba.CondCreditDecisionInformedBy,
-	ba.AutoAccepted,
-	ba.AutoAcceptedBy,
-	ba.AutoRejected,
-	ba.AutoRejecetedBy
+	ba.AutoPreApprovalResult,
+	ba.AutoPreApprovalBy,
+	ba.AutoPreApprovalDate	
 FROM [dbo].[BuyerApplications] ba
 JOIN BuyerScoreCard bsc ON bsc.BuyerApplicationId = ba.Id
 WHERE ba.CondCreditDecision IS NULL AND ba.CondCreditDecisionDate IS NULL

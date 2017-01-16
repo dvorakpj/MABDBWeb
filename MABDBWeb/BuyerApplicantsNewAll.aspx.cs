@@ -346,23 +346,15 @@ namespace MABDBWeb
             impColsList.Add(new DataColumn("Property_Country", typeof(string)));
             impColsList.Add(new DataColumn("Property_AgentDetails", typeof(string)));
             impColsList.Add(new DataColumn("PropertyID", typeof(string)));            
-            impColsList.Add(new DataColumn("CondDecision", typeof(DateTime)));
-            impColsList.Add(new DataColumn("CondDecisionBy", typeof(string)));
             impColsList.Add(new DataColumn("Other_Dependants", typeof(string)));
             impColsList.Add(new DataColumn("ModifiedBy", typeof(string)));
             impColsList.Add(new DataColumn("Modified", typeof(string)));
             impColsList.Add(new DataColumn("RowVersion", typeof(string)));
             impColsList.Add(new DataColumn("InvestorApplicant_AssquireInvestor", typeof(string)));
-            impColsList.Add(new DataColumn("InvestorApplication_Gender", typeof(string)));
-            impColsList.Add(new DataColumn("CondApproved", typeof(string)));
-            impColsList.Add(new DataColumn("AutoRejected", typeof(string)));
-            impColsList.Add(new DataColumn("AutoRejectedInformed", typeof(string)));
-            impColsList.Add(new DataColumn("AutoRejecetedBy", typeof(string)));
-            impColsList.Add(new DataColumn("AutoRejectedInformedBy", typeof(string)));
-            impColsList.Add(new DataColumn("AutoAccepted", typeof(string)));
-            impColsList.Add(new DataColumn("AutoAcceptedBy", typeof(string)));
-            impColsList.Add(new DataColumn("AutoAcceptedInformed", typeof(string)));
-            impColsList.Add(new DataColumn("AutoAcceptedInformedBy", typeof(string)));
+            impColsList.Add(new DataColumn("InvestorApplication_Gender", typeof(string)));           
+            impColsList.Add(new DataColumn("AutoPreApprovalBy", typeof(string)));
+            impColsList.Add(new DataColumn("AutoPreApprovalResult", typeof(string)));
+            impColsList.Add(new DataColumn("AutoPreApprovalDate", typeof(string)));
             impColsList.Add(new DataColumn("HasReqestedPriority", typeof(string)));
             impColsList.Add(new DataColumn("Primary_OtherAssetsList", typeof(string)));
             impColsList.Add(new DataColumn("Other_OtherAssetsList", typeof(string)));
@@ -746,12 +738,24 @@ namespace MABDBWeb
 
                     scoreDT.Rows.Add(newCard);
 
-                    CalcAutoCondApproval(newRow, newCard);
-                                      
-                    //int score = CalcScoreClass()
-                    //newRow[94] = DateTime.UtcNow;
-                   // newRow[90] = "3";
+                    AutoCondApprovalResult condRes = CalcAutoCondApproval(newRow, newCard);
 
+                    switch (condRes)
+                    {
+                        case AutoCondApprovalResult.Accepted:
+                            newRow["AutoPreApprovalResult"] = 'A';
+                            break;
+                        case AutoCondApprovalResult.Rejected:
+                            newRow["AutoPreApprovalResult"] = 'R';
+                            break;
+                        case AutoCondApprovalResult.Referred:
+                            newRow["AutoPreApprovalResult"] = 'F';
+                            break;
+                    }
+                    newRow["AutoPreApprovalDate"] = DateTime.Now;
+                    newRow["AutoPreApprovalBy"] = "dvorakpj";
+
+                    
                 }
             }
 
