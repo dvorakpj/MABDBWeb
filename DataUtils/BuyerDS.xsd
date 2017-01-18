@@ -357,13 +357,25 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Email" DataSetColumn="Email" />
+              <Mapping SourceColumn="CreatedBy" DataSetColumn="CreatedBy" />
+              <Mapping SourceColumn="CondCreditDecisionDate" DataSetColumn="CondCreditDecisionDate" />
+              <Mapping SourceColumn="CondCreditDecision" DataSetColumn="CondCreditDecision" />
+              <Mapping SourceColumn="CondCreditDecisionBy" DataSetColumn="CondCreditDecisionBy" />
+              <Mapping SourceColumn="CondCreditDecisionInformed" DataSetColumn="CondCreditDecisionInformed" />
+              <Mapping SourceColumn="CondCreditDecisionInformedBy" DataSetColumn="CondCreditDecisionInformedBy" />
+              <Mapping SourceColumn="CondApprovedLimit$" DataSetColumn="CondApprovedLimit$" />
+              <Mapping SourceColumn="FinalApprovedLimit$" DataSetColumn="FinalApprovedLimit$" />
               <Mapping SourceColumn="ApplicantType" DataSetColumn="ApplicantType" />
+              <Mapping SourceColumn="Primary_Title" DataSetColumn="Primary_Title" />
               <Mapping SourceColumn="Primary_FirstName" DataSetColumn="Primary_FirstName" />
               <Mapping SourceColumn="Primary_OtherNames" DataSetColumn="Primary_OtherNames" />
               <Mapping SourceColumn="Primary_LastName" DataSetColumn="Primary_LastName" />
               <Mapping SourceColumn="Primary_AUCitizenStat" DataSetColumn="Primary_AUCitizenStat" />
               <Mapping SourceColumn="Primary_Dependants" DataSetColumn="Primary_Dependants" />
               <Mapping SourceColumn="Primary_DOB" DataSetColumn="Primary_DOB" />
+              <Mapping SourceColumn="Primary_Gender" DataSetColumn="Primary_Gender" />
+              <Mapping SourceColumn="Other_Title" DataSetColumn="Other_Title" />
               <Mapping SourceColumn="Other_FirstName" DataSetColumn="Other_FirstName" />
               <Mapping SourceColumn="Other_OtherNames" DataSetColumn="Other_OtherNames" />
               <Mapping SourceColumn="Other_LastName" DataSetColumn="Other_LastName" />
@@ -371,7 +383,6 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="Other_Gender" DataSetColumn="Other_Gender" />
               <Mapping SourceColumn="Other_AUCitizenStat" DataSetColumn="Other_AUCitizenStat" />
               <Mapping SourceColumn="Other_Dependants" DataSetColumn="Other_Dependants" />
-              <Mapping SourceColumn="Email" DataSetColumn="Email" />
               <Mapping SourceColumn="Mobile" DataSetColumn="Mobile" />
               <Mapping SourceColumn="Primary_Res_Street1" DataSetColumn="Primary_Res_Street1" />
               <Mapping SourceColumn="Primary_Res_Street2" DataSetColumn="Primary_Res_Street2" />
@@ -395,6 +406,7 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="CurrEmployerName" DataSetColumn="CurrEmployerName" />
               <Mapping SourceColumn="YrsCurrEmployer" DataSetColumn="YrsCurrEmployer" />
               <Mapping SourceColumn="PrevJobTitle" DataSetColumn="PrevJobTitle" />
+              <Mapping SourceColumn="PrevEmploymentStatus" DataSetColumn="PrevEmploymentStatus" />
               <Mapping SourceColumn="PrevEmployerName" DataSetColumn="PrevEmployerName" />
               <Mapping SourceColumn="YrsPrevEmployer" DataSetColumn="YrsPrevEmployer" />
               <Mapping SourceColumn="Other_CurrOccupType" DataSetColumn="Other_CurrOccupType" />
@@ -404,6 +416,7 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="Other_YrsCurrEmployer" DataSetColumn="Other_YrsCurrEmployer" />
               <Mapping SourceColumn="Other_PrevJobTitle" DataSetColumn="Other_PrevJobTitle" />
               <Mapping SourceColumn="Other_PrevEmployerName" DataSetColumn="Other_PrevEmployerName" />
+              <Mapping SourceColumn="Other_PrevEmploymentStatus" DataSetColumn="Other_PrevEmploymentStatus" />
               <Mapping SourceColumn="Other_YrsPrevEmployer" DataSetColumn="Other_YrsPrevEmployer" />
               <Mapping SourceColumn="IsSmoker" DataSetColumn="IsSmoker" />
               <Mapping SourceColumn="HasPrivateHealthIns" DataSetColumn="HasPrivateHealthIns" />
@@ -417,7 +430,6 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="Other_RefusedHICover" DataSetColumn="Other_RefusedHICover" />
               <Mapping SourceColumn="Other_ReasonRefusedHI" DataSetColumn="Other_ReasonRefusedHI" />
               <Mapping SourceColumn="Other_HealthSelfRating" DataSetColumn="Other_HealthSelfRating" />
-              <Mapping SourceColumn="CreatedBy" DataSetColumn="CreatedBy" />
               <Mapping SourceColumn="ModifiedBy" DataSetColumn="ModifiedBy" />
               <Mapping SourceColumn="Modified" DataSetColumn="Modified" />
               <Mapping SourceColumn="RowVersion" DataSetColumn="RowVersion" />
@@ -426,6 +438,9 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="HouseholdIncomeGrossPA" DataSetColumn="HouseholdIncomeGrossPA" />
               <Mapping SourceColumn="LookingLocation" DataSetColumn="LookingLocation" />
               <Mapping SourceColumn="FoundLocation" DataSetColumn="FoundLocation" />
+              <Mapping SourceColumn="IntendedDeposit" DataSetColumn="IntendedDeposit" />
+              <Mapping SourceColumn="Broker" DataSetColumn="Broker" />
+              <Mapping SourceColumn="BrokerDetails" DataSetColumn="BrokerDetails" />
               <Mapping SourceColumn="Property_Street1" DataSetColumn="Property_Street1" />
               <Mapping SourceColumn="Property_Street2" DataSetColumn="Property_Street2" />
               <Mapping SourceColumn="Property_Suburb" DataSetColumn="Property_Suburb" />
@@ -439,7 +454,6 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="EntryUserId" DataSetColumn="EntryUserId" />
               <Mapping SourceColumn="CreatedUTC" DataSetColumn="CreatedUTC" />
               <Mapping SourceColumn="HasAgreedPrivacy" DataSetColumn="HasAgreedPrivacy" />
-              <Mapping SourceColumn="Primary_Gender" DataSetColumn="Primary_Gender" />
               <Mapping SourceColumn="DesiredPropertyAddr" DataSetColumn="DesiredPropertyAddr" />
               <Mapping SourceColumn="Primary_MaritalStats" DataSetColumn="Primary_MaritalStats" />
               <Mapping SourceColumn="Other_MaritalStats" DataSetColumn="Other_MaritalStats" />
@@ -462,6 +476,7 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="PrimPrev_Res_PostCode" DataSetColumn="PrimPrev_Res_PostCode" />
               <Mapping SourceColumn="PrimPrev_Res_State" DataSetColumn="PrimPrev_Res_State" />
               <Mapping SourceColumn="PrimPrev_Res_Country" DataSetColumn="PrimPrev_Res_Country" />
+              <Mapping SourceColumn="YrsPrevAddr" DataSetColumn="YrsPrevAddr" />
               <Mapping SourceColumn="OthPrev_Res_Street1" DataSetColumn="OthPrev_Res_Street1" />
               <Mapping SourceColumn="OthPrev_Res_Street2" DataSetColumn="OthPrev_Res_Street2" />
               <Mapping SourceColumn="OthPrev_Res_Suburb" DataSetColumn="OthPrev_Res_Suburb" />
@@ -481,6 +496,8 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="Primary_CreditCardList" DataSetColumn="Primary_CreditCardList" />
               <Mapping SourceColumn="Other_CreditCardList" DataSetColumn="Other_CreditCardList" />
               <Mapping SourceColumn="RentPM" DataSetColumn="RentPM" />
+              <Mapping SourceColumn="Primary_PropertyAssetsList" DataSetColumn="Primary_PropertyAssetsList" />
+              <Mapping SourceColumn="Other_PropertyAssetsList" DataSetColumn="Other_PropertyAssetsList" />
               <Mapping SourceColumn="Primary_PersonalLoansList" DataSetColumn="Primary_PersonalLoansList" />
               <Mapping SourceColumn="Other_PersonalLoansList" DataSetColumn="Other_PersonalLoansList" />
               <Mapping SourceColumn="Primary_OtherAssetsList" DataSetColumn="Primary_OtherAssetsList" />
@@ -490,23 +507,6 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <Mapping SourceColumn="TransactionId" DataSetColumn="TransactionId" />
               <Mapping SourceColumn="SourceURL" DataSetColumn="SourceURL" />
               <Mapping SourceColumn="HasReqestedPriority" DataSetColumn="HasReqestedPriority" />
-              <Mapping SourceColumn="YrsPrevAddr" DataSetColumn="YrsPrevAddr" />
-              <Mapping SourceColumn="Primary_Title" DataSetColumn="Primary_Title" />
-              <Mapping SourceColumn="Other_Title" DataSetColumn="Other_Title" />
-              <Mapping SourceColumn="PrevEmploymentStatus" DataSetColumn="PrevEmploymentStatus" />
-              <Mapping SourceColumn="Other_PrevEmploymentStatus" DataSetColumn="Other_PrevEmploymentStatus" />
-              <Mapping SourceColumn="IntendedDeposit" DataSetColumn="IntendedDeposit" />
-              <Mapping SourceColumn="Broker" DataSetColumn="Broker" />
-              <Mapping SourceColumn="BrokerDetails" DataSetColumn="BrokerDetails" />
-              <Mapping SourceColumn="CondCreditDecisionDate" DataSetColumn="CondCreditDecisionDate" />
-              <Mapping SourceColumn="CondCreditDecision" DataSetColumn="CondCreditDecision" />
-              <Mapping SourceColumn="CondCreditDecisionBy" DataSetColumn="CondCreditDecisionBy" />
-              <Mapping SourceColumn="CondCreditDecisionInformed" DataSetColumn="CondCreditDecisionInformed" />
-              <Mapping SourceColumn="CondCreditDecisionInformedBy" DataSetColumn="CondCreditDecisionInformedBy" />
-              <Mapping SourceColumn="Primary_PropertyAssetsList" DataSetColumn="Primary_PropertyAssetsList" />
-              <Mapping SourceColumn="Other_PropertyAssetsList" DataSetColumn="Other_PropertyAssetsList" />
-              <Mapping SourceColumn="CondApprovedLimit$" DataSetColumn="CondApprovedLimit$" />
-              <Mapping SourceColumn="FinalApprovedLimit$" DataSetColumn="FinalApprovedLimit$" />
               <Mapping SourceColumn="MthlyRent" DataSetColumn="MthlyRent" />
               <Mapping SourceColumn="MthlyDeposit" DataSetColumn="MthlyDeposit" />
               <Mapping SourceColumn="AutoPreApprovalResult" DataSetColumn="AutoPreApprovalResult" />
@@ -517,25 +517,7 @@ SELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, 
               <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.BuyerApplications" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Primary_DOB, Primary_Gender, Other_Title, Other_FirstName, 
-                         Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, 
-                         Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, Primary_YrsCurrAddr, Other_Res_Street1, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, 
-                         Other_Res_Country, Other_Res_Suburb, Other_YrsCurrAddr, PrevResStatus, CurrOccupType, CurrEmploymentStatus, CurrJobTitle, CurrEmployerName, YrsCurrEmployer, PrevJobTitle, PrevEmploymentStatus, 
-                         PrevEmployerName, YrsPrevEmployer, Other_CurrOccupType, Other_CurrEmploymentStatus, Other_JobTitle, Other_CurrEmployerName, Other_YrsCurrEmployer, Other_PrevJobTitle, Other_PrevEmployerName, 
-                         Other_PrevEmploymentStatus, Other_YrsPrevEmployer, IsSmoker, HasPrivateHealthIns, ReasonNoPHI, HealthSelfRating, RefusedHICover, ReasonRefusedHI, Other_IsSmoker, Other_HasPrivateHealthIns, 
-                         Other_ReasonNoPHI, Other_RefusedHICover, Other_ReasonRefusedHI, Other_HealthSelfRating, CreatedBy, ModifiedBy, Modified, RowVersion, Primary_IncomeMoAT, Other_IncomeMoAT, 
-                         HouseholdIncomeGrossPA, LookingLocation, FoundLocation, IntendedDeposit, Broker, BrokerDetails, Property_Street1, Property_Street2, Property_Suburb, Property_PostCode, Property_State, Property_Country, 
-                         PropertyID, EstSpend, EntryDate, EntryId, EntryUserId, CreatedUTC, HasAgreedPrivacy, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, 
-                         Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, 
-                         Other_DriversLicenceState, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, YrsPrevAddr, 
-                         OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_YrsPrevAddr, 
-                         Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, 
-                         Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_PropertyAssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, 
-                         Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, TransactionId, SourceURL, HasReqestedPriority, CondApprovedLimit$, FinalApprovedLimit$, MthlyRent, 
-                         MthlyDeposit, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, AutoPreApprovalResult, AutoPreApprovalDate, 
-                         AutoPreApprovalBy
-FROM            BuyerApplications
-WHERE        (Id = @Id)</CommandText>
+                    <CommandText>SELECT ApplicantType, AutoPreApprovalBy, AutoPreApprovalDate, AutoPreApprovalResult, Broker, BrokerDetails, CondApprovedLimit$, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInformedBy, CreatedBy, CreatedUTC, CurrEmployerName, CurrEmploymentStatus, CurrJobTitle, CurrOccupType, DesiredPropertyAddr, Email, EntryDate, EntryId, EntryUserId, EstSpend, FinalApprovedLimit$, FoundLocation, HasAgreedPrivacy, HasPrivateHealthIns, HasReqestedPriority, HealthSelfRating, HouseholdIncomeGrossPA, Id, IntendedDeposit, IsSmoker, LookingLocation, Mobile, Modified, ModifiedBy, MthlyDeposit, MthlyRent, OthPrev_Res_Country, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, Other_AUCitizenStat, Other_BusIncomeAPAYGTaxPA, Other_CreditCardList, Other_CurrEmployerName, Other_CurrEmploymentStatus, Other_CurrOccupType, Other_CurrResidStatus, Other_DOB, Other_Dependants, Other_DriversLicenceNo, Other_DriversLicenceState, Other_Email, Other_FirstName, Other_Gender, Other_HasPrivateHealthIns, Other_HealthSelfRating, Other_HomeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_IsSmoker, Other_JobTitle, Other_LastName, Other_MaritalStats, Other_Mobile, Other_OtherAssetsList, Other_OtherIncomePA, Other_OtherIncomeType, Other_OtherLiabilitiesList, Other_OtherNames, Other_PassportCountry, Other_PassportNo, Other_PersonalLoansList, Other_PrevEmployerName, Other_PrevEmploymentStatus, Other_PrevJobTitle, Other_PrevResStatus, Other_PropertyAssetsList, Other_ReasonNoPHI, Other_ReasonRefusedHI, Other_RefusedHICover, Other_Res_Country, Other_Res_PostCode, Other_Res_State, Other_Res_Street1, Other_Res_Street2, Other_Res_Suburb, Other_Title, Other_YrsCurrAddr, Other_YrsCurrEmployer, Other_YrsPrevAddr, Other_YrsPrevEmployer, PrevEmployerName, PrevEmploymentStatus, PrevJobTitle, PrevResStatus, PrimPrev_Res_Country, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, Primary_AUCitizenStat, Primary_BusIncomeAPAYGTaxPA, Primary_CreditCardList, Primary_CurrResidStatus, Primary_DOB, Primary_Dependants, Primary_DriversLicenceNo, Primary_DriversLicenceState, Primary_FirstName, Primary_Gender, Primary_HomeLoanList, Primary_HomePhone, Primary_IncomeMoAT, Primary_LastName, Primary_MaritalStats, Primary_OtherAssetsList, Primary_OtherIncomePA, Primary_OtherIncomeType, Primary_OtherLiabilitiesList, Primary_OtherNames, Primary_PassportCountry, Primary_PassportNo, Primary_PersonalLoansList, Primary_PropertyAssetsList, Primary_Res_Country, Primary_Res_PostCode, Primary_Res_State, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Title, Primary_YrsCurrAddr, PropertyID, Property_Country, Property_PostCode, Property_State, Property_Street1, Property_Street2, Property_Suburb, ReasonNoPHI, ReasonRefusedHI, RefusedHICover, RentPM, RowVersion, SourceURL, TransactionId, YrsCurrEmployer, YrsPrevAddr, YrsPrevEmployer FROM BuyerApplications WHERE (Id = @Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="MABDB.dbo.BuyerApplications" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -553,7 +535,7 @@ WHERE        (Id = @Id)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MABuyerId" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PrimaryBuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PrimaryBuyerId" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -672,7 +654,7 @@ WHERE        (Id = @Id)</CommandText>
                     <CommandText>INSERT INTO [Buyer] ([MABuyerId], [BuyerApplicationId], [PrimaryBuyerId], [Title], [FirstName], [OtherNames], [LastName], [DOB], [Gender], [Res_UnitNum], [Res_Street1], [Res_Street2], [Res_Street3], [Res_Street4], [Res_Street5], [Res_Postcode], [Res_Suburb], [Res_City], [Res_State], [Res_Country], [Bill_UnitNum], [Bill_Street1], [Bill_Street2], [Bill_Street3], [Bill_Street4], [Bill_Street5], [Bill_Postcode], [Bill_Suburb], [Bill_City], [Bill_State], [Bill_Country], [Comments], [PhoneMobile], [PhoneHome], [PhoneWork], [PhoneOther], [Email], [EmailOther], [ContactComments], [DeathCoverInsurer], [DeathCoverDetail], [TPDCoverInsurer], [TPDCoverDetail], [MAStatus], [AppliedDate], [MAApprovedDate], [Created], [CreatedBy], [Updated], [UpdatedBy], [CondCreditDecisionDate], [CondCreditDecision], [CondCreditDecisionBy], [CondCreditDecisionInformed], [CondCreditDecisionInformedBy], [FinalCreditDecisionInformed], [FinalCreditDecisionInformedBy], [AppliedLimit$], [CondApprovedLimit$], [FinalApprovedLimit$]) VALUES (@MABuyerId, @BuyerApplicationId, @PrimaryBuyerId, @Title, @FirstName, @OtherNames, @LastName, @DOB, @Gender, @Res_UnitNum, @Res_Street1, @Res_Street2, @Res_Street3, @Res_Street4, @Res_Street5, @Res_Postcode, @Res_Suburb, @Res_City, @Res_State, @Res_Country, @Bill_UnitNum, @Bill_Street1, @Bill_Street2, @Bill_Street3, @Bill_Street4, @Bill_Street5, @Bill_Postcode, @Bill_Suburb, @Bill_City, @Bill_State, @Bill_Country, @Comments, @PhoneMobile, @PhoneHome, @PhoneWork, @PhoneOther, @Email, @EmailOther, @ContactComments, @DeathCoverInsurer, @DeathCoverDetail, @TPDCoverInsurer, @TPDCoverDetail, @MAStatus, @AppliedDate, @MAApprovedDate, @Created, @CreatedBy, @Updated, @UpdatedBy, @CondCreditDecisionDate, @CondCreditDecision, @CondCreditDecisionBy, @CondCreditDecisionInformed, @CondCreditDecisionInformedBy, @FinalCreditDecisionInformed, @FinalCreditDecisionInformedBy, @AppliedLimit$, @CondApprovedLimit$, @FinalApprovedLimit$);
 SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, FinalApprovedLimit$ FROM Buyer WHERE (Id = SCOPE_IDENTITY())</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MABuyerId" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@PrimaryBuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PrimaryBuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Title" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Title" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -737,7 +719,11 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        Buyer.*
+                    <CommandText>SELECT        Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, 
+                         Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, 
+                         PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, 
+                         Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, 
+                         FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, FinalApprovedLimit$
 FROM            Buyer</CommandText>
                     <Parameters />
                   </DbCommand>
@@ -747,7 +733,7 @@ FROM            Buyer</CommandText>
                     <CommandText>UPDATE [Buyer] SET [MABuyerId] = @MABuyerId, [BuyerApplicationId] = @BuyerApplicationId, [PrimaryBuyerId] = @PrimaryBuyerId, [Title] = @Title, [FirstName] = @FirstName, [OtherNames] = @OtherNames, [LastName] = @LastName, [DOB] = @DOB, [Gender] = @Gender, [Res_UnitNum] = @Res_UnitNum, [Res_Street1] = @Res_Street1, [Res_Street2] = @Res_Street2, [Res_Street3] = @Res_Street3, [Res_Street4] = @Res_Street4, [Res_Street5] = @Res_Street5, [Res_Postcode] = @Res_Postcode, [Res_Suburb] = @Res_Suburb, [Res_City] = @Res_City, [Res_State] = @Res_State, [Res_Country] = @Res_Country, [Bill_UnitNum] = @Bill_UnitNum, [Bill_Street1] = @Bill_Street1, [Bill_Street2] = @Bill_Street2, [Bill_Street3] = @Bill_Street3, [Bill_Street4] = @Bill_Street4, [Bill_Street5] = @Bill_Street5, [Bill_Postcode] = @Bill_Postcode, [Bill_Suburb] = @Bill_Suburb, [Bill_City] = @Bill_City, [Bill_State] = @Bill_State, [Bill_Country] = @Bill_Country, [Comments] = @Comments, [PhoneMobile] = @PhoneMobile, [PhoneHome] = @PhoneHome, [PhoneWork] = @PhoneWork, [PhoneOther] = @PhoneOther, [Email] = @Email, [EmailOther] = @EmailOther, [ContactComments] = @ContactComments, [DeathCoverInsurer] = @DeathCoverInsurer, [DeathCoverDetail] = @DeathCoverDetail, [TPDCoverInsurer] = @TPDCoverInsurer, [TPDCoverDetail] = @TPDCoverDetail, [MAStatus] = @MAStatus, [AppliedDate] = @AppliedDate, [MAApprovedDate] = @MAApprovedDate, [Created] = @Created, [CreatedBy] = @CreatedBy, [Updated] = @Updated, [UpdatedBy] = @UpdatedBy, [CondCreditDecisionDate] = @CondCreditDecisionDate, [CondCreditDecision] = @CondCreditDecision, [CondCreditDecisionBy] = @CondCreditDecisionBy, [CondCreditDecisionInformed] = @CondCreditDecisionInformed, [CondCreditDecisionInformedBy] = @CondCreditDecisionInformedBy, [FinalCreditDecisionInformed] = @FinalCreditDecisionInformed, [FinalCreditDecisionInformedBy] = @FinalCreditDecisionInformedBy, [AppliedLimit$] = @AppliedLimit$, [CondApprovedLimit$] = @CondApprovedLimit$, [FinalApprovedLimit$] = @FinalApprovedLimit$ WHERE (([Id] = @Original_Id) AND ((@IsNull_MABuyerId = 1 AND [MABuyerId] IS NULL) OR ([MABuyerId] = @Original_MABuyerId)) AND ((@IsNull_BuyerApplicationId = 1 AND [BuyerApplicationId] IS NULL) OR ([BuyerApplicationId] = @Original_BuyerApplicationId)) AND ((@IsNull_PrimaryBuyerId = 1 AND [PrimaryBuyerId] IS NULL) OR ([PrimaryBuyerId] = @Original_PrimaryBuyerId)) AND ((@IsNull_Title = 1 AND [Title] IS NULL) OR ([Title] = @Original_Title)) AND ((@IsNull_FirstName = 1 AND [FirstName] IS NULL) OR ([FirstName] = @Original_FirstName)) AND ((@IsNull_OtherNames = 1 AND [OtherNames] IS NULL) OR ([OtherNames] = @Original_OtherNames)) AND ((@IsNull_LastName = 1 AND [LastName] IS NULL) OR ([LastName] = @Original_LastName)) AND ((@IsNull_DOB = 1 AND [DOB] IS NULL) OR ([DOB] = @Original_DOB)) AND ([Gender] = @Original_Gender) AND ((@IsNull_Res_UnitNum = 1 AND [Res_UnitNum] IS NULL) OR ([Res_UnitNum] = @Original_Res_UnitNum)) AND ([Res_Street1] = @Original_Res_Street1) AND ((@IsNull_Res_Street2 = 1 AND [Res_Street2] IS NULL) OR ([Res_Street2] = @Original_Res_Street2)) AND ((@IsNull_Res_Street3 = 1 AND [Res_Street3] IS NULL) OR ([Res_Street3] = @Original_Res_Street3)) AND ((@IsNull_Res_Street4 = 1 AND [Res_Street4] IS NULL) OR ([Res_Street4] = @Original_Res_Street4)) AND ((@IsNull_Res_Street5 = 1 AND [Res_Street5] IS NULL) OR ([Res_Street5] = @Original_Res_Street5)) AND ((@IsNull_Res_Postcode = 1 AND [Res_Postcode] IS NULL) OR ([Res_Postcode] = @Original_Res_Postcode)) AND ([Res_Suburb] = @Original_Res_Suburb) AND ((@IsNull_Res_City = 1 AND [Res_City] IS NULL) OR ([Res_City] = @Original_Res_City)) AND ((@IsNull_Res_State = 1 AND [Res_State] IS NULL) OR ([Res_State] = @Original_Res_State)) AND ([Res_Country] = @Original_Res_Country) AND ((@IsNull_Bill_UnitNum = 1 AND [Bill_UnitNum] IS NULL) OR ([Bill_UnitNum] = @Original_Bill_UnitNum)) AND ((@IsNull_Bill_Street1 = 1 AND [Bill_Street1] IS NULL) OR ([Bill_Street1] = @Original_Bill_Street1)) AND ((@IsNull_Bill_Street2 = 1 AND [Bill_Street2] IS NULL) OR ([Bill_Street2] = @Original_Bill_Street2)) AND ((@IsNull_Bill_Street3 = 1 AND [Bill_Street3] IS NULL) OR ([Bill_Street3] = @Original_Bill_Street3)) AND ((@IsNull_Bill_Street4 = 1 AND [Bill_Street4] IS NULL) OR ([Bill_Street4] = @Original_Bill_Street4)) AND ((@IsNull_Bill_Street5 = 1 AND [Bill_Street5] IS NULL) OR ([Bill_Street5] = @Original_Bill_Street5)) AND ((@IsNull_Bill_Postcode = 1 AND [Bill_Postcode] IS NULL) OR ([Bill_Postcode] = @Original_Bill_Postcode)) AND ((@IsNull_Bill_Suburb = 1 AND [Bill_Suburb] IS NULL) OR ([Bill_Suburb] = @Original_Bill_Suburb)) AND ((@IsNull_Bill_City = 1 AND [Bill_City] IS NULL) OR ([Bill_City] = @Original_Bill_City)) AND ((@IsNull_Bill_State = 1 AND [Bill_State] IS NULL) OR ([Bill_State] = @Original_Bill_State)) AND ((@IsNull_Bill_Country = 1 AND [Bill_Country] IS NULL) OR ([Bill_Country] = @Original_Bill_Country)) AND ((@IsNull_Comments = 1 AND [Comments] IS NULL) OR ([Comments] = @Original_Comments)) AND ((@IsNull_PhoneMobile = 1 AND [PhoneMobile] IS NULL) OR ([PhoneMobile] = @Original_PhoneMobile)) AND ((@IsNull_PhoneHome = 1 AND [PhoneHome] IS NULL) OR ([PhoneHome] = @Original_PhoneHome)) AND ((@IsNull_PhoneWork = 1 AND [PhoneWork] IS NULL) OR ([PhoneWork] = @Original_PhoneWork)) AND ((@IsNull_PhoneOther = 1 AND [PhoneOther] IS NULL) OR ([PhoneOther] = @Original_PhoneOther)) AND ((@IsNull_Email = 1 AND [Email] IS NULL) OR ([Email] = @Original_Email)) AND ((@IsNull_EmailOther = 1 AND [EmailOther] IS NULL) OR ([EmailOther] = @Original_EmailOther)) AND ((@IsNull_ContactComments = 1 AND [ContactComments] IS NULL) OR ([ContactComments] = @Original_ContactComments)) AND ((@IsNull_DeathCoverInsurer = 1 AND [DeathCoverInsurer] IS NULL) OR ([DeathCoverInsurer] = @Original_DeathCoverInsurer)) AND ((@IsNull_DeathCoverDetail = 1 AND [DeathCoverDetail] IS NULL) OR ([DeathCoverDetail] = @Original_DeathCoverDetail)) AND ((@IsNull_TPDCoverInsurer = 1 AND [TPDCoverInsurer] IS NULL) OR ([TPDCoverInsurer] = @Original_TPDCoverInsurer)) AND ((@IsNull_TPDCoverDetail = 1 AND [TPDCoverDetail] IS NULL) OR ([TPDCoverDetail] = @Original_TPDCoverDetail)) AND ([MAStatus] = @Original_MAStatus) AND ([AppliedDate] = @Original_AppliedDate) AND ((@IsNull_MAApprovedDate = 1 AND [MAApprovedDate] IS NULL) OR ([MAApprovedDate] = @Original_MAApprovedDate)) AND ([Created] = @Original_Created) AND ([CreatedBy] = @Original_CreatedBy) AND ((@IsNull_Updated = 1 AND [Updated] IS NULL) OR ([Updated] = @Original_Updated)) AND ((@IsNull_UpdatedBy = 1 AND [UpdatedBy] IS NULL) OR ([UpdatedBy] = @Original_UpdatedBy)) AND ((@IsNull_CondCreditDecisionDate = 1 AND [CondCreditDecisionDate] IS NULL) OR ([CondCreditDecisionDate] = @Original_CondCreditDecisionDate)) AND ((@IsNull_CondCreditDecision = 1 AND [CondCreditDecision] IS NULL) OR ([CondCreditDecision] = @Original_CondCreditDecision)) AND ((@IsNull_CondCreditDecisionBy = 1 AND [CondCreditDecisionBy] IS NULL) OR ([CondCreditDecisionBy] = @Original_CondCreditDecisionBy)) AND ((@IsNull_CondCreditDecisionInformed = 1 AND [CondCreditDecisionInformed] IS NULL) OR ([CondCreditDecisionInformed] = @Original_CondCreditDecisionInformed)) AND ((@IsNull_CondCreditDecisionInformedBy = 1 AND [CondCreditDecisionInformedBy] IS NULL) OR ([CondCreditDecisionInformedBy] = @Original_CondCreditDecisionInformedBy)) AND ((@IsNull_FinalCreditDecisionInformed = 1 AND [FinalCreditDecisionInformed] IS NULL) OR ([FinalCreditDecisionInformed] = @Original_FinalCreditDecisionInformed)) AND ((@IsNull_FinalCreditDecisionInformedBy = 1 AND [FinalCreditDecisionInformedBy] IS NULL) OR ([FinalCreditDecisionInformedBy] = @Original_FinalCreditDecisionInformedBy)) AND ((@IsNull_AppliedLimit$ = 1 AND [AppliedLimit$] IS NULL) OR ([AppliedLimit$] = @Original_AppliedLimit$)) AND ((@IsNull_CondApprovedLimit$ = 1 AND [CondApprovedLimit$] IS NULL) OR ([CondApprovedLimit$] = @Original_CondApprovedLimit$)) AND ((@IsNull_FinalApprovedLimit$ = 1 AND [FinalApprovedLimit$] IS NULL) OR ([FinalApprovedLimit$] = @Original_FinalApprovedLimit$)));
 SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, FinalApprovedLimit$ FROM Buyer WHERE (Id = @Id)</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@MABuyerId" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@PrimaryBuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PrimaryBuyerId" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Title" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Title" SourceColumnNullMapping="false" SourceVersion="Current" />
@@ -809,7 +795,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@FinalApprovedLimit$" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="FinalApprovedLimit$" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_Id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="true" SourceVersion="Original" />
-                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_MABuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_MABuyerId" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="MABuyerId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_BuyerApplicationId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="BuyerApplicationId" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_PrimaryBuyerId" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="PrimaryBuyerId" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -928,7 +914,6 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
             </MainSource>
             <Mappings>
               <Mapping SourceColumn="Id" DataSetColumn="Id" />
-              <Mapping SourceColumn="MABuyerId" DataSetColumn="MABuyerId" />
               <Mapping SourceColumn="BuyerApplicationId" DataSetColumn="BuyerApplicationId" />
               <Mapping SourceColumn="PrimaryBuyerId" DataSetColumn="PrimaryBuyerId" />
               <Mapping SourceColumn="Title" DataSetColumn="Title" />
@@ -989,6 +974,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               <Mapping SourceColumn="AppliedLimit$" DataSetColumn="AppliedLimit$" />
               <Mapping SourceColumn="CondApprovedLimit$" DataSetColumn="CondApprovedLimit$" />
               <Mapping SourceColumn="FinalApprovedLimit$" DataSetColumn="FinalApprovedLimit$" />
+              <Mapping SourceColumn="MABuyerId" DataSetColumn="MABuyerId1" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.Buyer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
@@ -998,6 +984,21 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="Id" ColumnName="Id" DataSourceName="MABDB.dbo.Buyer" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@Id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="Id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.Buyer" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy_UnderCreditEval" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy_UnderCreditEval" GeneratorSourceName="FillBy_UnderCreditEval" GetMethodModifier="Public" GetMethodName="GetDataBy_UnderCreditEval" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy_UnderCreditEval" UserSourceName="FillBy_UnderCreditEval">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, 
+                         Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, 
+                         PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, 
+                         Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, 
+                         FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, FinalApprovedLimit$, FinalCreditDecision, FinalCreditDecisionDate, FinalCreditDecisionComments
+FROM            Buyer
+WHERE        (CondCreditDecision IS NOT NULL) AND (FinalCreditDecision IS NULL) OR
+                         (CondCreditDecision IS NOT NULL) AND (FinalCreditDecisionDate IS NULL)</CommandText>
+                    <Parameters />
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
@@ -1015,10 +1016,56 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCreatedBy" msprop:Generator_ColumnPropNameInRow="CreatedBy" msprop:Generator_ColumnPropNameInTable="CreatedByColumn" msprop:Generator_UserColumnName="CreatedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="255" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CondCreditDecisionDate" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionDate" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionDate" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionDateColumn" msprop:Generator_UserColumnName="CondCreditDecisionDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CondCreditDecision" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecision" msprop:Generator_ColumnPropNameInRow="CondCreditDecision" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionColumn" msprop:Generator_UserColumnName="CondCreditDecision" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CondCreditDecisionBy" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionBy" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionBy" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionByColumn" msprop:Generator_UserColumnName="CondCreditDecisionBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CondCreditDecisionInformed" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionInformed" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionInformed" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionInformedColumn" msprop:Generator_UserColumnName="CondCreditDecisionInformed" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CondCreditDecisionInformedBy" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionInformedBy" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionInformedBy" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionInformedByColumn" msprop:Generator_UserColumnName="CondCreditDecisionInformedBy" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CondApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnCondApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_CondApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_CondApprovedLimit_Column" msprop:Generator_UserColumnName="CondApprovedLimit$" type="xs:decimal" minOccurs="0" />
+              <xs:element name="FinalApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnFinalApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_FinalApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_FinalApprovedLimit_Column" msprop:Generator_UserColumnName="FinalApprovedLimit$" type="xs:decimal" minOccurs="0" />
               <xs:element name="ApplicantType" msprop:Generator_ColumnVarNameInTable="columnApplicantType" msprop:Generator_ColumnPropNameInRow="ApplicantType" msprop:Generator_ColumnPropNameInTable="ApplicantTypeColumn" msprop:Generator_UserColumnName="ApplicantType" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Primary_Title" msprop:Generator_ColumnVarNameInTable="columnPrimary_Title" msprop:Generator_ColumnPropNameInRow="Primary_Title" msprop:Generator_ColumnPropNameInTable="Primary_TitleColumn" msprop:Generator_UserColumnName="Primary_Title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1052,6 +1099,20 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               </xs:element>
               <xs:element name="Primary_Dependants" msprop:Generator_ColumnVarNameInTable="columnPrimary_Dependants" msprop:Generator_ColumnPropNameInRow="Primary_Dependants" msprop:Generator_ColumnPropNameInTable="Primary_DependantsColumn" msprop:Generator_UserColumnName="Primary_Dependants" type="xs:unsignedByte" minOccurs="0" />
               <xs:element name="Primary_DOB" msprop:Generator_ColumnVarNameInTable="columnPrimary_DOB" msprop:Generator_ColumnPropNameInRow="Primary_DOB" msprop:Generator_ColumnPropNameInTable="Primary_DOBColumn" msprop:Generator_UserColumnName="Primary_DOB" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Primary_Gender" msprop:Generator_ColumnVarNameInTable="columnPrimary_Gender" msprop:Generator_ColumnPropNameInRow="Primary_Gender" msprop:Generator_ColumnPropNameInTable="Primary_GenderColumn" msprop:Generator_UserColumnName="Primary_Gender" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Other_Title" msprop:Generator_ColumnVarNameInTable="columnOther_Title" msprop:Generator_ColumnPropNameInRow="Other_Title" msprop:Generator_ColumnPropNameInTable="Other_TitleColumn" msprop:Generator_UserColumnName="Other_Title" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="25" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Other_FirstName" msprop:Generator_ColumnVarNameInTable="columnOther_FirstName" msprop:Generator_ColumnPropNameInRow="Other_FirstName" msprop:Generator_ColumnPropNameInTable="Other_FirstNameColumn" msprop:Generator_UserColumnName="Other_FirstName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1089,13 +1150,6 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Other_Dependants" msprop:Generator_ColumnVarNameInTable="columnOther_Dependants" msprop:Generator_ColumnPropNameInRow="Other_Dependants" msprop:Generator_ColumnPropNameInTable="Other_DependantsColumn" msprop:Generator_UserColumnName="Other_Dependants" type="xs:unsignedByte" minOccurs="0" />
-              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="Mobile" msprop:Generator_ColumnVarNameInTable="columnMobile" msprop:Generator_ColumnPropNameInRow="Mobile" msprop:Generator_ColumnPropNameInTable="MobileColumn" msprop:Generator_UserColumnName="Mobile" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1245,6 +1299,13 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="PrevEmploymentStatus" msprop:Generator_ColumnVarNameInTable="columnPrevEmploymentStatus" msprop:Generator_ColumnPropNameInRow="PrevEmploymentStatus" msprop:Generator_ColumnPropNameInTable="PrevEmploymentStatusColumn" msprop:Generator_UserColumnName="PrevEmploymentStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="PrevEmployerName" msprop:Generator_ColumnVarNameInTable="columnPrevEmployerName" msprop:Generator_ColumnPropNameInRow="PrevEmployerName" msprop:Generator_ColumnPropNameInTable="PrevEmployerNameColumn" msprop:Generator_UserColumnName="PrevEmployerName" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1308,6 +1369,13 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Other_PrevEmploymentStatus" msprop:Generator_ColumnVarNameInTable="columnOther_PrevEmploymentStatus" msprop:Generator_ColumnPropNameInRow="Other_PrevEmploymentStatus" msprop:Generator_ColumnPropNameInTable="Other_PrevEmploymentStatusColumn" msprop:Generator_UserColumnName="Other_PrevEmploymentStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Other_YrsPrevEmployer" msprop:Generator_ColumnVarNameInTable="columnOther_YrsPrevEmployer" msprop:Generator_ColumnPropNameInRow="Other_YrsPrevEmployer" msprop:Generator_ColumnPropNameInTable="Other_YrsPrevEmployerColumn" msprop:Generator_UserColumnName="Other_YrsPrevEmployer" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1353,7 +1421,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               <xs:element name="ReasonRefusedHI" msprop:Generator_ColumnVarNameInTable="columnReasonRefusedHI" msprop:Generator_ColumnPropNameInRow="ReasonRefusedHI" msprop:Generator_ColumnPropNameInTable="ReasonRefusedHIColumn" msprop:Generator_UserColumnName="ReasonRefusedHI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="550" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1374,7 +1442,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               <xs:element name="Other_ReasonNoPHI" msprop:Generator_ColumnVarNameInTable="columnOther_ReasonNoPHI" msprop:Generator_ColumnPropNameInRow="Other_ReasonNoPHI" msprop:Generator_ColumnPropNameInTable="Other_ReasonNoPHIColumn" msprop:Generator_UserColumnName="Other_ReasonNoPHI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
+                    <xs:maxLength value="550" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1388,7 +1456,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               <xs:element name="Other_ReasonRefusedHI" msprop:Generator_ColumnVarNameInTable="columnOther_ReasonRefusedHI" msprop:Generator_ColumnPropNameInRow="Other_ReasonRefusedHI" msprop:Generator_ColumnPropNameInTable="Other_ReasonRefusedHIColumn" msprop:Generator_UserColumnName="Other_ReasonRefusedHI" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
+                    <xs:maxLength value="550" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1396,13 +1464,6 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CreatedBy" msprop:Generator_ColumnVarNameInTable="columnCreatedBy" msprop:Generator_ColumnPropNameInRow="CreatedBy" msprop:Generator_ColumnPropNameInTable="CreatedByColumn" msprop:Generator_UserColumnName="CreatedBy" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="255" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1447,6 +1508,27 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IntendedDeposit" msprop:Generator_ColumnVarNameInTable="columnIntendedDeposit" msprop:Generator_ColumnPropNameInRow="IntendedDeposit" msprop:Generator_ColumnPropNameInTable="IntendedDepositColumn" msprop:Generator_UserColumnName="IntendedDeposit" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Broker" msprop:Generator_ColumnVarNameInTable="columnBroker" msprop:Generator_ColumnPropNameInRow="Broker" msprop:Generator_ColumnPropNameInTable="BrokerColumn" msprop:Generator_UserColumnName="Broker" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BrokerDetails" msprop:Generator_ColumnVarNameInTable="columnBrokerDetails" msprop:Generator_ColumnPropNameInRow="BrokerDetails" msprop:Generator_ColumnPropNameInTable="BrokerDetailsColumn" msprop:Generator_UserColumnName="BrokerDetails" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1508,13 +1590,6 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Primary_Gender" msprop:Generator_ColumnVarNameInTable="columnPrimary_Gender" msprop:Generator_ColumnPropNameInRow="Primary_Gender" msprop:Generator_ColumnPropNameInTable="Primary_GenderColumn" msprop:Generator_UserColumnName="Primary_Gender" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1666,6 +1741,13 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="YrsPrevAddr" msprop:Generator_ColumnVarNameInTable="columnYrsPrevAddr" msprop:Generator_ColumnPropNameInRow="YrsPrevAddr" msprop:Generator_ColumnPropNameInTable="YrsPrevAddrColumn" msprop:Generator_UserColumnName="YrsPrevAddr" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="120" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="OthPrev_Res_Street1" msprop:Generator_ColumnVarNameInTable="columnOthPrev_Res_Street1" msprop:Generator_ColumnPropNameInRow="OthPrev_Res_Street1" msprop:Generator_ColumnPropNameInTable="OthPrev_Res_Street1Column" msprop:Generator_UserColumnName="OthPrev_Res_Street1" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1793,6 +1875,20 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Primary_PropertyAssetsList" msprop:Generator_ColumnVarNameInTable="columnPrimary_PropertyAssetsList" msprop:Generator_ColumnPropNameInRow="Primary_PropertyAssetsList" msprop:Generator_ColumnPropNameInTable="Primary_PropertyAssetsListColumn" msprop:Generator_UserColumnName="Primary_PropertyAssetsList" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="550" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Other_PropertyAssetsList" msprop:Generator_ColumnVarNameInTable="columnOther_PropertyAssetsList" msprop:Generator_ColumnPropNameInRow="Other_PropertyAssetsList" msprop:Generator_ColumnPropNameInTable="Other_PropertyAssetsListColumn" msprop:Generator_UserColumnName="Other_PropertyAssetsList" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="550" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="Primary_PersonalLoansList" msprop:Generator_ColumnVarNameInTable="columnPrimary_PersonalLoansList" msprop:Generator_ColumnPropNameInRow="Primary_PersonalLoansList" msprop:Generator_ColumnPropNameInTable="Primary_PersonalLoansListColumn" msprop:Generator_UserColumnName="Primary_PersonalLoansList" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
@@ -1856,101 +1952,6 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="YrsPrevAddr" msprop:Generator_ColumnVarNameInTable="columnYrsPrevAddr" msprop:Generator_ColumnPropNameInRow="YrsPrevAddr" msprop:Generator_ColumnPropNameInTable="YrsPrevAddrColumn" msprop:Generator_UserColumnName="YrsPrevAddr" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="120" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Primary_Title" msprop:Generator_ColumnVarNameInTable="columnPrimary_Title" msprop:Generator_ColumnPropNameInRow="Primary_Title" msprop:Generator_ColumnPropNameInTable="Primary_TitleColumn" msprop:Generator_UserColumnName="Primary_Title" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="25" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Other_Title" msprop:Generator_ColumnVarNameInTable="columnOther_Title" msprop:Generator_ColumnPropNameInRow="Other_Title" msprop:Generator_ColumnPropNameInTable="Other_TitleColumn" msprop:Generator_UserColumnName="Other_Title" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="25" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="PrevEmploymentStatus" msprop:Generator_ColumnVarNameInTable="columnPrevEmploymentStatus" msprop:Generator_ColumnPropNameInRow="PrevEmploymentStatus" msprop:Generator_ColumnPropNameInTable="PrevEmploymentStatusColumn" msprop:Generator_UserColumnName="PrevEmploymentStatus" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Other_PrevEmploymentStatus" msprop:Generator_ColumnVarNameInTable="columnOther_PrevEmploymentStatus" msprop:Generator_ColumnPropNameInRow="Other_PrevEmploymentStatus" msprop:Generator_ColumnPropNameInTable="Other_PrevEmploymentStatusColumn" msprop:Generator_UserColumnName="Other_PrevEmploymentStatus" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="IntendedDeposit" msprop:Generator_ColumnVarNameInTable="columnIntendedDeposit" msprop:Generator_ColumnPropNameInRow="IntendedDeposit" msprop:Generator_ColumnPropNameInTable="IntendedDepositColumn" msprop:Generator_UserColumnName="IntendedDeposit" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Broker" msprop:Generator_ColumnVarNameInTable="columnBroker" msprop:Generator_ColumnPropNameInRow="Broker" msprop:Generator_ColumnPropNameInTable="BrokerColumn" msprop:Generator_UserColumnName="Broker" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="BrokerDetails" msprop:Generator_ColumnVarNameInTable="columnBrokerDetails" msprop:Generator_ColumnPropNameInRow="BrokerDetails" msprop:Generator_ColumnPropNameInTable="BrokerDetailsColumn" msprop:Generator_UserColumnName="BrokerDetails" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CondCreditDecisionDate" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionDate" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionDate" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionDateColumn" msprop:Generator_UserColumnName="CondCreditDecisionDate" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="CondCreditDecision" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecision" msprop:Generator_ColumnPropNameInRow="CondCreditDecision" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionColumn" msprop:Generator_UserColumnName="CondCreditDecision" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CondCreditDecisionBy" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionBy" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionBy" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionByColumn" msprop:Generator_UserColumnName="CondCreditDecisionBy" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="25" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CondCreditDecisionInformed" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionInformed" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionInformed" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionInformedColumn" msprop:Generator_UserColumnName="CondCreditDecisionInformed" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="CondCreditDecisionInformedBy" msprop:Generator_ColumnVarNameInTable="columnCondCreditDecisionInformedBy" msprop:Generator_ColumnPropNameInRow="CondCreditDecisionInformedBy" msprop:Generator_ColumnPropNameInTable="CondCreditDecisionInformedByColumn" msprop:Generator_UserColumnName="CondCreditDecisionInformedBy" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Primary_PropertyAssetsList" msprop:Generator_ColumnVarNameInTable="columnPrimary_PropertyAssetsList" msprop:Generator_ColumnPropNameInRow="Primary_PropertyAssetsList" msprop:Generator_ColumnPropNameInTable="Primary_PropertyAssetsListColumn" msprop:Generator_UserColumnName="Primary_PropertyAssetsList" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="550" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Other_PropertyAssetsList" msprop:Generator_ColumnVarNameInTable="columnOther_PropertyAssetsList" msprop:Generator_ColumnPropNameInRow="Other_PropertyAssetsList" msprop:Generator_ColumnPropNameInTable="Other_PropertyAssetsListColumn" msprop:Generator_UserColumnName="Other_PropertyAssetsList" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="550" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CondApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnCondApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_CondApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_CondApprovedLimit_Column" msprop:Generator_UserColumnName="CondApprovedLimit$" type="xs:decimal" minOccurs="0" />
-              <xs:element name="FinalApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnFinalApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_FinalApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_FinalApprovedLimit_Column" msprop:Generator_UserColumnName="FinalApprovedLimit$" type="xs:decimal" minOccurs="0" />
               <xs:element name="MthlyRent" msprop:Generator_ColumnVarNameInTable="columnMthlyRent" msprop:Generator_ColumnPropNameInRow="MthlyRent" msprop:Generator_ColumnPropNameInTable="MthlyRentColumn" msprop:Generator_UserColumnName="MthlyRent" type="xs:decimal" minOccurs="0" />
               <xs:element name="MthlyDeposit" msprop:Generator_ColumnVarNameInTable="columnMthlyDeposit" msprop:Generator_ColumnPropNameInRow="MthlyDeposit" msprop:Generator_ColumnPropNameInTable="MthlyDepositColumn" msprop:Generator_UserColumnName="MthlyDeposit" type="xs:decimal" minOccurs="0" />
               <xs:element name="AutoPreApprovalResult" msprop:Generator_ColumnVarNameInTable="columnAutoPreApprovalResult" msprop:Generator_ColumnPropNameInRow="AutoPreApprovalResult" msprop:Generator_ColumnPropNameInTable="AutoPreApprovalResultColumn" msprop:Generator_UserColumnName="AutoPreApprovalResult" minOccurs="0">
@@ -1975,7 +1976,7 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
-              <xs:element name="MABuyerId" msprop:Generator_ColumnVarNameInTable="columnMABuyerId" msprop:Generator_ColumnPropNameInRow="MABuyerId" msprop:Generator_ColumnPropNameInTable="MABuyerIdColumn" msprop:Generator_UserColumnName="MABuyerId" type="xs:int" minOccurs="0" />
+              <xs:element name="MABuyerId" msprop:Generator_ColumnVarNameInTable="columnMABuyerId" msprop:Generator_ColumnPropNameInRow="MABuyerId" msprop:Generator_ColumnPropNameInTable="MABuyerIdColumn" msprop:Generator_UserColumnName="MABuyerId" type="xs:string" minOccurs="0" />
               <xs:element name="BuyerApplicationId" msprop:Generator_ColumnVarNameInTable="columnBuyerApplicationId" msprop:Generator_ColumnPropNameInRow="BuyerApplicationId" msprop:Generator_ColumnPropNameInTable="BuyerApplicationIdColumn" msprop:Generator_UserColumnName="BuyerApplicationId" type="xs:int" minOccurs="0" />
               <xs:element name="PrimaryBuyerId" msprop:Generator_ColumnVarNameInTable="columnPrimaryBuyerId" msprop:Generator_ColumnPropNameInRow="PrimaryBuyerId" msprop:Generator_ColumnPropNameInTable="PrimaryBuyerIdColumn" msprop:Generator_UserColumnName="PrimaryBuyerId" type="xs:int" minOccurs="0" />
               <xs:element name="Title" msprop:Generator_ColumnVarNameInTable="columnTitle" msprop:Generator_ColumnPropNameInRow="Title" msprop:Generator_ColumnPropNameInTable="TitleColumn" msprop:Generator_UserColumnName="Title" minOccurs="0">
@@ -2313,6 +2314,13 @@ SELECT Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, Othe
               <xs:element name="AppliedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnAppliedLimit_" msprop:Generator_ColumnPropNameInRow="_AppliedLimit_" msprop:Generator_ColumnPropNameInTable="_AppliedLimit_Column" msprop:Generator_UserColumnName="AppliedLimit$" type="xs:decimal" minOccurs="0" />
               <xs:element name="CondApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnCondApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_CondApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_CondApprovedLimit_Column" msprop:Generator_UserColumnName="CondApprovedLimit$" type="xs:decimal" minOccurs="0" />
               <xs:element name="FinalApprovedLimit_x0024_" msprop:Generator_ColumnVarNameInTable="_columnFinalApprovedLimit_" msprop:Generator_ColumnPropNameInRow="_FinalApprovedLimit_" msprop:Generator_ColumnPropNameInTable="_FinalApprovedLimit_Column" msprop:Generator_UserColumnName="FinalApprovedLimit$" type="xs:decimal" minOccurs="0" />
+              <xs:element name="MABuyerId1" msdata:Caption="MABuyerId" msprop:Generator_ColumnVarNameInTable="columnMABuyerId1" msprop:Generator_ColumnPropNameInRow="MABuyerId1" msprop:Generator_ColumnPropNameInTable="MABuyerId1Column" msprop:Generator_UserColumnName="MABuyerId1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

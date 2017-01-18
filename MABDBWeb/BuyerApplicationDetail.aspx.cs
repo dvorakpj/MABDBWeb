@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataUtils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -217,14 +218,15 @@ namespace MABDBWeb
                     this.lblCondApproveError.Visible = true;
                     return;
                 }
-           
+
+                DataUtils.BuyerDS.BuyerRow newBuyerOth = null;
                 DataUtils.BuyerDS.BuyerRow newBuyerPrim = bdt.NewBuyerRow();
 
                 newBuyerPrim.LastName = newBuyerApp.Primary_LastName;
                 newBuyerPrim.FirstName = newBuyerApp.Primary_FirstName;
                 newBuyerPrim.DOB = newBuyerApp.Primary_DOB;
                 newBuyerPrim.Res_Street1 = newBuyerApp.Primary_Res_Street1;
-                newBuyerPrim.Res_Suburb= newBuyerApp.Primary_Res_Suburb;
+                newBuyerPrim.Res_Suburb = newBuyerApp.Primary_Res_Suburb;
                 newBuyerPrim.Res_Postcode = newBuyerApp.Primary_Res_PostCode;
                 newBuyerPrim.Res_State = newBuyerApp.Primary_Res_State;
                 newBuyerPrim.Res_Country = newBuyerApp.Primary_Res_Country;
@@ -245,6 +247,7 @@ namespace MABDBWeb
                     {
                         throw new ApplicationException("Failed to insert Permanent Primary MAB record for MAB App Id:" + buyerAppIds + ";" + "expected 1 row insterted actually:" + updates);
                     }
+                    newBuyerPrim.AcceptChanges();
                 }
                 catch (Exception ex)
                 {
@@ -256,7 +259,7 @@ namespace MABDBWeb
                 // process Other applicant as well
                 if ((newBuyerApp.ApplicantType != "Single") && (!newBuyerApp.IsOther_LastNameNull()))
                 {
-                    DataUtils.BuyerDS.BuyerRow newBuyerOth = bdt.NewBuyerRow();
+                    newBuyerOth = bdt.NewBuyerRow();
 
                     newBuyerOth.PrimaryBuyerId = newBuyerPrim.Id;
 
@@ -274,7 +277,7 @@ namespace MABDBWeb
                     newBuyerOth.AppliedDate = newBuyerApp.EntryDate;
                     newBuyerOth.BuyerApplicationId = newBuyerPrim.BuyerApplicationId;
                     newBuyerOth.CreatedBy = newBuyerPrim.CreatedBy;
-                    newBuyerOth.Created = DateTime.Now;                    
+                    newBuyerOth.Created = DateTime.Now;
 
                     bdt.AddBuyerRow(newBuyerOth);
 
@@ -285,7 +288,8 @@ namespace MABDBWeb
                         {
                             throw new ApplicationException("Failed to insert Permanent Other MAB record for MAB App Id:" + buyerAppIds + ";" + "expected 1 row insterted actually:" + updates2);
                         }
-                    }                     
+                        newBuyerOth.AcceptChanges();
+                    }
                     catch (Exception ex)
                     {
                         this.lblCondApproveError.Text += "Error creating a permanent Other Buyer record for Application:" + buyerAppIds + ex.Message + ex.StackTrace;
@@ -308,6 +312,7 @@ namespace MABDBWeb
                     {
                         throw new ApplicationException("Failed to update MAB Application Id:" + buyerAppIds + ";" + "expected 1 row updated actually:" + updates3);
                     }
+                    newBuyerApp.AcceptChanges();
                 }
                 catch (Exception ex)
                 {
@@ -316,10 +321,47 @@ namespace MABDBWeb
                     return;
                 }
 
+                //Update internal IDs
+                byte expUpdts = 0;
+                IManagePermMABuyerID idMgr = new PermIDManager();
+               // BuyerDS.BuyerDataTable dt = bta.GetDataBy(newBuyerPrim.Id);
+                if ((null != newBuyerPrim) && (newBuyerPrim.Id > 0))
+                {
+                    //dt = bta.GetDataBy(newBuyerPrim.Id);
+
+                    newBuyerPrim.MABuyerId = idMgr.AllocatePermMABID(newBuyerPrim.Id);
+                    //newBuyerPrim.O
+                    expUpdts++;                    
+                }
+
+                if ((null != newBuyerOth) && (newBuyerOth.Id > 0))
+                {
+                    newBuyerOth.MABuyerId = idMgr.AllocatePermMABID(newBuyerOth.Id);
+                    expUpdts++;
+                }
+                if (expUpdts > 0)
+                {
+                    try
+
+                    {                                                          
+                        int updates4 = bta.Update(bdt);
+                        if (updates4 != expUpdts)
+                        {
+                            throw new ApplicationException("Failed to allocate Permanent ID to new MAB records for MAB App Id:" + buyerAppIds + ";" + "expected 1 row insterted actually:" + updates4);
+                        }
+                        badt.AcceptChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.lblCondApproveError.Text += "Error allocating permanent IDs for new Buyer records for MAB Application:" + buyerAppIds + ex.Message + ex.StackTrace;
+                        this.lblCondApproveError.Visible = true;
+                        return;
+                    }
+                }
+
 
                 Response.Redirect("~/BuyerApplicantsNewAll.aspx");
             }
-
 
         }
 

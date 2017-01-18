@@ -34,9 +34,9 @@ namespace DataUtils {
         
         private global::System.Data.DataRelation relationFK_InvestorApplications_Investor;
         
-        private global::System.Data.DataRelation relationFK_InvestorApplications_Property;
-        
         private global::System.Data.DataRelation relationProperty_Investor;
+        
+        private global::System.Data.DataRelation relationFK_InvestorApplications_Property;
         
         private global::System.Data.DataRelation relationFK_InvestorScoreCard_InvestorApplication;
         
@@ -275,8 +275,8 @@ namespace DataUtils {
                 }
             }
             this.relationFK_InvestorApplications_Investor = this.Relations["FK_InvestorApplications_Investor"];
-            this.relationFK_InvestorApplications_Property = this.Relations["FK_InvestorApplications_Property"];
             this.relationProperty_Investor = this.Relations["Property_Investor"];
+            this.relationFK_InvestorApplications_Property = this.Relations["FK_InvestorApplications_Property"];
             this.relationFK_InvestorScoreCard_InvestorApplication = this.Relations["FK_InvestorScoreCard_InvestorApplication"];
         }
         
@@ -305,13 +305,6 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
-                        this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.InvestorApplicationIdColumn});
-            this.tableProperty.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
-            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("Property_Investor", new global::System.Data.DataColumn[] {
                         this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.PrimaryInvestorIdColumn});
@@ -319,18 +312,25 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.SetNull;
             fkc.UpdateRule = global::System.Data.Rule.SetNull;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
+                        this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.InvestorApplicationIdColumn});
+            this.tableProperty.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
             this.relationFK_InvestorApplications_Investor = new global::System.Data.DataRelation("FK_InvestorApplications_Investor", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestor.InvestorApplicationIdColumn}, false);
             this.Relations.Add(this.relationFK_InvestorApplications_Investor);
-            this.relationFK_InvestorApplications_Property = new global::System.Data.DataRelation("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
-                        this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.InvestorApplicationIdColumn}, false);
-            this.Relations.Add(this.relationFK_InvestorApplications_Property);
             this.relationProperty_Investor = new global::System.Data.DataRelation("Property_Investor", new global::System.Data.DataColumn[] {
                         this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.PrimaryInvestorIdColumn}, false);
             this.Relations.Add(this.relationProperty_Investor);
+            this.relationFK_InvestorApplications_Property = new global::System.Data.DataRelation("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
+                        this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.InvestorApplicationIdColumn}, false);
+            this.Relations.Add(this.relationFK_InvestorApplications_Property);
             this.relationFK_InvestorScoreCard_InvestorApplication = new global::System.Data.DataRelation("FK_InvestorScoreCard_InvestorApplication", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestorScoreCard.InvestorApplicationIdColumn}, false);
@@ -619,10 +619,6 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn columnRentPM;
             
-            private global::System.Data.DataColumn columnPrimary_PropertyAssets;
-            
-            private global::System.Data.DataColumn columnOther_PropertyAssets;
-            
             private global::System.Data.DataColumn columnPrimary_PersonalLoansList;
             
             private global::System.Data.DataColumn columnOther_PersonalLoansList;
@@ -710,6 +706,28 @@ namespace DataUtils {
             private global::System.Data.DataColumn columnApplicantsNotes;
             
             private global::System.Data.DataColumn columnCondDecisionOfficeNotes;
+            
+            private global::System.Data.DataColumn columnPrimary_PropertyAssetsList;
+            
+            private global::System.Data.DataColumn columnOther_PropertyAssetsList;
+            
+            private global::System.Data.DataColumn columnIsCompany;
+            
+            private global::System.Data.DataColumn columnCompanyName;
+            
+            private global::System.Data.DataColumn columnCompanyABN;
+            
+            private global::System.Data.DataColumn columnCompanyACN;
+            
+            private global::System.Data.DataColumn columnPrimary_CompRole;
+            
+            private global::System.Data.DataColumn columnProperty_LoanOutstanding;
+            
+            private global::System.Data.DataColumn columnProperty_Deposit;
+            
+            private global::System.Data.DataColumn columnBroker;
+            
+            private global::System.Data.DataColumn columnBrokerDetails;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -1482,22 +1500,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Primary_PropertyAssetsColumn {
-                get {
-                    return this.columnPrimary_PropertyAssets;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Other_PropertyAssetsColumn {
-                get {
-                    return this.columnOther_PropertyAssets;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Primary_PersonalLoansListColumn {
                 get {
                     return this.columnPrimary_PersonalLoansList;
@@ -1850,6 +1852,94 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Primary_PropertyAssetsListColumn {
+                get {
+                    return this.columnPrimary_PropertyAssetsList;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Other_PropertyAssetsListColumn {
+                get {
+                    return this.columnOther_PropertyAssetsList;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn IsCompanyColumn {
+                get {
+                    return this.columnIsCompany;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CompanyNameColumn {
+                get {
+                    return this.columnCompanyName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CompanyABNColumn {
+                get {
+                    return this.columnCompanyABN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CompanyACNColumn {
+                get {
+                    return this.columnCompanyACN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Primary_CompRoleColumn {
+                get {
+                    return this.columnPrimary_CompRole;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Property_LoanOutstandingColumn {
+                get {
+                    return this.columnProperty_LoanOutstanding;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Property_DepositColumn {
+                get {
+                    return this.columnProperty_Deposit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BrokerColumn {
+                get {
+                    return this.columnBroker;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BrokerDetailsColumn {
+                get {
+                    return this.columnBrokerDetails;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1977,8 +2067,6 @@ namespace DataUtils {
                         string Primary_CreditCardList, 
                         string Other_CreditCardList, 
                         string RentPM, 
-                        string Primary_PropertyAssets, 
-                        string Other_PropertyAssets, 
                         string Primary_PersonalLoansList, 
                         string Other_PersonalLoansList, 
                         string Primary_OtherAssetsList, 
@@ -2022,7 +2110,18 @@ namespace DataUtils {
                         System.DateTime AppAckLetterSent, 
                         string AppAckLetterSentBy, 
                         string ApplicantsNotes, 
-                        string CondDecisionOfficeNotes) {
+                        string CondDecisionOfficeNotes, 
+                        string Primary_PropertyAssetsList, 
+                        string Other_PropertyAssetsList, 
+                        string IsCompany, 
+                        string CompanyName, 
+                        string CompanyABN, 
+                        string CompanyACN, 
+                        string Primary_CompRole, 
+                        decimal Property_LoanOutstanding, 
+                        decimal Property_Deposit, 
+                        string Broker, 
+                        string BrokerDetails) {
                 InvestorApplicationsRow rowInvestorApplicationsRow = ((InvestorApplicationsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2117,8 +2216,6 @@ namespace DataUtils {
                         Primary_CreditCardList,
                         Other_CreditCardList,
                         RentPM,
-                        Primary_PropertyAssets,
-                        Other_PropertyAssets,
                         Primary_PersonalLoansList,
                         Other_PersonalLoansList,
                         Primary_OtherAssetsList,
@@ -2162,7 +2259,18 @@ namespace DataUtils {
                         AppAckLetterSent,
                         AppAckLetterSentBy,
                         ApplicantsNotes,
-                        CondDecisionOfficeNotes};
+                        CondDecisionOfficeNotes,
+                        Primary_PropertyAssetsList,
+                        Other_PropertyAssetsList,
+                        IsCompany,
+                        CompanyName,
+                        CompanyABN,
+                        CompanyACN,
+                        Primary_CompRole,
+                        Property_LoanOutstanding,
+                        Property_Deposit,
+                        Broker,
+                        BrokerDetails};
                 rowInvestorApplicationsRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowInvestorApplicationsRow);
                 return rowInvestorApplicationsRow;
@@ -2284,8 +2392,6 @@ namespace DataUtils {
                 this.columnPrimary_CreditCardList = base.Columns["Primary_CreditCardList"];
                 this.columnOther_CreditCardList = base.Columns["Other_CreditCardList"];
                 this.columnRentPM = base.Columns["RentPM"];
-                this.columnPrimary_PropertyAssets = base.Columns["Primary_PropertyAssets"];
-                this.columnOther_PropertyAssets = base.Columns["Other_PropertyAssets"];
                 this.columnPrimary_PersonalLoansList = base.Columns["Primary_PersonalLoansList"];
                 this.columnOther_PersonalLoansList = base.Columns["Other_PersonalLoansList"];
                 this.columnPrimary_OtherAssetsList = base.Columns["Primary_OtherAssetsList"];
@@ -2330,6 +2436,17 @@ namespace DataUtils {
                 this.columnAppAckLetterSentBy = base.Columns["AppAckLetterSentBy"];
                 this.columnApplicantsNotes = base.Columns["ApplicantsNotes"];
                 this.columnCondDecisionOfficeNotes = base.Columns["CondDecisionOfficeNotes"];
+                this.columnPrimary_PropertyAssetsList = base.Columns["Primary_PropertyAssetsList"];
+                this.columnOther_PropertyAssetsList = base.Columns["Other_PropertyAssetsList"];
+                this.columnIsCompany = base.Columns["IsCompany"];
+                this.columnCompanyName = base.Columns["CompanyName"];
+                this.columnCompanyABN = base.Columns["CompanyABN"];
+                this.columnCompanyACN = base.Columns["CompanyACN"];
+                this.columnPrimary_CompRole = base.Columns["Primary_CompRole"];
+                this.columnProperty_LoanOutstanding = base.Columns["Property_LoanOutstanding"];
+                this.columnProperty_Deposit = base.Columns["Property_Deposit"];
+                this.columnBroker = base.Columns["Broker"];
+                this.columnBrokerDetails = base.Columns["BrokerDetails"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2519,10 +2636,6 @@ namespace DataUtils {
                 base.Columns.Add(this.columnOther_CreditCardList);
                 this.columnRentPM = new global::System.Data.DataColumn("RentPM", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnRentPM);
-                this.columnPrimary_PropertyAssets = new global::System.Data.DataColumn("Primary_PropertyAssets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPrimary_PropertyAssets);
-                this.columnOther_PropertyAssets = new global::System.Data.DataColumn("Other_PropertyAssets", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOther_PropertyAssets);
                 this.columnPrimary_PersonalLoansList = new global::System.Data.DataColumn("Primary_PersonalLoansList", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPrimary_PersonalLoansList);
                 this.columnOther_PersonalLoansList = new global::System.Data.DataColumn("Other_PersonalLoansList", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2611,6 +2724,28 @@ namespace DataUtils {
                 base.Columns.Add(this.columnApplicantsNotes);
                 this.columnCondDecisionOfficeNotes = new global::System.Data.DataColumn("CondDecisionOfficeNotes", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCondDecisionOfficeNotes);
+                this.columnPrimary_PropertyAssetsList = new global::System.Data.DataColumn("Primary_PropertyAssetsList", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrimary_PropertyAssetsList);
+                this.columnOther_PropertyAssetsList = new global::System.Data.DataColumn("Other_PropertyAssetsList", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOther_PropertyAssetsList);
+                this.columnIsCompany = new global::System.Data.DataColumn("IsCompany", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIsCompany);
+                this.columnCompanyName = new global::System.Data.DataColumn("CompanyName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompanyName);
+                this.columnCompanyABN = new global::System.Data.DataColumn("CompanyABN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompanyABN);
+                this.columnCompanyACN = new global::System.Data.DataColumn("CompanyACN", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCompanyACN);
+                this.columnPrimary_CompRole = new global::System.Data.DataColumn("Primary_CompRole", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPrimary_CompRole);
+                this.columnProperty_LoanOutstanding = new global::System.Data.DataColumn("Property_LoanOutstanding", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProperty_LoanOutstanding);
+                this.columnProperty_Deposit = new global::System.Data.DataColumn("Property_Deposit", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProperty_Deposit);
+                this.columnBroker = new global::System.Data.DataColumn("Broker", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBroker);
+                this.columnBrokerDetails = new global::System.Data.DataColumn("BrokerDetails", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBrokerDetails);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -2700,8 +2835,6 @@ namespace DataUtils {
                 this.columnPrimary_CreditCardList.MaxLength = 550;
                 this.columnOther_CreditCardList.MaxLength = 550;
                 this.columnRentPM.MaxLength = 15;
-                this.columnPrimary_PropertyAssets.MaxLength = 550;
-                this.columnOther_PropertyAssets.MaxLength = 550;
                 this.columnPrimary_PersonalLoansList.MaxLength = 550;
                 this.columnOther_PersonalLoansList.MaxLength = 550;
                 this.columnPrimary_OtherAssetsList.MaxLength = 50;
@@ -2736,6 +2869,15 @@ namespace DataUtils {
                 this.columnAppAckLetterSentBy.MaxLength = 50;
                 this.columnApplicantsNotes.MaxLength = 1200;
                 this.columnCondDecisionOfficeNotes.MaxLength = 1200;
+                this.columnPrimary_PropertyAssetsList.MaxLength = 550;
+                this.columnOther_PropertyAssetsList.MaxLength = 550;
+                this.columnIsCompany.MaxLength = 10;
+                this.columnCompanyName.MaxLength = 50;
+                this.columnCompanyABN.MaxLength = 15;
+                this.columnCompanyACN.MaxLength = 12;
+                this.columnPrimary_CompRole.MaxLength = 100;
+                this.columnBroker.MaxLength = 50;
+                this.columnBrokerDetails.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7048,40 +7190,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Primary_PropertyAssets {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.Primary_PropertyAssetsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Primary_PropertyAssets\' in table \'InvestorApplications\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvestorApplications.Primary_PropertyAssetsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Other_PropertyAssets {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvestorApplications.Other_PropertyAssetsColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Other_PropertyAssets\' in table \'InvestorApplications\' is DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvestorApplications.Other_PropertyAssetsColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string Primary_PersonalLoansList {
                 get {
                     try {
@@ -7794,6 +7902,187 @@ namespace DataUtils {
                 }
                 set {
                     this[this.tableInvestorApplications.CondDecisionOfficeNotesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Primary_PropertyAssetsList {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.Primary_PropertyAssetsListColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Primary_PropertyAssetsList\' in table \'InvestorApplications\'" +
+                                " is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.Primary_PropertyAssetsListColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Other_PropertyAssetsList {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.Other_PropertyAssetsListColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Other_PropertyAssetsList\' in table \'InvestorApplications\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.Other_PropertyAssetsListColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string IsCompany {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.IsCompanyColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'IsCompany\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.IsCompanyColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CompanyName {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.CompanyNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyName\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.CompanyNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CompanyABN {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.CompanyABNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyABN\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.CompanyABNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CompanyACN {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.CompanyACNColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CompanyACN\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.CompanyACNColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Primary_CompRole {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.Primary_CompRoleColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Primary_CompRole\' in table \'InvestorApplications\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.Primary_CompRoleColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Property_LoanOutstanding {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvestorApplications.Property_LoanOutstandingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Property_LoanOutstanding\' in table \'InvestorApplications\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.Property_LoanOutstandingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal Property_Deposit {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableInvestorApplications.Property_DepositColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Property_Deposit\' in table \'InvestorApplications\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.Property_DepositColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Broker {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.BrokerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Broker\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.BrokerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string BrokerDetails {
+                get {
+                    try {
+                        return ((string)(this[this.tableInvestorApplications.BrokerDetailsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'BrokerDetails\' in table \'InvestorApplications\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableInvestorApplications.BrokerDetailsColumn] = value;
                 }
             }
             
@@ -8867,30 +9156,6 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsPrimary_PropertyAssetsNull() {
-                return this.IsNull(this.tableInvestorApplications.Primary_PropertyAssetsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetPrimary_PropertyAssetsNull() {
-                this[this.tableInvestorApplications.Primary_PropertyAssetsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsOther_PropertyAssetsNull() {
-                return this.IsNull(this.tableInvestorApplications.Other_PropertyAssetsColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetOther_PropertyAssetsNull() {
-                this[this.tableInvestorApplications.Other_PropertyAssetsColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPrimary_PersonalLoansListNull() {
                 return this.IsNull(this.tableInvestorApplications.Primary_PersonalLoansListColumn);
             }
@@ -9403,6 +9668,138 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCondDecisionOfficeNotesNull() {
                 this[this.tableInvestorApplications.CondDecisionOfficeNotesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrimary_PropertyAssetsListNull() {
+                return this.IsNull(this.tableInvestorApplications.Primary_PropertyAssetsListColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrimary_PropertyAssetsListNull() {
+                this[this.tableInvestorApplications.Primary_PropertyAssetsListColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsOther_PropertyAssetsListNull() {
+                return this.IsNull(this.tableInvestorApplications.Other_PropertyAssetsListColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetOther_PropertyAssetsListNull() {
+                this[this.tableInvestorApplications.Other_PropertyAssetsListColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsIsCompanyNull() {
+                return this.IsNull(this.tableInvestorApplications.IsCompanyColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetIsCompanyNull() {
+                this[this.tableInvestorApplications.IsCompanyColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompanyNameNull() {
+                return this.IsNull(this.tableInvestorApplications.CompanyNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompanyNameNull() {
+                this[this.tableInvestorApplications.CompanyNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompanyABNNull() {
+                return this.IsNull(this.tableInvestorApplications.CompanyABNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompanyABNNull() {
+                this[this.tableInvestorApplications.CompanyABNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCompanyACNNull() {
+                return this.IsNull(this.tableInvestorApplications.CompanyACNColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCompanyACNNull() {
+                this[this.tableInvestorApplications.CompanyACNColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPrimary_CompRoleNull() {
+                return this.IsNull(this.tableInvestorApplications.Primary_CompRoleColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPrimary_CompRoleNull() {
+                this[this.tableInvestorApplications.Primary_CompRoleColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProperty_LoanOutstandingNull() {
+                return this.IsNull(this.tableInvestorApplications.Property_LoanOutstandingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProperty_LoanOutstandingNull() {
+                this[this.tableInvestorApplications.Property_LoanOutstandingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsProperty_DepositNull() {
+                return this.IsNull(this.tableInvestorApplications.Property_DepositColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetProperty_DepositNull() {
+                this[this.tableInvestorApplications.Property_DepositColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBrokerNull() {
+                return this.IsNull(this.tableInvestorApplications.BrokerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBrokerNull() {
+                this[this.tableInvestorApplications.BrokerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBrokerDetailsNull() {
+                return this.IsNull(this.tableInvestorApplications.BrokerDetailsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBrokerDetailsNull() {
+                this[this.tableInvestorApplications.BrokerDetailsColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11720,23 +12117,23 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvestorApplicationsRow InvestorApplicationsRow {
-                get {
-                    return ((InvestorApplicationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvestorApplications_Property"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_InvestorApplications_Property"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvestorRow InvestorRow {
                 get {
                     return ((InvestorRow)(this.GetParentRow(this.Table.ParentRelations["Property_Investor"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["Property_Investor"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public InvestorApplicationsRow InvestorApplicationsRow {
+                get {
+                    return ((InvestorApplicationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvestorApplications_Property"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_InvestorApplications_Property"]);
                 }
             }
             
@@ -13008,8 +13405,6 @@ namespace DataUtils.InvestorDSTableAdapters {
             tableMapping.ColumnMappings.Add("Primary_CreditCardList", "Primary_CreditCardList");
             tableMapping.ColumnMappings.Add("Other_CreditCardList", "Other_CreditCardList");
             tableMapping.ColumnMappings.Add("RentPM", "RentPM");
-            tableMapping.ColumnMappings.Add("Primary_PropertyAssets", "Primary_PropertyAssets");
-            tableMapping.ColumnMappings.Add("Other_PropertyAssets", "Other_PropertyAssets");
             tableMapping.ColumnMappings.Add("Primary_PersonalLoansList", "Primary_PersonalLoansList");
             tableMapping.ColumnMappings.Add("Other_PersonalLoansList", "Other_PersonalLoansList");
             tableMapping.ColumnMappings.Add("Primary_OtherAssetsList", "Primary_OtherAssetsList");
@@ -13054,6 +13449,17 @@ namespace DataUtils.InvestorDSTableAdapters {
             tableMapping.ColumnMappings.Add("AppAckLetterSentBy", "AppAckLetterSentBy");
             tableMapping.ColumnMappings.Add("ApplicantsNotes", "ApplicantsNotes");
             tableMapping.ColumnMappings.Add("CondDecisionOfficeNotes", "CondDecisionOfficeNotes");
+            tableMapping.ColumnMappings.Add("Primary_PropertyAssetsList", "Primary_PropertyAssetsList");
+            tableMapping.ColumnMappings.Add("Other_PropertyAssetsList", "Other_PropertyAssetsList");
+            tableMapping.ColumnMappings.Add("IsCompany", "IsCompany");
+            tableMapping.ColumnMappings.Add("CompanyName", "CompanyName");
+            tableMapping.ColumnMappings.Add("CompanyABN", "CompanyABN");
+            tableMapping.ColumnMappings.Add("CompanyACN", "CompanyACN");
+            tableMapping.ColumnMappings.Add("Primary_CompRole", "Primary_CompRole");
+            tableMapping.ColumnMappings.Add("Property_LoanOutstanding", "Property_LoanOutstanding");
+            tableMapping.ColumnMappings.Add("Property_Deposit", "Property_Deposit");
+            tableMapping.ColumnMappings.Add("Broker", "Broker");
+            tableMapping.ColumnMappings.Add("BrokerDetails", "BrokerDetails");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -13091,84 +13497,90 @@ namespace DataUtils.InvestorDSTableAdapters {
                 "[Other_BusIncomeAPAYGTaxPA], [Primary_OtherIncomePA], [Other_OtherIncomePA], [Pr" +
                 "imary_OtherIncomeType], [Other_OtherIncomeType], [Primary_HomeLoanList], [Other_" +
                 "HomeLoanList], [Primary_CreditCardList], [Other_CreditCardList], [RentPM], [Prim" +
-                "ary_PropertyAssets], [Other_PropertyAssets], [Primary_PersonalLoansList], [Other" +
-                "_PersonalLoansList], [Primary_OtherAssetsList], [Other_OtherAssetsList], [Primar" +
-                "y_OtherLiabilitiesList], [Other_OtherLiabilitiesList], [UserId], [TransactionId]" +
-                ", [SourceURL], [Other_Res_Street1], [CondDecisionBy], [HasReqestedPriority], [Ha" +
-                "sAgreedPACLicence], [EntryId], [Primary_YrsCurrAddr], [Other_YrsCurrAddr], [Othe" +
-                "r_YrsPrevAddr], [YrsPrevAddr], [YrsCurrEmployer], [YrsPrevEmployer], [AppliedLim" +
-                "it], [AutoRejected], [AutoRejectedBy], [AutoAccepted], [AutoAcceptedBy], [HasRea" +
-                "dPO6], [CondCreditDecision], [CondCreditDecisionInformed], [CondCreditDecisionIn" +
-                "formedBy], [CondCreditDecisionBy], [AppAckLetterSent], [AppAckLetterSentBy], [Ap" +
-                "plicantsNotes], [CondDecisionOfficeNotes]) VALUES (@ApplicantType, @Primary_Titl" +
-                "e, @Primary_FirstName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitize" +
-                "nStat, @Primary_Dependants, @Other_Title, @Other_FirstName, @Other_OtherNames, @" +
-                "Other_LastName, @Other_DOB, @Other_Gender, @Other_AUCitizenStat, @Other_Dependan" +
-                "ts, @Email, @Mobile, @Primary_Res_Street1, @Primary_Res_Street2, @Primary_Res_Po" +
-                "stCode, @Primary_Res_Suburb, @Primary_Res_State, @Primary_Res_Country, @Primary_" +
-                "CurrResidStatus, @PrevResStatus, @CurrOccupType, @CurrEmploymentStatus, @IsSmoke" +
-                "r, @HasPrivateHealthIns, @CreatedBy, @ModifiedBy, @Modified, @InvestorApplicant_" +
-                "AssquireInvestor, @InvestorApplication_Gender, @Primary_IncomeMoAT, @Other_Incom" +
-                "eMoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLocation, @Property_Stre" +
-                "et1, @Property_Street2, @Property_Suburb, @Property_Vendor, @EstSpend, @EntryDat" +
-                "e, @Primary_DOB, @CreatedUTC, @CondCreditDecisionDate, @Property_PostCode, @Prop" +
-                "erty_State, @Property_Country, @Property_AgentDetails, @HasAgreedPrivacy, @Prima" +
-                "ry_Gender, @DesiredPropertyAddr, @Primary_MaritalStats, @Other_MaritalStats, @Ot" +
-                "her_Email, @Primary_HomePhone, @Other_HomePhone, @Other_Mobile, @Primary_Passpor" +
-                "tNo, @Other_PassportNo, @Primary_PassportCountry, @Other_PassportCountry, @Prima" +
-                "ry_DriversLicenceNo, @Other_DriversLicenceNo, @Primary_DriversLicenceState, @Oth" +
-                "er_DriversLicenceState, @Other_Res_Street2, @Other_Res_PostCode, @Other_Res_Stat" +
-                "e, @Other_Res_Country, @Other_Res_Suburb, @Other_CurrResidStatus, @PrimPrev_Res_" +
-                "Street1, @PrimPrev_Res_Street2, @PrimPrev_Res_Suburb, @PrimPrev_Res_PostCode, @P" +
-                "rimPrev_Res_State, @PrimPrev_Res_Country, @OthPrev_Res_Street1, @OthPrev_Res_Str" +
-                "eet2, @OthPrev_Res_Suburb, @OthPrev_Res_PostCode, @OthPrev_Res_State, @OthPrev_R" +
-                "es_Country, @Other_PrevResStatus, @Other_CurrOccupType, @Primary_BusIncomeAPAYGT" +
-                "axPA, @Other_BusIncomeAPAYGTaxPA, @Primary_OtherIncomePA, @Other_OtherIncomePA, " +
-                "@Primary_OtherIncomeType, @Other_OtherIncomeType, @Primary_HomeLoanList, @Other_" +
-                "HomeLoanList, @Primary_CreditCardList, @Other_CreditCardList, @RentPM, @Primary_" +
-                "PropertyAssets, @Other_PropertyAssets, @Primary_PersonalLoansList, @Other_Person" +
-                "alLoansList, @Primary_OtherAssetsList, @Other_OtherAssetsList, @Primary_OtherLia" +
-                "bilitiesList, @Other_OtherLiabilitiesList, @UserId, @TransactionId, @SourceURL, " +
-                "@Other_Res_Street1, @CondDecisionBy, @HasReqestedPriority, @HasAgreedPACLicence," +
-                " @EntryId, @Primary_YrsCurrAddr, @Other_YrsCurrAddr, @Other_YrsPrevAddr, @YrsPre" +
-                "vAddr, @YrsCurrEmployer, @YrsPrevEmployer, @AppliedLimit, @AutoRejected, @AutoRe" +
-                "jectedBy, @AutoAccepted, @AutoAcceptedBy, @HasReadPO6, @CondCreditDecision, @Con" +
-                "dCreditDecisionInformed, @CondCreditDecisionInformedBy, @CondCreditDecisionBy, @" +
-                "AppAckLetterSent, @AppAckLetterSentBy, @ApplicantsNotes, @CondDecisionOfficeNote" +
-                "s);\r\nSELECT Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNa" +
-                "mes, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_Title, O" +
-                "ther_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other" +
-                "_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Re" +
-                "s_Street2, Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_" +
-                "Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmployme" +
-                "ntStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, RowVer" +
-                "sion, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_In" +
-                "comeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocati" +
-                "on, Property_Street1, Property_Street2, Property_Suburb, Property_Vendor, EstSpe" +
-                "nd, EntryDate, Primary_DOB, CreatedUTC, CondCreditDecisionDate, Property_PostCod" +
-                "e, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Pr" +
-                "imary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Oth" +
-                "er_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, " +
-                "Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_Driver" +
-                "sLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLi" +
-                "cenceState, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Co" +
-                "untry, Other_Res_Suburb, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_R" +
-                "es_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, Prim" +
-                "Prev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, " +
-                "OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatu" +
-                "s, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, " +
-                "Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_Other" +
-                "IncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Ot" +
-                "her_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primar" +
-                "y_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_Oth" +
-                "erAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, " +
-                "TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority" +
-                ", HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_Yr" +
-                "sPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AppliedLimit, AutoReje" +
-                "cted, AutoRejectedBy, AutoAccepted, AutoAcceptedBy, HasReadPO6, CondCreditDecisi" +
-                "on, CondCreditDecisionInformed, CondCreditDecisionInformedBy, CondCreditDecision" +
-                "By, AppAckLetterSent, AppAckLetterSentBy, ApplicantsNotes, CondDecisionOfficeNot" +
-                "es FROM InvestorApplications WHERE (Id = SCOPE_IDENTITY())";
+                "ary_PropertyAssetsList], [Other_PropertyAssetsList], [Primary_PersonalLoansList]" +
+                ", [Other_PersonalLoansList], [Primary_OtherAssetsList], [Other_OtherAssetsList]," +
+                " [Primary_OtherLiabilitiesList], [Other_OtherLiabilitiesList], [UserId], [Transa" +
+                "ctionId], [SourceURL], [Other_Res_Street1], [CondDecisionBy], [HasReqestedPriori" +
+                "ty], [HasAgreedPACLicence], [EntryId], [Primary_YrsCurrAddr], [Other_YrsCurrAddr" +
+                "], [Other_YrsPrevAddr], [YrsPrevAddr], [YrsCurrEmployer], [YrsPrevEmployer], [Ap" +
+                "pliedLimit], [AutoRejected], [AutoRejectedBy], [AutoAccepted], [AutoAcceptedBy]," +
+                " [HasReadPO6], [CondCreditDecision], [CondCreditDecisionInformed], [CondCreditDe" +
+                "cisionInformedBy], [CondCreditDecisionBy], [AppAckLetterSent], [AppAckLetterSent" +
+                "By], [ApplicantsNotes], [CondDecisionOfficeNotes], [IsCompany], [CompanyName], [" +
+                "CompanyABN], [CompanyACN], [Primary_CompRole], [Property_LoanOutstanding], [Prop" +
+                "erty_Deposit], [Broker], [BrokerDetails]) VALUES (@ApplicantType, @Primary_Title" +
+                ", @Primary_FirstName, @Primary_OtherNames, @Primary_LastName, @Primary_AUCitizen" +
+                "Stat, @Primary_Dependants, @Other_Title, @Other_FirstName, @Other_OtherNames, @O" +
+                "ther_LastName, @Other_DOB, @Other_Gender, @Other_AUCitizenStat, @Other_Dependant" +
+                "s, @Email, @Mobile, @Primary_Res_Street1, @Primary_Res_Street2, @Primary_Res_Pos" +
+                "tCode, @Primary_Res_Suburb, @Primary_Res_State, @Primary_Res_Country, @Primary_C" +
+                "urrResidStatus, @PrevResStatus, @CurrOccupType, @CurrEmploymentStatus, @IsSmoker" +
+                ", @HasPrivateHealthIns, @CreatedBy, @ModifiedBy, @Modified, @InvestorApplicant_A" +
+                "ssquireInvestor, @InvestorApplication_Gender, @Primary_IncomeMoAT, @Other_Income" +
+                "MoAT, @HouseholdIncomeGrossPA, @LookingLocation, @FoundLocation, @Property_Stree" +
+                "t1, @Property_Street2, @Property_Suburb, @Property_Vendor, @EstSpend, @EntryDate" +
+                ", @Primary_DOB, @CreatedUTC, @CondCreditDecisionDate, @Property_PostCode, @Prope" +
+                "rty_State, @Property_Country, @Property_AgentDetails, @HasAgreedPrivacy, @Primar" +
+                "y_Gender, @DesiredPropertyAddr, @Primary_MaritalStats, @Other_MaritalStats, @Oth" +
+                "er_Email, @Primary_HomePhone, @Other_HomePhone, @Other_Mobile, @Primary_Passport" +
+                "No, @Other_PassportNo, @Primary_PassportCountry, @Other_PassportCountry, @Primar" +
+                "y_DriversLicenceNo, @Other_DriversLicenceNo, @Primary_DriversLicenceState, @Othe" +
+                "r_DriversLicenceState, @Other_Res_Street2, @Other_Res_PostCode, @Other_Res_State" +
+                ", @Other_Res_Country, @Other_Res_Suburb, @Other_CurrResidStatus, @PrimPrev_Res_S" +
+                "treet1, @PrimPrev_Res_Street2, @PrimPrev_Res_Suburb, @PrimPrev_Res_PostCode, @Pr" +
+                "imPrev_Res_State, @PrimPrev_Res_Country, @OthPrev_Res_Street1, @OthPrev_Res_Stre" +
+                "et2, @OthPrev_Res_Suburb, @OthPrev_Res_PostCode, @OthPrev_Res_State, @OthPrev_Re" +
+                "s_Country, @Other_PrevResStatus, @Other_CurrOccupType, @Primary_BusIncomeAPAYGTa" +
+                "xPA, @Other_BusIncomeAPAYGTaxPA, @Primary_OtherIncomePA, @Other_OtherIncomePA, @" +
+                "Primary_OtherIncomeType, @Other_OtherIncomeType, @Primary_HomeLoanList, @Other_H" +
+                "omeLoanList, @Primary_CreditCardList, @Other_CreditCardList, @RentPM, @Primary_P" +
+                "ropertyAssetsList, @Other_PropertyAssetsList, @Primary_PersonalLoansList, @Other" +
+                "_PersonalLoansList, @Primary_OtherAssetsList, @Other_OtherAssetsList, @Primary_O" +
+                "therLiabilitiesList, @Other_OtherLiabilitiesList, @UserId, @TransactionId, @Sour" +
+                "ceURL, @Other_Res_Street1, @CondDecisionBy, @HasReqestedPriority, @HasAgreedPACL" +
+                "icence, @EntryId, @Primary_YrsCurrAddr, @Other_YrsCurrAddr, @Other_YrsPrevAddr, " +
+                "@YrsPrevAddr, @YrsCurrEmployer, @YrsPrevEmployer, @AppliedLimit, @AutoRejected, " +
+                "@AutoRejectedBy, @AutoAccepted, @AutoAcceptedBy, @HasReadPO6, @CondCreditDecisio" +
+                "n, @CondCreditDecisionInformed, @CondCreditDecisionInformedBy, @CondCreditDecisi" +
+                "onBy, @AppAckLetterSent, @AppAckLetterSentBy, @ApplicantsNotes, @CondDecisionOff" +
+                "iceNotes, @IsCompany, @CompanyName, @CompanyABN, @CompanyACN, @Primary_CompRole," +
+                " @Property_LoanOutstanding, @Property_Deposit, @Broker, @BrokerDetails);\r\nSELECT" +
+                " Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primar" +
+                "y_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_Title, Other_FirstN" +
+                "ame, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenS" +
+                "tat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, " +
+                "Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country" +
+                ", Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, I" +
+                "sSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, RowVersion, Inves" +
+                "torApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, O" +
+                "ther_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Propert" +
+                "y_Street1, Property_Street2, Property_Suburb, Property_Vendor, EstSpend, EntryDa" +
+                "te, Primary_DOB, CreatedUTC, CondCreditDecisionDate, Property_PostCode, Property" +
+                "_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gende" +
+                "r, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, P" +
+                "rimary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_Passp" +
+                "ortNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo," +
+                " Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState," +
+                " Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Othe" +
+                "r_Res_Suburb, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2," +
+                " PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Co" +
+                "untry, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res" +
+                "_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_Cu" +
+                "rrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_Oth" +
+                "erIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType," +
+                " Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditC" +
+                "ardList, RentPM, Primary_PropertyAssetsList, Other_PropertyAssetsList, Primary_P" +
+                "ersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherA" +
+                "ssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, Tra" +
+                "nsactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, H" +
+                "asAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPr" +
+                "evAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AppliedLimit, AutoRejecte" +
+                "d, AutoRejectedBy, AutoAccepted, AutoAcceptedBy, HasReadPO6, CondCreditDecision," +
+                " CondCreditDecisionInformed, CondCreditDecisionInformedBy, CondCreditDecisionBy," +
+                " AppAckLetterSent, AppAckLetterSentBy, ApplicantsNotes, CondDecisionOfficeNotes," +
+                " IsCompany, CompanyName, CompanyABN, CompanyACN, Primary_CompRole, Property_Loan" +
+                "Outstanding, Property_Deposit, Broker, BrokerDetails FROM InvestorApplications W" +
+                "HERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13270,8 +13682,8 @@ namespace DataUtils.InvestorDSTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentPM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentPM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_OtherAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_OtherAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13306,6 +13718,15 @@ namespace DataUtils.InvestorDSTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppAckLetterSentBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppAckLetterSentBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantsNotes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantsNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecisionOfficeNotes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecisionOfficeNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsCompany", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsCompany", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyABN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyABN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyACN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyACN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CompRole", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CompRole", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_LoanOutstanding", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "Property_LoanOutstanding", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_Deposit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "Property_Deposit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Broker", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Broker", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BrokerDetails", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrokerDetails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [InvestorApplications] SET [ApplicantType] = @ApplicantType, [Primary_Titl" +
@@ -13361,61 +13782,66 @@ namespace DataUtils.InvestorDSTableAdapters {
                 "ncomeType, [Other_OtherIncomeType] = @Other_OtherIncomeType, [Primary_HomeLoanLi" +
                 "st] = @Primary_HomeLoanList, [Other_HomeLoanList] = @Other_HomeLoanList, [Primar" +
                 "y_CreditCardList] = @Primary_CreditCardList, [Other_CreditCardList] = @Other_Cre" +
-                "ditCardList, [RentPM] = @RentPM, [Primary_PropertyAssets] = @Primary_PropertyAss" +
-                "ets, [Other_PropertyAssets] = @Other_PropertyAssets, [Primary_PersonalLoansList]" +
-                " = @Primary_PersonalLoansList, [Other_PersonalLoansList] = @Other_PersonalLoansL" +
-                "ist, [Primary_OtherAssetsList] = @Primary_OtherAssetsList, [Other_OtherAssetsLis" +
-                "t] = @Other_OtherAssetsList, [Primary_OtherLiabilitiesList] = @Primary_OtherLiab" +
-                "ilitiesList, [Other_OtherLiabilitiesList] = @Other_OtherLiabilitiesList, [UserId" +
-                "] = @UserId, [TransactionId] = @TransactionId, [SourceURL] = @SourceURL, [Other_" +
-                "Res_Street1] = @Other_Res_Street1, [CondDecisionBy] = @CondDecisionBy, [HasReqes" +
-                "tedPriority] = @HasReqestedPriority, [HasAgreedPACLicence] = @HasAgreedPACLicenc" +
-                "e, [EntryId] = @EntryId, [Primary_YrsCurrAddr] = @Primary_YrsCurrAddr, [Other_Yr" +
-                "sCurrAddr] = @Other_YrsCurrAddr, [Other_YrsPrevAddr] = @Other_YrsPrevAddr, [YrsP" +
-                "revAddr] = @YrsPrevAddr, [YrsCurrEmployer] = @YrsCurrEmployer, [YrsPrevEmployer]" +
-                " = @YrsPrevEmployer, [AppliedLimit] = @AppliedLimit, [AutoRejected] = @AutoRejec" +
-                "ted, [AutoRejectedBy] = @AutoRejectedBy, [AutoAccepted] = @AutoAccepted, [AutoAc" +
-                "ceptedBy] = @AutoAcceptedBy, [HasReadPO6] = @HasReadPO6, [CondCreditDecision] = " +
-                "@CondCreditDecision, [CondCreditDecisionInformed] = @CondCreditDecisionInformed," +
-                " [CondCreditDecisionInformedBy] = @CondCreditDecisionInformedBy, [CondCreditDeci" +
-                "sionBy] = @CondCreditDecisionBy, [AppAckLetterSent] = @AppAckLetterSent, [AppAck" +
-                "LetterSentBy] = @AppAckLetterSentBy, [ApplicantsNotes] = @ApplicantsNotes, [Cond" +
-                "DecisionOfficeNotes] = @CondDecisionOfficeNotes WHERE (([Id] = @Original_Id) AND" +
-                " ([RowVersion] = @Original_RowVersion));\r\nSELECT Id, ApplicantType, Primary_Titl" +
-                "e, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenSta" +
-                "t, Primary_Dependants, Other_Title, Other_FirstName, Other_OtherNames, Other_Las" +
-                "tName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mo" +
-                "bile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Re" +
-                "s_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevR" +
-                "esStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, Cr" +
-                "eatedBy, ModifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, I" +
-                "nvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncome" +
-                "GrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Pro" +
-                "perty_Suburb, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, Con" +
-                "dCreditDecisionDate, Property_PostCode, Property_State, Property_Country, Proper" +
-                "ty_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_" +
-                "MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhon" +
-                "e, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, " +
-                "Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary" +
-                "_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_Po" +
-                "stCode, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_CurrResidSta" +
-                "tus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_R" +
-                "es_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthP" +
-                "rev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, Ot" +
-                "hPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAP" +
-                "AYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA," +
-                " Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_Hom" +
-                "eLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_Propert" +
-                "yAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansLis" +
-                "t, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList," +
-                " Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1" +
-                ", CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_Yrs" +
-                "CurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, Yr" +
-                "sPrevEmployer, AppliedLimit, AutoRejected, AutoRejectedBy, AutoAccepted, AutoAcc" +
-                "eptedBy, HasReadPO6, CondCreditDecision, CondCreditDecisionInformed, CondCreditD" +
-                "ecisionInformedBy, CondCreditDecisionBy, AppAckLetterSent, AppAckLetterSentBy, A" +
-                "pplicantsNotes, CondDecisionOfficeNotes FROM InvestorApplications WHERE (Id = @I" +
-                "d)";
+                "ditCardList, [RentPM] = @RentPM, [Primary_PropertyAssetsList] = @Primary_Propert" +
+                "yAssetsList, [Other_PropertyAssetsList] = @Other_PropertyAssetsList, [Primary_Pe" +
+                "rsonalLoansList] = @Primary_PersonalLoansList, [Other_PersonalLoansList] = @Othe" +
+                "r_PersonalLoansList, [Primary_OtherAssetsList] = @Primary_OtherAssetsList, [Othe" +
+                "r_OtherAssetsList] = @Other_OtherAssetsList, [Primary_OtherLiabilitiesList] = @P" +
+                "rimary_OtherLiabilitiesList, [Other_OtherLiabilitiesList] = @Other_OtherLiabilit" +
+                "iesList, [UserId] = @UserId, [TransactionId] = @TransactionId, [SourceURL] = @So" +
+                "urceURL, [Other_Res_Street1] = @Other_Res_Street1, [CondDecisionBy] = @CondDecis" +
+                "ionBy, [HasReqestedPriority] = @HasReqestedPriority, [HasAgreedPACLicence] = @Ha" +
+                "sAgreedPACLicence, [EntryId] = @EntryId, [Primary_YrsCurrAddr] = @Primary_YrsCur" +
+                "rAddr, [Other_YrsCurrAddr] = @Other_YrsCurrAddr, [Other_YrsPrevAddr] = @Other_Yr" +
+                "sPrevAddr, [YrsPrevAddr] = @YrsPrevAddr, [YrsCurrEmployer] = @YrsCurrEmployer, [" +
+                "YrsPrevEmployer] = @YrsPrevEmployer, [AppliedLimit] = @AppliedLimit, [AutoReject" +
+                "ed] = @AutoRejected, [AutoRejectedBy] = @AutoRejectedBy, [AutoAccepted] = @AutoA" +
+                "ccepted, [AutoAcceptedBy] = @AutoAcceptedBy, [HasReadPO6] = @HasReadPO6, [CondCr" +
+                "editDecision] = @CondCreditDecision, [CondCreditDecisionInformed] = @CondCreditD" +
+                "ecisionInformed, [CondCreditDecisionInformedBy] = @CondCreditDecisionInformedBy," +
+                " [CondCreditDecisionBy] = @CondCreditDecisionBy, [AppAckLetterSent] = @AppAckLet" +
+                "terSent, [AppAckLetterSentBy] = @AppAckLetterSentBy, [ApplicantsNotes] = @Applic" +
+                "antsNotes, [CondDecisionOfficeNotes] = @CondDecisionOfficeNotes, [IsCompany] = @" +
+                "IsCompany, [CompanyName] = @CompanyName, [CompanyABN] = @CompanyABN, [CompanyACN" +
+                "] = @CompanyACN, [Primary_CompRole] = @Primary_CompRole, [Property_LoanOutstandi" +
+                "ng] = @Property_LoanOutstanding, [Property_Deposit] = @Property_Deposit, [Broker" +
+                "] = @Broker, [BrokerDetails] = @BrokerDetails WHERE (([Id] = @Original_Id) AND (" +
+                "[RowVersion] = @Original_RowVersion));\r\nSELECT Id, ApplicantType, Primary_Title," +
+                " Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat," +
+                " Primary_Dependants, Other_Title, Other_FirstName, Other_OtherNames, Other_LastN" +
+                "ame, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobi" +
+                "le, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_" +
+                "Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevRes" +
+                "Status, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, Crea" +
+                "tedBy, ModifiedBy, Modified, RowVersion, InvestorApplicant_AssquireInvestor, Inv" +
+                "estorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGr" +
+                "ossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Prope" +
+                "rty_Suburb, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondC" +
+                "reditDecisionDate, Property_PostCode, Property_State, Property_Country, Property" +
+                "_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_Ma" +
+                "ritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone," +
+                " Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Ot" +
+                "her_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_D" +
+                "riversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_Post" +
+                "Code, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_CurrResidStatu" +
+                "s, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res" +
+                "_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPre" +
+                "v_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthP" +
+                "rev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAY" +
+                "GTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, P" +
+                "rimary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeL" +
+                "oanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyA" +
+                "ssetsList, Other_PropertyAssetsList, Primary_PersonalLoansList, Other_PersonalLo" +
+                "ansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitie" +
+                "sList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_S" +
+                "treet1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Prima" +
+                "ry_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmploy" +
+                "er, YrsPrevEmployer, AppliedLimit, AutoRejected, AutoRejectedBy, AutoAccepted, A" +
+                "utoAcceptedBy, HasReadPO6, CondCreditDecision, CondCreditDecisionInformed, CondC" +
+                "reditDecisionInformedBy, CondCreditDecisionBy, AppAckLetterSent, AppAckLetterSen" +
+                "tBy, ApplicantsNotes, CondDecisionOfficeNotes, IsCompany, CompanyName, CompanyAB" +
+                "N, CompanyACN, Primary_CompRole, Property_LoanOutstanding, Property_Deposit, Bro" +
+                "ker, BrokerDetails FROM InvestorApplications WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantType", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantType", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13517,8 +13943,8 @@ namespace DataUtils.InvestorDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_CreditCardList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_CreditCardList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RentPM", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RentPM", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssets", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssets", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PropertyAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PropertyAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Other_PersonalLoansList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Other_PersonalLoansList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_OtherAssetsList", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_OtherAssetsList", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13553,6 +13979,15 @@ namespace DataUtils.InvestorDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@AppAckLetterSentBy", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "AppAckLetterSentBy", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ApplicantsNotes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ApplicantsNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CondDecisionOfficeNotes", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CondDecisionOfficeNotes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsCompany", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "IsCompany", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyName", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyABN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyABN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CompanyACN", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CompanyACN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Primary_CompRole", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Primary_CompRole", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_LoanOutstanding", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "Property_LoanOutstanding", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Property_Deposit", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "Property_Deposit", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Broker", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Broker", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BrokerDetails", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BrokerDetails", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_RowVersion", global::System.Data.SqlDbType.Timestamp, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RowVersion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -13571,86 +14006,12 @@ namespace DataUtils.InvestorDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Id, ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherN" +
-                "ames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_Title, " +
-                "Other_FirstName, Other_OtherNames, Other_LastName,\r\n                          Ot" +
-                "her_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Pri" +
-                "mary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_Suburb," +
-                " Primary_Res_State, \r\n                         Primary_Res_Country, Primary_Curr" +
-                "ResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPr" +
-                "ivateHealthIns, CreatedBy, ModifiedBy, Modified, RowVersion, \r\n                 " +
-                "        InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_" +
-                "IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLoca" +
-                "tion, Property_Street1, Property_Street2, \r\n                         Property_Su" +
-                "burb, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondCreditD" +
-                "ecisionDate, Property_PostCode, Property_State, Property_Country, Property_Agent" +
-                "Details, HasAgreedPrivacy, \r\n                         Primary_Gender, DesiredPro" +
-                "pertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePh" +
-                "one, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, \r\n    " +
-                "                     Primary_PassportCountry, Other_PassportCountry, Primary_Dri" +
-                "versLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_Driver" +
-                "sLicenceState, Other_Res_Street2, Other_Res_PostCode, \r\n                        " +
-                " Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_CurrResidStatus, Pr" +
-                "imPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_Post" +
-                "Code, PrimPrev_Res_State, \r\n                         PrimPrev_Res_Country, OthPr" +
-                "ev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, O" +
-                "thPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType," +
-                " \r\n                         Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTax" +
-                "PA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_O" +
-                "therIncomeType, Primary_HomeLoanList, \r\n                         Other_HomeLoanL" +
-                "ist, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAsset" +
-                "s, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Pri" +
-                "mary_OtherAssetsList, \r\n                         Other_OtherAssetsList, Primary_" +
-                "OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceU" +
-                "RL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence," +
-                " EntryId, \r\n                         Primary_YrsCurrAddr, Other_YrsCurrAddr, Oth" +
-                "er_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AppliedLimit, Aut" +
-                "oRejected, AutoRejectedBy, AutoAccepted, AutoAcceptedBy, HasReadPO6, \r\n         " +
-                "                CondCreditDecision, CondCreditDecisionInformed, CondCreditDecisi" +
-                "onInformedBy, CondCreditDecisionBy, AppAckLetterSent, AppAckLetterSentBy, Applic" +
-                "antsNotes, CondDecisionOfficeNotes\r\nFROM            InvestorApplications";
+            this._commandCollection[0].CommandText = "SELECT        InvestorApplications.*\r\nFROM            InvestorApplications";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "SELECT        AppAckLetterSent, AppAckLetterSentBy, ApplicantType, ApplicantsNote" +
-                "s, AppliedLimit, AutoAccepted, AutoAcceptedBy, AutoRejected, AutoRejectedBy, Con" +
-                "dCreditDecision, CondCreditDecisionBy, \r\n                         CondCreditDeci" +
-                "sionDate, CondCreditDecisionInformed, CondCreditDecisionInformedBy, CondDecision" +
-                "By, CondDecisionOfficeNotes, CreatedBy, CreatedUTC, CurrEmploymentStatus, CurrOc" +
-                "cupType, \r\n                         DesiredPropertyAddr, Email, EntryDate, Entry" +
-                "Id, EstSpend, FoundLocation, HasAgreedPACLicence, HasAgreedPrivacy, HasPrivateHe" +
-                "althIns, HasReadPO6, HasReqestedPriority, HouseholdIncomeGrossPA, Id, \r\n        " +
-                "                 InvestorApplicant_AssquireInvestor, InvestorApplication_Gender," +
-                " IsSmoker, LookingLocation, Mobile, Modified, ModifiedBy, OthPrev_Res_Country, O" +
-                "thPrev_Res_PostCode, OthPrev_Res_State, \r\n                         OthPrev_Res_S" +
-                "treet1, OthPrev_Res_Street2, OthPrev_Res_Suburb, Other_AUCitizenStat, Other_BusI" +
-                "ncomeAPAYGTaxPA, Other_CreditCardList, Other_CurrOccupType, Other_CurrResidStatu" +
-                "s, Other_DOB, \r\n                         Other_Dependants, Other_DriversLicenceN" +
-                "o, Other_DriversLicenceState, Other_Email, Other_FirstName, Other_Gender, Other_" +
-                "HomeLoanList, Other_HomePhone, Other_IncomeMoAT, Other_LastName, \r\n             " +
-                "            Other_MaritalStats, Other_Mobile, Other_OtherAssetsList, Other_Other" +
-                "IncomePA, Other_OtherIncomeType, Other_OtherLiabilitiesList, Other_OtherNames, O" +
-                "ther_PassportCountry, Other_PassportNo, \r\n                         Other_Persona" +
-                "lLoansList, Other_PrevResStatus, Other_PropertyAssets, Other_Res_Country, Other_" +
-                "Res_PostCode, Other_Res_State, Other_Res_Street1, Other_Res_Street2, Other_Res_S" +
-                "uburb, Other_Title, \r\n                         Other_YrsCurrAddr, Other_YrsPrevA" +
-                "ddr, PrevResStatus, PrimPrev_Res_Country, PrimPrev_Res_PostCode, PrimPrev_Res_St" +
-                "ate, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, \r\n        " +
-                "                 Primary_AUCitizenStat, Primary_BusIncomeAPAYGTaxPA, Primary_Cre" +
-                "ditCardList, Primary_CurrResidStatus, Primary_DOB, Primary_Dependants, Primary_D" +
-                "riversLicenceNo, Primary_DriversLicenceState, \r\n                         Primary" +
-                "_FirstName, Primary_Gender, Primary_HomeLoanList, Primary_HomePhone, Primary_Inc" +
-                "omeMoAT, Primary_LastName, Primary_MaritalStats, Primary_OtherAssetsList, Primar" +
-                "y_OtherIncomePA, \r\n                         Primary_OtherIncomeType, Primary_Oth" +
-                "erLiabilitiesList, Primary_OtherNames, Primary_PassportCountry, Primary_Passport" +
-                "No, Primary_PersonalLoansList, Primary_PropertyAssets, Primary_Res_Country, \r\n  " +
-                "                       Primary_Res_PostCode, Primary_Res_State, Primary_Res_Stre" +
-                "et1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Title, Primary_YrsCurrAddr" +
-                ", Property_AgentDetails, Property_Country, \r\n                         Property_P" +
-                "ostCode, Property_State, Property_Street1, Property_Street2, Property_Suburb, Pr" +
-                "operty_Vendor, RentPM, RowVersion, SourceURL, TransactionId, UserId, YrsCurrEmpl" +
-                "oyer, YrsPrevAddr, \r\n                         YrsPrevEmployer\r\nFROM            I" +
-                "nvestorApplications\r\nWHERE        (Id = @Id)";
+            this._commandCollection[1].CommandText = "SELECT        InvestorApplications.*\r\nFROM            InvestorApplications\r\nWHERE" +
+                " (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -13692,19 +14053,28 @@ namespace DataUtils.InvestorDSTableAdapters {
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
         }
-        
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual InvestorDS.InvestorApplicationsDataTable GetDataById(int Id) {
+        public virtual InvestorDS.InvestorApplicationsDataTable GetDataById(int Id)
+        {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             InvestorDS.InvestorApplicationsDataTable dataTable = new InvestorDS.InvestorApplicationsDataTable();
-            this.Adapter.Fill(dataTable);
+            try
+            {
+                this.Adapter.Fill(dataTable);
+            }
+            catch (System.Data.ConstraintException ce)
+            {
+
+            }
             return dataTable;
         }
-        
+
+
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
@@ -13867,8 +14237,8 @@ namespace DataUtils.InvestorDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -13902,7 +14272,16 @@ namespace DataUtils.InvestorDSTableAdapters {
                     global::System.Nullable<global::System.DateTime> AppAckLetterSent, 
                     string AppAckLetterSentBy, 
                     string ApplicantsNotes, 
-                    string CondDecisionOfficeNotes) {
+                    string CondDecisionOfficeNotes, 
+                    string IsCompany, 
+                    string CompanyName, 
+                    string CompanyABN, 
+                    string CompanyACN, 
+                    string Primary_CompRole, 
+                    global::System.Nullable<decimal> Property_LoanOutstanding, 
+                    global::System.Nullable<decimal> Property_Deposit, 
+                    string Broker, 
+                    string BrokerDetails) {
             if ((ApplicantType == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -14493,17 +14872,17 @@ namespace DataUtils.InvestorDSTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[99].Value = ((string)(RentPM));
             }
-            if ((Primary_PropertyAssets == null)) {
+            if ((Primary_PropertyAssetsList == null)) {
                 this.Adapter.InsertCommand.Parameters[100].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[100].Value = ((string)(Primary_PropertyAssets));
+                this.Adapter.InsertCommand.Parameters[100].Value = ((string)(Primary_PropertyAssetsList));
             }
-            if ((Other_PropertyAssets == null)) {
+            if ((Other_PropertyAssetsList == null)) {
                 this.Adapter.InsertCommand.Parameters[101].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[101].Value = ((string)(Other_PropertyAssets));
+                this.Adapter.InsertCommand.Parameters[101].Value = ((string)(Other_PropertyAssetsList));
             }
             if ((Primary_PersonalLoansList == null)) {
                 this.Adapter.InsertCommand.Parameters[102].Value = global::System.DBNull.Value;
@@ -14704,6 +15083,60 @@ namespace DataUtils.InvestorDSTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[135].Value = ((string)(CondDecisionOfficeNotes));
             }
+            if ((IsCompany == null)) {
+                this.Adapter.InsertCommand.Parameters[136].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[136].Value = ((string)(IsCompany));
+            }
+            if ((CompanyName == null)) {
+                this.Adapter.InsertCommand.Parameters[137].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[137].Value = ((string)(CompanyName));
+            }
+            if ((CompanyABN == null)) {
+                this.Adapter.InsertCommand.Parameters[138].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[138].Value = ((string)(CompanyABN));
+            }
+            if ((CompanyACN == null)) {
+                this.Adapter.InsertCommand.Parameters[139].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[139].Value = ((string)(CompanyACN));
+            }
+            if ((Primary_CompRole == null)) {
+                this.Adapter.InsertCommand.Parameters[140].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[140].Value = ((string)(Primary_CompRole));
+            }
+            if ((Property_LoanOutstanding.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[141].Value = ((decimal)(Property_LoanOutstanding.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[141].Value = global::System.DBNull.Value;
+            }
+            if ((Property_Deposit.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[142].Value = ((decimal)(Property_Deposit.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[142].Value = global::System.DBNull.Value;
+            }
+            if ((Broker == null)) {
+                this.Adapter.InsertCommand.Parameters[143].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[143].Value = ((string)(Broker));
+            }
+            if ((BrokerDetails == null)) {
+                this.Adapter.InsertCommand.Parameters[144].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[144].Value = ((string)(BrokerDetails));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -14825,8 +15258,8 @@ namespace DataUtils.InvestorDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -14861,6 +15294,15 @@ namespace DataUtils.InvestorDSTableAdapters {
                     string AppAckLetterSentBy, 
                     string ApplicantsNotes, 
                     string CondDecisionOfficeNotes, 
+                    string IsCompany, 
+                    string CompanyName, 
+                    string CompanyABN, 
+                    string CompanyACN, 
+                    string Primary_CompRole, 
+                    global::System.Nullable<decimal> Property_LoanOutstanding, 
+                    global::System.Nullable<decimal> Property_Deposit, 
+                    string Broker, 
+                    string BrokerDetails, 
                     int Original_Id, 
                     byte[] Original_RowVersion, 
                     int Id) {
@@ -15454,17 +15896,17 @@ namespace DataUtils.InvestorDSTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[99].Value = ((string)(RentPM));
             }
-            if ((Primary_PropertyAssets == null)) {
+            if ((Primary_PropertyAssetsList == null)) {
                 this.Adapter.UpdateCommand.Parameters[100].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[100].Value = ((string)(Primary_PropertyAssets));
+                this.Adapter.UpdateCommand.Parameters[100].Value = ((string)(Primary_PropertyAssetsList));
             }
-            if ((Other_PropertyAssets == null)) {
+            if ((Other_PropertyAssetsList == null)) {
                 this.Adapter.UpdateCommand.Parameters[101].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[101].Value = ((string)(Other_PropertyAssets));
+                this.Adapter.UpdateCommand.Parameters[101].Value = ((string)(Other_PropertyAssetsList));
             }
             if ((Primary_PersonalLoansList == null)) {
                 this.Adapter.UpdateCommand.Parameters[102].Value = global::System.DBNull.Value;
@@ -15665,14 +16107,68 @@ namespace DataUtils.InvestorDSTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[135].Value = ((string)(CondDecisionOfficeNotes));
             }
-            this.Adapter.UpdateCommand.Parameters[136].Value = ((int)(Original_Id));
+            if ((IsCompany == null)) {
+                this.Adapter.UpdateCommand.Parameters[136].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[136].Value = ((string)(IsCompany));
+            }
+            if ((CompanyName == null)) {
+                this.Adapter.UpdateCommand.Parameters[137].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[137].Value = ((string)(CompanyName));
+            }
+            if ((CompanyABN == null)) {
+                this.Adapter.UpdateCommand.Parameters[138].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[138].Value = ((string)(CompanyABN));
+            }
+            if ((CompanyACN == null)) {
+                this.Adapter.UpdateCommand.Parameters[139].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[139].Value = ((string)(CompanyACN));
+            }
+            if ((Primary_CompRole == null)) {
+                this.Adapter.UpdateCommand.Parameters[140].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[140].Value = ((string)(Primary_CompRole));
+            }
+            if ((Property_LoanOutstanding.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[141].Value = ((decimal)(Property_LoanOutstanding.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[141].Value = global::System.DBNull.Value;
+            }
+            if ((Property_Deposit.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[142].Value = ((decimal)(Property_Deposit.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[142].Value = global::System.DBNull.Value;
+            }
+            if ((Broker == null)) {
+                this.Adapter.UpdateCommand.Parameters[143].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[143].Value = ((string)(Broker));
+            }
+            if ((BrokerDetails == null)) {
+                this.Adapter.UpdateCommand.Parameters[144].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[144].Value = ((string)(BrokerDetails));
+            }
+            this.Adapter.UpdateCommand.Parameters[145].Value = ((int)(Original_Id));
             if ((Original_RowVersion == null)) {
                 throw new global::System.ArgumentNullException("Original_RowVersion");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[137].Value = ((byte[])(Original_RowVersion));
+                this.Adapter.UpdateCommand.Parameters[146].Value = ((byte[])(Original_RowVersion));
             }
-            this.Adapter.UpdateCommand.Parameters[138].Value = ((int)(Id));
+            this.Adapter.UpdateCommand.Parameters[147].Value = ((int)(Id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -15794,8 +16290,8 @@ namespace DataUtils.InvestorDSTableAdapters {
                     string Primary_CreditCardList, 
                     string Other_CreditCardList, 
                     string RentPM, 
-                    string Primary_PropertyAssets, 
-                    string Other_PropertyAssets, 
+                    string Primary_PropertyAssetsList, 
+                    string Other_PropertyAssetsList, 
                     string Primary_PersonalLoansList, 
                     string Other_PersonalLoansList, 
                     string Primary_OtherAssetsList, 
@@ -15830,9 +16326,18 @@ namespace DataUtils.InvestorDSTableAdapters {
                     string AppAckLetterSentBy, 
                     string ApplicantsNotes, 
                     string CondDecisionOfficeNotes, 
+                    string IsCompany, 
+                    string CompanyName, 
+                    string CompanyABN, 
+                    string CompanyACN, 
+                    string Primary_CompRole, 
+                    global::System.Nullable<decimal> Property_LoanOutstanding, 
+                    global::System.Nullable<decimal> Property_Deposit, 
+                    string Broker, 
+                    string BrokerDetails, 
                     int Original_Id, 
                     byte[] Original_RowVersion) {
-            return this.Update(ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_Title, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Property_Suburb, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondCreditDecisionDate, Property_PostCode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssets, Other_PropertyAssets, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AppliedLimit, AutoRejected, AutoRejectedBy, AutoAccepted, AutoAcceptedBy, HasReadPO6, CondCreditDecision, CondCreditDecisionInformed, CondCreditDecisionInformedBy, CondCreditDecisionBy, AppAckLetterSent, AppAckLetterSentBy, ApplicantsNotes, CondDecisionOfficeNotes, Original_Id, Original_RowVersion, Original_Id);
+            return this.Update(ApplicantType, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_AUCitizenStat, Primary_Dependants, Other_Title, Other_FirstName, Other_OtherNames, Other_LastName, Other_DOB, Other_Gender, Other_AUCitizenStat, Other_Dependants, Email, Mobile, Primary_Res_Street1, Primary_Res_Street2, Primary_Res_PostCode, Primary_Res_Suburb, Primary_Res_State, Primary_Res_Country, Primary_CurrResidStatus, PrevResStatus, CurrOccupType, CurrEmploymentStatus, IsSmoker, HasPrivateHealthIns, CreatedBy, ModifiedBy, Modified, InvestorApplicant_AssquireInvestor, InvestorApplication_Gender, Primary_IncomeMoAT, Other_IncomeMoAT, HouseholdIncomeGrossPA, LookingLocation, FoundLocation, Property_Street1, Property_Street2, Property_Suburb, Property_Vendor, EstSpend, EntryDate, Primary_DOB, CreatedUTC, CondCreditDecisionDate, Property_PostCode, Property_State, Property_Country, Property_AgentDetails, HasAgreedPrivacy, Primary_Gender, DesiredPropertyAddr, Primary_MaritalStats, Other_MaritalStats, Other_Email, Primary_HomePhone, Other_HomePhone, Other_Mobile, Primary_PassportNo, Other_PassportNo, Primary_PassportCountry, Other_PassportCountry, Primary_DriversLicenceNo, Other_DriversLicenceNo, Primary_DriversLicenceState, Other_DriversLicenceState, Other_Res_Street2, Other_Res_PostCode, Other_Res_State, Other_Res_Country, Other_Res_Suburb, Other_CurrResidStatus, PrimPrev_Res_Street1, PrimPrev_Res_Street2, PrimPrev_Res_Suburb, PrimPrev_Res_PostCode, PrimPrev_Res_State, PrimPrev_Res_Country, OthPrev_Res_Street1, OthPrev_Res_Street2, OthPrev_Res_Suburb, OthPrev_Res_PostCode, OthPrev_Res_State, OthPrev_Res_Country, Other_PrevResStatus, Other_CurrOccupType, Primary_BusIncomeAPAYGTaxPA, Other_BusIncomeAPAYGTaxPA, Primary_OtherIncomePA, Other_OtherIncomePA, Primary_OtherIncomeType, Other_OtherIncomeType, Primary_HomeLoanList, Other_HomeLoanList, Primary_CreditCardList, Other_CreditCardList, RentPM, Primary_PropertyAssetsList, Other_PropertyAssetsList, Primary_PersonalLoansList, Other_PersonalLoansList, Primary_OtherAssetsList, Other_OtherAssetsList, Primary_OtherLiabilitiesList, Other_OtherLiabilitiesList, UserId, TransactionId, SourceURL, Other_Res_Street1, CondDecisionBy, HasReqestedPriority, HasAgreedPACLicence, EntryId, Primary_YrsCurrAddr, Other_YrsCurrAddr, Other_YrsPrevAddr, YrsPrevAddr, YrsCurrEmployer, YrsPrevEmployer, AppliedLimit, AutoRejected, AutoRejectedBy, AutoAccepted, AutoAcceptedBy, HasReadPO6, CondCreditDecision, CondCreditDecisionInformed, CondCreditDecisionInformedBy, CondCreditDecisionBy, AppAckLetterSent, AppAckLetterSentBy, ApplicantsNotes, CondDecisionOfficeNotes, IsCompany, CompanyName, CompanyABN, CompanyACN, Primary_CompRole, Property_LoanOutstanding, Property_Deposit, Broker, BrokerDetails, Original_Id, Original_RowVersion, Original_Id);
         }
     }
     

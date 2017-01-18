@@ -112,8 +112,8 @@
             <asp:BoundField DataField="Primary_CreditCardList" HeaderText="Primary - Credit Card List" SortExpression="Primary_CreditCardList" />
             <asp:BoundField DataField="Other_CreditCardList" HeaderText="Other - Credit Card List" SortExpression="Other_CreditCardList" />
             <asp:BoundField DataField="RentPM" HeaderText="Rent p.mo." SortExpression="RentPM" />
-            <asp:BoundField DataField="Primary_PropertyAssets" HeaderText="Primary - Property Assets" SortExpression="Primary_PropertyAssets" />
-            <asp:BoundField DataField="Other_PropertyAssets" HeaderText="Other - Property Assets" SortExpression="Other_PropertyAssets" />
+            <asp:BoundField DataField="Primary_PropertyAssetsList" HeaderText="Primary - Property Assets" SortExpression="Primary_PropertyAssets" />
+            <asp:BoundField DataField="Other_PropertyAssetsList" HeaderText="Other - Property Assets" SortExpression="Other_PropertyAssets" />
             <asp:BoundField DataField="Primary_PersonalLoansList" HeaderText="Primary - Personal Loans List" SortExpression="Primary_PersonalLoansList" />
             <asp:BoundField DataField="Other_PersonalLoansList" HeaderText="Other - Personal Loans List" SortExpression="Other_PersonalLoansList" />
             <asp:BoundField DataField="Primary_OtherAssetsList" HeaderText="Primary- Other Assets List" SortExpression="Primary_OtherAssetsList" />

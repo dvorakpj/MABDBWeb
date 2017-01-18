@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Buyer]
 (
 	[Id] INT NOT NULL IDENTITY(1, 1) , 
-	[MABuyerId] int NULL,
+	[MABuyerId] VARCHAR(20) NULL,
 	[BuyerApplicationId] int NULL FOREIGN KEY REFERENCES [BuyerApplications] (Id),
 	[PrimaryBuyerId] int NULL FOREIGN KEY REFERENCES [Buyer] (Id),
 	[Title] VARCHAR(25) NULL, 
@@ -55,7 +55,11 @@
 	[CondCreditDecision] CHAR(1) NULL, 
 	[CondCreditDecisionBy]     VARCHAR (25)       NULL,
 	[CondCreditDecisionInformed] DATETIME2 NULL, 
-	[CondCreditDecisionInformedBy] VARCHAR(50) NULL,  
+	[CondCreditDecisionInformedBy] VARCHAR(50) NULL, 
+	[FinalCreditDecision] CHAR(1) NULL,
+	[FinalCreditDecisionDate] DATETIME2 NULL,
+	[FinalCreditDecisionBy] VARCHAR(25) NULL,
+	[FinalCreditDecisionComments] VARCHAR(2500) NULL, 
 	[FinalCreditDecisionInformed] DATETIME2 NULL, 
 	[FinalCreditDecisionInformedBy] VARCHAR(50) NULL, 
 	[AppliedLimit$] Decimal(12,2) NULL,

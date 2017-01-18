@@ -3182,6 +3182,8 @@ namespace DataUtils {
             
             private global::System.Data.DataColumn _columnFinalApprovedLimit_;
             
+            private global::System.Data.DataColumn columnMABuyerId1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerDataTable() {
@@ -3721,6 +3723,14 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MABuyerId1Column {
+                get {
+                    return this.columnMABuyerId1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3757,7 +3767,7 @@ namespace DataUtils {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerRow AddBuyerRow(
-                        int MABuyerId, 
+                        string MABuyerId, 
                         BuyerApplicationsRow parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18, 
                         BuyerRow parentBuyerRowByFK__Buyer__PrimaryBu__22FF2F51, 
                         string Title, 
@@ -3818,7 +3828,8 @@ namespace DataUtils {
                         string FinalCreditDecisionInformedBy, 
                         decimal _AppliedLimit_, 
                         decimal _CondApprovedLimit_, 
-                        decimal _FinalApprovedLimit_) {
+                        decimal _FinalApprovedLimit_, 
+                        string MABuyerId1) {
                 BuyerRow rowBuyerRow = ((BuyerRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -3883,7 +3894,8 @@ namespace DataUtils {
                         FinalCreditDecisionInformedBy,
                         _AppliedLimit_,
                         _CondApprovedLimit_,
-                        _FinalApprovedLimit_};
+                        _FinalApprovedLimit_,
+                        MABuyerId1};
                 if ((parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18 != null)) {
                     columnValuesArray[2] = parentBuyerApplicationsRowByFK__Buyer__BuyerAppl__220B0B18[0];
                 }
@@ -3982,6 +3994,7 @@ namespace DataUtils {
                 this._columnAppliedLimit_ = base.Columns["AppliedLimit$"];
                 this._columnCondApprovedLimit_ = base.Columns["CondApprovedLimit$"];
                 this._columnFinalApprovedLimit_ = base.Columns["FinalApprovedLimit$"];
+                this.columnMABuyerId1 = base.Columns["MABuyerId1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3989,7 +4002,7 @@ namespace DataUtils {
             private void InitClass() {
                 this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnId);
-                this.columnMABuyerId = new global::System.Data.DataColumn("MABuyerId", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnMABuyerId = new global::System.Data.DataColumn("MABuyerId", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMABuyerId);
                 this.columnBuyerApplicationId = new global::System.Data.DataColumn("BuyerApplicationId", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBuyerApplicationId);
@@ -4119,6 +4132,8 @@ namespace DataUtils {
                 this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_ColumnVarNameInTable", "_columnFinalApprovedLimit_");
                 this._columnFinalApprovedLimit_.ExtendedProperties.Add("Generator_UserColumnName", "FinalApprovedLimit$");
                 base.Columns.Add(this._columnFinalApprovedLimit_);
+                this.columnMABuyerId1 = new global::System.Data.DataColumn("MABuyerId1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMABuyerId1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId}, true));
                 this.columnId.AutoIncrement = true;
@@ -4181,6 +4196,8 @@ namespace DataUtils {
                 this.columnCondCreditDecisionBy.MaxLength = 25;
                 this.columnCondCreditDecisionInformedBy.MaxLength = 50;
                 this.columnFinalCreditDecisionInformedBy.MaxLength = 50;
+                this.columnMABuyerId1.Caption = "MABuyerId";
+                this.columnMABuyerId1.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8740,10 +8757,10 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int MABuyerId {
+            public string MABuyerId {
                 get {
                     try {
-                        return ((int)(this[this.tableBuyer.MABuyerIdColumn]));
+                        return ((string)(this[this.tableBuyer.MABuyerIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'MABuyerId\' in table \'Buyer\' is DBNull.", e);
@@ -9692,6 +9709,22 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string MABuyerId1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableBuyer.MABuyerId1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MABuyerId1\' in table \'Buyer\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBuyer.MABuyerId1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public BuyerRow BuyerRowParent {
                 get {
                     return ((BuyerRow)(this.GetParentRow(this.Table.ParentRelations["FK__Buyer__PrimaryBu__22FF2F51"])));
@@ -10358,6 +10391,18 @@ namespace DataUtils {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Set_FinalApprovedLimit_Null() {
                 this[this.tableBuyer._FinalApprovedLimit_Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMABuyerId1Null() {
+                return this.IsNull(this.tableBuyer.MABuyerId1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMABuyerId1Null() {
+                this[this.tableBuyer.MABuyerId1Column] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13927,7 +13972,6 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "Buyer";
             tableMapping.ColumnMappings.Add("Id", "Id");
-            tableMapping.ColumnMappings.Add("MABuyerId", "MABuyerId");
             tableMapping.ColumnMappings.Add("BuyerApplicationId", "BuyerApplicationId");
             tableMapping.ColumnMappings.Add("PrimaryBuyerId", "PrimaryBuyerId");
             tableMapping.ColumnMappings.Add("Title", "Title");
@@ -13988,6 +14032,7 @@ namespace DataUtils.BuyerDSTableAdapters {
             tableMapping.ColumnMappings.Add("AppliedLimit$", "AppliedLimit$");
             tableMapping.ColumnMappings.Add("CondApprovedLimit$", "CondApprovedLimit$");
             tableMapping.ColumnMappings.Add("FinalApprovedLimit$", "FinalApprovedLimit$");
+            tableMapping.ColumnMappings.Add("MABuyerId", "MABuyerId1");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -14070,7 +14115,7 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MABuyerId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrimaryBuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimaryBuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -14220,7 +14265,7 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "ditDecisionInformed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedL" +
                 "imit$, FinalApprovedLimit$ FROM Buyer WHERE (Id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimaryBuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimaryBuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14395,7 +14440,7 @@ namespace DataUtils.BuyerDSTableAdapters {
                 "Informed, FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, Fina" +
                 "lApprovedLimit$ FROM Buyer WHERE (Id = @Id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MABuyerId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PrimaryBuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimaryBuyerId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Title", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Title", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -14457,7 +14502,7 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FinalApprovedLimit$", global::System.Data.SqlDbType.Decimal, 0, global::System.Data.ParameterDirection.Input, 12, 2, "FinalApprovedLimit$", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MABuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MABuyerId", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MABuyerId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_BuyerApplicationId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BuyerApplicationId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_PrimaryBuyerId", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PrimaryBuyerId", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -14584,7 +14629,12 @@ namespace DataUtils.BuyerDSTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        Buyer.*\r\nFROM            Buyer";
+            this._commandCollection[0].CommandText = @"SELECT        Id, MABuyerId, BuyerApplicationId, PrimaryBuyerId, Title, FirstName, OtherNames, LastName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Street3, Res_Street4, Res_Street5, Res_Postcode, 
+                         Res_Suburb, Res_City, Res_State, Res_Country, Bill_UnitNum, Bill_Street1, Bill_Street2, Bill_Street3, Bill_Street4, Bill_Street5, Bill_Postcode, Bill_Suburb, Bill_City, Bill_State, Bill_Country, Comments, 
+                         PhoneMobile, PhoneHome, PhoneWork, PhoneOther, Email, EmailOther, ContactComments, DeathCoverInsurer, DeathCoverDetail, TPDCoverInsurer, TPDCoverDetail, MAStatus, AppliedDate, MAApprovedDate, 
+                         Created, CreatedBy, Updated, UpdatedBy, CondCreditDecisionDate, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, FinalCreditDecisionInformed, 
+                         FinalCreditDecisionInformedBy, AppliedLimit$, CondApprovedLimit$, FinalApprovedLimit$
+FROM            Buyer";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
@@ -14678,7 +14728,7 @@ namespace DataUtils.BuyerDSTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
         public virtual int Delete(
                     int Original_Id, 
-                    global::System.Nullable<int> Original_MABuyerId, 
+                    string Original_MABuyerId, 
                     global::System.Nullable<int> Original_BuyerApplicationId, 
                     global::System.Nullable<int> Original_PrimaryBuyerId, 
                     string Original_Title, 
@@ -14739,13 +14789,13 @@ namespace DataUtils.BuyerDSTableAdapters {
                     global::System.Nullable<decimal> _Original_CondApprovedLimit_, 
                     global::System.Nullable<decimal> _Original_FinalApprovedLimit_) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
-            if ((Original_MABuyerId.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((int)(Original_MABuyerId.Value));
-            }
-            else {
+            if ((Original_MABuyerId == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_MABuyerId));
             }
             if ((Original_BuyerApplicationId.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
@@ -15214,7 +15264,7 @@ namespace DataUtils.BuyerDSTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
         public virtual int Insert(
-                    global::System.Nullable<int> MABuyerId, 
+                    string MABuyerId, 
                     global::System.Nullable<int> BuyerApplicationId, 
                     global::System.Nullable<int> PrimaryBuyerId, 
                     string Title, 
@@ -15274,11 +15324,11 @@ namespace DataUtils.BuyerDSTableAdapters {
                     global::System.Nullable<decimal> _AppliedLimit_, 
                     global::System.Nullable<decimal> _CondApprovedLimit_, 
                     global::System.Nullable<decimal> _FinalApprovedLimit_) {
-            if ((MABuyerId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(MABuyerId.Value));
+            if ((MABuyerId == null)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[0].Value = ((string)(MABuyerId));
             }
             if ((BuyerApplicationId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((int)(BuyerApplicationId.Value));
@@ -15645,7 +15695,7 @@ namespace DataUtils.BuyerDSTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<int> MABuyerId, 
+                    string MABuyerId, 
                     global::System.Nullable<int> BuyerApplicationId, 
                     global::System.Nullable<int> PrimaryBuyerId, 
                     string Title, 
@@ -15706,7 +15756,7 @@ namespace DataUtils.BuyerDSTableAdapters {
                     global::System.Nullable<decimal> _CondApprovedLimit_, 
                     global::System.Nullable<decimal> _FinalApprovedLimit_, 
                     int Original_Id, 
-                    global::System.Nullable<int> Original_MABuyerId, 
+                    string Original_MABuyerId, 
                     global::System.Nullable<int> Original_BuyerApplicationId, 
                     global::System.Nullable<int> Original_PrimaryBuyerId, 
                     string Original_Title, 
@@ -15767,11 +15817,11 @@ namespace DataUtils.BuyerDSTableAdapters {
                     global::System.Nullable<decimal> _Original_CondApprovedLimit_, 
                     global::System.Nullable<decimal> _Original_FinalApprovedLimit_, 
                     int Id) {
-            if ((MABuyerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(MABuyerId.Value));
+            if ((MABuyerId == null)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((string)(MABuyerId));
             }
             if ((BuyerApplicationId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(BuyerApplicationId.Value));
@@ -16118,13 +16168,13 @@ namespace DataUtils.BuyerDSTableAdapters {
                 this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
             }
             this.Adapter.UpdateCommand.Parameters[60].Value = ((int)(Original_Id));
-            if ((Original_MABuyerId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(Original_MABuyerId.Value));
-            }
-            else {
+            if ((Original_MABuyerId == null)) {
                 this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[62].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[62].Value = ((string)(Original_MABuyerId));
             }
             if ((Original_BuyerApplicationId.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[63].Value = ((object)(0));
@@ -16594,7 +16644,7 @@ namespace DataUtils.BuyerDSTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
         public virtual int Update(
-                    global::System.Nullable<int> MABuyerId, 
+                    string MABuyerId, 
                     global::System.Nullable<int> BuyerApplicationId, 
                     global::System.Nullable<int> PrimaryBuyerId, 
                     string Title, 
@@ -16655,7 +16705,7 @@ namespace DataUtils.BuyerDSTableAdapters {
                     global::System.Nullable<decimal> _CondApprovedLimit_, 
                     global::System.Nullable<decimal> _FinalApprovedLimit_, 
                     int Original_Id, 
-                    global::System.Nullable<int> Original_MABuyerId, 
+                    string Original_MABuyerId, 
                     global::System.Nullable<int> Original_BuyerApplicationId, 
                     global::System.Nullable<int> Original_PrimaryBuyerId, 
                     string Original_Title, 

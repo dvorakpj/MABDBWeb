@@ -5,16 +5,16 @@
     <asp:Label ID="lblCondDecInformedLbl" runat="server" Text="Conditional Decision Sent:" Visible="False"></asp:Label>
     <asp:Label ID="lblCondDecInformed" runat="server" Visible="False"></asp:Label>
 <br />
-<asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" DataSourceID="BuyerApplicationDSDataSource1" Height="50px" Width="125px">
+<asp:DetailsView ID="DetailsView1" runat="server" DataKeyNames="Id" DataSourceID="BuyerApplicationDSDataSource1" Height="50px" Width="125px" AutoGenerateRows="False">
     <Fields>
         <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-        <asp:BoundField DataField="ApplicantType" HeaderText="Type" SortExpression="ApplicantType" />
-        <asp:BoundField DataField="Primary_FirstName" HeaderText="Primary - First Name" SortExpression="Primary_FirstName" />
-        <asp:BoundField DataField="Primary_OtherNames" HeaderText="Primary - Other Names" SortExpression="Primary_OtherNames" />
-        <asp:BoundField DataField="Primary_LastName" HeaderText="Primary - Last Name" SortExpression="Primary_LastName" />
-        <asp:BoundField DataField="Primary_AUCitizenStat" HeaderText="Primary - AU Citizen" SortExpression="Primary_AUCitizenStat" />
-        <asp:BoundField DataField="Primary_Dependants" HeaderText="Primary - Dependants" SortExpression="Primary_Dependants" />
-        <asp:BoundField DataField="Primary_DOB" HeaderText="Primary - DOB" SortExpression="Primary_DOB" />
+        <asp:BoundField DataField="ApplicantType" HeaderText="ApplicantType" SortExpression="ApplicantType" />
+        <asp:BoundField DataField="Primary_FirstName" HeaderText="Primary_FirstName" SortExpression="Primary_FirstName" />
+        <asp:BoundField DataField="Primary_OtherNames" HeaderText="Primary_OtherNames" SortExpression="Primary_OtherNames" />
+        <asp:BoundField DataField="Primary_LastName" HeaderText="Primary_LastName" SortExpression="Primary_LastName" />
+        <asp:BoundField DataField="Primary_AUCitizenStat" HeaderText="Primary_AUCitizenStat" SortExpression="Primary_AUCitizenStat" />
+        <asp:BoundField DataField="Primary_Dependants" HeaderText="Primary_Dependants" SortExpression="Primary_Dependants" />
+        <asp:BoundField DataField="Primary_DOB" HeaderText="Primary_DOB" SortExpression="Primary_DOB" />
         <asp:BoundField DataField="Other_FirstName" HeaderText="Other_FirstName" SortExpression="Other_FirstName" />
         <asp:BoundField DataField="Other_OtherNames" HeaderText="Other_OtherNames" SortExpression="Other_OtherNames" />
         <asp:BoundField DataField="Other_LastName" HeaderText="Other_LastName" SortExpression="Other_LastName" />
@@ -141,11 +141,27 @@
         <asp:BoundField DataField="SourceURL" HeaderText="SourceURL" SortExpression="SourceURL" />
         <asp:BoundField DataField="HasReqestedPriority" HeaderText="HasReqestedPriority" SortExpression="HasReqestedPriority" />
         <asp:BoundField DataField="YrsPrevAddr" HeaderText="YrsPrevAddr" SortExpression="YrsPrevAddr" />
-        <asp:BoundField DataField="AutoRejected" HeaderText="AutoRejected" SortExpression="AutoRejected" />
-        <asp:BoundField DataField="AutoRejecetedBy" HeaderText="AutoRejecetedBy" SortExpression="AutoRejecetedBy" />
-        <asp:BoundField DataField="AutoAccepted" HeaderText="AutoAccepted" SortExpression="AutoAccepted" />
-        <asp:BoundField DataField="AutoAcceptedBy" HeaderText="AutoAcceptedBy" SortExpression="AutoAcceptedBy" />
-        <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowInsertButton="True" />
+        <asp:BoundField DataField="Primary_Title" HeaderText="Primary_Title" SortExpression="Primary_Title" />
+        <asp:BoundField DataField="Other_Title" HeaderText="Other_Title" SortExpression="Other_Title" />
+        <asp:BoundField DataField="PrevEmploymentStatus" HeaderText="PrevEmploymentStatus" SortExpression="PrevEmploymentStatus" />
+        <asp:BoundField DataField="Other_PrevEmploymentStatus" HeaderText="Other_PrevEmploymentStatus" SortExpression="Other_PrevEmploymentStatus" />
+        <asp:BoundField DataField="IntendedDeposit" HeaderText="IntendedDeposit" SortExpression="IntendedDeposit" />
+        <asp:BoundField DataField="Broker" HeaderText="Broker" SortExpression="Broker" />
+        <asp:BoundField DataField="BrokerDetails" HeaderText="BrokerDetails" SortExpression="BrokerDetails" />
+        <asp:BoundField DataField="CondCreditDecisionDate" HeaderText="CondCreditDecisionDate" SortExpression="CondCreditDecisionDate" />
+        <asp:BoundField DataField="CondCreditDecision" HeaderText="CondCreditDecision" SortExpression="CondCreditDecision" />
+        <asp:BoundField DataField="CondCreditDecisionBy" HeaderText="CondCreditDecisionBy" SortExpression="CondCreditDecisionBy" />
+        <asp:BoundField DataField="CondCreditDecisionInformed" HeaderText="CondCreditDecisionInformed" SortExpression="CondCreditDecisionInformed" />
+        <asp:BoundField DataField="CondCreditDecisionInformedBy" HeaderText="CondCreditDecisionInformedBy" SortExpression="CondCreditDecisionInformedBy" />
+        <asp:BoundField DataField="Primary_PropertyAssetsList" HeaderText="Primary_PropertyAssetsList" SortExpression="Primary_PropertyAssetsList" />
+        <asp:BoundField DataField="Other_PropertyAssetsList" HeaderText="Other_PropertyAssetsList" SortExpression="Other_PropertyAssetsList" />
+        <asp:BoundField DataField="CondApprovedLimit$" HeaderText="CondApprovedLimit$" SortExpression="CondApprovedLimit$" />
+        <asp:BoundField DataField="FinalApprovedLimit$" HeaderText="FinalApprovedLimit$" SortExpression="FinalApprovedLimit$" />
+        <asp:BoundField DataField="MthlyRent" HeaderText="MthlyRent" SortExpression="MthlyRent" />
+        <asp:BoundField DataField="MthlyDeposit" HeaderText="MthlyDeposit" SortExpression="MthlyDeposit" />
+        <asp:BoundField DataField="AutoPreApprovalResult" HeaderText="AutoPreApprovalResult" SortExpression="AutoPreApprovalResult" />
+        <asp:BoundField DataField="AutoPreApprovalDate" HeaderText="AutoPreApprovalDate" SortExpression="AutoPreApprovalDate" />
+        <asp:BoundField DataField="AutoPreApprovalBy" HeaderText="AutoPreApprovalBy" SortExpression="AutoPreApprovalBy" />
     </Fields>
 </asp:DetailsView>
 <asp:ObjectDataSource ID="BuyerApplicationDSDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetDataBy" TypeName="DataUtils.BuyerDSTableAdapters.BuyerApplicationsTableAdapter" UpdateMethod="Update">

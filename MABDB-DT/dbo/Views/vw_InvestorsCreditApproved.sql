@@ -1,8 +1,6 @@
 ﻿CREATE VIEW [dbo].[vw_InvestorsCreditApproved]
 	AS SELECT 
-	inv.Id
-	
-	
+	inv.Id	
 	FROM [dbo].[vw_Investors] inv
-	WHERE inv.CreditDecision = 'A' AND
+	WHERE inv.FinalCreditDecision = 'A' AND
 	inv.AssquireStatus ='I'
