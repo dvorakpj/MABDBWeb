@@ -125,19 +125,14 @@ namespace MABDBWeb
 
 
 
-        public static void MyHandler(object adapter, SqlRowUpdatedEventArgs e)
+        public static void XXXMyHandler(object adapter, SqlRowUpdatedEventArgs e)
         {
             //if (e.f)
             e.Status = UpdateStatus.SkipCurrentRow;
 
         }
 
-
-       
-
-
-
-    
+      
         private string SelectedIdsInclude(int numero)
         {
             if (entryIdSelected.Contains(numero))

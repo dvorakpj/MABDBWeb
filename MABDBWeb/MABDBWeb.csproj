@@ -183,6 +183,7 @@
     <Content Include="BuyerApplicantsNewAll.aspx" />
     <Content Include="InvestorApplicantsNewAll.aspx" />
     <Content Include="InvestorApplicationDetail.aspx" />
+    <Content Include="InvestorsUnderCreditEval.aspx" />
     <Content Include="NewAutoRejectedInvestorApps.aspx" />
     <Content Include="BuyerApplicationDetail.aspx" />
     <Content Include="Properties.aspx" />
@@ -400,6 +401,13 @@
     </Compile>
     <Compile Include="InvestorApplicationDetail.aspx.designer.cs">
       <DependentUpon>InvestorApplicationDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InvestorsUnderCreditEval.aspx.cs">
+      <DependentUpon>InvestorsUnderCreditEval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InvestorsUnderCreditEval.aspx.designer.cs">
+      <DependentUpon>InvestorsUnderCreditEval.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties.aspx.cs">

@@ -185,12 +185,13 @@
     <hr />
         <div>
         <p>
-          <span style="font-weight: bold">Conditional Approval:</span>
+          <span style="font-weight: bold">Conditional Decision:</span>
         </p>
            Approver: <asp:Label ID="lblApprover" runat="server" Text="Pavel Dvorak" ToolTip="Name of current user who will be recorded as approver of the Application."></asp:Label>
         <br />
             <p>
-        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal"/>
+        <asp:Button ID="btnCondApprove" runat="server" Text="Conditionally Approve" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondApprovalModal" BackColor="#99FF66" ForeColor="Black"/>
+           &nbsp;<asp:Button ID="btnCondReject" runat="server" Text="Conditionally Reject" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CondRejectModal" BackColor="#FF6666" ForeColor="Black"/>
            </p>
         </div>
 
@@ -212,6 +213,30 @@
                 <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
                  <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
                  <asp:Button runat="server" ID="ButtonCondApprovedModal" Text="Conditionally Approve" CssClass="btn" OnClick="ButtonCondApprovedModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+            </div>
+        </div>
+    </div>
+        </div>
+
+
+    
+        <!-- COnditional rejection confirmation -->
+          <div id="CondRejectModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="CondRejectLabel" aria-hidden="true">
+         <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 id="CondRejectLabel">Confirmation</h3>
+
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to conditionally reject this application?</p>
+            </div>
+            <div class="modal-footer">
+                <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
+                 <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
+                 <asp:Button runat="server" ID="Button5" Text="Conditionally Approve" CssClass="btn" OnClick="btnCondRejectModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
             </div>
         </div>
     </div>

@@ -188,11 +188,7 @@ namespace MABDBWeb
         protected void ButtonAppAckLetter_Click(object sender, EventArgs e)
         {
             int id = 0;
-            //throw new ApplicationException("Test.");
-            // check if the status is autaccepted
-            // extract the record from DB
-
-
+            
             //InvestorApplicationDS investor = new InvestorApplicationDS();
 
             DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
@@ -361,11 +357,11 @@ namespace MABDBWeb
         protected void ButtonCondResultSentModal_Click(object sender, EventArgs e)
         {
             int id = 0;
-            //throw new ApplicationException("Test.");
-            // check if the status is autaccepted
-            // extract the record from DB
 
-            if (String.IsNullOrEmpty(this.HiddenField1.Value))
+            id = GetIdFromReqParam();
+
+
+            if (id <=0 )
             {
                 return;
             }
@@ -423,7 +419,6 @@ namespace MABDBWeb
 
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
-
 
         protected void ButtonAppAckLetterSentModal_Click(object sender, EventArgs e)
         {
@@ -492,11 +487,6 @@ namespace MABDBWeb
 
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
             return;
-        }
-
-        protected void btnCreditFeeReceived_Click1(object sender, EventArgs e)
-        {
-
         }
 
         protected string SaveInvestorPermRecord(int invAppId)
@@ -1028,5 +1018,74 @@ namespace MABDBWeb
 
             return null;
         }
+
+        protected void btnCondRejectModal_Click(object sender, EventArgs e)
+        {
+
+            int id = GetIdFromReqParam();
+            if (id <= 0)
+            {
+                throw new ArgumentException(String.Format("The Application Id {0} is not valid: ", id), "id");
+            }
+
+
+            DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
+
+            //DataUtils.InvestorApplicationTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorApplicationTableAdapters.InvestorApplicationsTableAdapter();
+
+            DataUtils.InvestorDS.InvestorApplicationsDataTable dt = new InvestorDS.InvestorApplicationsDataTable();
+            dt = dta.GetDataById(id);
+
+            if (dt.Rows.Count != 1)
+            {
+                throw new ArgumentException(String.Concat("InvestorApplication with Id ", id, " could not be found."), "InvestorApplication.Id");
+            }
+
+            DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
+            if (null != currentRow)
+            {
+                try
+                {
+                    currentRow.CondCreditDecisionDate = DateTime.Now;
+                    currentRow.CondCreditDecisionBy = "pdvorak";
+                    currentRow.CondCreditDecision = ((char)CondCreditDecisionResult.Rejected).ToString();
+                    dta.Update(currentRow);
+                    SetErrorText(String.Empty);
+                    Response.Redirect("~/InvestorApplicantsNewAll.aspx");
+                }
+                catch (Exception ex)
+                {
+                    SetErrorText("Error saving Conditional Decision on Application Id: " + id.ToString() + ex.Message + ex.StackTrace);
+                    return;
+                }           
+            }
+            else
+            {
+                SetErrorText("Error finding Application Id: " + id.ToString());
+            }
+        }
+
+        /// <summary>
+        /// Shows error message in ValidationError Text box if provided, or hides the error text box if message is empty.
+        /// </summary>
+        /// <param name="ErrorMessage">String with error message to show.</param>
+        private void SetErrorText(string ErrorMessage)
+        {
+            if (String.IsNullOrEmpty(ErrorMessage))
+            {
+                lblValidationErrorsTxtBoxLabel.Visible = false;
+                txtValidationErrors.Text = null;
+                txtValidationErrors.Visible = false;
+
+            }
+            else
+            {
+                lblValidationErrorsTxtBoxLabel.Visible = true;
+                txtValidationErrors.Text = ErrorMessage;
+                txtValidationErrors.Visible = true;
+            }
+        } 
+
+        
     }
 }
