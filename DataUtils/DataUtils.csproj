@@ -44,7 +44,7 @@
     <Compile Include="BuyerDS.cs">
       <DependentUpon>BuyerDS.xsd</DependentUpon>
     </Compile>
-    <Compile Include="BuyerDS.Designer.cs">
+    <Compile Include="BuyerDS1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BuyerDS.xsd</DependentUpon>

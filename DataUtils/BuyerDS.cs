@@ -9,3 +9,10 @@
         }
     }
 }
+
+namespace DataUtils.BuyerDSTableAdapters {
+    
+    
+    public partial class BuyerTableAdapter {
+    }
+}
