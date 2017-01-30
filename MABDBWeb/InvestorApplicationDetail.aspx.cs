@@ -49,13 +49,9 @@ namespace MABDBWeb
             sds.ConnectionString = ConfigurationManager.ConnectionStrings["MABDBConnectionString"].ConnectionString;
         }
 
-        protected void ButtonCondApprovedModal_Click(object sender, EventArgs e)
+        protected void btn_CondApprovedModal_Click(object sender, EventArgs e)
         {
-            int id = GetIdFromReqParam();
-
-
-            string errmsg = SaveInvestorPermRecord(id);
-
+            int appId = GetIdFromReqParam();
             #region oldCode
             //InvestorApplicationDS investor = new InvestorApplicationDS();
 
@@ -169,20 +165,47 @@ namespace MABDBWeb
             //}
             #endregion oldCode
 
-            if (!String.IsNullOrEmpty(errmsg))
+            #region updateApplic
+            DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
+            DataUtils.InvestorDS.InvestorApplicationsDataTable dt = new InvestorDS.InvestorApplicationsDataTable();
+
+            dt = dta.GetDataById(appId);
+
+            if (dt.Rows.Count != 1)
             {
-                txtValidationErrors.Text = errmsg;
-                txtValidationErrors.Visible = true;
-                lblValidationErrorsTxtBoxLabel.Visible = true;
-                return;
-            } else
-            {
-                txtValidationErrors.Text = String.Empty;
-                txtValidationErrors.Visible = false;
-                lblValidationErrorsTxtBoxLabel.Visible = false;
-                Response.Redirect("~/InvestorApplicantsNewAll.aspx");
+                throw new ArgumentException(String.Concat("InvestorApplication with Id ", appId, " could not be found."), "InvestorApplication.Id");
             }
-            
+
+            DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
+            if (null != currentRow)
+            {
+                try
+                {
+                    currentRow.CondCreditDecisionDate = DateTime.Now;
+                    currentRow.CondCreditDecisionBy = "pdvorak";
+                    currentRow.CondCreditDecision = ((char)CondCreditDecisionResult.Accepted).ToString();
+                    dta.Update(currentRow);
+                    SetErrorText(String.Empty);                    
+                }
+                catch (Exception ex)
+                {
+                    SetErrorText("Error saving Conditional Decision on Application Id: " + appId.ToString() + ex.Message + ex.StackTrace);
+                    return;
+                }
+            }
+            else
+            {
+                SetErrorText("Error finding Application Id: " + appId.ToString());
+                return;
+            }
+            #endregion
+
+            //now create a permanent investor record
+            string errmsg = SaveInvestorPermRecord(appId);
+
+            SetErrorText(errmsg);                       
+
+            Response.Redirect("~/InvestorApplicantsNewAll.aspx");
         }
 
         protected void ButtonAppAckLetter_Click(object sender, EventArgs e)

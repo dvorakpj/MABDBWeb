@@ -499,6 +499,30 @@ WHERE (Id = @Id)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
+              <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.vw_InvestorAppCondAcceptedNotInformed" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillInvAppsCondAccNotInformed" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataInvAppsCondAccNotInformed" GeneratorSourceName="FillInvAppsCondAccNotInformed" GetMethodModifier="Public" GetMethodName="GetDataInvAppsCondAccNotInformed" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataInvAppsCondAccNotInformed" UserSourceName="FillInvAppsCondAccNotInformed">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        ApplicationId, ApplicantType, EntryDate, EntryId, Primary_Salutation, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_DOB, Email, Mobile, Primary_HomePhone, 
+                         Primary_Res_Street1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Res_PostCode, Primary_Res_State, Other_Title, Other_Salutation, Other_FirstName, Other_OtherNames, Other_LastName, 
+                         Other_DOB, Other_Email, Other_Mobile, Other_HomePhone, Other_Res_Street1, Other_Res_Street2, Other_Res_Suburb, Other_Res_PostCode, Other_Res_State, CondAppliedLimit$, DesiredPropertyAddr, 
+                         CondCreditDecision, CondCreditDecisionDate, CondDecisionBy, AutoAccepted, AutoAcceptedBy, AutoRejected, AutoRejectedBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, 
+                         AppAckLetterSent
+FROM            vw_InvestorAppCondAcceptedNotInformed</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+              <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.vw_InvestorsCreditRejectedNotInformed" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillInvestorAppsCreditRejectedNotInformed" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataInvestorAppsCreditRejectedNotInformed" GeneratorSourceName="FillInvestorAppsCreditRejectedNotInformed" GetMethodModifier="Public" GetMethodName="GetDataInvestorAppsCreditRejectedNotInformed" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataInvestorAppsCreditRejectedNotInformed" UserSourceName="FillInvestorAppsCreditRejectedNotInformed">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, ApplicationId, Salutation, Title, FirstName, OtherNames, LastName, CompanyName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Suburb, Res_City, Res_State, Res_Country, AppliedDate, 
+                         AppliedPrtyVal, AssquireStatus, FinalCreditDecision, FinalCreditDecisionDate, FinalCreditDecisionBy, FinalCreditDecisionComments, AssquireApprovedPrtyVal, FinalCreditDecisionInformed, 
+                         FinalCreditDecisionInformedBy, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInformedBy, Updated
+FROM            vw_InvestorsCreditRejectedNotInformed</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
             </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="InvestorTableAdapter" GeneratorDataComponentClassName="InvestorTableAdapter" Name="Investor" UserDataComponentName="InvestorTableAdapter">
@@ -1419,7 +1443,7 @@ SELECT Id, Primary_AUCitizen, Age, GrossIncomeSingle, GrossIncomeJoint, Primary_
   <xs:element name="InvestorDS" msdata:IsDataSet="true" msdata:CaseSensitive="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="InvestorDS" msprop:Generator_UserDSName="InvestorDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="InvestorApplications" msprop:Generator_TableClassName="InvestorApplicationsDataTable" msprop:Generator_TableVarName="tableInvestorApplications" msprop:Generator_TablePropName="InvestorApplications" msprop:Generator_RowDeletingName="InvestorApplicationsRowDeleting" msprop:Generator_RowChangingName="InvestorApplicationsRowChanging" msprop:Generator_RowEvHandlerName="InvestorApplicationsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorApplicationsRowDeleted" msprop:Generator_UserTableName="InvestorApplications" msprop:Generator_RowChangedName="InvestorApplicationsRowChanged" msprop:Generator_RowEvArgName="InvestorApplicationsRowChangeEvent" msprop:Generator_RowClassName="InvestorApplicationsRow">
+        <xs:element name="InvestorApplications" msprop:Generator_TableClassName="InvestorApplicationsDataTable" msprop:Generator_TableVarName="tableInvestorApplications" msprop:Generator_RowChangedName="InvestorApplicationsRowChanged" msprop:Generator_TablePropName="InvestorApplications" msprop:Generator_RowDeletingName="InvestorApplicationsRowDeleting" msprop:Generator_RowChangingName="InvestorApplicationsRowChanging" msprop:Generator_RowEvHandlerName="InvestorApplicationsRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorApplicationsRowDeleted" msprop:Generator_RowClassName="InvestorApplicationsRow" msprop:Generator_UserTableName="InvestorApplications" msprop:Generator_RowEvArgName="InvestorApplicationsRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2292,7 +2316,7 @@ SELECT Id, Primary_AUCitizen, Age, GrossIncomeSingle, GrossIncomeJoint, Primary_
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Investor" msprop:Generator_TableClassName="InvestorDataTable" msprop:Generator_TableVarName="tableInvestor" msprop:Generator_RowChangedName="InvestorRowChanged" msprop:Generator_TablePropName="Investor" msprop:Generator_RowDeletingName="InvestorRowDeleting" msprop:Generator_RowChangingName="InvestorRowChanging" msprop:Generator_RowEvHandlerName="InvestorRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorRowDeleted" msprop:Generator_RowClassName="InvestorRow" msprop:Generator_UserTableName="Investor" msprop:Generator_RowEvArgName="InvestorRowChangeEvent">
+        <xs:element name="Investor" msprop:Generator_TableClassName="InvestorDataTable" msprop:Generator_TableVarName="tableInvestor" msprop:Generator_TablePropName="Investor" msprop:Generator_RowDeletingName="InvestorRowDeleting" msprop:Generator_RowChangingName="InvestorRowChanging" msprop:Generator_RowEvHandlerName="InvestorRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorRowDeleted" msprop:Generator_UserTableName="Investor" msprop:Generator_RowChangedName="InvestorRowChanged" msprop:Generator_RowEvArgName="InvestorRowChangeEvent" msprop:Generator_RowClassName="InvestorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2655,7 +2679,7 @@ SELECT Id, Primary_AUCitizen, Age, GrossIncomeSingle, GrossIncomeJoint, Primary_
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_TablePropName="Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_RowClassName="PropertyRow" msprop:Generator_UserTableName="Property" msprop:Generator_RowEvArgName="PropertyRowChangeEvent">
+        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_TablePropName="Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_UserTableName="Property" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_RowEvArgName="PropertyRowChangeEvent" msprop:Generator_RowClassName="PropertyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2828,7 +2852,7 @@ SELECT Id, Primary_AUCitizen, Age, GrossIncomeSingle, GrossIncomeJoint, Primary_
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="InvestorScoreCard" msprop:Generator_TableClassName="InvestorScoreCardDataTable" msprop:Generator_TableVarName="tableInvestorScoreCard" msprop:Generator_RowChangedName="InvestorScoreCardRowChanged" msprop:Generator_TablePropName="InvestorScoreCard" msprop:Generator_RowDeletingName="InvestorScoreCardRowDeleting" msprop:Generator_RowChangingName="InvestorScoreCardRowChanging" msprop:Generator_RowEvHandlerName="InvestorScoreCardRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorScoreCardRowDeleted" msprop:Generator_RowClassName="InvestorScoreCardRow" msprop:Generator_UserTableName="InvestorScoreCard" msprop:Generator_RowEvArgName="InvestorScoreCardRowChangeEvent">
+        <xs:element name="InvestorScoreCard" msprop:Generator_TableClassName="InvestorScoreCardDataTable" msprop:Generator_TableVarName="tableInvestorScoreCard" msprop:Generator_TablePropName="InvestorScoreCard" msprop:Generator_RowDeletingName="InvestorScoreCardRowDeleting" msprop:Generator_RowChangingName="InvestorScoreCardRowChanging" msprop:Generator_RowEvHandlerName="InvestorScoreCardRowChangeEventHandler" msprop:Generator_RowDeletedName="InvestorScoreCardRowDeleted" msprop:Generator_UserTableName="InvestorScoreCard" msprop:Generator_RowChangedName="InvestorScoreCardRowChanged" msprop:Generator_RowEvArgName="InvestorScoreCardRowChangeEvent" msprop:Generator_RowClassName="InvestorScoreCardRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2923,22 +2947,22 @@ SELECT Id, Primary_AUCitizen, Age, GrossIncomeSingle, GrossIncomeJoint, Primary_
       <xs:selector xpath=".//mstns:InvestorScoreCard" />
       <xs:field xpath="mstns:Id" />
     </xs:unique>
-    <xs:keyref name="Property_Investor" refer="Investor_Constraint1" msprop:rel_Generator_UserChildTable="Property" msprop:rel_Generator_ChildPropName="GetPropertyRows" msprop:rel_Generator_UserRelationName="Property_Investor" msprop:rel_Generator_ParentPropName="InvestorRow" msprop:rel_Generator_RelationVarName="relationProperty_Investor" msprop:rel_Generator_UserParentTable="Investor" msdata:UpdateRule="SetNull" msdata:DeleteRule="SetNull">
-      <xs:selector xpath=".//mstns:Property" />
-      <xs:field xpath="mstns:PrimaryInvestorId" />
-    </xs:keyref>
-    <xs:keyref name="FK_InvestorApplications_Property" refer="Constraint1" msprop:rel_Generator_UserChildTable="Property" msprop:rel_Generator_ChildPropName="GetPropertyRows" msprop:rel_Generator_UserRelationName="FK_InvestorApplications_Property" msprop:rel_Generator_RelationVarName="relationFK_InvestorApplications_Property" msprop:rel_Generator_UserParentTable="InvestorApplications" msprop:rel_Generator_ParentPropName="InvestorApplicationsRow">
+    <xs:keyref name="FK_InvestorApplications_Property" refer="Constraint1" msprop:rel_Generator_UserChildTable="Property" msprop:rel_Generator_ChildPropName="GetPropertyRows" msprop:rel_Generator_UserRelationName="FK_InvestorApplications_Property" msprop:rel_Generator_ParentPropName="InvestorApplicationsRow" msprop:rel_Generator_RelationVarName="relationFK_InvestorApplications_Property" msprop:rel_Generator_UserParentTable="InvestorApplications">
       <xs:selector xpath=".//mstns:Property" />
       <xs:field xpath="mstns:InvestorApplicationId" />
     </xs:keyref>
-    <xs:keyref name="FK_InvestorApplications_Investor" refer="Constraint1" msprop:rel_Generator_UserChildTable="Investor" msprop:rel_Generator_ChildPropName="GetInvestorRows" msprop:rel_Generator_UserRelationName="FK_InvestorApplications_Investor" msprop:rel_Generator_ParentPropName="InvestorApplicationsRow" msprop:rel_Generator_RelationVarName="relationFK_InvestorApplications_Investor" msprop:rel_Generator_UserParentTable="InvestorApplications" msdata:UpdateRule="None" msdata:DeleteRule="None">
+    <xs:keyref name="Property_Investor" refer="Investor_Constraint1" msprop:rel_Generator_UserChildTable="Property" msprop:rel_Generator_ChildPropName="GetPropertyRows" msprop:rel_Generator_UserRelationName="Property_Investor" msprop:rel_Generator_RelationVarName="relationProperty_Investor" msprop:rel_Generator_UserParentTable="Investor" msprop:rel_Generator_ParentPropName="InvestorRow" msdata:UpdateRule="SetNull" msdata:DeleteRule="SetNull">
+      <xs:selector xpath=".//mstns:Property" />
+      <xs:field xpath="mstns:PrimaryInvestorId" />
+    </xs:keyref>
+    <xs:keyref name="FK_InvestorApplications_Investor" refer="Constraint1" msprop:rel_Generator_UserChildTable="Investor" msprop:rel_Generator_ChildPropName="GetInvestorRows" msprop:rel_Generator_UserRelationName="FK_InvestorApplications_Investor" msprop:rel_Generator_RelationVarName="relationFK_InvestorApplications_Investor" msprop:rel_Generator_UserParentTable="InvestorApplications" msprop:rel_Generator_ParentPropName="InvestorApplicationsRow" msdata:UpdateRule="None" msdata:DeleteRule="None">
       <xs:selector xpath=".//mstns:Investor" />
       <xs:field xpath="mstns:InvestorApplicationId" />
     </xs:keyref>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_InvestorScoreCard_InvestorApplication" msdata:parent="InvestorApplications" msdata:child="InvestorScoreCard" msdata:parentkey="Id" msdata:childkey="InvestorApplicationId" msprop:Generator_UserChildTable="InvestorScoreCard" msprop:Generator_ChildPropName="GetInvestorScoreCardRows" msprop:Generator_UserRelationName="FK_InvestorScoreCard_InvestorApplication" msprop:Generator_RelationVarName="relationFK_InvestorScoreCard_InvestorApplication" msprop:Generator_UserParentTable="InvestorApplications" msprop:Generator_ParentPropName="InvestorApplicationsRow" />
+      <msdata:Relationship name="FK_InvestorScoreCard_InvestorApplication" msdata:parent="InvestorApplications" msdata:child="InvestorScoreCard" msdata:parentkey="Id" msdata:childkey="InvestorApplicationId" msprop:Generator_UserChildTable="InvestorScoreCard" msprop:Generator_ChildPropName="GetInvestorScoreCardRows" msprop:Generator_UserRelationName="FK_InvestorScoreCard_InvestorApplication" msprop:Generator_ParentPropName="InvestorApplicationsRow" msprop:Generator_RelationVarName="relationFK_InvestorScoreCard_InvestorApplication" msprop:Generator_UserParentTable="InvestorApplications" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -34,9 +34,9 @@ namespace DataUtils {
         
         private global::System.Data.DataRelation relationFK_InvestorApplications_Investor;
         
-        private global::System.Data.DataRelation relationProperty_Investor;
-        
         private global::System.Data.DataRelation relationFK_InvestorApplications_Property;
+        
+        private global::System.Data.DataRelation relationProperty_Investor;
         
         private global::System.Data.DataRelation relationFK_InvestorScoreCard_InvestorApplication;
         
@@ -275,8 +275,8 @@ namespace DataUtils {
                 }
             }
             this.relationFK_InvestorApplications_Investor = this.Relations["FK_InvestorApplications_Investor"];
-            this.relationProperty_Investor = this.Relations["Property_Investor"];
             this.relationFK_InvestorApplications_Property = this.Relations["FK_InvestorApplications_Property"];
+            this.relationProperty_Investor = this.Relations["Property_Investor"];
             this.relationFK_InvestorScoreCard_InvestorApplication = this.Relations["FK_InvestorScoreCard_InvestorApplication"];
         }
         
@@ -305,13 +305,6 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.None;
-            fkc = new global::System.Data.ForeignKeyConstraint("Property_Investor", new global::System.Data.DataColumn[] {
-                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.PrimaryInvestorIdColumn});
-            this.tableProperty.Constraints.Add(fkc);
-            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.SetNull;
-            fkc.UpdateRule = global::System.Data.Rule.SetNull;
             fkc = new global::System.Data.ForeignKeyConstraint("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.InvestorApplicationIdColumn});
@@ -319,18 +312,25 @@ namespace DataUtils {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("Property_Investor", new global::System.Data.DataColumn[] {
+                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.PrimaryInvestorIdColumn});
+            this.tableProperty.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.SetNull;
+            fkc.UpdateRule = global::System.Data.Rule.SetNull;
             this.relationFK_InvestorApplications_Investor = new global::System.Data.DataRelation("FK_InvestorApplications_Investor", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestor.InvestorApplicationIdColumn}, false);
             this.Relations.Add(this.relationFK_InvestorApplications_Investor);
-            this.relationProperty_Investor = new global::System.Data.DataRelation("Property_Investor", new global::System.Data.DataColumn[] {
-                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
-                        this.tableProperty.PrimaryInvestorIdColumn}, false);
-            this.Relations.Add(this.relationProperty_Investor);
             this.relationFK_InvestorApplications_Property = new global::System.Data.DataRelation("FK_InvestorApplications_Property", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableProperty.InvestorApplicationIdColumn}, false);
             this.Relations.Add(this.relationFK_InvestorApplications_Property);
+            this.relationProperty_Investor = new global::System.Data.DataRelation("Property_Investor", new global::System.Data.DataColumn[] {
+                        this.tableInvestor.IdColumn}, new global::System.Data.DataColumn[] {
+                        this.tableProperty.PrimaryInvestorIdColumn}, false);
+            this.Relations.Add(this.relationProperty_Investor);
             this.relationFK_InvestorScoreCard_InvestorApplication = new global::System.Data.DataRelation("FK_InvestorScoreCard_InvestorApplication", new global::System.Data.DataColumn[] {
                         this.tableInvestorApplications.IdColumn}, new global::System.Data.DataColumn[] {
                         this.tableInvestorScoreCard.InvestorApplicationIdColumn}, false);
@@ -12117,23 +12117,23 @@ namespace DataUtils {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvestorRow InvestorRow {
-                get {
-                    return ((InvestorRow)(this.GetParentRow(this.Table.ParentRelations["Property_Investor"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["Property_Investor"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public InvestorApplicationsRow InvestorApplicationsRow {
                 get {
                     return ((InvestorApplicationsRow)(this.GetParentRow(this.Table.ParentRelations["FK_InvestorApplications_Property"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_InvestorApplications_Property"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public InvestorRow InvestorRow {
+                get {
+                    return ((InvestorRow)(this.GetParentRow(this.Table.ParentRelations["Property_Investor"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["Property_Investor"]);
                 }
             }
             
@@ -14003,7 +14003,7 @@ namespace DataUtils.InvestorDSTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[4];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        InvestorApplications.*\r\nFROM            InvestorApplications";
@@ -14014,6 +14014,22 @@ namespace DataUtils.InvestorDSTableAdapters {
                 " (Id = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        ApplicationId, ApplicantType, EntryDate, EntryId, Primary_Salutation, Primary_Title, Primary_FirstName, Primary_OtherNames, Primary_LastName, Primary_DOB, Email, Mobile, Primary_HomePhone, 
+                         Primary_Res_Street1, Primary_Res_Street2, Primary_Res_Suburb, Primary_Res_PostCode, Primary_Res_State, Other_Title, Other_Salutation, Other_FirstName, Other_OtherNames, Other_LastName, 
+                         Other_DOB, Other_Email, Other_Mobile, Other_HomePhone, Other_Res_Street1, Other_Res_Street2, Other_Res_Suburb, Other_Res_PostCode, Other_Res_State, CondAppliedLimit$, DesiredPropertyAddr, 
+                         CondCreditDecision, CondCreditDecisionDate, CondDecisionBy, AutoAccepted, AutoAcceptedBy, AutoRejected, AutoRejectedBy, CondCreditDecisionInformed, CondCreditDecisionInformedBy, 
+                         AppAckLetterSent
+FROM            vw_InvestorAppCondAcceptedNotInformed";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = @"SELECT        Id, ApplicationId, Salutation, Title, FirstName, OtherNames, LastName, CompanyName, DOB, Gender, Res_UnitNum, Res_Street1, Res_Street2, Res_Suburb, Res_City, Res_State, Res_Country, AppliedDate, 
+                         AppliedPrtyVal, AssquireStatus, FinalCreditDecision, FinalCreditDecisionDate, FinalCreditDecisionBy, FinalCreditDecisionComments, AssquireApprovedPrtyVal, FinalCreditDecisionInformed, 
+                         FinalCreditDecisionInformedBy, CondCreditDecision, CondCreditDecisionBy, CondCreditDecisionDate, CondCreditDecisionInformed, CondCreditDecisionInformedBy, Updated
+FROM            vw_InvestorsCreditRejectedNotInformed";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14053,28 +14069,67 @@ namespace DataUtils.InvestorDSTableAdapters {
             int returnValue = this.Adapter.Fill(dataTable);
             return returnValue;
         }
-
+        
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
-        public virtual InvestorDS.InvestorApplicationsDataTable GetDataById(int Id)
-        {
+        public virtual InvestorDS.InvestorApplicationsDataTable GetDataById(int Id) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Id));
             InvestorDS.InvestorApplicationsDataTable dataTable = new InvestorDS.InvestorApplicationsDataTable();
-            try
-            {
-                this.Adapter.Fill(dataTable);
-            }
-            catch (System.Data.ConstraintException ce)
-            {
-
-            }
+            this.Adapter.Fill(dataTable);
             return dataTable;
         }
-
-
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillInvAppsCondAccNotInformed(InvestorDS.InvestorApplicationsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual InvestorDS.InvestorApplicationsDataTable GetDataInvAppsCondAccNotInformed() {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            InvestorDS.InvestorApplicationsDataTable dataTable = new InvestorDS.InvestorApplicationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillInvestorAppsCreditRejectedNotInformed(InvestorDS.InvestorApplicationsDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual InvestorDS.InvestorApplicationsDataTable GetDataInvestorAppsCreditRejectedNotInformed() {
+            this.Adapter.SelectCommand = this.CommandCollection[3];
+            InvestorDS.InvestorApplicationsDataTable dataTable = new InvestorDS.InvestorApplicationsDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]

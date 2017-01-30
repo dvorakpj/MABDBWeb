@@ -197,22 +197,23 @@
 
   
         <!-- COnditional approval confirmation -->
-        <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+        <div id="CondApprovalModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myCondApprovModalLabel3" aria-hidden="true">
          <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                 <h3 id="myModalLabel3">Confirmation</h3>
+                 <h3 id="myCondApprovModalLabel3">Confirmation</h3>
 
             </div>
             <div class="modal-body">
-                <p>Are you sure you want to conditionally approve this application?</p>
+                <p>Are you sure you want to conditionally approve this application for the applied limit?</p>
+                <p>A permanent Investor Id will be assigned and should be used for credit fee payment reference.</p>
             </div>
             <div class="modal-footer">
                 <%--  <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
                 <button class="btn-primary btn" id="SubForm">Conditionally Approve</button>--%>
                  <button data-dismiss="modal" class="btn  btn-large" aria-hidden="true">Cancel</button>
-                 <asp:Button runat="server" ID="ButtonCondApprovedModal" Text="Conditionally Approve" CssClass="btn" OnClick="ButtonCondApprovedModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                 <asp:Button runat="server" ID="ButtonCondApprovedModal" Text="Conditionally Approve" CssClass="btn" OnClick="btn_CondApprovedModal_Click" UseSubmitBehavior="false" data-dismiss="modal" />
             </div>
         </div>
     </div>
