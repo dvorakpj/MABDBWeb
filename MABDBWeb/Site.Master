@@ -72,7 +72,9 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">MA Business Database</a>
+                    <a class="navbar-brand" runat="server" href="~/">&nbsp;
+                    <asp:Image ID="Image1" runat="server" Height="52px" ImageUrl="~/Content/Images/HFGALogo.png" Width="37px" />
+&nbsp;&nbsp;&nbsp; MA Business Database</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">

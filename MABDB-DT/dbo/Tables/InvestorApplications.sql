@@ -142,9 +142,9 @@
 	[CompanyABN] VARCHAR(15) NULL, 
 	[CompanyACN] VARCHAR(12) NULL, 
 	[Primary_CompRole] VARCHAR(100) NULL, 
-	   [Property_LoanOutstanding] DECIMAL(12,2) NULL,
-		[Property_Deposit] DECIMAL(12,2) NULL,
-		[Broker] VARCHAR(50) NULL, 
+	[Property_LoanOutstanding] DECIMAL(12,2) NULL,
+	[Property_Deposit] DECIMAL(12,2) NULL,
+	[Broker] VARCHAR(50) NULL, 
 	[BrokerDetails] VARCHAR(100) NULL
 	PRIMARY KEY CLUSTERED ([Id] ASC)
 );

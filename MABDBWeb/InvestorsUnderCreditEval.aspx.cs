@@ -11,7 +11,10 @@ namespace MABDBWeb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //DataUtils.InvestorDSTableAdapters.InvestorTableAdapter ta = new DataUtils.InvestorDSTableAdapters.InvestorTableAdapter();
+            //DataUtils.InvestorDS.InvestorDataTable dt = new DataUtils.InvestorDS.InvestorDataTable();
+            //ta.FillInvUnderCrEvalBy(dt);
+           
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿CREATE VIEW	[dbo].[vw_Investors] AS
 SELECT 
 inv.Id,
-inv.InvestorApplicationId as [ApplicationId],
+inv.InvestorApplicationId,
+inv.PrimaryInvestorID,
 CASE WHEN ( (inv.Title  IS NULL) OR (LEN(inv.Title )=0 )) THEN ( CASE WHEN (inv.Gender = 'F' ) Then 'Ms.' WHEN (inv.Gender LIKE 'M' ) Then 'Mr.' Else '' END) ELSE   inv.Title END  + ' ' + inv.LastName AS [Salutation],
 inv.Title,
 inv.FirstName,
@@ -32,5 +33,7 @@ inv.CondCreditDecisionBy,
 inv.CondCreditDecisionDate,
 inv.CondCreditDecisionInformed,
 inv.CondCreditDecisionInformedBy,
+inv.CreditFeePaid,
+inv.CreditFeePaymentRefNo,
 inv.Updated
  FROM dbo.Investor inv

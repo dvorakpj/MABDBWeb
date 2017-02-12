@@ -795,7 +795,9 @@ namespace MABDBWeb
             #region PrimaryInvestorProperty
 
             // We will create property only if the details are provided and it must be confirmed
-            bool hasProperty = this.chckPrptyValFeePaid.Checked;
+            //TODO
+            bool hasProperty = true; //this.chckPrptyValFeePaid.Checked; 
+            // validate if property is included
 
             if (hasProperty)
             {

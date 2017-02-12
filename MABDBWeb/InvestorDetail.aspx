@@ -1,9 +1,13 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorsUnderCreditEval.aspx.cs" Inherits="MABDBWeb.InvestorsUnderCreditEval" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="InvestorDetail.aspx.cs" Inherits="MABDBWeb.InvestorDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="InvUnderCrEval">
-        <Columns>
+    <p>
+    Assquire Investor</p>
+<p>
+    &nbsp;</p>
+<p>
+    <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" DataKeyNames="Id" DataSourceID="InvDetailDS" Height="50px" Width="125px">
+        <Fields>
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-            <asp:HyperLinkField AccessibleHeaderText="Action" DataNavigateUrlFormatString="InvestorDetail.aspx?Id={0}" HeaderText="Action" Target="_self" Text="Detail" />
             <asp:BoundField DataField="MAInvestorId" HeaderText="MAInvestorId" SortExpression="MAInvestorId" />
             <asp:BoundField DataField="InvestorApplicationId" HeaderText="InvestorApplicationId" SortExpression="InvestorApplicationId" />
             <asp:BoundField DataField="PrimaryInvestorID" HeaderText="PrimaryInvestorID" SortExpression="PrimaryInvestorID" />
@@ -66,9 +70,10 @@
             <asp:BoundField DataField="CreditDecisionComments" HeaderText="CreditDecisionComments" SortExpression="CreditDecisionComments" />
             <asp:BoundField DataField="CreditDecisionInformed" HeaderText="CreditDecisionInformed" SortExpression="CreditDecisionInformed" />
             <asp:BoundField DataField="CreditDecisionInformedBy" HeaderText="CreditDecisionInformedBy" SortExpression="CreditDecisionInformedBy" />
-        </Columns>
-    </asp:GridView>
-    <asp:ObjectDataSource ID="InvUnderCrEval" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetInvUnderCrEvalDataBy" TypeName="DataUtils.InvestorDSTableAdapters.InvestorTableAdapter" UpdateMethod="Update">
+            <asp:CommandField ShowEditButton="True" ShowInsertButton="True" />
+        </Fields>
+    </asp:DetailsView>
+    <asp:ObjectDataSource ID="InvDetailDS" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="DataUtils.InvestorDSTableAdapters.InvestorTableAdapter" UpdateMethod="Update">
         <DeleteParameters>
             <asp:Parameter Name="Original_Id" Type="Int32" />
             <asp:Parameter Name="Original_MAInvestorId" Type="String" />
@@ -314,4 +319,76 @@
             <asp:Parameter Name="Original_UpdatedBy" Type="DateTime" />
         </UpdateParameters>
     </asp:ObjectDataSource>
+</p>
+   
+    <hr />
+        <p>
+            <span style="font-weight: bold">Investor Credit Fee Received:</span>
+
+        </p>
+        <p>
+            Confirmation by:<asp:Label ID="lblCreditFeeConfirmerName" runat="server" Text="Pavel Dvorak"></asp:Label>
+        </p>
+        <p>
+        <asp:Button ID="btnCreditFeeReceived" runat="server" Text="Investor Credit Fee Received" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#CreditFeeRecvdModal"/>
+    </p>     
+   <!-- Credit Fee Received Confirmation -->
+        <div id="CreditFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                         <h3 id="myModalLabel4">Confirmation</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please confirm the Investor credit fee payment has been received.<br />  This will start the Investor Credit Assessment process.</p>                        
+                        <%--<p>
+                            <em>Investor Property: </em> <br /> <%= this.HiddenField2.Value %><br />
+                            <asp:CheckBox ID="chckPrptyValFeePaid" runat="server" Checked="true" /> Property fee paid and valuation can start. 
+                            <br/>
+                            <asp:Label ID="lblPrptyFeeReceivedNote" runat="server" Text="(Payment of Property Valuation Fee will need to be confirmed on this page before valuation can commence)." Font-Italic="True" Font-Size="Small" Visible="False"></asp:Label>                            
+                        </p>     --%>                  
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <asp:Button runat="server" ID="Button2" Text="Mark Credit Fee as Received." CssClass="btn" OnClick="btnCreditFeeReceived_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+     <hr />
+     <p>
+            <span style="font-weight: bold">Property Evaluation Fee (only) Received:</span>
+
+        </p>
+        <p>
+            Confirmation by:<asp:Label ID="Label2" runat="server" Text="Pavel Dvorak"></asp:Label>
+        </p>
+        <p>
+        <asp:Button ID="Button3" runat="server" Text="Property Evaluation Fee Received" CausesValidation="False" class="btn btn-info btn-sm" data-toggle="modal" data-target="#PropertyFeeRecvdModal"/>
+    </p>     
+   <!-- Property Fee Received Confirmation -->
+        <div id="PropertyFeeRecvdModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                         <h3 id="myModalLabel5">Confirmation</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>Please confirm the Property Evaluation Fee payment has been received.<br />  This will start the property evaluation process. <br />
+                            If the investor is not licensed you will still need to confirm Investor credit fee receipt and evaluation commencement.
+                        </p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <asp:Button runat="server" ID="Button4" Text="Mark Property Fee as Received." CssClass="btn" OnClick="btnCreditFeeReceived_Click" UseSubmitBehavior="false" data-dismiss="modal" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
 </asp:Content>

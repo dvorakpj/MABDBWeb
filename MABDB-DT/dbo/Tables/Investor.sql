@@ -61,6 +61,8 @@
 	[CondCreditDecisionBy]     VARCHAR (25)       NULL,
 	[CondCreditDecisionInformed] DATETIME2 NULL, 
 	[CondCreditDecisionInformedBy] VARCHAR(50) NULL,
+	[CreditFeePaid] DATETIME2 NULL,
+	[CreditFeePaymentRefNo] VARCHAR(25) NULL,
 	[Created] DATETIME2 NOT NULL, 
 	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
