@@ -51,7 +51,7 @@ namespace MABDBWeb
 
         protected void btn_CondApprovedModal_Click(object sender, EventArgs e)
         {
-            int appId = GetIdFromReqParam();
+            int investAppid = GetIdFromReqParam();
             #region oldCode
             //InvestorApplicationDS investor = new InvestorApplicationDS();
 
@@ -169,11 +169,11 @@ namespace MABDBWeb
             DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter dta = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
             DataUtils.InvestorDS.InvestorApplicationsDataTable dt = new InvestorDS.InvestorApplicationsDataTable();
 
-            dt = dta.GetDataById(appId);
+            dt = dta.GetDataById(investAppid);
 
             if (dt.Rows.Count != 1)
             {
-                throw new ArgumentException(String.Concat("InvestorApplication with Id ", appId, " could not be found."), "InvestorApplication.Id");
+                throw new ArgumentException(String.Concat("InvestorApplication with Id ", investAppid, " could not be found."), "InvestorApplication.Id");
             }
 
             DataUtils.InvestorDS.InvestorApplicationsRow currentRow = dt.Rows[0] as InvestorDS.InvestorApplicationsRow;
@@ -189,23 +189,29 @@ namespace MABDBWeb
                 }
                 catch (Exception ex)
                 {
-                    SetErrorText("Error saving Conditional Decision on Application Id: " + appId.ToString() + ex.Message + ex.StackTrace);
+                    SetErrorText("Error saving Conditional Decision on Application Id: " + investAppid.ToString() + ex.Message + ex.StackTrace);
                     return;
                 }
             }
             else
             {
-                SetErrorText("Error finding Application Id: " + appId.ToString());
+                SetErrorText("Error finding Application Id: " + investAppid.ToString());
                 return;
             }
             #endregion
 
             //now create a permanent investor record
-            string errmsg = SaveInvestorPermRecord(appId);
+            string errmsg = SaveInvestorPermRecord(investAppid);
+            string properrmsg = SavePropertyPermRecord(investAppid);
 
             SetErrorText(errmsg);                       
 
             Response.Redirect("~/InvestorApplicantsNewAll.aspx");
+        }
+
+        protected string SavePropertyPermRecord(int investAppid)
+        {
+            throw new NotImplementedException();
         }
 
         protected void ButtonAppAckLetter_Click(object sender, EventArgs e)
@@ -346,7 +352,8 @@ namespace MABDBWeb
                 return;
             }
 
-            string errorMsg = SaveInvestorPermRecord(invAppId);
+            // TDO : Permanent investor workflow - changed to create from Cond approval to generate invoice num
+            string errorMsg = "none"; //SaveInvestorPermRecord(invAppId);
 
             if (!String.IsNullOrEmpty(errorMsg))
             {
@@ -521,7 +528,7 @@ namespace MABDBWeb
             InvestorDS ds = new InvestorDS();
             InvestorDS.InvestorApplicationsDataTable invAppDT = ds.InvestorApplications;
             InvestorDS.InvestorDataTable invDT = ds.Investor;
-            InvestorDS.PropertyDataTable prptyDT = ds.Property;
+     
 
 
             InvestorApplicationsTableAdapter invAppTA = new DataUtils.InvestorDSTableAdapters.InvestorApplicationsTableAdapter();
@@ -556,8 +563,6 @@ namespace MABDBWeb
 
             InvestorDS.InvestorRow invRow = invDT.NewInvestorRow();
             InvestorDS.InvestorRow othinvRow = null;
-
-            InvestorDS.PropertyRow prptyNewR = prptyDT.NewPropertyRow();
 
             InvestorTableAdapter invTA = new InvestorTableAdapter();
             PropertyTableAdapter prtyTA = new PropertyTableAdapter();
@@ -797,43 +802,16 @@ namespace MABDBWeb
             // We will create property only if the details are provided and it must be confirmed
             //TODO
             bool hasProperty = true; //this.chckPrptyValFeePaid.Checked; 
+            InvestorDS.PropertyRow prptyNewR = null;
             // validate if property is included
 
             if (hasProperty)
             {
                 //                InvestorDS.PropertyDataTable prptyDT = new InvestorDS.PropertyDataTable();               
 
-                prptyNewR.InvestorRow = invRow;
-                prptyNewR.InvestorApplicationsRow = currentInvAppRow;
-
-                prptyNewR.Street1 = currentInvAppRow.Property_Street1;
-
-                prptyNewR.Street2 = currentInvAppRow.Property_Street2;
-
-                prptyNewR.Suburb = currentInvAppRow.Property_Suburb;
-
-                if (currentInvAppRow.IsProperty_PostCodeNull())
-                {
-                    prptyNewR.Postcode = -1;
-                }
-                else
-                {
-                    prptyNewR.Postcode = currentInvAppRow.Property_PostCode;
-                }
-
-                prptyNewR.State = currentInvAppRow.Property_State;
-
-                prptyNewR.Country = currentInvAppRow.Property_Country;
-
-                //prptyNewR.PrimaryInvestorId = invRow.Id;
-                // prptyNewR.InvestorApplicationId = currentInvAppRow.Id;
-
-                //prptyNewR.
-
-                prptyDT.AddPropertyRow(prptyNewR);
+                AddPermPropertyFromInvAppRow(ds, currentInvAppRow, invRow);
 
             }
-
 
             #endregion PrimaryInvestorProperty
 
@@ -1026,12 +1004,26 @@ namespace MABDBWeb
                     //Inserts
                     tam.UpdateAll(ds);
 
-                    othinvRow.PrimaryInvestorID = invRow.Id;
-                    prptyNewR.PrimaryInvestorId = invRow.Id;
-
 
                     //update relationships
-                    tam.UpdateAll(ds);
+                    bool refUpdate = false;
+                    if (IsOtherApplicantPresent)
+                    {
+                        othinvRow.PrimaryInvestorID = invRow.Id;
+                        refUpdate = true;
+                    }
+
+                    if (hasProperty)
+                    {
+                        //updates references
+                        prptyNewR.PrimaryInvestorId = invRow.Id;
+                        refUpdate = true;
+                    }
+
+                    if (refUpdate)
+                    {
+                        tam.UpdateAll(ds);
+                    }
 
                 }
                 catch (SqlException se)
@@ -1042,6 +1034,41 @@ namespace MABDBWeb
             }
 
             return null;
+        }
+
+        private InvestorDS.PropertyRow AddPermPropertyFromInvAppRow(InvestorDS ds, InvestorDS.InvestorApplicationsRow currentInvAppRow, InvestorDS.InvestorRow invRow)
+        {
+            InvestorDS.PropertyDataTable prptyDT = ds.Property;
+            InvestorDS.PropertyRow prptyNewR = prptyDT.NewPropertyRow();
+
+            prptyNewR.InvestorRow = invRow;
+            prptyNewR.InvestorApplicationsRow = currentInvAppRow;
+
+            prptyNewR.Street1 = currentInvAppRow.Property_Street1;
+
+            prptyNewR.Street2 = currentInvAppRow.Property_Street2;
+
+            prptyNewR.Suburb = currentInvAppRow.Property_Suburb;
+
+            if (currentInvAppRow.IsProperty_PostCodeNull())
+            {
+                prptyNewR.Postcode = -1;
+            }
+            else
+            {
+                prptyNewR.Postcode = currentInvAppRow.Property_PostCode;
+            }
+
+            prptyNewR.State = currentInvAppRow.Property_State;
+
+            prptyNewR.Country = currentInvAppRow.Property_Country;
+
+            //prptyNewR.PrimaryInvestorId = invRow.Id;
+            // prptyNewR.InvestorApplicationId = currentInvAppRow.Id;
+
+            prptyDT.AddPropertyRow(prptyNewR);
+
+            return prptyNewR;
         }
 
         protected void btnCondRejectModal_Click(object sender, EventArgs e)

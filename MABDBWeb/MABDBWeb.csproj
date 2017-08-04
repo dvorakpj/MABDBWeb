@@ -191,6 +191,8 @@
     <Content Include="NewAutoRejectedInvestorApps.aspx" />
     <Content Include="BuyerApplicationDetail.aspx" />
     <Content Include="Properties.aspx" />
+    <Content Include="SolicitorDetail.aspx" />
+    <Content Include="Solicitors.aspx" />
     <Content Include="WebForm2.aspx" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
     <None Include="Properties\PublishProfiles\MABDBWeb - Web Deploy  - Azure MATest Release.pubxml" />
@@ -456,6 +458,20 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitorDetail.aspx.cs">
+      <DependentUpon>SolicitorDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SolicitorDetail.aspx.designer.cs">
+      <DependentUpon>SolicitorDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Solicitors.aspx.cs">
+      <DependentUpon>Solicitors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Solicitors.aspx.designer.cs">
+      <DependentUpon>Solicitors.aspx</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">

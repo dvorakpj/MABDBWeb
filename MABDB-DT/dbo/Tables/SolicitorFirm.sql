@@ -1,6 +1,7 @@
-﻿CREATE TABLE [dbo].[ValuationSupplier]
+﻿CREATE TABLE [dbo].[SolicitorFirm]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[MASolicitorFirmId] varchar(25),
 	[CompanyName] varchar(100) NULL,
 	[TradingName] varchar(100) NULL,
 	[RegisteredName] varchar(100) NULL,
@@ -23,7 +24,7 @@
 	[RegAddr_State] VARCHAR(50) NULL, 
 	[RegAddr_Country] VARCHAR(50) NULL, 
 	[BillAddr_Name] VARCHAR(100) NULL,
-	[BillAddr_Street1] NCHAR(10) NULL, 
+	[BillAddr_Street1] VARCHAR(50) NULL, 
 	[BillAddr_Street2] VARCHAR(50) NULL, 
 	[BillAddr_Street3] VARCHAR(50) NULL, 
 	[BillAddr_Suburb] VARCHAR(50) NULL, 
@@ -37,24 +38,18 @@
 	[PrincipalAddr_Postcode] VARCHAR(10) NULL, 
 	[PrincipalAddr_State] VARCHAR(50) NULL, 
 	[PrincipalAddr_Country] VARCHAR(50) NULL,
-	[APIMembNo] varchar(15) NULL,
-	[ValuerQuals] varchar(100) NULL,
-	[YearsExpResPtyVal] INT NULL,
-	[Avg3YVolResPtyValsPA] int NULL,
-	[FairTradingIssues] varchar(250) NULL,
 	[QLDOpsDesc] varchar(550) NULL,
 	[Partners] varchar(550) NULL,
 	[PIInsurer] varchar(100) NULL,
-	[PIInsRenewalDate] date NULL,
-	[PIInsAmtEvidence] varchar(150) NULL,
-	[APIMembEvidence] varchar(120) NULL,
+	[PIInsRenewalDate] SMALLDATETIME NULL,
+	[PIInsAmtEvidence] varchar(150) NULL,	
 	[RegionalOfficeId] INT NULL,
 	[Created] DATETIME2 NOT NULL, 
 	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] VARCHAR(25) NULL, 
-    [InfoValidTill] SMALLDATETIME NULL, 
-    [PrevInfoVerId] INT NULL, 
-    CONSTRAINT [FK_ValuationSupplier_ToValuationSupplier] FOREIGN KEY ([PrevInfoVerId]) REFERENCES [ValuationSupplier]([Id])
-	
+	[InfoValidTill] SMALLDATETIME NULL, 
+	[PrevInfoVerId] INT NULL, 
+	CONSTRAINT [FK_SolicitorFirm_ToSolicitorFirm] FOREIGN KEY ([PrevInfoVerId]) REFERENCES [SolicitorFirm]([Id]),
+	CONSTRAINT [UC_Solicitor_MASolicitorFirmId] UNIQUE (MASolicitorFirmId)
 )

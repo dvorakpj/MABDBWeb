@@ -10069,11 +10069,18 @@ namespace DataUtils.PropertyDSTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        Property.*\r\nFROM            Property";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"SELECT        Id, MAId, Type, UnitNum, Street1, Street2, Street3, Street4, Street5, Suburb, Postcode, State, Description, Country, LocalGov, ListPrice, AgreedPrice, PurchasePrice, TitleType, Lot, [Plan], Parish, CTVolume, 
+                         CTFolio, AreaSqm, InvestorApplicationId, InvestorListingFeePaid, BuyerListingFeePaid, ListingComments, InvestorListingAgentId, VendorId, PrimaryInvestorId, InvestorContractId, BuyerContractId, BuyerId, 
+                         ManagingAgentId, Created, CreatedBy, Updated, UpdatedBy, BuilderId, DevelopmentId, ValuerId, InspectorId, ValuationCompleted, ValuationResult, InspectionCompleted, InspectionResult
+FROM            vw_PropertyNew";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10095,6 +10102,30 @@ namespace DataUtils.PropertyDSTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual PropertyDS.PropertyDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            PropertyDS.PropertyDataTable dataTable = new PropertyDS.PropertyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillPropertyNewBy(PropertyDS.PropertyDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual PropertyDS.PropertyDataTable GetPropertyNewBy() {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
             PropertyDS.PropertyDataTable dataTable = new PropertyDS.PropertyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;

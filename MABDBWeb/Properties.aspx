@@ -4,13 +4,18 @@
     <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="Id" DataSourceID="PropertiesDataSource1">
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="Id" InsertVisible="False" ReadOnly="True" SortExpression="Id" />
-            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/PropertyDetail.aspx?Id={0}" DataTextField="{Id}" Text="Detail" />
+            <asp:HyperLinkField DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/PropertyDetail.aspx?Id={0}" DataTextField="{Id}" Text="Detail" HeaderText="Detail" />
             <asp:BoundField DataField="Type" HeaderText="Type" SortExpression="Type" />
             <asp:BoundField DataField="UnitNum" HeaderText="UnitNum" SortExpression="UnitNum" />
             <asp:BoundField DataField="Street1" HeaderText="Street1" SortExpression="Street1" />
             <asp:BoundField DataField="Street2" HeaderText="Street2" SortExpression="Street2" />
             <asp:BoundField DataField="Suburb" HeaderText="Suburb" SortExpression="Suburb" />
             <asp:BoundField DataField="Postcode" HeaderText="Postcode" SortExpression="Postcode" />
+            <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+            <asp:BoundField DataField="ValuationCompleted" HeaderText="ValuationCompleted" SortExpression="ValuationCompleted" />
+            <asp:BoundField DataField="InspectionCompleted" HeaderText="InspectionCompleted" SortExpression="InspectionCompleted" />
+            <asp:HyperLinkField AccessibleHeaderText="Investor" DataNavigateUrlFields="Id" DataNavigateUrlFormatString="~/PropertyDetail.aspx?Id={0}" DataTextField="Id" HeaderText="Prim. Investor" Text="Prim. Investor" />
+            <asp:BoundField DataField="ListPrice" HeaderText="ListPrice" SortExpression="ListPrice" />
         </Columns>
     </asp:GridView>
     <asp:ObjectDataSource ID="PropertiesDataSource1" runat="server" DeleteMethod="Delete" InsertMethod="Insert" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="DataUtils.PropertyDSTableAdapters.PropertyTableAdapter" UpdateMethod="Update">

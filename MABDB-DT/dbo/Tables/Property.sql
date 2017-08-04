@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Property]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
-	[MAId] VARCHAR(50) NULL, 
+	[MAPropertyId] VARCHAR(50) NULL, 
 	[Type] SMALLINT NULL, 
 	[UnitNum] VARCHAR(25) NULL, 
 	[Street1] VARCHAR(50) NULL, 
@@ -55,5 +55,6 @@
 	CONSTRAINT [FK_Property_Vendor] FOREIGN KEY ([VendorId]) REFERENCES Vendor([Id]), 
 	CONSTRAINT [FK_Property_Buyer] FOREIGN KEY ([BuyerId]) REFERENCES Buyer([Id]), 
 	CONSTRAINT [FK_Property_Builder] FOREIGN KEY ([BuilderId]) REFERENCES [Builder]([Id]), 
-	CONSTRAINT [FK_Property_Valuer] FOREIGN KEY ([ValuerId]) REFERENCES [Valuer]([Id])
+	CONSTRAINT [FK_Property_Valuer] FOREIGN KEY ([ValuerId]) REFERENCES [Valuer]([Id]),
+	CONSTRAINT [UC_Buyer_MAPropertyId] UNIQUE (MAPropertyId),
 )

@@ -1,7 +1,11 @@
-﻿CREATE TABLE [dbo].[InspectionSupplier]
+﻿CREATE TABLE [dbo].[Solicitor]
 (
-	[Id] INT NOT NULL PRIMARY KEY,
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY,
+	[MASolicitorId] varchar(25),
 	[CompanyName] varchar(100) NULL,
+	[FirstName] varchar(100) NULL,
+	[OtherName] varchar(100) NULL,
+	[LastName] varchar(100) NULL,
 	[TradingName] varchar(100) NULL,
 	[RegisteredName] varchar(100) NULL,
 	[ABN] VARCHAR(15) NULL,
@@ -22,20 +26,20 @@
 	[RegAddr_State] VARCHAR(50) NULL, 
 	[RegAddr_Country] VARCHAR(50) NULL, 
 	[BillAddr_Name] VARCHAR(100) NULL,
-	[BillAddr_Street1] NCHAR(10) NULL, 
+	[BillAddr_Street1] VARCHAR(50) NULL, 
 	[BillAddr_Street2] VARCHAR(50) NULL, 
 	[BillAddr_Street3] VARCHAR(50) NULL, 
 	[BillAddr_Suburb] VARCHAR(50) NULL, 
 	[BillAddr_Postcode] VARCHAR(10) NULL, 
 	[BillAddr_State] VARCHAR(50) NULL, 
 	[BillAddr_Country] VARCHAR(50) NULL, 
-	[RegionalOfficeId] INT NULL, 
 	[Created] DATETIME2 NOT NULL, 
 	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] VARCHAR(25) NULL, 
 	[InfoValidTill] SMALLDATETIME NULL, 
-    [PrevInfoVerId] INT NULL, 
-    CONSTRAINT [FK_InspectionSupplier_RegionalOffice] FOREIGN KEY ([RegionalOfficeId]) REFERENCES [InspectionSupplier]([Id]), 
-    CONSTRAINT [FK_InspectionSupplier_InspectionSupplier] FOREIGN KEY ([PrevInfoVerId]) REFERENCES [InspectionSupplier]([Id])
+	[PrevInfoVerId] INT NULL, 
+	CONSTRAINT [FK_Solicitor_ToTable] FOREIGN KEY ([PrevInfoVerId]) REFERENCES [Solicitor]([Id]), 
+    CONSTRAINT [UC_Solicitor_MASolicitorId] UNIQUE (MASolicitorId),
+	
 )

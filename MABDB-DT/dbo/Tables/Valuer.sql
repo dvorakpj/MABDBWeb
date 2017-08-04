@@ -31,9 +31,12 @@
 	[BillAddr_Postcode] VARCHAR(10) NULL, 
 	[BillAddr_State] VARCHAR(50) NULL, 
 	[BillAddr_Country] VARCHAR(50) NULL, 
-	[Created] DATETIME2 NULL, 
-	[CreatedBy] VARCHAR(25) NULL, 
+	[Created] DATETIME2 NOT NULL, 
+	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
-	[UpdatedBy] VARCHAR(25) NULL,
+	[UpdatedBy] VARCHAR(25) NULL, 
+    [InfoValidTill] SMALLDATETIME NULL, 
+    [PreviousVersionId] INT NULL,
+
 
 )

@@ -924,4 +924,32 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="OfficeAdminPhoneOther" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="4b79246d-b284-429f-97b5-7ee905b173fe" ChangeDateTime="05/11/2017 01:57:48">
+    <Property Name="ElementName" Value="[dbo].[SolicitorToFirmRel].[FromDate]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SolicitorToFirmRel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="StartDate" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="ea2b3f6b-8baa-49c6-9361-2ad919ff7ec0" ChangeDateTime="05/11/2017 02:59:42">
+    <Property Name="ElementName" Value="[dbo].[ValuationSupplier].[PreviousInfoVerId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[ValuationSupplier]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="PrevInfoVerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9954b9c0-c356-4e83-94e8-0ad460e0087e" ChangeDateTime="05/11/2017 03:23:24">
+    <Property Name="ElementName" Value="[dbo].[SolicitorToFirmRel].[SolicitorFirmID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SolicitorToFirmRel]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SolicitorFirmId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b855faa1-10cd-4368-bb03-c54451136ea5" ChangeDateTime="05/13/2017 23:20:33">
+    <Property Name="ElementName" Value="[dbo].[Property].[MAId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Property]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="MAPropertyId" />
+  </Operation>
 </Operations>

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Buyer]
 (
-	[Id] INT NOT NULL IDENTITY(1, 1) , 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY(1, 1) , 
 	[MABuyerId] VARCHAR(20) NULL,
 	[BuyerApplicationId] int NULL FOREIGN KEY REFERENCES [BuyerApplications] (Id),
 	[PrimaryBuyerId] int NULL FOREIGN KEY REFERENCES [Buyer] (Id),
@@ -65,6 +65,5 @@
 	[AppliedLimit$] Decimal(12,2) NULL,
 	[CondApprovedLimit$]	Decimal(12,2) NULL,
 	[FinalApprovedLimit$] Decimal(12,2) NULL
-	CONSTRAINT [PK_Buyer] PRIMARY KEY ([Id]), 
-
+	 CONSTRAINT [UC_Buyer_MABuyerId] UNIQUE (MABuyerId),
 )

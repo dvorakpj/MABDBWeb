@@ -377,7 +377,19 @@ SELECT Id, MAId, Type, UnitNum, Street1, Street2, Street3, Street4, Street5, Sub
               <Mapping SourceColumn="InspectionCompleted" DataSetColumn="InspectionCompleted" />
               <Mapping SourceColumn="InspectionResult" DataSetColumn="InspectionResult" />
             </Mappings>
-            <Sources />
+            <Sources>
+              <DbSource ConnectionRef="MABDBConnectionString (Settings)" DbObjectName="MABDB.dbo.vw_PropertyNew" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillPropertyNewBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetPropertyNewBy" GeneratorSourceName="FillPropertyNewBy" GetMethodModifier="Public" GetMethodName="GetPropertyNewBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetPropertyNewBy" UserSourceName="FillPropertyNewBy">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Id, MAId, Type, UnitNum, Street1, Street2, Street3, Street4, Street5, Suburb, Postcode, State, Description, Country, LocalGov, ListPrice, AgreedPrice, PurchasePrice, TitleType, Lot, [Plan], Parish, CTVolume, 
+                         CTFolio, AreaSqm, InvestorApplicationId, InvestorListingFeePaid, BuyerListingFeePaid, ListingComments, InvestorListingAgentId, VendorId, PrimaryInvestorId, InvestorContractId, BuyerContractId, BuyerId, 
+                         ManagingAgentId, Created, CreatedBy, Updated, UpdatedBy, BuilderId, DevelopmentId, ValuerId, InspectorId, ValuationCompleted, ValuationResult, InspectionCompleted, InspectionResult
+FROM            vw_PropertyNew</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="AgentTableAdapter" GeneratorDataComponentClassName="AgentTableAdapter" Name="Agent" UserDataComponentName="AgentTableAdapter">
             <MainSource>
@@ -1400,7 +1412,7 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
   <xs:element name="PropertyDS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="PropertyDS" msprop:Generator_UserDSName="PropertyDS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_TablePropName="Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_RowClassName="PropertyRow" msprop:Generator_UserTableName="Property" msprop:Generator_RowEvArgName="PropertyRowChangeEvent">
+        <xs:element name="Property" msprop:Generator_TableClassName="PropertyDataTable" msprop:Generator_TableVarName="tableProperty" msprop:Generator_TablePropName="Property" msprop:Generator_RowDeletingName="PropertyRowDeleting" msprop:Generator_RowChangingName="PropertyRowChanging" msprop:Generator_RowEvHandlerName="PropertyRowChangeEventHandler" msprop:Generator_RowDeletedName="PropertyRowDeleted" msprop:Generator_UserTableName="Property" msprop:Generator_RowChangedName="PropertyRowChanged" msprop:Generator_RowEvArgName="PropertyRowChangeEvent" msprop:Generator_RowClassName="PropertyRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1592,7 +1604,7 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Agent" msprop:Generator_TableClassName="AgentDataTable" msprop:Generator_TableVarName="tableAgent" msprop:Generator_RowChangedName="AgentRowChanged" msprop:Generator_TablePropName="Agent" msprop:Generator_RowDeletingName="AgentRowDeleting" msprop:Generator_RowChangingName="AgentRowChanging" msprop:Generator_RowEvHandlerName="AgentRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentRowDeleted" msprop:Generator_RowClassName="AgentRow" msprop:Generator_UserTableName="Agent" msprop:Generator_RowEvArgName="AgentRowChangeEvent">
+        <xs:element name="Agent" msprop:Generator_TableClassName="AgentDataTable" msprop:Generator_TableVarName="tableAgent" msprop:Generator_TablePropName="Agent" msprop:Generator_RowDeletingName="AgentRowDeleting" msprop:Generator_RowChangingName="AgentRowChanging" msprop:Generator_RowEvHandlerName="AgentRowChangeEventHandler" msprop:Generator_RowDeletedName="AgentRowDeleted" msprop:Generator_UserTableName="Agent" msprop:Generator_RowChangedName="AgentRowChanged" msprop:Generator_RowEvArgName="AgentRowChangeEvent" msprop:Generator_RowClassName="AgentRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1797,7 +1809,7 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Vendor" msprop:Generator_TableClassName="VendorDataTable" msprop:Generator_TableVarName="tableVendor" msprop:Generator_RowChangedName="VendorRowChanged" msprop:Generator_TablePropName="Vendor" msprop:Generator_RowDeletingName="VendorRowDeleting" msprop:Generator_RowChangingName="VendorRowChanging" msprop:Generator_RowEvHandlerName="VendorRowChangeEventHandler" msprop:Generator_RowDeletedName="VendorRowDeleted" msprop:Generator_RowClassName="VendorRow" msprop:Generator_UserTableName="Vendor" msprop:Generator_RowEvArgName="VendorRowChangeEvent">
+        <xs:element name="Vendor" msprop:Generator_TableClassName="VendorDataTable" msprop:Generator_TableVarName="tableVendor" msprop:Generator_TablePropName="Vendor" msprop:Generator_RowDeletingName="VendorRowDeleting" msprop:Generator_RowChangingName="VendorRowChanging" msprop:Generator_RowEvHandlerName="VendorRowChangeEventHandler" msprop:Generator_RowDeletedName="VendorRowDeleted" msprop:Generator_UserTableName="Vendor" msprop:Generator_RowChangedName="VendorRowChanged" msprop:Generator_RowEvArgName="VendorRowChangeEvent" msprop:Generator_RowClassName="VendorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -1987,7 +1999,7 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Valuer" msprop:Generator_TableClassName="ValuerDataTable" msprop:Generator_TableVarName="tableValuer" msprop:Generator_TablePropName="Valuer" msprop:Generator_RowDeletingName="ValuerRowDeleting" msprop:Generator_RowChangingName="ValuerRowChanging" msprop:Generator_RowEvHandlerName="ValuerRowChangeEventHandler" msprop:Generator_RowDeletedName="ValuerRowDeleted" msprop:Generator_UserTableName="Valuer" msprop:Generator_RowChangedName="ValuerRowChanged" msprop:Generator_RowEvArgName="ValuerRowChangeEvent" msprop:Generator_RowClassName="ValuerRow">
+        <xs:element name="Valuer" msprop:Generator_TableClassName="ValuerDataTable" msprop:Generator_TableVarName="tableValuer" msprop:Generator_RowChangedName="ValuerRowChanged" msprop:Generator_TablePropName="Valuer" msprop:Generator_RowDeletingName="ValuerRowDeleting" msprop:Generator_RowChangingName="ValuerRowChanging" msprop:Generator_RowEvHandlerName="ValuerRowChangeEventHandler" msprop:Generator_RowDeletedName="ValuerRowDeleted" msprop:Generator_RowClassName="ValuerRow" msprop:Generator_UserTableName="Valuer" msprop:Generator_RowEvArgName="ValuerRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2220,7 +2232,7 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="BuildingInspector" msprop:Generator_TableClassName="BuildingInspectorDataTable" msprop:Generator_TableVarName="tableBuildingInspector" msprop:Generator_TablePropName="BuildingInspector" msprop:Generator_RowDeletingName="BuildingInspectorRowDeleting" msprop:Generator_RowChangingName="BuildingInspectorRowChanging" msprop:Generator_RowEvHandlerName="BuildingInspectorRowChangeEventHandler" msprop:Generator_RowDeletedName="BuildingInspectorRowDeleted" msprop:Generator_UserTableName="BuildingInspector" msprop:Generator_RowChangedName="BuildingInspectorRowChanged" msprop:Generator_RowEvArgName="BuildingInspectorRowChangeEvent" msprop:Generator_RowClassName="BuildingInspectorRow">
+        <xs:element name="BuildingInspector" msprop:Generator_TableClassName="BuildingInspectorDataTable" msprop:Generator_TableVarName="tableBuildingInspector" msprop:Generator_RowChangedName="BuildingInspectorRowChanged" msprop:Generator_TablePropName="BuildingInspector" msprop:Generator_RowDeletingName="BuildingInspectorRowDeleting" msprop:Generator_RowChangingName="BuildingInspectorRowChanging" msprop:Generator_RowEvHandlerName="BuildingInspectorRowChangeEventHandler" msprop:Generator_RowDeletedName="BuildingInspectorRowDeleted" msprop:Generator_RowClassName="BuildingInspectorRow" msprop:Generator_UserTableName="BuildingInspector" msprop:Generator_RowEvArgName="BuildingInspectorRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_UserColumnName="Id" type="xs:int" />
@@ -2462,10 +2474,10 @@ SELECT Id, FirstName, LastName, OtherNames, Title, RegBusinessName, ABN, ACN, Tr
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_Property_InvestorListingAgent" msdata:parent="Agent" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="InvestorListingAgentId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRowsByFK_Property_InvestorListingAgent" msprop:Generator_UserRelationName="FK_Property_InvestorListingAgent" msprop:Generator_ParentPropName="AgentRowByFK_Property_InvestorListingAgent" msprop:Generator_RelationVarName="relationFK_Property_InvestorListingAgent" msprop:Generator_UserParentTable="Agent" />
-      <msdata:Relationship name="FK_Property_ManagingAgent" msdata:parent="Agent" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="ManagingAgentId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRowsByFK_Property_ManagingAgent" msprop:Generator_UserRelationName="FK_Property_ManagingAgent" msprop:Generator_ParentPropName="AgentRowByFK_Property_ManagingAgent" msprop:Generator_RelationVarName="relationFK_Property_ManagingAgent" msprop:Generator_UserParentTable="Agent" />
-      <msdata:Relationship name="FK_Property_Vendor" msdata:parent="Vendor" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="VendorId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRows" msprop:Generator_UserRelationName="FK_Property_Vendor" msprop:Generator_ParentPropName="VendorRow" msprop:Generator_RelationVarName="relationFK_Property_Vendor" msprop:Generator_UserParentTable="Vendor" />
-      <msdata:Relationship name="FK_Property_Valuer" msdata:parent="Valuer" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="ValuerId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRows" msprop:Generator_UserRelationName="FK_Property_Valuer" msprop:Generator_RelationVarName="relationFK_Property_Valuer" msprop:Generator_UserParentTable="Valuer" msprop:Generator_ParentPropName="ValuerRow" />
+      <msdata:Relationship name="FK_Property_InvestorListingAgent" msdata:parent="Agent" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="InvestorListingAgentId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRowsByFK_Property_InvestorListingAgent" msprop:Generator_UserRelationName="FK_Property_InvestorListingAgent" msprop:Generator_RelationVarName="relationFK_Property_InvestorListingAgent" msprop:Generator_UserParentTable="Agent" msprop:Generator_ParentPropName="AgentRowByFK_Property_InvestorListingAgent" />
+      <msdata:Relationship name="FK_Property_ManagingAgent" msdata:parent="Agent" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="ManagingAgentId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRowsByFK_Property_ManagingAgent" msprop:Generator_UserRelationName="FK_Property_ManagingAgent" msprop:Generator_RelationVarName="relationFK_Property_ManagingAgent" msprop:Generator_UserParentTable="Agent" msprop:Generator_ParentPropName="AgentRowByFK_Property_ManagingAgent" />
+      <msdata:Relationship name="FK_Property_Vendor" msdata:parent="Vendor" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="VendorId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRows" msprop:Generator_UserRelationName="FK_Property_Vendor" msprop:Generator_RelationVarName="relationFK_Property_Vendor" msprop:Generator_UserParentTable="Vendor" msprop:Generator_ParentPropName="VendorRow" />
+      <msdata:Relationship name="FK_Property_Valuer" msdata:parent="Valuer" msdata:child="Property" msdata:parentkey="Id" msdata:childkey="ValuerId" msprop:Generator_UserChildTable="Property" msprop:Generator_ChildPropName="GetPropertyRows" msprop:Generator_UserRelationName="FK_Property_Valuer" msprop:Generator_ParentPropName="ValuerRow" msprop:Generator_RelationVarName="relationFK_Property_Valuer" msprop:Generator_UserParentTable="Valuer" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

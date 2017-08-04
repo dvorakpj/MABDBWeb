@@ -59,6 +59,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PropertyDS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SolicitorDS.cs">
+      <DependentUpon>SolicitorDS.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitorDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SolicitorDS.xsd</DependentUpon>
+    </Compile>
     <Compile Include="StatusUpdate.cs" />
     <Compile Include="InvestorDS.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -110,6 +118,17 @@
     </None>
     <None Include="PropertyDS.xss">
       <DependentUpon>PropertyDS.xsd</DependentUpon>
+    </None>
+    <None Include="SolicitorDS.xsc">
+      <DependentUpon>SolicitorDS.xsd</DependentUpon>
+    </None>
+    <None Include="SolicitorDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>SolicitorDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SolicitorDS.xss">
+      <DependentUpon>SolicitorDS.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

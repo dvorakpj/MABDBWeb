@@ -67,4 +67,5 @@
 	[CreatedBy] VARCHAR(25) NOT NULL, 
 	[Updated] DATETIME2 NULL, 
 	[UpdatedBy] VARCHAR(25) NULL, 
+	CONSTRAINT [UC_Investor_MAInvestorId] UNIQUE (MAInvestorId),
 )
